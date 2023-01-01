@@ -23,8 +23,12 @@ export default function Home({
       <div className="introduction">
         <p>
           Hello, I'm Thomas. I am a software engineer from London who lives in
-          Aberdeen. I work for the BBC. This is my digital garden where I detail
-          my (mostly) technical thoughts, projects and preoccupations.
+          Aberdeen. I work for the{" "}
+          <a href="https://github.com/bbc/" target="_blank" rel="noreferrer">
+            BBC
+          </a>
+          . This is my digital garden where I detail my (mostly) technical
+          thoughts, projects and preoccupations.
         </p>
       </div>
       <div>

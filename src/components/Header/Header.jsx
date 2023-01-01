@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <div className="header">
       <Link to="/" className="header__site-title">
-        systems obscure
+        Systems Obscure
       </Link>
     </div>
   );
