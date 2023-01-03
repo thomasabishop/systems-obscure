@@ -10,11 +10,13 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "deploy": "gatsby-plugin-s3 deploy --yes; aws cloudfront create-invalidation --distribution-id E26F4V6JLBB7PL --paths '/*';",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
     "gatsby": "^5.3.2",
     "gatsby-plugin-react-helmet": "^6.3.0",
+    "gatsby-plugin-s3": "^0.3.8",
     "gatsby-plugin-sharp": "^5.3.2",
     "gatsby-remark-images": "^7.3.1",
     "gatsby-remark-prismjs": "^7.3.0",

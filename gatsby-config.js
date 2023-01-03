@@ -33,6 +33,13 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       },
     },
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: `systemsobscure.blog`,
+        acl: null,
+      },
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
   ],
