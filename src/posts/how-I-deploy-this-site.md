@@ -21,6 +21,56 @@ Nothing special here. I am using the React-based [Gatsby]() framework to create 
 
 ## Continuous deployment: GitHub Actions
 
-It's a bit onerous to have to manually upload a fresh build to S3 every time I write a new post. A better scenario would be to trigger a build and a deployment to S3 every time I push to the `main` branch on GitHub. There is a Gatsby S3 plugin that allows you to do this from your terminal during local development but I didn't fancy this because I don't see why the deployment should be arbitrarily coupled with the _frontend_ library.
+It's slightly onerous a bit onerous to have to manually trigger a deploy to S3 every time I write a new post. A better scenario would be to trigger a build and a deployment to S3 every time I push to the `main` branch on GitHub. I could do this from within AWS but I've chosen to have GitHub communicate with AWS rather than the other way around. That way I get some experience of using Actions.
 
-Better to run this process separately in case I change the frontend in future. You do have the ability to trigger a deployment from a GitHub push from within AWS but I decided to do it the other way round and trigger the deployment from GitHub to AWS using GitHub Actions. That way I get some practical experience of using Actions as a task runner. Also this service is free for public GH repos which is preferable to expending compute in AWS that would add-up in cost over time.
+My GitHub Action declaration runs the standard `gatsby build` command on push and also runs the following NPM script once the build completes:
+
+```bash
+gatsby-plugin-s3 deploy --yes; aws cloudfront create-invalidation --distribution-id <REDACTED> --paths '/*';",
+```
+
+This uses a Gatsby plugin to deploy to S3 and clear the Cloudfront cache.
+
+In order for this command to run from GitHub I had to create a "GitHub" user and custom permissions file in AWS IAM. This gives me an Access Key ID and secret which the GitHub Action can use to authenticate the deployment. I save these as secrets within the repository settings.
+
+Here is the GitHub Action YAML in full:
+
+```yaml
+name: Deploy systemsobscure.blog
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+      - name: Caching Gatsby
+        id: gatsby-cache-build
+        uses: actions/cache@v2
+        with:
+          path: |
+            public
+            .cache
+            node_modules
+          key: ${{ runner.os }}-systemsobscure-site-build-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-systemsobscure-site-build-
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Set AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+      - name: Deploy to S3
+        run: npm run deploy
+```
