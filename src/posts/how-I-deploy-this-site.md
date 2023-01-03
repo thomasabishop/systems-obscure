@@ -21,7 +21,7 @@ Nothing special here. I am using the React-based [Gatsby]() framework to create 
 
 ## Continuous deployment: GitHub Actions
 
-It's slightly onerous a bit onerous to have to manually trigger a deploy to S3 every time I write a new post. A better scenario would be to trigger a build and a deployment to S3 every time I push to the `main` branch on GitHub. I could do this from within AWS but I've chosen to have GitHub communicate with AWS rather than the other way around. That way I get some experience of using Actions.
+It's slightly onerous to have to manually trigger a deploy to S3 every time I write a new post. A better scenario would be to trigger a build and a deployment to S3 every time I push to the `main` branch on GitHub. I could do this from within AWS but I've chosen to have GitHub communicate with AWS rather than the other way around. That way I get some experience of using Actions.
 
 My GitHub Action declaration runs the standard `gatsby build` command on push and also runs the following NPM script once the build completes:
 
@@ -31,7 +31,7 @@ gatsby-plugin-s3 deploy --yes; aws cloudfront create-invalidation --distribution
 
 This uses a Gatsby plugin to deploy to S3 and clear the Cloudfront cache.
 
-In order for this command to run from GitHub I had to create a "GitHub" user and custom permissions file in AWS IAM. This gives me an Access Key ID and secret which the GitHub Action can use to authenticate the deployment. I save these as secrets within the repository settings.
+In order for this command to run from GitHub I had to create a "GitHub" user and custom permissions file in AWS IAM. This gives me an Access Key ID and secret which the GitHub Action can use to authenticate the deployment. I save these as secrets within the repository settings in GitHub and now the whole Action declaration works.
 
 Here is the GitHub Action YAML in full:
 
