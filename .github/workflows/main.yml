@@ -21,7 +21,7 @@ jobs:
             public
             .cache
             node_modules
-          key: ${{ runner.os }}-gatsby-alexhyett-site-build-${{ github.run_id }}
+          key: ${{ runner.os }}-systemsobscure-site-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os }}-systemsobscure-site-build-
       - name: Install dependencies
