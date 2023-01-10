@@ -64,7 +64,7 @@ I set a `cron` job for this script to run at midnight everyday:
 
 ## Configure snapshot backups with `rsnapshot`
 
-`rsnapshot` is setup entirely through its config file: `/etc/rsnapshot.conf`. When you install the package the default config file contains lots of instructions and it's mostly a case of removing the comments for the functionality you require. The [Arch wiki]() provides an exhaustive account but the key parts are as follows:
+`rsnapshot` is setup entirely through its config file: `/etc/rsnapshot.conf`. When you install the package the default config file contains lots of instructions and it's mostly a case of removing the comments for the functionality you require. The [Arch wiki](https://wiki.archlinux.org/title/rsnapshot) provides an exhaustive account but the key parts are as follows:
 
 ```
 # Set the snapshot root directory (the external HDD you plan to use)
