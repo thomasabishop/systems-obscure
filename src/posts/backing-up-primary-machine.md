@@ -11,11 +11,11 @@ My primary machine is called `archbish` because my surname is Bishop and my OS i
 
 Both are backed-up to an external harddrive.
 
-![image of backup disk](./img/backup-disk.jpg)
+![image of backup disk](img/backup-disk.jpg)
 
 The purpose of the whole disk backup is for recovery in the event of a catastrophic disk failure where I am locked out of the machine and unable to go in and effect a recovery via `tty`. In this scenario I would be able to recreate my setup by wiping the corrupted machine drive, reinstalling the OS and migrating the backup.
 
-The snapshot backups exist for more minor mishaps. For example, accidentally removing something important with a cavalier `rm -rf` or clearing the cache only to find that I have lost an important configuration setting. In this scenario, I would just restore the individual file from the hourly backups or revert to an earlier state from the same day.
+The snapshot backups exist for more minor mishaps. For example, accidentally removing something important with a cavalier `rm -rf` or clearing the cache only to find that I have lost an important configuration setting. In this scenario, I would just restore the individual file from the hourly backups or revert to an earlier state from the same day. In contrast to the whole-disk backup the snapshots only record the `/home/` directory.
 
 I use `rsync` for the whole-disk backup and `rsnapshot` for the snapshot backups. `rsnapshots` is itself based on `rsync`. The execution of the `rsync` process is managed through a `cron` job but I follow the Arch Linux wiki advice to run `rsync` as a `systemd` service.
 
