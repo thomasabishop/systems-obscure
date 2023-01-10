@@ -34,7 +34,9 @@ export default function Home({
         >
           GitHub
         </a>
-        <a href="https://hachyderm.io/@systems_obscure">Mastodon</a>
+        <a rel="me" href="https://hachyderm.io/@systems_obscure">
+          Mastodon
+        </a>
       </div>
       <div>
         <h2>Posts</h2>
