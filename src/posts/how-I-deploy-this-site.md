@@ -1,6 +1,6 @@
 ---
 title: "How I deploy this site"
-slug: /how-I-deploy-this-site
+slug: /how-I-deploy-this-site/
 date: 2023-01-02
 ---
 

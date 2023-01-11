@@ -1,6 +1,6 @@
 ---
 title: "How I backup my primary machine"
-slug: /backing-up-primary-machine
+slug: /backing-up-primary-machine/
 date: 2023-01-08
 ---
 

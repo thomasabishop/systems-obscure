@@ -1,6 +1,6 @@
 ---
 title: "Alien Blood VS Code theme"
-slug: /alien-blood-vscode-theme
+slug: /alien-blood-vscode-theme/
 date: 2022-01-01
 ---
 

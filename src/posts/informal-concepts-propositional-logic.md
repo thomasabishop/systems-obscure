@@ -1,7 +1,7 @@
 ---
 date: 2021-11-27
 title: "Informal definitions of key concepts in propositional logic"
-slug: /informal-concepts-propositional-logic
+slug: /informal-concepts-propositional-logic/
 ---
 
 ## Introduction
