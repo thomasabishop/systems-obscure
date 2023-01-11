@@ -40,6 +40,8 @@ module.exports = {
       options: {
         bucketName: `systemsobscure.blog`,
         acl: null,
+        protocol: "https",
+        hostname: "systemsobscure.blog",
       },
     },
     "gatsby-plugin-react-helmet",
