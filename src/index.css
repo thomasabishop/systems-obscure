@@ -36,10 +36,16 @@ li:not(:last-child) {
 code {
   font-family: "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+  font-weight: 400;
+}
+
+.token.comment {
+  font-style: italic;
 }
 
 a {
   color: #2f7e25;
+
   text-decoration: none;
   transition: ease 0.3s;
 }
