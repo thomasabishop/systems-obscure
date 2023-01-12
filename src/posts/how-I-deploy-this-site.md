@@ -19,6 +19,33 @@ Nothing special here. I am using the React-based [Gatsby]() framework to create 
 - All sites should be served over `https` so I requested a public SSL certificate from AWS Certificate Manager.
 - You can't serve an S3 bucket as `https` by default. The solution is to use CloudFront as a CDN and then specify a redirection rule from `http` to `https`. So you create the CloudFont instance and generate an endpoint. This endpoint is then added to the Route 53 specifications as an A record. That propagates in a matter of seconds and now the site is securely hosted.
 
+## Middlewear: AWS Lambda
+
+An annoying thing about CloudFront is that it won't recognise pages other than the root `index.html` on refresh. So if I went to this page (https://systemsobscure.blog/how-I-deploy-this-site/), on refresh it becomes a 403 because the file format is not `how-I-deploy_this_site/index.html`.
+
+To get around this the custom is to use a Lambda function that intercepts requests and add the trailing `index.html`:
+
+```js
+exports.handler = (event, context, callback) => {
+  // Extract the request from the CloudFront event that is sent to Lambda@Edge
+  var request = event.Records[0].cf.request;
+
+  // Extract the URI from the request
+  var olduri = request.uri;
+
+  // Match any '/' that occurs at the end of a URI. Replace it with a default index
+  var newuri = olduri.replace(/\/$/, "/index.html");
+
+  // Replace the received URI with the URI that includes the index page
+  request.uri = newuri;
+
+  // Return to CloudFront
+  return callback(null, request);
+};
+```
+
+You then set this function to trigger on page requests to the CloudFront distribution that is handling the routing and the problem is resolved.
+
 ## Continuous deployment: GitHub Actions
 
 It's slightly onerous to have to manually trigger a deploy to S3 every time I write a new post. A better scenario would be to trigger a build and a deployment to S3 every time I push to the `main` branch on GitHub. I could do this from within AWS but I've chosen to have GitHub communicate with AWS rather than the other way around. That way I get some experience of using Actions.
