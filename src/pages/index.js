@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import "../index.css";
 import PostLink from "../components/PostLink/PostLink";
 import Header from "../components/Header/Header";
+import Main from "../templates/Main";
 export default function Home({
   data: {
     allMarkdownRemark: { edges },
@@ -14,8 +15,7 @@ export default function Home({
     .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
 
   return (
-    <React.Fragment>
-      <Header />
+    <Main>
       <Helmet>
         <title>Systems Obscure</title>
       </Helmet>
@@ -34,15 +34,12 @@ export default function Home({
         >
           GitHub
         </a>
-        <a rel="me" href="https://hachyderm.io/@systems_obscure">
-          Mastodon
-        </a>
       </div>
       <div>
         <h2>Posts</h2>
         <div>{Posts}</div>
       </div>
-    </React.Fragment>
+    </Main>
   );
 }
 

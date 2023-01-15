@@ -46,7 +46,7 @@ $ mkdir mnt1 # create a mount location
 $ mount -t ext4 /dev/sda1 mnt1 # mount the disk
 ```
 
-## Configure whole-disk backup with `rsync`
+## Configure whole-disk backup with rsync
 
 I use the following command to run `rsync`:
 
@@ -62,7 +62,7 @@ I set a `cron` job for this script to run at midnight everyday:
 00 00 * * * ~/repos/bash_scripts/rsync_whole_disk_backup.sh
 ```
 
-## Configure snapshot backups with `rsnapshot`
+## Configure snapshot backups with rsnapshot
 
 `rsnapshot` is setup entirely through its config file: `/etc/rsnapshot.conf`. When you install the package the default config file contains lots of instructions and it's mostly a case of removing the comments for the functionality you require. The [Arch wiki](https://wiki.archlinux.org/title/rsnapshot) provides an exhaustive account but the key parts are as follows:
 

@@ -1,18 +1,18 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Header from "../components/Header/Header";
+import Main from "./Main";
 export default function Post({ data }) {
   const post = data.markdownRemark;
 
   return (
-    <div>
-      <Header />
-      <div style={{}}>
+    <Main>
+      <div className="post">
         <h1>{post.frontmatter.title}</h1>
         <h4>{post.frontmatter.date}</h4>
       </div>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-    </div>
+    </Main>
   );
 }
 export const query = graphql`
