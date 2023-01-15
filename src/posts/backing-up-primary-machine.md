@@ -15,11 +15,11 @@ Both are backed-up to an external harddrive.
 
 The purpose of the whole disk backup is for recovery in the event of a catastrophic disk failure where I am locked out of the machine and unable to go in and effect a recovery via `tty`. In this scenario I would be able to recreate my setup by wiping the corrupted machine drive, reinstalling the OS and migrating the backup.
 
-The snapshot backups exist for more minor mishaps. For example, accidentally removing something important with a cavalier `rm -rf` or clearing the cache only to find that I have lost an important configuration setting. In this scenario, I would just restore the individual file from the hourly backups or revert to an earlier state from the same day. In contrast to the whole-disk backup the snapshots only record the `/home/` directory.
+The snapshot backups exist for more minor mishaps. For example, accidentally removing something important with a cavalier `rm -rf` or clearing the cache only to find that I have lost an important configuration setting. In this scenario, I would just restore the individual file from the hourly backups or revert to an earlier state from the same day. In contrast to the whole-disk backup the snapshots only record the user directory.
 
-I use `rsync` for the whole-disk backup and `rsnapshot` for the snapshot backups. `rsnapshots` is itself based on `rsync`. The execution of the `rsync` process is managed through a `cron` job but I follow the Arch Linux wiki advice to run `rsync` as a `systemd` service.
+I use `rsync` for the whole-disk backup and `rsnapshot` for the snapshot backups. `rsnapshots` is itself based on `rsync`. The execution of both processes is managed through [systemd](https://en.wikipedia.org/wiki/Systemd) timers.
 
-I also maintain a virtual machine version of Arch so that I can periodically check my failsafes and ensure I can successfully restore from the backup.
+I also maintain a virtual machine version of Arch so that I can periodically check my failsafes and ensure I can successfully restore from the backup, however I won't detail that here.
 
 ## Preparing the external disk
 
@@ -27,8 +27,6 @@ I use an old spinning HDD with a max capacity of 500GB. I use `fdisk` to make tw
 
 - `sda1`: 250GB - for snapshot backups
 - `sda2`: 200GB - for whole disk bootable backups
-
-(I use the remaining space as an extra partition for virtual machines.)
 
 Using the first partition as an example:
 
@@ -41,8 +39,7 @@ $ p # print to check
 $ w # write the partition to the disk
 
 $ mkfs -t ext4 /dev/sda1 # Set the filesystem
-$ e2label /dev/sda2 archbish_snaps # name the disk
-$ mkdir mnt1 # create a mount location
+$ e2label /dev/sda1 archbish_snaps # name the disk
 $ mount -t ext4 /dev/sda1 mnt1 # mount the disk
 ```
 
@@ -56,11 +53,57 @@ rsync -aAXv --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/usr/tmp/*
 
 The `--delete` flag makes sure that only files which have changed since the last backup are updated in the archive. I run a series of exclude rules (mostly temporary files or files that I can easily restore at initialisation) and I write to the `archbish_disk` volume I created earlier.
 
-I set a `cron` job for this script to run at midnight everyday:
+I specify a `systemd` service file:
+
+```bash
+# /etc/systemd/system/full_disk_backup.service
+
+[Unit]
+Description=Backup whole of `archbish` to external drive
+
+[Service]
+Type=simple
+ExecStart=/bin/bash ${HOME}/systemd_config/full_disk_backup/full_disk_backup.sh
+
+[Install]
+WantedBy=default.target
 
 ```
-00 00 * * * ~/repos/bash_scripts/rsync_whole_disk_backup.sh
+
+And a timer for the service:
+
+```bash
+# /etc/systemd/system/full_disk_backup.timer
+
+[Unit]
+Description=Run full_disk_backup daily at 11am
+
+[Timer]
+OnCalendar=*-*-* 11:00:00
+
+[Install]
+WantedBy=timers.target
 ```
+
+Then I run:
+
+```
+$ systemctl enable full_disk_backup.timer
+$ systemctl start full_disk_backup.timer
+```
+
+Then check:
+
+```
+$ systemd-analyze calendar "11:00"
+Original form: 11:00
+Normalized form: *-*-* 11:00:00
+    Next elapse: Mon 2023-01-16 11:00:00 GMT
+       (in UTC): Mon 2023-01-16 11:00:00 UTC
+       From now: 18h left
+```
+
+And we are cooking.
 
 ## Configure snapshot backups with rsnapshot
 
@@ -86,6 +129,7 @@ backup  /home/  home/
 Now we need to automate the execution at the set times using `systemd`. First we create the service file:
 
 ```bash
+
 # Source link location: /etc/systemd/system/rsnapshot@.service
 [Unit]
 Description=rsnapshot (%I) backup
@@ -155,4 +199,4 @@ $ journalctl -u rsnapshot@hourly
 Jan 08 15:15:04 archbish systemd[1]: Starting rsnapshot (hourly) backup...
 ```
 
-Yas.
+Oh good.
