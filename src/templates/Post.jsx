@@ -1,7 +1,8 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Header from "../components/Header/Header";
 import Main from "./Main";
+import "katex/dist/katex.min.css";
+
 export default function Post({ data }) {
   const post = data.markdownRemark;
 
