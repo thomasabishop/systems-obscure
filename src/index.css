@@ -46,6 +46,12 @@ code {
   font-weight: 400;
 }
 
+li > code.language-text,
+p > code.language-text {
+  background: none;
+  color: #93a8a2;
+}
+
 .token.comment {
   font-style: italic;
 }
