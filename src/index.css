@@ -52,7 +52,6 @@ code {
 
 a {
   color: #2f7e25;
-
   text-decoration: none;
   transition: ease 0.3s;
 }
@@ -64,6 +63,33 @@ a:hover {
 blockquote > p {
   font-weight: 300;
   font-style: italic;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.5rem;
+}
+
+tbody tr:nth-child(even) {
+  background: #637d7510;
+}
+
+tbody tr:nth-child(odd) {
+  background: #000e0740;
+}
+
+thead {
+  background: #000e07;
+}
+
+tbody td {
+  text-align: center;
 }
 
 .header {
@@ -104,11 +130,6 @@ blockquote > p {
   font-size: 1.8rem;
   margin-top: 0.5rem;
 }
-
-/* img {
-  max-width: 500px;
-  max-height: 500px;
-} */
 
 @media only screen and (max-width: 480px) {
   .post-listing {
