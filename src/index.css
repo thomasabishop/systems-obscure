@@ -124,7 +124,7 @@ tbody td {
   flex-direction: row;
   justify-content: flex-start;
   gap: 30px;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
 }
 
 .post-listing__date {
