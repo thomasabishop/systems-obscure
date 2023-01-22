@@ -104,6 +104,9 @@ tbody td {
   top: 0;
   padding: 0.5rem 2rem;
   background: #000e07;
+  display: flex;
+  align-items: flex-start;
+  /* border-bottom: 2px solid #1d4125; */
 }
 
 .header__site-title {
@@ -115,10 +118,19 @@ tbody td {
   color: #2f7e25;
 }
 
+.header__wrapper {
+  display: flex;
+  align-items: center;
+}
+
 .header__site-title:hover {
   text-decoration: none;
 }
 
+.header__logo {
+  max-width: 25px;
+  margin-right: 0.8rem;
+}
 .post-listing {
   display: flex;
   flex-direction: row;
@@ -152,7 +164,13 @@ tbody td {
   .main {
     padding: 1rem;
   }
+
   .header {
     padding: 0.5rem 1rem;
+    /* justify-content: center; */
+  }
+
+  .header__logo {
+    margin-right: 0.5rem;
   }
 }

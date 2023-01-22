@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="105.83334mm"
+   height="105.83334mm"
+   viewBox="0 0 105.83334 105.83334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="sys-obs-logo-light.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="0.75614572"
+     inkscape:cx="407.99014"
+     inkscape:cy="197.71321"
+     inkscape:window-width="2237"
+     inkscape:window-height="1382"
+     inkscape:window-x="273"
+     inkscape:window-y="1120"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-22.002764,-58.507584)">
+    <g
+       id="g1721">
+      <rect
+         style="fill:#2f7e25;fill-opacity:1;stroke-width:0.876235"
+         id="rect234"
+         width="105.83334"
+         height="105.83334"
+         x="22.002764"
+         y="58.507584" />
+      <circle
+         style="fill:#000e07;fill-opacity:1;stroke-width:1"
+         id="path954"
+         cx="59.552582"
+         cy="96.229294"
+         r="25.588749" />
+      <circle
+         style="fill:#000e07;fill-opacity:1;stroke-width:0.422765"
+         id="path954-3"
+         cx="103.61996"
+         cy="139.86647"
+         r="10.818038" />
+    </g>
+  </g>
+</svg>
