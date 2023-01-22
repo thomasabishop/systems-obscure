@@ -137,6 +137,13 @@ tbody td {
   margin-top: 0.5rem;
 }
 
+::selection {
+  background: #1d4125; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #1d4125; /* Gecko Browsers */
+}
+
 @media only screen and (max-width: 480px) {
   .post-listing {
     flex-direction: column;
