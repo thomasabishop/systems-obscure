@@ -1,10 +1,10 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Main from "./Main";
-import "katex/dist/katex.min.css";
+import React from "react"
+import { graphql } from "gatsby"
+import Main from "./Main"
+import "katex/dist/katex.min.css"
 
 export default function Post({ data }) {
-  const post = data.markdownRemark;
+  const post = data.markdownRemark
 
   return (
     <Main>
@@ -14,7 +14,7 @@ export default function Post({ data }) {
       </div>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </Main>
-  );
+  )
 }
 export const query = graphql`
   query BlogQuery($slug: String!) {
@@ -26,4 +26,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

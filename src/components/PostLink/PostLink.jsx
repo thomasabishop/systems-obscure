@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from "react"
+import { Link } from "gatsby"
 export default function PostLink({ post }) {
   return (
     <div className="post-listing">
@@ -8,5 +8,5 @@ export default function PostLink({ post }) {
         {post.frontmatter.title}
       </Link>
     </div>
-  );
+  )
 }

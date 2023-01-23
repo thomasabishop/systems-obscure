@@ -1,10 +1,10 @@
-import React from "react";
-import { Helmet } from "react-helmet";
-import { graphql } from "gatsby";
-import "../index.css";
-import PostLink from "../components/PostLink/PostLink";
-import Header from "../components/Header/Header";
-import Main from "../templates/Main";
+import React from "react"
+import { Helmet } from "react-helmet"
+import { graphql } from "gatsby"
+import "../index.css"
+import PostLink from "../components/PostLink/PostLink"
+import Header from "../components/Header/Header"
+import Main from "../templates/Main"
 export default function Home({
   data: {
     allMarkdownRemark: { edges },
@@ -12,7 +12,7 @@ export default function Home({
 }) {
   const Posts = edges
     .filter((edge) => !!edge.node.frontmatter.date) // You can filter your posts based on some criteria
-    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />);
+    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />)
 
   return (
     <Main>
@@ -40,7 +40,7 @@ export default function Home({
         <div>{Posts}</div>
       </div>
     </Main>
-  );
+  )
 }
 
 export const pageQuery = graphql`
@@ -59,4 +59,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "gatsby";
-import logoDark from "./sys-obs-logo-dark.svg";
-import logoLight from "./sys-obs-logo-light.svg";
+import React from "react"
+import { Link } from "gatsby"
+import logoDark from "./sys-obs-logo-dark.svg"
+import logoLight from "./sys-obs-logo-light.svg"
 export default function Header() {
   return (
     <div className="header">
@@ -12,5 +12,5 @@ export default function Header() {
         </Link>
       </div>
     </div>
-  );
+  )
 }
