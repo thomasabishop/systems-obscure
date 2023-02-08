@@ -31,16 +31,16 @@ I use an old spinning HDD with a max capacity of 500GB. I use `fdisk` to make tw
 Using the first partition as an example:
 
 ```bash
-$ fdisk /dev/sda # create the partition
-$ d # delete the existing partitions
-$ n # start a new partition
-$ +250GB # specify size
-$ p # print to check
-$ w # write the partition to the disk
+fdisk /dev/sda # create the partition
+d # delete the existing partitions
+n # start a new partition
++250GB # specify size
+p # print to check
+w # write the partition to the disk
 
-$ mkfs -t ext4 /dev/sda1 # Set the filesystem
-$ e2label /dev/sda1 archbish_snaps # name the disk
-$ mount -t ext4 /dev/sda1 mnt1 # mount the disk
+mkfs -t ext4 /dev/sda1 # Set the filesystem
+e2label /dev/sda1 archbish_snaps # name the disk
+mount -t ext4 /dev/sda1 mnt1 # mount the disk
 ```
 
 ## Configure whole-disk backup with rsync
@@ -87,15 +87,15 @@ WantedBy=timers.target
 
 Then I run:
 
-```
-$ systemctl enable full_disk_backup.timer
-$ systemctl start full_disk_backup.timer
+```bash
+systemctl enable full_disk_backup.timer
+systemctl start full_disk_backup.timer
 ```
 
 Then check:
 
 ```
-$ systemd-analyze calendar "11:00"
+systemd-analyze calendar "11:00"
 Original form: 11:00
 Normalized form: *-*-* 11:00:00
     Next elapse: Mon 2023-01-16 11:00:00 GMT
@@ -176,7 +176,7 @@ WantedBy=timers.target
 Let's check one of our timers:
 
 ```bash
-$ systemd-analyze calendar "*:15"
+systemd-analyze calendar "*:15"
 
 Original form: *:15
 Normalized form: *-*-* *:15:00
@@ -188,14 +188,14 @@ Normalized form: *-*-* *:15:00
 Nice. Now we need to enable and start the timers. For each timer run:
 
 ```bash
-$ systemctl enable rsnapshot-[interval].timer
-$ systemctl start rsnapshot-[interval].timer
+systemctl enable rsnapshot-[interval].timer
+systemctl start rsnapshot-[interval].timer
 ```
 
 Oh it's 15:21, let's check the first hourly snapshot was taken:
 
 ```bash
-$ journalctl -u rsnapshot@hourly
+journalctl -u rsnapshot@hourly
 Jan 08 15:15:04 archbish systemd[1]: Starting rsnapshot (hourly) backup...
 ```
 
