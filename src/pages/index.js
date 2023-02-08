@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import "../index.css"
 import PostLink from "../components/PostLink/PostLink"
-import Header from "../components/Header/Header"
 import Main from "../templates/Main"
 export default function Home({
   data: {
@@ -22,22 +21,23 @@ export default function Home({
 
       <div className="introduction">
         <p>
-          Hello, I'm Thomas. I am a software engineer from London who lives in
-          Aberdeen. This is my digital garden where I detail my (mostly)
-          technical thoughts, projects and preoccupations.
+          Hi, I'm Thomas, a software engineer from London. Welcome to my
+          mindworld.
         </p>
       </div>
-      <div>
+      <div className="home-links">
         <a
           style={{ paddingRight: "0.5rem" }}
           href="https://github.com/thomasabishop"
         >
           GitHub
         </a>
+        {/* <Link to="/code-stats/">Code Stats</Link> */}
       </div>
+      <hr />
       <div>
-        <h2>Posts</h2>
-        <div>{Posts}</div>
+        {/* <h2 className="posts-header">Posts</h2> */}
+        <div className="posts-wrapper">{Posts}</div>
       </div>
     </Main>
   )

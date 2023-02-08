@@ -131,6 +131,30 @@ tbody td {
   max-width: 25px;
   margin-right: 0.8rem;
 }
+
+.introduction {
+  font-weight: 500;
+}
+
+.introduction,
+.home-links {
+  text-align: center;
+  font-weight: 500;
+}
+
+.posts-wrapper {
+  margin-top: 2rem;
+}
+
+hr {
+  position: relative;
+  top: 20px;
+  border: none;
+  height: 1px;
+  background: #647d75;
+  margin-bottom: 50px;
+}
+
 .post-listing {
   display: flex;
   flex-direction: row;
