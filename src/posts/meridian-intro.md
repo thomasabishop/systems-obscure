@@ -33,7 +33,7 @@ More than these individual gripes, using Obsidian meant that I had to use two pi
 
 Now I've realised that the solution is to bring the benefits of Obsidian to VS Code via an extension.
 
-Say what you like about Microsoft's almost papal hegemony over the software engineering ecosystem (VS Code, C#, TypeScript, GitHub, Atom, .NET Core, Windows, WSL, and now ChatGPT), VSCode is pretty good software. The fact that it is open source and has a great plugin library means I can use it for most programming languages. Again, to avoid context switching and wasted mental energy I'd rather have a passable VSCode environment rather than multiple IDEs. (Of course FOSS bores, Vimlords and Stallmanites will object, but the Vim extension combined with the telemetery-busting [AUR OSS build](https://vscodium.com/) of VSCode pretty much salves my consciouse.. Of course any open source work you do on the app means you are giving free labour to one of the world's largest corporations but let's be real: to live in this society as a worker is to be in a permanent state of vasselage.)
+Say what you like about Microsoft's almost papal hegemony over the software engineering ecosystem (VS Code, C#, TypeScript, GitHub, Atom, .NET Core, Windows, WSL, and now ChatGPT), VSCode is pretty good software. The fact that it is open source and has a great plugin library means I can use it for most programming languages. Again, to avoid context switching and wasted mental energy I'd rather have a passable VSCode environment for multiple langugages rather than multiple IDEs.
 
 Many of the Obsidian selling points are already standard in VSCode: Markdown editing and rendering, version-control via Git, Vim keybindings, word and character counts etc. Plus there is an [excellent set of Markdown extensions](https://github.com/mjbvz) created by Microsoft worker Matt Bierner that enhance Markdown editing even further. My task, then, is to create an extension than enhances the existing Markdown capabilities for users that are accustomed to Obsidian. In the first instance this will be me. I will worry about extensibility and customisation once I have something I can use and am happy with.
 
@@ -65,13 +65,5 @@ The main features will be as follows:
 I am going to call it "Meridian" because it rhymes with "Obsidian"; the letters "M" and "D" figure promimently and this of course is the `.md` extension; plus my family live in a seaside town called Peacehaven in East Sussex which is directly on the Greenwich Meridian (we even have an underwhelming monument), so there's some personal significance.
 
 ![](./img/meridian-monument.jpg)
-
-<p align="center"><i>Temple to Poseidon. Sounion, Greece</i></p>
-
-<br />
-
-![](./img/poseidon.jpg)
-
-<p align="center"><i>Meridian Monument. Peacehaven, United Kingdom</i></p>
 
 Development updates to follow!
