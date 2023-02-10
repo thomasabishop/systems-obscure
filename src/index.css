@@ -10,8 +10,8 @@ body {
 
   /* max-width: 778px; */
 
-  /* color: #647d75; */
-  color: #93a8a2;
+  color: #647d75;
+  /* color: #93a8a2; */
   background: #0f1610;
   margin: 0;
 }
@@ -22,7 +22,10 @@ body {
   margin: 0 auto;
 }
 
-h1,
+h1 {
+  font-weight: 500;
+}
+
 h2,
 h3,
 h4,
@@ -33,7 +36,7 @@ h6 {
 
 p,
 ul {
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 li:not(:last-child) {
@@ -133,6 +136,7 @@ tbody td {
 }
 
 .introduction {
+  font-size: 1.125rem;
   font-weight: 500;
 }
 
@@ -164,12 +168,11 @@ hr {
 }
 
 .post-listing__date {
-  font-weight: 300;
   min-width: 100px;
 }
 
 .post h1 {
-  font-size: 1.8rem;
+  /* font-size: 1.8rem; */
   margin-top: 0.5rem;
 }
 

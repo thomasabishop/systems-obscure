@@ -14,7 +14,7 @@ Everything important that I learn about software engineering and computer scienc
 
 For a while I used [Obsidian](https://obsidian.md/) as my primary note-taking tool. It allows for Markdown editing (including a Vim mode), has a useful network-graph feature and importantly runs locally without storing your data on a server or in the cloud. If the company goes bust or is hacked, your data is still yours and safe.
 
-This is the reason I moved from [Notion](https://www.notion.so) to Obsidian. In Notion, your notes are not available offline so if they suffer a breach or network failure, you're locked out. Also, until people complained and they were forced to implement locks, anyone working at Notion could access your data. My employer, the BBC, has blocked Notion as a result of these practices.
+This is the reason I moved from [Notion](https://www.notion.so) to Obsidian. In Notion, your notes are not available offline so if they suffer a breach or network failure, you're locked out. Also, until people complained and they were forced to implement locks, anyone working at Notion could access your data. My employer has blocked Notion as a result of these practices.
 
 While Obsidian is a significant improvement on Notion the following aspects bothered me:
 
