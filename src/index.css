@@ -198,3 +198,8 @@ hr {
     margin-right: 0.5rem;
   }
 }
+
+/* Overrides */
+.gatsby-resp-image-image {
+  box-shadow: none !important;
+}
