@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import "../index.css"
+import { Link } from "gatsby"
 import PostLink from "../components/PostLink/PostLink"
 import Main from "../templates/Main"
 export default function Home({
@@ -20,21 +21,20 @@ export default function Home({
       </Helmet>
 
       <div className="introduction">
-        <p>
+        {/* <p>
           Hi, I'm Thomas, a software engineer from London. Welcome to my
           mindworld.
-        </p>
+        </p> */}
       </div>
-      <div className="home-links">
+      {/* <div className="home-links">
         <a
           style={{ paddingRight: "0.5rem" }}
           href="https://github.com/thomasabishop"
         >
           GitHub
         </a>
-        {/* <Link to="/code-stats/">Code Stats</Link> */}
-      </div>
-      <hr />
+      </div> */}
+      {/* <hr /> */}
       <div>
         {/* <h2 className="posts-header">Posts</h2> */}
         <div className="posts-wrapper">{Posts}</div>
@@ -51,7 +51,7 @@ export const pageQuery = graphql`
           id
           excerpt(pruneLength: 250)
           frontmatter {
-            date(formatString: "DD MMM YYYY")
+            date(formatString: "DD-MM-YYYY")
             slug
             title
           }
