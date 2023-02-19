@@ -4,7 +4,7 @@ slug: /the-world-knew-him-not/
 date: 2023-02-16
 ---
 
-Last night I was reading 'Three Versions of Judas' from Juan Luis Borges' masterpiece _Fictions_ (1944). It proceeds in a typical Borgesian manner as an earnest precis of a series of fabricated texts, tediously replete with tokens of faux facticity (publication dates, references to other commentaries, footnoted disputes over errata and so forth).
+Last night I was reading 'Three Versions of Judas' from Juan Luis Borges' masterpiece _Fictions_ (1944). It proceeds in a typical Borgesian manner as an earnest precis of a series of fabricated texts, replete with tokens of faux facticity (publication dates, references to other commentaries, footnotes on errata and so forth).
 
 The story describes the work of an obscure theologian who developed a revisionist account of the role of Judas in the Passion, broadly in keeping with the (real) Gnostic _Gospel of Judas_. Far from being the villain and perennial embodiment of self-interested betrayal, Judas is reconceived as a predetermined agent of the Holy Spirit. He becomes the essential catalyst in the fullfilment of Christ's prophesy and thus the redemption of humanity.
 
