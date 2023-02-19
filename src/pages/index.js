@@ -21,20 +21,20 @@ export default function Home({
       </Helmet>
 
       <div className="introduction">
-        {/* <p>
-          Hi, I'm Thomas, a software engineer from London. Welcome to my
-          mindworld.
-        </p> */}
+        <p>
+          Being the malformed meditations and preoccupations of a software
+          engineer from London.
+        </p>
       </div>
-      {/* <div className="home-links">
+      <div className="home-links">
         <a
           style={{ paddingRight: "0.5rem" }}
           href="https://github.com/thomasabishop"
         >
           GitHub
         </a>
-      </div> */}
-      {/* <hr /> */}
+      </div>
+      <hr />
       <div>
         {/* <h2 className="posts-header">Posts</h2> */}
         <div className="posts-wrapper">{Posts}</div>
