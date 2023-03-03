@@ -8,6 +8,8 @@ I keep all my study notes in Markdown format in a [single repository]('https://g
 
 As a corrective I have written a script at the root of my notes repository that selects a random revision topic from the categories I specify. When I start studying each morning (I study from 6am-8am before work) I run the script and spend ten minutes consolidating the topic it selects. Sometimes this will just mean re-reading the notes but more often than not, I will rewrite or add ideas that I have gleaned in the period since I originally studied the topic, extending as well as consolidating my understanding of the subject matter.
 
+<div class="code-block-header">Bash</div>
+
 ```bash
 #!/bin/bash
 
@@ -16,7 +18,7 @@ DIRS_TO_PARSE="../Computer_Architecture ../Electronics_and_Hardware ../Operating
 
 # Return array of all files belonging to source dirs...
 for ele in $DIRS_TO_PARSE; do
-    FILE_MATCHES+=( $(find $ele -name "*.md" -type f) )
+FILE_MATCHES+=( $(find $ele -name "\*.md" -type f) )
 done
 
 # Generate a random integer between 0 and the match array length...

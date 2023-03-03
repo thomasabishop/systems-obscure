@@ -29,7 +29,7 @@ More than these individual problems, using Obsidian meant that I had to use two 
 
 I've realised that the best solution for me is to bring the benefits of Obsidian to VS Code via an extension.
 
-Say what you like about Microsoft's papal hegemony over the software engineering ecosystem (VS Code, C#, TypeScript, GitHub, Atom, .NET Core, Windows, WSL, and now ChatGPT), VSCode is pretty good. The fact that it is open source and has a great plugin library means I can use it for most programming languages, without having to learn different IDEs.
+Say what you like about Microsoft's increasingly _papal_ hegemony over the software engineering ecosystem (VS Code, C#, TypeScript, GitHub, Atom, .NET Core, Windows, WSL, and now ChatGPT), VSCode is pretty good. The fact that it is open source and has a great plugin library means I can use it for most programming languages, without having to learn different IDEs.
 
 Many of the Obsidian selling points are already standard or easily added via extensions Markdown editing and rendering, version-control via Git, Vim keybindings, word and character counts etc. I want to create an extension than enhances the existing Markdown capabilities for users that are accustomed to Obsidian. In the first instance this will be me. I will worry about extensibility and customisation once I have something I can use and am happy with.
 

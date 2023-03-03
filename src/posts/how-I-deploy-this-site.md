@@ -25,6 +25,8 @@ An annoying thing about CloudFront is that it won't recognise pages other than t
 
 To get around this the custom is to use a Lambda function that intercepts requests and add the trailing `index.html`:
 
+<div class="code-block-header">JavaScript</div>
+
 ```js
 exports.handler = (event, context, callback) => {
   // Extract the request from the CloudFront event that is sent to Lambda@Edge
@@ -60,7 +62,9 @@ This uses a Gatsby plugin to deploy to S3 and clear the Cloudfront cache.
 
 In order for this command to run from GitHub I had to create a "GitHub" user and custom permissions file in AWS IAM. This gives me an Access Key ID and secret which the GitHub Action can use to authenticate the deployment. I save these as secrets within the repository settings in GitHub and now the whole Action declaration works.
 
-Here is the GitHub Action YAML in full:
+Here is the GitHub Action in full:
+
+<div class="code-block-header">YAML</div>
 
 ```yaml
 name: Deploy systemsobscure.blog
