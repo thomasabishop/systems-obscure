@@ -30,7 +30,7 @@ I use an old spinning HDD with a max capacity of 500GB. I use `fdisk` to make tw
 
 Using the first partition as an example:
 
-```bash
+```
 fdisk /dev/sda # create the partition
 d # delete the existing partitions
 n # start a new partition
@@ -47,7 +47,7 @@ mount -t ext4 /dev/sda1 mnt1 # mount the disk
 
 I use the following command to run `rsync`:
 
-```bash
+```
 rsync -aAXv --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/usr/tmp/*","/run/*","/mnt/*","/media/*","/var/cache/*","/","/lost+found","node_modules"} /* /run/media/thomas/archbish_disk
 ```
 
@@ -55,7 +55,7 @@ The `--delete` flag makes sure that only files which have changed since the last
 
 I specify a `systemd` service file:
 
-```bash
+```
 # /etc/systemd/system/full_disk_backup.service
 
 [Unit]
@@ -72,7 +72,7 @@ WantedBy=default.target
 
 And a timer for the service:
 
-```bash
+```
 # /etc/systemd/system/full_disk_backup.timer
 
 [Unit]
@@ -87,7 +87,7 @@ WantedBy=timers.target
 
 Then I run:
 
-```bash
+```
 systemctl enable full_disk_backup.timer
 systemctl start full_disk_backup.timer
 ```
@@ -128,7 +128,7 @@ backup  /home/  home/
 
 Now we need to automate the execution at the set times using `systemd`. First we create the service file:
 
-```bash
+```
 
 # Source link location: /etc/systemd/system/rsnapshot@.service
 [Unit]
@@ -143,7 +143,7 @@ ExecStart=/usr/bin/rsnapshot %I
 
 Then we have to create a timer file for each of the intervals: hourly, daily, weekly, and monthly. Here's the hourly and monthly files to give an idea:
 
-```bash
+```
 # Source link location: /etc/systemd/system/rsnapshot-hourly.timer
 [Unit]
 Description=rsnapshot hourly backup
@@ -158,7 +158,7 @@ Unit=rsnapshot@hourly.service
 WantedBy=timers.target
 ```
 
-```bash
+```
 # Source link location: /etc/systemd/system/rsnapshot-monthly.timer
 [Unit]
 Description=rsnapshot monthly backup
@@ -175,7 +175,7 @@ WantedBy=timers.target
 
 Let's check one of our timers:
 
-```bash
+```
 systemd-analyze calendar "*:15"
 
 Original form: *:15
@@ -187,14 +187,14 @@ Normalized form: *-*-* *:15:00
 
 Nice. Now we need to enable and start the timers. For each timer run:
 
-```bash
+```
 systemctl enable rsnapshot-[interval].timer
 systemctl start rsnapshot-[interval].timer
 ```
 
 Oh it's 15:21, let's check the first hourly snapshot was taken:
 
-```bash
+```
 journalctl -u rsnapshot@hourly
 Jan 08 15:15:04 archbish systemd[1]: Starting rsnapshot (hourly) backup...
 ```
