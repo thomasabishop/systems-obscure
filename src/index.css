@@ -168,15 +168,15 @@ hr {
 
 .post-listing {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
-  gap: 30px;
-  margin-bottom: 0.5rem;
+  /* gap: 30px; */
+  margin-bottom: 1rem;
 }
 
 .post-listing__date {
-  min-width: 100px;
-  font-family: "Fira Code";
+  /* min-width: 100px; */
+  /* font-family: "Fira Code"; */
 }
 
 .post h1 {
