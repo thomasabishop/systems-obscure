@@ -4,115 +4,75 @@ slug: /backing-up-primary-machine/
 date: 2023-01-08
 ---
 
-My primary machine is called `archbish` because my surname is Bishop and my OS is Arch Linux. I thought it was funny at the time. I run two sorts of backups:
+I use the `rsnapshots` package to run sequenced backups of my ThinkPad T15 running Arch Linux.
 
-1. A daily backup of the entire disk
-2. Hourly, daily, weekly and monthly snapshot backups of the home directory
-
-Both are backed-up to an external harddrive.
-
-![image of backup disk](img/backup-disk.jpg)
-
-The purpose of the whole disk backup is for recovery in the event of a catastrophic disk failure where I am locked out of the machine and unable to go in and effect a recovery via `tty`. In this scenario I would be able to recreate my setup by wiping the corrupted machine drive, reinstalling the OS and migrating the backup.
-
-The snapshot backups exist for more minor mishaps. For example, accidentally removing something important with a cavalier `rm -rf` or clearing the cache only to find that I have lost an important configuration setting. In this scenario, I would just restore the individual file from the hourly backups or revert to an earlier state from the same day. In contrast to the whole-disk backup the snapshots only record the user directory.
-
-I use `rsync` for the whole-disk backup and `rsnapshot` for the snapshot backups. `rsnapshots` is itself based on `rsync`. The execution of both processes is managed through [systemd](https://en.wikipedia.org/wiki/Systemd) timers.
-
-I also maintain a virtual machine version of Arch so that I can periodically check my failsafes and ensure I can successfully restore from the backup, however I won't detail that here.
+`rsnapshots` is based on the `rsync` utility and makes it easy to maintain backups over several timeframes. I run hourly, daily, weekly, and monthly backups, sequenced using `systemd` timers.
 
 ## Preparing the external disk
 
-I use an old spinning HDD with a max capacity of 500GB. I use `fdisk` to make two `ext4` (Linux filesystem) partitions:
+I store my backups on an external 500GB SSD.
 
-- `sda1`: 250GB - for snapshot backups
-- `sda2`: 200GB - for whole disk bootable backups
-
-Using the first partition as an example:
+First I partition the disk:
 
 ```
-fdisk /dev/sda # create the partition
+fdisk /dev/sda
 d # delete the existing partitions
 n # start a new partition
-+250GB # specify size
-p # print to check
++500GB # specify size
 w # write the partition to the disk
-
-mkfs -t ext4 /dev/sda1 # Set the filesystem
-e2label /dev/sda1 archbish_snaps # name the disk
-mount -t ext4 /dev/sda1 mnt1 # mount the disk
 ```
 
-## Configure whole-disk backup with rsync
+I now have a partition at `/dev/sda/sda1`.
 
-I use the following command to run `rsync`:
-
-```
-rsync -aAXv --delete --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/usr/tmp/*","/run/*","/mnt/*","/media/*","/var/cache/*","/","/lost+found","node_modules"} /* /run/media/thomas/archbish_disk
-```
-
-The `--delete` flag makes sure that only files which have changed since the last backup are updated in the archive. I run a series of exclude rules (mostly temporary files or files that I can easily restore at initialisation) and I write to the `archbish_disk` volume I created earlier.
-
-I specify a `systemd` service file:
+Next I create the file system:
 
 ```
-# /etc/systemd/system/full_disk_backup.service
-
-[Unit]
-Description=Backup whole of `archbish` to external drive
-
-[Service]
-Type=simple
-ExecStart=/bin/bash ${HOME}/systemd_config/full_disk_backup/full_disk_backup.sh
-
-[Install]
-WantedBy=default.target
-
+mkfs -t ext4 /dev/sda1
 ```
 
-And a timer for the service:
+And I label my disk so that I it has a readable name rather than the default GUID that Linux will apply.
 
 ```
-# /etc/systemd/system/full_disk_backup.timer
-
-[Unit]
-Description=Run full_disk_backup daily at 11am
-
-[Timer]
-OnCalendar=*-*-* 11:00:00
-
-[Install]
-WantedBy=timers.target
+e2label /dev/sda1 archbish_backups # name the disk
 ```
 
-Then I run:
+At this point you would create or specify a mount directory and mount the partition with `mount`, also adding it to your `fstab` file to ensure that the disk mounts to the same location in future.
+
+I haven't chosen to do this because I use the KDE Plasma desktop environment and it automatically mounts any connected drives to `/run/media`. However in order to check the partition label and ensure the above processes have been successful I will disconnect and reconnect the device.
+
+Now when I run `lsblk` to list the block devices on the machine, I see my new disk and partition:
 
 ```
-systemctl enable full_disk_backup.timer
-systemctl start full_disk_backup.timer
+lsblk
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+sda           8:0    0 465.8G  0 disk
+└─sda1        8:1    0 465.8G  0 part /run/media/thomas/archbish_backups
+nvme0n1     259:0    0 476.9G  0 disk
+├─nvme0n1p1 259:1    0   512M  0 part
+├─nvme0n1p2 259:2    0  11.2G  0 part [SWAP]
+└─nvme0n1p3 259:3    0 465.3G  0 part /
 ```
 
-Then check:
+Typically you won't have access to the partition or mount directory yet. You can run the following against your username to ensure access:
 
 ```
-systemd-analyze calendar "11:00"
-Original form: 11:00
-Normalized form: *-*-* 11:00:00
-    Next elapse: Mon 2023-01-16 11:00:00 GMT
-       (in UTC): Mon 2023-01-16 11:00:00 UTC
-       From now: 18h left
+sudo chown -R <username>:users /run/media/<username>/
 ```
-
-And we are cooking.
 
 ## Configure snapshot backups with rsnapshot
+
+I install `rsnapshot` and `rsync` as a dependency:
+
+```
+pacman -Sy rsync rsnapshot
+```
 
 `rsnapshot` is setup entirely through its config file: `/etc/rsnapshot.conf`. When you install the package the default config file contains lots of instructions and it's mostly a case of removing the comments for the functionality you require. The [Arch wiki](https://wiki.archlinux.org/title/rsnapshot) provides an exhaustive account but the key parts are as follows:
 
 ```
 # Set the snapshot root directory (the external HDD you plan to use)
 
-snapshot_root   /run/media/thomas/archbish_snaps
+snapshot_root   /run/media/thomas/archbish_backups
 
 # Set the backup intervals
 
@@ -123,14 +83,18 @@ retain  monthly 12
 
 # Name the dir you want to snapshot and what it should be called on the external disk
 
-backup  /home/  home/
+backup  /home/  localhost
 ```
 
-Now we need to automate the execution at the set times using `systemd`. First we create the service file:
+So, obviously I am taking hourly, daily, weekly and monthly snapshots. In total, this gives me a years worth of retention whilst minimising the space taken by the older backups. (If I wanted to keep a record spanning several years, I could just make a copy the latest monthly backup in a year's time.)
+
+The numbers next to the names indicate the retention period. After 24 hours, the oldest hourly backup becomes the daily backup; after seven days the oldest daily backup becomes the weekly backup; after four weeks the oldest weekly backup becomes the monthly backup and so on.
+
+Now we need to automate the execution of `rsnapshot` at the times designated in the configuration file. We'll do this with a `systemd` service file and several timers. Each file created will be located at `/etc/systemd/system/`
+
+First we create the service file. This will be a oneshot service that is run by the timers:
 
 ```
-
-# Source link location: /etc/systemd/system/rsnapshot@.service
 [Unit]
 Description=rsnapshot (%I) backup
 
@@ -144,7 +108,7 @@ ExecStart=/usr/bin/rsnapshot %I
 Then we have to create a timer file for each of the intervals: hourly, daily, weekly, and monthly. Here's the hourly and monthly files to give an idea:
 
 ```
-# Source link location: /etc/systemd/system/rsnapshot-hourly.timer
+# /etc/systemd/system/rsnapshot-hourly.timer
 [Unit]
 Description=rsnapshot hourly backup
 
@@ -159,9 +123,8 @@ WantedBy=timers.target
 ```
 
 ```
-# Source link location: /etc/systemd/system/rsnapshot-monthly.timer
-[Unit]
-Description=rsnapshot monthly backup
+# /etc/systemd/system/rsnapshot-monthly.timer
+[Unit]Description=rsnapshot monthly backup
 
 [Timer]
 # Run once per month at 3:30 local time
@@ -199,4 +162,6 @@ journalctl -u rsnapshot@hourly
 Jan 08 15:15:04 archbish systemd[1]: Starting rsnapshot (hourly) backup...
 ```
 
-Oh good.
+Great. After a few hours we can see the different snapshots mounting up in the backup directory:
+
+![](img/rnapshot-dolphin-file-viewr.png)
