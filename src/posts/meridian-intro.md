@@ -54,12 +54,10 @@ The main features will be as follows:
 
   ![Obsidian backlinks view](./img/obsidian-backlinks.png)
 
-- A network-graph view that maps linkages between documents, tags and categories. I have to admit this is rather splendid in Obsidian:
+- A network-graph view that maps linkages between documents, tags and categories.
 
   ![](./img/obsidian-graph-view.png)
 
 I am going to call it "Meridian" because it rhymes with "Obsidian"; the letters "M" and "D" figure prominently, recalling the `.md` file extension; and my family live in a seaside town called Peacehaven in East Sussex which is directly on the Greenwich Meridian (we even have an underwhelming monument), so there's some personal significance.
 
 ![](./img/meridian-monument.jpg)
-
-Development updates to follow!
