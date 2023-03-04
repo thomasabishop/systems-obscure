@@ -18,4 +18,4 @@ Anyway, this elaborate preamble has been merely to draw attention to a passage i
 
 &mdash; John 1: 10, King James Version
 
-[^lapsed]: Once you have been baptised you can never really be a non-Catholic even if you are agnostic and appalled by its crimes and hypocrisy (me). Metaphysically, you remain a Catholic living without the possibility of God's grace. _You can check out anytime you like, but you can never leave._
+[^lapsed]: Once you have been baptised you can never really be a non-Catholic even if you are agnostic and appalled by its crimes and hypocrisy. Metaphysically, you remain a Catholic living without the possibility of God's grace.
