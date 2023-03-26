@@ -7,7 +7,7 @@ export default function Main(props) {
       <Header />
       <div className="main">{props.children}</div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
