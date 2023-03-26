@@ -129,8 +129,6 @@ tbody td {
 .header__wrapper {
   display: flex;
   width: 100%;
-  flex-direction: row;
-  justify-content: center;
 }
 
 .header__site-title:hover {
@@ -233,4 +231,10 @@ hr {
 
 pre {
   margin-top: 0 !important;
+}
+
+.blog-image-caption {
+  font-size: 14px;
+  text-align: center;
+  font-style: italic;
 }
