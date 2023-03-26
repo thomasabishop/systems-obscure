@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Main from "./Main"
 import "katex/dist/katex.min.css"
-
+import notByAiBadge from "../components/Footer/not-by-ai-badge.svg"
 export default function Post({ data }) {
   const post = data.markdownRemark
 
@@ -13,6 +13,8 @@ export default function Post({ data }) {
         <h4>{post.frontmatter.date}</h4>
       </div>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+      <img className="not-ai-badge" src={notByAiBadge} />
     </Main>
   )
 }
