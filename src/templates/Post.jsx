@@ -14,8 +14,6 @@ export default function Post({ data }) {
         <h4 className="post__date">{post.frontmatter.date}</h4>
       </div>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-
-      <img className="not-ai-badge" src={notByAiBadge} />
     </Main>
   )
 }
