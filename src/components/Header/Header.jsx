@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <div className="header">
       <div className="header__wrapper">
-        <img src={logoDark} alt="logo" className="header__logo" />
+        {/* <img src={logoDark} alt="logo" className="header__logo" /> */}
         <Link to="/" className="header__site-title">
           Systems Obscure
         </Link>
