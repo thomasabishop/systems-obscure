@@ -206,6 +206,10 @@ hr {
   .header__logo {
     margin-right: 0.5rem;
   }
+
+  .footer__wrapper {
+    justify-content: center !important;
+  }
 }
 
 .footnotes {
@@ -237,4 +241,44 @@ pre {
   font-size: 14px;
   text-align: center;
   font-style: italic;
+}
+
+.footer {
+  background-color: #000e07;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0.5rem 2rem;
+  /* min-height: 40px; */
+}
+
+.footer__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer__wrapper a {
+  margin: 0;
+  padding: 0;
+}
+
+.not-ai-badge {
+  width: 90px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1 0 auto;
 }
