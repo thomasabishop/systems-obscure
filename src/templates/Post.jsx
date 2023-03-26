@@ -9,8 +9,9 @@ export default function Post({ data }) {
   return (
     <Main>
       <div className="post">
-        <h1>{post.frontmatter.title}</h1>
-        <h4>{post.frontmatter.date}</h4>
+        <h1 className="post__title">{post.frontmatter.title}</h1>
+        <hr />
+        <h4 className="post__date">{post.frontmatter.date}</h4>
       </div>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
 

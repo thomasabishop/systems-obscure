@@ -3,11 +3,11 @@ import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 export default function Main(props) {
   return (
-    <div className="site-wrapper">
+    <React.Fragment>
       <Header />
       <div className="main">{props.children}</div>
 
       {/* <Footer /> */}
-    </div>
+    </React.Fragment>
   )
 }

@@ -265,11 +265,8 @@ pre {
 }
 
 .not-ai-badge {
-<<<<<<< HEAD
-  margin-top: 2rem;
-=======
->>>>>>> 1a932ec2681d784385ed9e0f36ac2c14215a656d
-  /* width: 90px; */
+  width: 100px;
+  padding-top: 1rem;
 }
 
 html,
@@ -285,4 +282,9 @@ body {
 
 .main {
   flex: 1 0 auto;
+}
+
+.post__title {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
