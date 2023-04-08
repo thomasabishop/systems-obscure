@@ -66,11 +66,12 @@ p > code.language-text {
 a {
   color: #2f7e25;
   text-decoration: none;
-  transition: ease 0.3s;
+  transition: ease-in-out 0.1s;
 }
 
 a:hover {
   text-decoration: underline;
+  /* color: #18e000; */
 }
 
 blockquote > p {
@@ -166,16 +167,15 @@ hr {
 
 .post-listing {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* gap: 30px; */
+  flex-direction: row;
+  justify-content: space-between;
   margin-bottom: 0.5rem;
 }
 
-/* .post-listing__date {
-  min-width: 100px;
-  font-family: "Fira Code";
-} */
+.post-listing__date {
+  /* min-width: 200px; */
+  /* font-family: "Fira Code"; */
+}
 
 .post h1 {
   /* font-size: 1.8rem;  */
@@ -189,7 +189,7 @@ hr {
   background: #1d4125; /* Gecko Browsers */
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 778px) {
   .post-listing {
     flex-direction: column;
     gap: 0;

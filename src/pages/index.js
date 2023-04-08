@@ -2,7 +2,6 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
 import "../index.css"
-import { Link } from "gatsby"
 import PostLink from "../components/PostLink/PostLink"
 import Main from "../templates/Main"
 export default function Home({
@@ -51,7 +50,7 @@ export const pageQuery = graphql`
           id
           excerpt(pruneLength: 250)
           frontmatter {
-            date(formatString: "DD MMMM YYYY")
+            date(formatString: "DD-MMMM-YYYY")
             slug
             title
           }
