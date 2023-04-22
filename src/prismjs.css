@@ -1,105 +1,41 @@
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #637d75;
-  background: none;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-  white-space: pre-wrap;
-  font-size: 14px;
-}
+/* Dark+ Prism.js Theme */
 
-pre[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection {
-  text-shadow: none;
-  background: #11261698;
-}
+/* Base theme */
+/* body {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+} */
 
-pre[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-code[class*="language-"] ::selection {
-  text-shadow: none;
-  background: #11261698;
-}
-
-@media print {
-  code[class*="language-"],
-  pre[class*="language-"] {
-    text-shadow: none;
-  }
-}
-/* Code blocks */
-pre[class*="language-"] {
-  padding: 1em;
-  margin: 0.5em 0;
-  overflow: auto;
-}
-
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-  background: #000e07;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: 0.1em;
-  border-radius: 0.3em;
-  white-space: normal;
-}
-
+/* Tokens */
 .token.comment,
+.token.block-comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #5a8055ad;
+  color: #6a9955;
 }
 
 .token.punctuation {
-  color: #5a8055ad;
-}
-
-.token.selector,
-.token.tag {
-  color: #2f6a7f;
+  color: #808080;
 }
 
 .token.property,
+.token.tag,
 .token.boolean,
 .token.number,
 .token.constant,
 .token.symbol,
-.token.attr-name,
 .token.deleted {
-  color: #18e000;
+  color: #569cd6;
 }
 
-.token.number {
-  color: #00e0c4;
-}
-
-.token.parameter {
-  color: #327f77;
-}
-
+.token.selector,
+.token.attr-name,
 .token.string,
 .token.char,
-.token.attr-value,
 .token.builtin,
 .token.inserted {
-  color: #637d75;
+  color: #ce9178;
 }
 
 .token.operator,
@@ -107,23 +43,24 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #2f7e25;
+  color: #9cdcfe;
 }
 
 .token.atrule,
+.token.attr-value,
 .token.keyword {
-  color: #2f7e25;
+  color: #c586c0;
 }
 
 .token.function,
 .token.class-name {
-  color: #717f24;
+  color: #dcdcaa;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: #327f77;
+  color: #b5cea8;
 }
 
 .token.important,
@@ -139,50 +76,82 @@ pre[class*="language-"] {
   cursor: help;
 }
 
-.token.builtin {
-  color: #47587f;
+/* Code block */
+pre[class*="language-"] {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  border-radius: 0;
+  border: none;
+  padding: 1em;
+  overflow: auto;
+  white-space: pre;
+  word-wrap: normal;
 }
 
-pre.line-numbers {
+code[class*="language-"] {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  hyphens: none;
+}
+
+/* Line numbers */
+pre[class*="language-"].line-numbers {
   position: relative;
   padding-left: 3.8em;
   counter-reset: linenumber;
 }
 
-pre.line-numbers > code {
+pre[class*="language-"].line-numbers > code {
   position: relative;
+}
+
+pre[class*="language-"].line-numbers:before {
+  content: " ";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3em;
+  min-width: 3em;
+  overflow: hidden;
+  counter-reset: linenumber;
+  opacity: 0.4;
+}
+
+pre[class*="language-"].line-numbers > code:before {
+  content: " ";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3em;
+  min-width: 3em;
+  overflow: hidden;
+  counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers > code > .line-highlight:before {
+  content: " ";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3em;
+  min-width: 3em;
+  overflow: hidden;
+  counter-reset: linenumber;
 }
 
 .line-numbers .line-numbers-rows {
   position: absolute;
   pointer-events: none;
   top: 0;
-  font-size: 100%;
   left: -3.8em;
-  width: 3em; /* works for line-numbers below 1000 lines */
-  letter-spacing: -1px;
-  border-right: 0;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.line-numbers-rows > span {
-  pointer-events: none;
-  display: block;
-  counter-increment: linenumber;
-}
-
-.line-numbers-rows > span:before {
-  content: counter(linenumber);
-  color: #5c6370;
-  display: block;
-  padding-right: 0.8em;
-  text-align: right;
-}
-
-div.token-line:last-of-type {
-  display: none;
 }
