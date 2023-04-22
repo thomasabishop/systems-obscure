@@ -1,5 +1,8 @@
+@import "../../styles/variables";
+
 .Header {
-  background: #1b1b1b;
+  // background: #1b1b1b;
+  border: 2px solid $foreground;
   padding: 0.25rem 0.25rem;
 
   text-align: center;
@@ -8,7 +11,7 @@
     font-size: 1.25rem;
     font-weight: 600;
     text-decoration: none;
-    color: white;
+    color: $foreground;
   }
 }
 
