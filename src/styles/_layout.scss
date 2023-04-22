@@ -1,0 +1,22 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+.main {
+  padding: 0.5rem 1rem;
+}
+
+.home-links {
+  padding-bottom: 0.5rem;
+}
+
+.posts-wrapper {
+  padding-top: 1rem;
+}
+
+@media only screen and (max-width: 778px) {
+  .main {
+    padding: 0.5rem 1rem;
+  }
+}

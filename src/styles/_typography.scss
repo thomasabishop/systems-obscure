@@ -1,0 +1,24 @@
+body {
+  font-family: $font_stack_serif;
+  color: $foreground;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: $foreground;
+}
+
+.Header {
+  font-family: $font_stack_sans;
+}
+
+.introduction p,
+.home-links {
+  font-weight: 600;
+  //  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}

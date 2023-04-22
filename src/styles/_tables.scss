@@ -1,0 +1,29 @@
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: 500;
+}
+th,
+td {
+  padding: 0.5rem;
+}
+
+tbody tr:nth-child(even) {
+  background: #637d7510;
+}
+
+tbody tr:nth-child(odd) {
+  background: #000e0740;
+}
+
+thead {
+  background: #000e07;
+}
+
+tbody td {
+  text-align: center;
+}

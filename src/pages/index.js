@@ -1,9 +1,10 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql } from "gatsby"
-import "../index.css"
+// import "../index.css"
+import "../styles/main.scss"
 import PostLink from "../components/PostLink/PostLink"
-import Main from "../templates/Main"
+import Main from "../templates/main/Main"
 export default function Home({
   data: {
     allMarkdownRemark: { edges },
@@ -21,7 +22,7 @@ export default function Home({
 
       <div className="introduction">
         <p>
-          The thoughts and technical preoccupations of a software engineer from
+          Thoughts and technical preoccupations of a software engineer from
           London.
         </p>
       </div>
