@@ -8,8 +8,6 @@ I keep all my study notes in Markdown format in a [single repository]('https://g
 
 As a corrective I have written a script at the root of my notes repository that selects a random revision topic from the categories I specify. When I start studying each morning (I study from 6am-8am before work) I run the script and spend ten minutes consolidating the topic it selects. Sometimes this will just mean re-reading the notes but often I will rewrite or add ideas that I have gleaned in the period since I originally studied the topic, extending my understanding of the subject matter.
 
-<div class="code-block-header">Bash</div>
-
 ```bash
 #!/bin/bash
 

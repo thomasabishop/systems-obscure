@@ -13,12 +13,10 @@ hr {
   font-family: $font_stack_sans;
 }
 
-.introduction p,
-.home-links {
-  // font-weight: 600;
-  //  text-align: center;
+.introduction p {
+  font-weight: 600;
 }
 
-a {
-  text-decoration: none;
+blockquote {
+  font-style: italic;
 }

@@ -1,29 +1,25 @@
 table {
-  table-layout: fixed;
+  border-collapse: collapse; /* remove border-spacing */
   width: 100%;
-  border-collapse: collapse;
+  margin-bottom: 1em; /* add spacing between tables */
+}
+
+th,
+td {
+  padding: 0.25em; /* add padding to cells */
+  border: 1px solid black; /* add borders to cells */
 }
 
 th {
-  font-weight: 500;
-}
-th,
-td {
-  padding: 0.5rem;
+  background-color: #f2f2f2; /* add background color to header cells */
 }
 
 tbody tr:nth-child(even) {
-  background: #637d7510;
+  background-color: #f2f2f2; /* add alternating row background color */
 }
 
-tbody tr:nth-child(odd) {
-  background: #000e0740;
-}
-
-thead {
-  background: #000e07;
-}
-
-tbody td {
-  text-align: center;
+th {
+  border-bottom: 3px double black; /* add double underline to header cells */
+  background-color: #f2f2f2; /* add background color to header cells */
+  padding: 0.25em; /* add padding to cells */
 }

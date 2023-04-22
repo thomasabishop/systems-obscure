@@ -34,7 +34,7 @@ export default function Home({
           GitHub
         </a>
       </div>
-      <hr />
+      {/* <hr /> */}
       <div>
         {/* <h2 className="posts-header">Posts</h2> */}
         <div className="posts-wrapper">{Posts}</div>
