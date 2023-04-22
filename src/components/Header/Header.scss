@@ -1,13 +1,15 @@
 @import "../../styles/variables";
 
 .Header {
-  border-bottom: 2px solid $foreground;
+  border: 2px solid $foreground;
   padding: 0.5rem 0.5rem;
   padding-left: 0;
+
+  text-align: center;
   &__site-title {
     text-transform: uppercase;
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 600;
     text-decoration: none;
     color: $foreground;
   }

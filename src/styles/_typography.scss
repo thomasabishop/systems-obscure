@@ -3,9 +3,10 @@ body {
   color: $foreground;
 }
 
-h2 {
-  //  font-family: $font_stack_sans;
-  //  font-weight: 500;
+p,
+ul,
+li {
+  line-height: 1.5;
 }
 
 h3,
@@ -13,7 +14,6 @@ h4,
 h5,
 h6 {
   font-family: $font_stack_serif;
-  // font-weight: 500;
 }
 hr {
   border: none;
@@ -24,10 +24,6 @@ hr {
 .Header {
   font-family: $font_stack_sans;
 }
-
-// .introduction p {
-//   font-weight: 600;
-// }
 
 blockquote {
   font-style: italic;
