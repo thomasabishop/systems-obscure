@@ -4,7 +4,10 @@ body {
   margin: 0;
 }
 .main {
-  padding: 0.5rem 1rem;
+  width: 80%;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  max-width: 778px;
 }
 
 .home-links {
@@ -21,6 +24,8 @@ body {
 
 @media only screen and (max-width: 778px) {
   .main {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
+    width: 90%;
+    margin: 0 auto;
   }
 }
