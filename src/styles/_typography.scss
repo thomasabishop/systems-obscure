@@ -28,3 +28,11 @@ hr {
 blockquote {
   font-style: italic;
 }
+
+p > code {
+  font-size: 14px !important;
+}
+
+.math-inline {
+  font-size: 14px;
+}
