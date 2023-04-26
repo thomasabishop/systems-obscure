@@ -26,6 +26,10 @@ body {
   padding-top: 1rem;
 }
 
+div.math-display {
+  overflow-x: auto;
+}
+
 @media only screen and (max-width: 778px) {
   .main {
     padding: 0.5rem;

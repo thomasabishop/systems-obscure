@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.0"
-   width="150"
-   height="150"
+   width="225"
+   height="225"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.44"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    sodipodi:docname="BJT_NPN_symbol.svg"
-   sodipodi:docbase="/Users/dicklyon/Desktop">
+   inkscape:export-filename="bjt-again.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <metadata
      id="metadata19">
     <rdf:RDF>
@@ -28,8 +31,8 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
-     inkscape:window-height="740"
-     inkscape:window-width="1006"
+     inkscape:window-height="1138"
+     inkscape:window-width="1878"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      guidetolerance="10.0"
@@ -42,72 +45,80 @@
      width="150px"
      height="150px"
      inkscape:zoom="1.4142136"
-     inkscape:cx="90.587846"
-     inkscape:cy="53.80988"
-     inkscape:window-x="382"
-     inkscape:window-y="78"
+     inkscape:cx="43.487066"
+     inkscape:cy="60.457628"
+     inkscape:window-x="26"
+     inkscape:window-y="23"
      inkscape:current-layer="svg2"
      showgrid="true"
      inkscape:grid-bbox="false"
      inkscape:grid-points="true"
      inkscape:guide-bbox="false"
-     inkscape:guide-points="true" />
+     inkscape:guide-points="true"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:window-maximized="0" />
   <defs
      id="defs4" />
-  <path
-     id="path1307"
-     style="fill:black;fill-opacity:1;fill-rule:evenodd;stroke:black;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 89,99 L 79,96 L 86,89 L 89,99 z "
-     sodipodi:nodetypes="cccc" />
-  <path
-     id="path1309"
-     style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 70,80 L 90,100 L 90,135"
-     sodipodi:nodetypes="ccc" />
-  <path
-     id="path1321"
-     style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 70,70 L 90,50 L 90,15"
-     sodipodi:nodetypes="ccc" />
-  <path
-     id="path1325"
-     style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 70,75 L 15,75"
-     sodipodi:nodetypes="cc" />
-  <path
-     id="path2202"
-     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.44444489;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-     d="M 112.7778,75.000015 C 112.7778,92.550402 98.550402,106.7778 81.000015,106.7778 C 63.449628,106.7778 49.22223,92.550402 49.22223,75.000015 C 49.22223,57.449628 63.449628,43.22223 81.000015,43.22223 C 98.550402,43.22223 112.7778,57.449628 112.7778,75.000015 L 112.7778,75.000015 z " />
-  <path
-     id="path3078"
-     style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 70,55 L 70,95"
-     sodipodi:nodetypes="cc" />
-  <text
-     x="94.242188"
-     y="34.086914"
-     style="font-size:18px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-     id="text3963"
-     xml:space="preserve"><tspan
+  <g
+     id="g311"
+     transform="translate(35.99999,37.5)">
+    <path
+       id="path1307"
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 89,99 79,96 86,89 Z"
+       sodipodi:nodetypes="cccc" />
+    <path
+       id="path1309"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 70,80 20,20 v 35"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="path1321"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 70,70 90,50 V 15"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="path1325"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 70,75 H 15"
+       sodipodi:nodetypes="cc" />
+    <path
+       id="path2202"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:2.44444;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 112.7778,75.000015 c 0,17.550387 -14.227398,31.777785 -31.777785,31.777785 -17.550387,0 -31.777785,-14.227398 -31.777785,-31.777785 0,-17.550387 14.227398,-31.777785 31.777785,-31.777785 17.550387,0 31.777785,14.227398 31.777785,31.777785 z" />
+    <path
+       id="path3078"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#000000;stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 70,55 V 95"
+       sodipodi:nodetypes="cc" />
+    <text
        x="94.242188"
        y="34.086914"
-       id="tspan3965">C</tspan></text>
-  <text
-     x="94.822266"
-     y="128.7627"
-     style="font-size:18px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-     id="text3967"
-     xml:space="preserve"><tspan
+       style="font-style:normal;font-weight:normal;font-size:18px;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text3963"
+       xml:space="preserve"><tspan
+         x="94.242188"
+         y="34.086914"
+         id="tspan3965">C</tspan></text>
+    <text
        x="94.822266"
        y="128.7627"
-       id="tspan3969">E</tspan></text>
-  <text
-     x="20"
-     y="70"
-     style="font-size:18px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-     id="text3971"
-     xml:space="preserve"><tspan
+       style="font-style:normal;font-weight:normal;font-size:18px;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text3967"
+       xml:space="preserve"><tspan
+         x="94.822266"
+         y="128.7627"
+         id="tspan3969">E</tspan></text>
+    <text
        x="20"
        y="70"
-       id="tspan3973">B</tspan></text>
+       style="font-style:normal;font-weight:normal;font-size:18px;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="text3971"
+       xml:space="preserve"><tspan
+         x="20"
+         y="70"
+         id="tspan3973">B</tspan></text>
+  </g>
 </svg>

@@ -12,7 +12,7 @@ In this post I outline what I learned in the first unit. This broadly follows th
 
 The workings of a classical computer can be reduced to a series of operations on the binary digits (bits) 0 and 1. A computational process can be represented as a function: data (a series of bits) goes into the function in one state and comes out in a another state. The new state is a product of the function.
 
-![](/img/function-diagram-nand-tetris.png)
+![](/img/function-diagram.png)
 
 The most primitive bit operations are equivalent to the truth-conditions of the logical connectives of Boolean algebra. There are multiple logical connectives but we will mostly focus on AND, OR, and NOT for simplicity.
 
@@ -73,7 +73,7 @@ We can start with the concept of a switch. Consider what is happening when we tu
 
 We can represent this with a very simple circuit:
 
-![](./img/circuit-simple.png)
+![](./img/single-switch-and-circuit.png)
 
 This circuit embodies the logic of a NOT gate. We can think of the light as 1 and the absence of light as 0. When the switch is on, 1 is the output and 0 is inverted. When the switch is off, 0 is the output and 1 is inverted.
 
@@ -81,7 +81,7 @@ We can develop this scenario to represent the logical behaviour of an AND gate. 
 
 The circuit for this scenario embodies the logic of the Boolean AND connective:
 
-![](./img/circuit-two-switch.png)
+![](./img/double-and-circ.png)
 
 Switch-controlled circuits are functionally equivalent to what actually happens inside a computer when logical conditions are expressed via gates. Electrical charge is directed along different routes depending on the value of an on/off condition. However, in modern computers the actual component that controls the flow of current is not a switch.
 
@@ -91,11 +91,11 @@ Instead of mechanical switches, computers use transistors. Transistors are semi-
 
 There are different types of transistors but we will focus on basic Bipolar Junction Transistors:
 
-![](./img/BJT_NPN_symbol.png)
+![](./img/bjt-again.png)
 
 Applying a small amount of current at the base terminal (B) of a BJT allows a larger current to flow from the collector (C) to the emitter (E). Removing current at the base terminal reduces the flow from collector to emitter. This is because the the emitter and collector are composed of a semi-conductor that has a surplus of electrons (negatively charged) whereas the base has a deficiency of electrons (positively charged). This state creates a modifiable potential difference, reducing or increasing the current based on the voltage.
 
-Thus the base terminal of a transistor is another way of implementating the gate-like behaviour we previously achieved with mechanical switches. There is an important difference however. With a switch, the circuit is actually broken when it is in the "off" state and thus there is no current flowing at all. In contrast, with a transistor, the current drops markedly in the "off" state but is not completely removed. Because a continuous circuit is an analogue system, the quantities of resistance, voltage and current are not discrete values - they will vary over a given range. Thus "off" corresponds to "low" voltage and "on" corresponds to "high" voltage. The specific stipulation will depend on the circuit design but it is typically the case that a state of 1 or "on" is within the range 2-5V whereas a state of 0 or "off" is within the range 0.0 - 0.8V.
+Thus the base terminal of a transistor is another way of implementating the gate-like behaviour we previously achieved with mechanical switches. There is an important difference however. With a switch, the circuit is actually broken when it is in the "off" state and thus there is no current flowing at all. In contrast, with a transistor, the current drops in the "off" state but a voltage remains. Because a continuous circuit is an analogue system, the quantities of resistance, voltage and current are not discrete values - they will vary over a given range. Thus "off" corresponds to "low" voltage and "on" corresponds to "high" voltage. The specific stipulation will depend on the circuit design but it is typically the case that a state of 1 or "on" is within the range 2-5V whereas a state of 0 or "off" is within the range 0.0 - 0.8V.
 
 ### Boolean function synthesis
 
@@ -111,11 +111,11 @@ Let's call this $P$ for ease of reference.
 
 This complex or compound expression comprises several simpler atomic expressions:
 
-```
-(x) The team plays on Monday
-(y) The team plays on Thursday
-(z) The team plays at weekends
-```
+<ol type="a" start="24">
+  <li>The team plays on Monday</li>
+  <li>The team plays on Thursday</li>
+  <li>The team plays at weekends</li>
+</ol>
 
 The first step is to construct a truth table. On the left-hand side we list all the possible truth values for each individual expression. On the right-hand side, we assign an overall truth value for their combination, based on whether or not they reflect the truth conditions for $P$.
 
@@ -132,11 +132,11 @@ The first step is to construct a truth table. On the left-hand side we list all 
 
 We are only interested in the cases where $P$ is true, so we can discount any lines that result in a truth value of 0 for the complex expresssion. This leaves us with:
 
-| $x$ | $y$ | $z$ | $(x \lor y) \land \lnot z$ |
-| --- | --- | --- | -------------------------- |
-| 1   | 1   | 0   | 1                          |
-| 1   | 0   | 0   | 1                          |
-| 0   | 1   | 0   | 1                          |
+| $x$ | $y$ | $z$ | $P$ |
+| --- | --- | --- | --- |
+| 1   | 1   | 0   | 1   |
+| 1   | 0   | 0   | 1   |
+| 0   | 1   | 0   | 1   |
 
 Parsing each line, the truth table tells us that our complex expression ($P$) is true in the following scenarios:
 
@@ -199,7 +199,13 @@ $$
 (x \lor y) \land \lnot z
 $$
 
-// ADD DEMONSTRATION OF LOG EQUIVALENCE WITH TRUTH TABLES
+If we construct a truth table for the original expression and its simplification we see that they are true under the same logical conditions which demonstrates their equivalence:
+
+| $x$ | $y$ | $z$ | $((x \land y) \land \lnot z) \lor ((x \land \lnot y) \land \lnot z) \lor ((\lnot x \land y) \land \lnot z)$ | $(x \lor y) \land \lnot z$ |
+| --- | --- | --- | ----------------------------------------------------------------------------------------------------------- | -------------------------- |
+| 1   | 1   | 0   | 1                                                                                                           | 1                          |
+| 1   | 0   | 0   | 1                                                                                                           | 1                          |
+| 0   | 1   | 0   | 1                                                                                                           | 1                          |
 
 #### Constructing the digital circuit
 
@@ -261,13 +267,13 @@ $$
 
 Which is then itself forked into a NAND to give the final output.
 
-This is probably harder to get your head around than the implementation that used three different operators.
+This is probably harder to process mentally than the implementation that used three different operators but the point is just to demonstrate that such a reduction is possible and that complex abstract states can be constructed from the concatenation of primitive electrical components.
 
 ### Hardware Description Language
 
-Digital circuits can be designed using a Hardware Description Language (HDL) and a simulator. An HDL is a declarative programming language used to describe the behaviour and structure of digital circuits. In _Nand To Tetris_ the HDL is Hack, a simplified HDL for teaching purposes.
+Digital circuits can be designed using a Hardware Description Language (HDL) and simulation software. An HDL is a declarative programming language used to describe the behaviour and structure of digital circuits. In _Nand To Tetris_ the HDL is Hack, a simplified HDL for teaching purposes.
 
-An HDL file uses specialised syntax to describe the function and implementation of a given chip. When it is fed into a simulator, we can test its outputs against a variety of inputs. This helps us check that the chip is working as intended but also can be used to benchmark performance metrics such as the speed of computation and energy consumption.
+An HDL file uses specialised syntax to describe the function and implementation of a given chip. When it is fed into a simulator, we can test the chip's outputs against a variety of inputs to check it is working as intended.
 
 Below is an HDL specification file for the NAND logic gate written in Hack:
 
@@ -287,27 +293,72 @@ The code contains two sections:
 - the interface (`CHIP`, `IN`, `OUT`)
 - the implementation (`PARTS`)
 
-The interface names the chip and specifies the designators for its inputs and outputs. In the example, the interface specifies two input values (`a` and `b`) and a single output value (`out`).
+The interface names the chip and designates its input and output pins. In the example, the interface specifies two input pins (`a` and `b`) and a single output pin (`out`).
 
-The interface abstracts the actual implementation of the chip. It only tells us the inputs and output, not how the output is generated from the input. This is provided by the implementation section.
+The interface abstracts the actual implementation of the chip. It only tells us the inputs and output, not how the output is generated from the input. This is provided by the implementation section which details the internal workings of the chip.
 
-In the NAND example we invoke two other gates, AND and NOT, to implement the logic of NAND. We are simply taking the output of AND and inverting it with NOT. (For this to work in the simulator, we would have to have already defined specifications for AND and NOT, and imported them into the NAND file. )
+The NAND implementation invokes two other gates, AND and NOT. We are simply taking the output of AND and inverting it with NOT. The HDL specification describes the following circuit:
+
+![](./img/nand-with-and-not.png)
 
 Having defined the gate we can load it into the simulator and test its behaviour.
 
+![](./img/hardware-simulator-three.png)
+
+We can change the values of the input pins and observe how this affects both the output and the interim outputs of the implementation (ie. _w1_).
+
+To be more efficient we can create a test file that runs through all our expected outputs:
+
+```
+# Nand.tst
+
+load Nand.hdl,
+output-file Nand.out,
+compare-to Nand.cmp,
+output-list a%B3.1.3 b%B3.1.3 out%B3.1.3;
+
+set a 0,
+set b 0,
+eval,
+output;
+
+set a 0,
+set b 1,
+eval,
+output;
+
+set a 1,
+set b 0,
+eval,
+output;
+
+set a 1,
+set b 1,
+eval,
+output;
+```
+
+We feed the test file into the simulator along with the following comparison file and it will compute whether the chip conforms to our expectations:
+
+```
+# Nand.cmp
+
+|   a   |   b   |  out  |
+|   0   |   0   |   1   |
+|   0   |   1   |   1   |
+|   1   |   0   |   1   |
+|   1   |   1   |   1   |
+```
+
 ### Coursework
 
-The task for the first unit was to create the set of logic gates and chips that will later be utilised in the construction of the computer. You are provided with NAND as a primitive and from this you build the other gates. Once a working gate has been constructed from NAND you are permitted to use it in the construction of subsequent gates. For example if you have made an OR gate solely out of NANDs, you may then use OR along with NAND to create XOR.
+The task for the first unit was to use Hack to create the set of logic gates and chips that will later be utilised in the construction of the computer. You are provided with NAND as a primitive and from this you build the other gates. Once a working gate has been constructed from NAND you are permitted to use it in the construction of subsequent gates. For example if you have made an OR gate solely out of NANDs, you may then use OR along with NAND to create XOR.
 
-Each gate and chip is created by writing a specification for it in Hack, a Hardware Description Language that has been constructed by the course provider. An HDL is a declarative programming language used to describe the behaviour and structure of digital circuits.
+Below I have listed the HDL files for each gate along with a simulation of the circuit implementation.
 
-Here is an example of the Hack file for NAND:
+#### Gates
 
-Once a gate is created, its internal implementation is encapsulated and is no longer of active concern. You can simply assume its implementation and refer to it purely on the basis of its interface.
-
-Below I have listed the HDL files for each gate along with an interactive demonstration using [Circuitverse](https://www.circuitverse.org).
-
-#### NOT
+##### NOT
 
 ```
 CHIP Not {
@@ -315,7 +366,7 @@ CHIP Not {
     OUT out;
 
     PARTS:
-    Nand(a=in,b=in,out=out);00
+    Nand(a=in,b=in,out=out);
 }
 ```
 
@@ -324,7 +375,7 @@ CHIP Not {
 <iframe src="https://circuitverse.org/simulator/embed/n2t-not?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-#### AND
+##### AND
 
 ```
 CHIP And {
@@ -346,7 +397,7 @@ CHIP And {
 <iframe src="https://circuitverse.org/simulator/embed/n2t-and?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-#### OR
+##### OR
 
 ```
 CHIP Or {
@@ -366,7 +417,7 @@ CHIP Or {
     Or(a=w1,b=sel,out=out);
     Not(in=out,out=a);>
 
-#### XOR
+##### XOR
 
 ```
 CHIP Xor {
@@ -386,7 +437,13 @@ CHIP Xor {
 <iframe src="https://circuitverse.org/simulator/embed/n2t-xor?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-#### MUX (Multiplexer)
+#### Chips
+
+As well as the basic logic gates, the first unit introduced additional chips that are essential for constructing a working computer. These chips represent more complex states that the logical operators but proceed on the same functional and modular basis: input values are processed internally to produce output values and the implementation can utilise previously constructed logic gates.
+
+##### MUX (Multiplexer)
+
+A multiplexer selects one of several input pins and forwards the selection to a single output pin. There are three pins: two input bits (`A`, `B`) and a selection bit (`SEL`). When `SEL` is applied the output bit is toggled between `A` and `B`. Multiplexers are essential to the construction of large digital circuits as they implement data selection and switching on the basis of logical conditions.
 
 ```
 CHIP Mux {
@@ -405,7 +462,9 @@ CHIP Mux {
 <iframe src="https://circuitverse.org/simulator/embed/mux_n2t?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-#### DMUX (Demultiplexer)
+##### DMUX (Demultiplexer)
+
+As the name suggests, a demultiplexer reverses the functionality of a multiplexer. It receives a single input, and based on the `SEL` value channels it to either an `A` or `B` output.
 
 ```
 CHIP DMux {
@@ -422,3 +481,61 @@ CHIP DMux {
 <div style="display:flex;margin-top:1.5rem">
 <iframe src="https://circuitverse.org/simulator/embed/dmux_v2_n2t?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
+
+#### Multi-bit chips
+
+Multi-bit chips are variants of the chips and gates already produced. The logic of a multi-bit AND is the same as the logic for a normal AND gate. They differ only in the number of bits they can receive and output. In a real computer, passing single 1s and 0s into chips would be inefficient since very little information can be represented or encoded in a single bit. When we build the computer we will be passing values with a bit-length of 8-bits (a byte) as a miniumum (e.g. 10101100) and we need chips that can handle bits of this length.
+
+For illustration, here is the HDL implementation of an AND-16:
+
+```
+CHIP And16 {
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    And(a=a[0],b=b[0],out=out[0]);
+	And(a=a[1],b=b[1],out=out[1]);
+	And(a=a[2],b=b[2],out=out[2]);
+	And(a=a[3],b=b[3],out=out[3]);
+	And(a=a[4],b=b[4],out=out[4]);
+	And(a=a[5],b=b[5],out=out[5]);
+	And(a=a[6],b=b[6],out=out[6]);
+	And(a=a[7],b=b[7],out=out[7]);
+	And(a=a[8],b=b[8],out=out[8]);
+	And(a=a[9],b=b[9],out=out[9]);
+	And(a=a[10],b=b[10],out=out[10]);
+	And(a=a[11],b=b[11],out=out[11]);
+	And(a=a[12],b=b[12],out=out[12]);
+	And(a=a[13],b=b[13],out=out[13]);
+	And(a=a[14],b=b[14],out=out[14]);
+	And(a=a[15],b=b[15],out=out[15]);
+}
+```
+
+Here, instead of a single-bit AND gate that takes two single-bit inputs and produces a single-bit output, the 16-bit AND takes two 16-bit inputs and produces a single 16-bit output. Each bit of the output is determined by the AND operation which is executed on each of the input bits. Don't be confused by the base-10 numbers: we are still working with binary values however we use denary digits to individuate each bit in the 16-bit number. For example if `a = 10101111`, `a[4]` refers to the fourth bit in `a` counting from the right-hand side (`0`).
+
+In addition to `And16` I created multi-bit variants of OR, NOT, MUX and DMUX.
+
+#### Multi-way chips
+
+We also produced _multi-way_ variants of some of the main gates and chips. These versions accept more than the standard one or two input pins but execute the same logic. For example instead of a standard 2-pin input AND gate, a 3-pin input AND gate would take three inputs and produce a `1` output when all three inputs are `1`.
+
+An example of a multi-way chip that I constructed is OR-8-WAY. This chip outputs 1 when any of its 8 inputs is 1. If all inputs are 0, it outputs 0:
+
+```
+CHIP Or8Way {
+    IN in[8];
+    OUT out;
+
+    PARTS:
+ 	Or(a=in[0],b=in[1],out=a);
+	Or(a=a,b=in[2],out=b);
+	Or(a=b,b=in[3],out=c);
+	Or(a=c,b=in[4],out=d);
+	Or(a=d,b=in[5],out=e);
+	Or(a=e,b=in[6],out=f);
+	Or(a=f,b=in[7],out=out);
+}
+
+```

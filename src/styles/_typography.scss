@@ -1,6 +1,7 @@
 body {
   font-family: $font_stack_serif;
   color: $foreground;
+  font-weight: 400;
 }
 
 p,
@@ -9,11 +10,21 @@ li {
   line-height: 1.5;
 }
 
+h2 {
+  font-family: $font_stack_sans;
+}
+
+h3 {
+  border-bottom: 1px solid $foreground;
+  padding-bottom: 0.75rem;
+}
+
 h3,
 h4,
 h5,
 h6 {
-  font-family: $font_stack_serif;
+  font-family: $font_stack_sans;
+  font-weight: 500;
 }
 hr {
   border: none;
@@ -34,9 +45,13 @@ blockquote {
 // }
 
 p > code {
-  font-size: 14px !important;
+  font-size: 12px !important;
 }
 
 .math-inline {
   font-size: 14px;
+}
+
+ol[type="a"] > li {
+  font-style: italic;
 }
