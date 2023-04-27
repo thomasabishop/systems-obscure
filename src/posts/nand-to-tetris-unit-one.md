@@ -8,7 +8,7 @@ I have recently started [Nand to Tetris](https://www.nand2tetris.org/course). Th
 
 In this post I outline what I learned in the first unit. This broadly follows the curriculum but adds extra details I have acquired elsewhere to give the fullest account.
 
-### Bits and functions
+## Bits and functions
 
 The workings of a classical computer can be reduced to a series of operations on the binary digits (bits) 0 and 1. A computational process can be represented as a function: data (a series of bits) goes into the function in one state and comes out in a another state. The new state is a product of the function.
 
@@ -55,7 +55,7 @@ OR returns 1 if one or both bits are 1, otherwise it returns 0:
 | 1   | 0   | 1                 |
 | 0   | 0   | 0                 |
 
-### Logic gates
+## Logic gates
 
 The logical function of each of the Boolean operators is implemented at the level of computer hardware by logic gates. Each gate is represented with one or more input pins and a single output pin through which the bits enter and exit. The pins feed into and out of a chip which executes the function.
 
@@ -67,7 +67,7 @@ It is important to recognise that logic gates are an abstraction. In reality, yo
 
 _Nand to Tetris_ starts at the level of gates and does not discuss how the individual gates are realised in electrical circuits. However, I think it is useful to understand the basics of the electrical engineering so we might begin to grasp how it is possible to go from an inert block of metal and silicon to fully functioning computer.
 
-#### The electronic implementation of gate logic
+### The electronic implementation of gate logic
 
 We can start with the concept of a switch. Consider what is happening when we turn on a light using a wall switch. When the switch is off, the electrical circuit that connects the bulb to the voltage source is broken. As a result, there is no potential difference between the terminals and the current cannot reach the bulb. When the switch is on, the circuit is complete and the current flows freely to the bulb.
 
@@ -97,7 +97,7 @@ Applying a small amount of current at the base terminal (B) of a BJT allows a la
 
 Thus the base terminal of a transistor is another way of implementating the gate-like behaviour we previously achieved with mechanical switches. There is an important difference however. With a switch, the circuit is actually broken when it is in the "off" state and thus there is no current flowing at all. In contrast, with a transistor, the current drops in the "off" state but a voltage remains. Because a continuous circuit is an analogue system, the quantities of resistance, voltage and current are not discrete values - they will vary over a given range. Thus "off" corresponds to "low" voltage and "on" corresponds to "high" voltage. The specific stipulation will depend on the circuit design but it is typically the case that a state of 1 or "on" is within the range 2-5V whereas a state of 0 or "off" is within the range 0.0 - 0.8V.
 
-### Boolean function synthesis
+## Boolean function synthesis
 
 To recap, elementary computational processes can be represented as logical functions. A function consists in one or more Boolean operators processing bits. For each Boolean operator we can construct a chip that represents its truth conditions. We call these logic gates. Logic gates are built with transistors that either block or permit the flow of electric current. This makes them behave in a manner identical to mechanical switches.
 
@@ -207,7 +207,7 @@ If we construct a truth table for the original expression and its simplification
 | 1   | 0   | 0   | 1                                                                                                           | 1                          |
 | 0   | 1   | 0   | 1                                                                                                           | 1                          |
 
-#### Constructing the digital circuit
+### Constructing the digital circuit
 
 Now that we have reduced $P$ to its simplest form using the connectives AND, OR and NOT we can construct a circuit using the logic gates for these connectives to represent the overall state of affairs expresed by $P$. We will have three input bits which correspond to $x$, $y$, $z$, and a single output bit that will reflect the truth value of $P$ based on the inputs. The input bits will be fed into an arrangement of logic gates that that matches the logical connectives in $(x \lor y) \land \lnot z$.
 
@@ -217,7 +217,7 @@ Now that we have reduced $P$ to its simplest form using the connectives AND, OR 
 
 We can confirm that the circuit implementation is an accurate representation of $P$ by toggling the input values to confirm that the output is only 1 when either $x$ or $y$ is true and $z$ is false.
 
-#### Further simplification with NAND
+### Further simplification with NAND
 
 Our circuit uses three different types of logic gate. This is satisfactory but it would better if we could simplify the circuit even further and use a single type of gate rather than three different gates. To do so we need to further reduce our logic and introduce another type of logic gate: NAND.
 
@@ -269,7 +269,7 @@ Which is then itself forked into a NAND to give the final output.
 
 This is probably harder to process mentally than the implementation that used three different operators but the point is just to demonstrate that such a reduction is possible and that complex abstract states can be constructed from the concatenation of primitive electrical components.
 
-### Hardware Description Language
+## Hardware Description Language
 
 Digital circuits can be designed using a Hardware Description Language (HDL) and simulation software. An HDL is a declarative programming language used to describe the behaviour and structure of digital circuits. In _Nand To Tetris_ the HDL is Hack, a simplified HDL for teaching purposes.
 
@@ -350,15 +350,15 @@ We feed the test file into the simulator along with the following comparison fil
 |   1   |   1   |   1   |
 ```
 
-### Coursework
+## Coursework
 
 The task for the first unit was to use Hack to create the set of logic gates and chips that will later be utilised in the construction of the computer. You are provided with NAND as a primitive and from this you build the other gates. Once a working gate has been constructed from NAND you are permitted to use it in the construction of subsequent gates. For example if you have made an OR gate solely out of NANDs, you may then use OR along with NAND to create XOR.
 
 Below I have listed the HDL files for each gate along with a simulation of the circuit implementation.
 
-#### Gates
+### Gates
 
-##### NOT
+#### NOT
 
 ```
 CHIP Not {
@@ -375,7 +375,7 @@ CHIP Not {
 <iframe src="https://circuitverse.org/simulator/embed/n2t-not?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-##### AND
+#### AND
 
 ```
 CHIP And {
@@ -397,7 +397,7 @@ CHIP And {
 <iframe src="https://circuitverse.org/simulator/embed/n2t-and?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-##### OR
+#### OR
 
 ```
 CHIP Or {
@@ -417,7 +417,7 @@ CHIP Or {
     Or(a=w1,b=sel,out=out);
     Not(in=out,out=a);>
 
-##### XOR
+#### XOR
 
 ```
 CHIP Xor {
@@ -437,11 +437,11 @@ CHIP Xor {
 <iframe src="https://circuitverse.org/simulator/embed/n2t-xor?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-#### Chips
+### Chips
 
 As well as the basic logic gates, the first unit introduced additional chips that are essential for constructing a working computer. These chips represent more complex states that the logical operators but proceed on the same functional and modular basis: input values are processed internally to produce output values and the implementation can utilise previously constructed logic gates.
 
-##### MUX (Multiplexer)
+#### MUX (Multiplexer)
 
 A multiplexer selects one of several input pins and forwards the selection to a single output pin. There are three pins: two input bits (`A`, `B`) and a selection bit (`SEL`). When `SEL` is applied the output bit is toggled between `A` and `B`. Multiplexers are essential to the construction of large digital circuits as they implement data selection and switching on the basis of logical conditions.
 
@@ -462,7 +462,7 @@ CHIP Mux {
 <iframe src="https://circuitverse.org/simulator/embed/mux_n2t?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-##### DMUX (Demultiplexer)
+#### DMUX (Demultiplexer)
 
 As the name suggests, a demultiplexer reverses the functionality of a multiplexer. It receives a single input, and based on the `SEL` value channels it to either an `A` or `B` output.
 
@@ -482,7 +482,7 @@ CHIP DMux {
 <iframe src="https://circuitverse.org/simulator/embed/dmux_v2_n2t?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-#### Multi-bit chips
+### Multi-bit chips
 
 Multi-bit chips are variants of the chips and gates already produced. The logic of a multi-bit AND is the same as the logic for a normal AND gate. They differ only in the number of bits they can receive and output. In a real computer, passing single 1s and 0s into chips would be inefficient since very little information can be represented or encoded in a single bit. When we build the computer we will be passing values with a bit-length of 8-bits (a byte) as a miniumum (e.g. 10101100) and we need chips that can handle bits of this length.
 
@@ -517,7 +517,7 @@ Here, instead of a single-bit AND gate that takes two single-bit inputs and prod
 
 In addition to `And16` I created multi-bit variants of OR, NOT, MUX and DMUX.
 
-#### Multi-way chips
+### Multi-way chips
 
 We also produced _multi-way_ variants of some of the main gates and chips. These versions accept more than the standard one or two input pins but execute the same logic. For example instead of a standard 2-pin input AND gate, a 3-pin input AND gate would take three inputs and produce a `1` output when all three inputs are `1`.
 

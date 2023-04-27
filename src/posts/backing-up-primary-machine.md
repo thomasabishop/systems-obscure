@@ -8,7 +8,7 @@ I use the `rsnapshots` package to run sequenced backups of my ThinkPad T15 runni
 
 `rsnapshots` is based on the `rsync` utility and makes it easy to maintain backups over several timeframes. I run hourly, daily, weekly, and monthly backups, sequenced using `systemd` timers.
 
-### Preparing the external disk
+## Preparing the external disk
 
 I store my backups on an external 500GB SSD.
 
@@ -59,7 +59,7 @@ Typically you won't have access to the partition or mount directory yet. You can
 sudo chown -R <username>:users /run/media/<username>/
 ```
 
-### Configure snapshot backups with rsnapshot
+## Configure snapshot backups with rsnapshot
 
 I install `rsnapshot` and `rsync` as a dependency:
 

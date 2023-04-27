@@ -9,7 +9,7 @@ export default function Post({ data }) {
   return (
     <Main>
       <div className="post">
-        <h2 className="post__title">{post.frontmatter.title}</h2>
+        <h1 className="post__title">{post.frontmatter.title}</h1>
         {/* <hr /> */}
         <span className="post__date">
           <i>{post.frontmatter.date}</i>

@@ -4,28 +4,16 @@ body {
   font-weight: 400;
 }
 
+.post__title {
+  font-size: 1.8rem;
+}
+
 p,
 ul,
 li {
   line-height: 1.5;
 }
 
-h2 {
-  font-family: $font_stack_sans;
-}
-
-h3 {
-  border-bottom: 1px solid $foreground;
-  padding-bottom: 0.75rem;
-}
-
-h3,
-h4,
-h5,
-h6 {
-  font-family: $font_stack_sans;
-  font-weight: 500;
-}
 hr {
   border: none;
   height: 1px;
