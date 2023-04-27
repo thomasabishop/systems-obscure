@@ -4,11 +4,11 @@ title: "Informal definitions of key concepts in propositional logic"
 slug: /informal-concepts-propositional-logic/
 ---
 
-### Introduction
+## Introduction
 
 This post is the first of a series on propositional logic that introduces the foundational logical concepts of validity, soundness, truth, falsity, possibility and indeterminacy. These concepts are defined here informally and will receive formal articulation in later posts.
 
-### What is propositional logic?
+## What is propositional logic?
 
 The chief unit of propositional logic is the _proposition_. It is typically said that the sentences of a language _express_ propositions. Thus, in natural languages, propositions are expressed via declarative sentences: a statement that _such and such is the case_. For example, in English: _snow is white_, _London is the capital of the United Kingdom_, _John is travelling to Stockholm_ etcetera. Whilst this is true it is important not to assume that a proposition reduces to its expression by a given sentence. There are numerous examples of why this assumption proves problematic. For example, _il pleut_ and _it is raining_ express the same proposition but do so via different sentences in different languages. Similarly the semantically ambiguous English sentence _Two cars were reported stolen by the police yesterday_ expresses two possible propositions (the police reported the car stolen, the police stole the car) that are left underdetermined by the surface grammar of the sentence. For simplicity we will talk about propositions exclusively in terms of sentences but it is important to note that the two are not straightforwardly interchangeable.
 
@@ -18,7 +18,7 @@ Although declarative sentences are a subset of the totality of possible grammati
 
 The purpose of propositional logic is to analyse propositions in terms of their truth conditions and to derive rules governing their proper application and combination in arguments. Equipped with these rules, we are able to demonstrate for example that an argument is valid or that it displays sound reasoning. On the other hand, the same rules will allow us to demonstrate when an argument is invalid or that it leads to contradiction.
 
-### Arguments and consistency
+## Arguments and consistency
 
 Propositional logic proceeds upon two interconnected axes:
 
@@ -64,7 +64,7 @@ Let's demonstrate how this works by making an implicit argument from previous ex
 
 This constitutes a logical argument because of how the propositions are arranged: we are asserting that the conclusion (C) is supported by premises P1 and P2. We call such arguments **syllogisms**.
 
-### Evaluation criteria for arguments
+## Evaluation criteria for arguments
 
 In what sense do the premises support the conclusion of an argument? What is the relation between these two types of proposition? The word 'support' is rather vague. In logic there are different ways to assess the qualility of an argument: **inductive strength** and **deductive validity**.
 
@@ -96,7 +96,7 @@ The next obvious is whether all arguments are like this. Is probability the best
 
 > An argument is deductively valid if and only if it is not possible for the premises to be true and the conclusion false.
 
-### Validity and soundness
+## Validity and soundness
 
 The following syllogism is an example of a valid argument:
 
@@ -153,7 +153,7 @@ We have already seen examples of arguments that are valid but not sound in the M
 
 This argument is deductively invalid because we can consistently assert the premises but deny the conclusion. Specifically: there isn't anything about the premises that makes the denial of the conclusion inconsistent. From the point of view of the premises alone, London could be north of Cambridge whilst still being in the southern part of the country.
 
-### Logical possibility
+## Logical possibility
 
 In distinguishing the properties of logical consistency and validity we have been making much tacit use of the notion of _possibility_. This is because when we consider the validity of an argument we are assessing truth-conditions and this consists in asking ourselves what could or could not be the case: were it such that _P_, then it would be the case that _Q_. It is important to understand what possibility means in the context of logic and how it differs from what we might mean ordinarily when we use the term.
 
@@ -179,7 +179,7 @@ From this we can derive the following property of logical possibility:
 
 > A proposition is logically possible just if it does not imply a contradiction.
 
-### Logical truth, falsity and indeterminacy
+## Logical truth, falsity and indeterminacy
 
 What are the truth-conditions of a contradictory proposition? We know that a logically possible proposition such as _every woman can levitate_ could be true or false. It has to be so because we are capable of constructing valid arguments where it features as a premise and a valid argument implies the possible truth of its premises.
 
@@ -206,18 +206,18 @@ The properties of logical truth and falsity are alike in their universality. Pro
 
 We class all propositions that are not contradictions or tautologies **logically indeterminate** propositions. This means that their truth-value is not assigned purely on the basis of the meanings of the terms of which they are comprised. _It is raining_ for example, is logically indeterminate because we cannot know its truth-value just by reflecting on the meaning of the predicate _is raining_. It may be true under certain conditions and false under others and in order to know the specific truth-value at a given moment, we must look to states of affairs beyond the sentence. The vast majority of propositions expressed in natural and formal languages are indeterminate in this manner.
 
-### Summary
+## Summary
 
 In this post we introduced propositions as descriptions of states of affairs that possess truth-conditions. We noted that propositions are expressed in language through the medium of declarative sentences and that not every expression in a language possesses a propositional form. Two key properties that pertain to sets of propositions were introduced and exemplified: consistency and validity. In addition we considered different evaluative criteria for logical arguments comparing inductive strength with deductive validity. We distinguished logical possibility from nomological possibility and explained how the law of non-contradiction places bounds on what is logically possible. Equipped with the concept of logical possibility we were able to introduce logical truth and falsity, analysing the truth-conditional form of tautologies and contradictions and noting that propositions that are neither logically true or false are logically indeterminate.
 
-### Notes
+## Notes
 
 <ol>
 <li>These all being standard instances of speech acts which are resistant to truth-conditional analyses as noted above.</li>
 <li>This example comes from (Bergmann, Moor and Nelson, 2014).</li>
 </ol>
 
-### References
+## References
 
 Bergmann, M., Moor, J. and Nelson, J. (2014). The logic book. Boston: Mcgraw-Hill/Connect Learn Succeed.
 
