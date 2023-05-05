@@ -4,7 +4,7 @@ slug: /recent-courses/
 date: 2023-05-03
 ---
 
-In my current role Fridays are dedicated to self-directed professional development. We are also offered three-day in depth training courses in house. Below are the recent courses I have completed.
+Below are the recent courses I have completed.
 
 | Course                                                                                                                                        | Provider              | Date completed |
 | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | -------------- |
