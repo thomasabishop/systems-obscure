@@ -2,6 +2,10 @@ table {
   border-collapse: collapse; /* remove border-spacing */
   width: 100%;
   margin-bottom: 1em; /* add spacing between tables */
+  a,
+  a:hover {
+    border-bottom: none;
+  }
 }
 
 th,

@@ -22,19 +22,17 @@ export default function Home({
 
       <div className="introduction">
         <p>
-          Thoughts and technical preoccupations of a software engineer from
-          London.
+          The thoughts and preoccupations of a software engineer from London.
         </p>
       </div>
       <div className="home-links">
         <a
-          style={{ paddingRight: "0.5rem" }}
+          // style={{ paddingRight: "0.5rem" }}
           href="https://github.com/thomasabishop"
         >
           GitHub
         </a>
       </div>
-      <hr />
       <div>
         {/* <h2 className="posts-header">Posts</h2> */}
         <div className="posts-wrapper">{Posts}</div>

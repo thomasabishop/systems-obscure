@@ -1,18 +1,18 @@
 @import "../../styles/variables";
 
 .Header {
-  // border-bottom: 2px solid $foreground;
-  //  padding: 0 0 0.5rem 0;
+  border-bottom: 2px dashed $foreground;
+  padding: 0 0 1rem 0;
   padding-left: 0;
 
-  // text-align: center;
   &__site-title {
-    //    letter-spacing: 0.9px;
-    //  text-transform: uppercase;
+    border-bottom: none;
     font-size: 1.7em;
     font-weight: 600;
-    text-decoration: none;
     color: $foreground;
+    &:hover {
+      border-bottom: none;
+    }
   }
 }
 
@@ -20,7 +20,7 @@
   .Header {
     padding-top: 0.5rem;
     &__site-title {
-      font-size: 1.3em;
+      //   font-size: 1.3em;
     }
   }
 }
