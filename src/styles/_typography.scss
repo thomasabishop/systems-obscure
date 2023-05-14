@@ -31,10 +31,6 @@ hr {
   background-color: $foreground;
 }
 
-.Header {
-  //  font-family: $font_stack_sans;
-}
-
 blockquote {
   font-style: italic;
 }
@@ -55,4 +51,8 @@ ol[type="a"] > li {
 
 .introduction p {
   font-style: italic;
+}
+
+.posts-header {
+  margin-bottom: 0;
 }

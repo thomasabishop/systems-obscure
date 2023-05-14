@@ -34,7 +34,7 @@ export default function Home({
         </a>
       </div>
       <div>
-        {/* <h2 className="posts-header">Posts</h2> */}
+        <h2 className="posts-header">Posts</h2>
         <div className="posts-wrapper">{Posts}</div>
       </div>
     </Main>
