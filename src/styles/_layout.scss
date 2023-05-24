@@ -30,6 +30,31 @@ div.math-display {
   overflow-x: auto;
 }
 
+.code-metrics {
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__refresh-btn {
+    //   height: 2rem;
+  }
+
+  .error-wrapper {
+    font-family: $font_stack_sans;
+    width: 100%;
+    color: red;
+    font-weight: 500;
+    font-size: 0.825rem;
+    border: 1px solid red;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    background-color: rgb(255, 198, 198);
+  }
+}
+
 @media only screen and (max-width: 778px) {
   .main {
     padding: 0.5rem;

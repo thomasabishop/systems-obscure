@@ -1,6 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 // import "../index.css"
 import "../styles/main.scss"
 import PostLink from "../components/PostLink/PostLink"
@@ -21,17 +21,13 @@ export default function Home({
       </Helmet>
 
       <div className="introduction">
-        <p>
-          The thoughts and preoccupations of a software engineer from London.
-        </p>
+        <p>The thoughts and preoccupations of a software engineer from London.</p>
       </div>
       <div className="home-links">
-        <a
-          // style={{ paddingRight: "0.5rem" }}
-          href="https://github.com/thomasabishop"
-        >
+        <a style={{ marginRight: "1rem" }} href="https://github.com/thomasabishop">
           GitHub
         </a>
+        <Link to="/code-metrics">Code Metrics</Link>
       </div>
       <div>
         <h2 className="posts-header">Posts</h2>
