@@ -1,5 +1,5 @@
 body {
-  font-family: $font_stack_serif;
+  font-family: $font_stack_sans;
   color: $foreground;
   font-weight: 400;
 }
@@ -22,7 +22,7 @@ a {
 p,
 ul,
 li {
-  line-height: 1.6em;
+  line-height: 1.5;
 }
 
 hr {
@@ -55,4 +55,8 @@ ol[type="a"] > li {
 
 .posts-header {
   margin-bottom: 0;
+}
+
+h2 > code {
+  font-size: 1.2rem !important;
 }

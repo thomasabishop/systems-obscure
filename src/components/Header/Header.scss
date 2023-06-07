@@ -1,14 +1,14 @@
 @import "../../styles/variables";
 
 .Header {
-  border-bottom: 2px dashed $foreground;
+  border-bottom: 2px solid $foreground;
   padding: 0 0 1rem 0;
   padding-left: 0;
 
   &__site-title {
     border-bottom: none;
-    font-size: 1.7em;
-    font-weight: 600;
+    font-size: 1.8em;
+    font-weight: 800;
     color: $foreground;
     &:hover {
       border-bottom: none;
