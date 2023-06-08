@@ -18,7 +18,7 @@ export const options = {
   indexAxis: "y",
   elements: {
     bar: {
-      borderWidth: 2,
+      borderWidth: 1,
     },
   },
   scales: {
@@ -42,9 +42,12 @@ export const options = {
 }
 
 const ProgrammingLanguagesChart = ({ data, loading, error }) => {
-  const labels = data?.map((datum) => datum?.name)
-  const values = data?.map((datum) => datum?.decimal)
+  console.log(data)
+  const nonZeroValues = data?.filter((datum) => Number(datum?.decimal) > 0)
+  const labels = nonZeroValues?.map((value) => value?.name)
+  const values = nonZeroValues?.map((value) => value?.decimal)
 
+  console.log(values)
   const chartJsData = {
     labels,
     datasets: [
