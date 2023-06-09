@@ -3,8 +3,8 @@
 .SingleMetricDisplay {
   font-family: $font_stack_sans;
   font-size: 13px;
-  background-color: #f8f9fa;
-  border: 1px solid #c4c4c4;
+  background-color: $grey;
+  border: 1px solid $grey_darkened;
   border-radius: 3px;
   min-width: 140px;
   display: flex;

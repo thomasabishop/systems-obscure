@@ -32,10 +32,15 @@ div.math-display {
 
 .code-metrics {
   &__header {
+    padding-top: 0.5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__block {
+    margin: 0 0 1rem;
   }
 
   .error-wrapper {

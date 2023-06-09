@@ -7,6 +7,7 @@ import OperatingSystemsChart from "../components/OperatingSystemsChart/Operating
 import SingleMetricDisplay from "../components/SingleMetricDisplay/SingleMetricDisplay"
 import CodingDurationsChart from "../components/CodingDurationsChart/CodingDurationsChart"
 import SingleMetrics from "../components/SingleMetrics/SingleMetrics"
+import CodeMetricsControls from "../components/CodeMetricsControls/CodeMetricsControls"
 const localEndpoiint = `http://127.0.0.1:3000/query-wakatime/main-metrics?timePeriod=last_30_days`
 
 export default function CodeMetrics() {
@@ -31,39 +32,21 @@ export default function CodeMetrics() {
     fetchData()
   }, []) // Empty array indicates this hook runs once on mount.
 
-  const singleMetrics = [
-    {
-      title: "Total",
-      value: responseData?.human_readable_total,
-    },
-    {
-      title: "Daily average",
-      value: responseData?.human_readable_daily_average,
-    },
-    {
-      title: "Best single day",
-      value: responseData?.best_day?.text,
-    },
-  ]
-
   return (
     <Main>
       <div className="code-metrics">
         <div className="code-metrics__header">
-          <h2>Code Metrics</h2>
-          <button className="code-metrics__refresh-btn">Refresh data</button>
+          <h1 className="post__title">Code Metrics</h1>
+        </div>
+
+        <div className="code-metrics__block">
+          <CodeMetricsControls />
         </div>
 
         {/* {loading && <p>Loading...</p>}
         {error && <p>An error occurred: {error} </p>} */}
 
         <SingleMetrics data={responseData} />
-
-        {/* <div className="code-metrics__single-metrics">
-          {singleMetrics.map((metric) => (
-            <SingleMetricDisplay title={metric?.title} value={metric?.value} />
-          ))}
-        </div> */}
 
         <CodingDurationsChart />
         <ProgrammingLanguagesChart data={responseData?.languages} loading={loading} error={error} />
