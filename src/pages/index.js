@@ -22,7 +22,8 @@ export default function Home({
 
       <div className="introduction">
         <p>
-          The thoughts and preoccupations of a software engineer from London.
+          The thoughts and technical preoccupations of a software engineer from
+          London.
         </p>
       </div>
       <div className="home-links">
