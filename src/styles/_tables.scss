@@ -15,15 +15,15 @@ td {
 }
 
 th {
-  background-color: #f2f2f2; /* add background color to header cells */
+  background-color: #f8f9fa; /* add background color to header cells */
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f2f2f2; /* add alternating row background color */
+  background-color: #f8f9fa; /* add alternating row background color */
 }
 
 th {
   border-bottom: 3px double black; /* add double underline to header cells */
-  background-color: #f2f2f2; /* add background color to header cells */
+  background-color: #f8f9fa; /* add background color to header cells */
   padding: 0.25em; /* add padding to cells */
 }
