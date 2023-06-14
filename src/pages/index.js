@@ -26,14 +26,14 @@ export default function Home({
           London.
         </p>
       </div>
-      <div className="home-links">
+      {/* <div className="home-links">
         <a
           // style={{ paddingRight: "0.5rem" }}
           href="https://github.com/thomasabishop"
         >
           GitHub
         </a>
-      </div>
+      </div> */}
       <div>
         <h2 className="posts-header">Posts</h2>
         <div className="posts-wrapper">{Posts}</div>

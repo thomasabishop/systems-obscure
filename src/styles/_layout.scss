@@ -3,6 +3,17 @@ body {
   height: 100%;
   margin: 0;
 }
+
+.site-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // this makes sure the container takes at least the full viewport height
+}
+
+.main-content {
+  flex: 1 0 auto; // this makes sure the main content expands as much as it can, pushing the footer down
+}
+
 .main {
   width: 80%;
   margin: 0.5rem auto;
