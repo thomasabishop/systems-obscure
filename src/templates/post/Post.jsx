@@ -2,12 +2,15 @@ import React from "react"
 import { graphql } from "gatsby"
 import Main from "../main/Main"
 import "katex/dist/katex.min.css"
-
+import { Helmet } from "react-helmet"
 export default function Post({ data }) {
   const post = data.markdownRemark
 
   return (
     <Main>
+      <Helmet>
+        <title>{post.frontmatter.title} | Systems Obscure</title>
+      </Helmet>
       <div className="post">
         <h1 className="post__title">{post.frontmatter.title}</h1>
         {/* <hr /> */}
