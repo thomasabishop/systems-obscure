@@ -18,17 +18,25 @@ export default function Home({
     <Main>
       <Helmet>
         <title>Systems Obscure</title>
+        <meta
+          name="description"
+          content="The thoughts and technical preoccupations of a software engineer from
+          London.
+"
+        />
       </Helmet>
 
       <div className="introduction">
-        <p>The thoughts and preoccupations of a software engineer from London.</p>
+        <p>The thoughts and technical preoccupations of a software engineer from London.</p>
       </div>
-      <div className="home-links">
-        <a style={{ marginRight: "1rem" }} href="https://github.com/thomasabishop">
+      {/* <div className="home-links">
+        <a
+          // style={{ paddingRight: "0.5rem" }}
+          href="https://github.com/thomasabishop"
+        >
           GitHub
         </a>
-        <Link to="/code-metrics">Code Metrics</Link>
-      </div>
+      </div> */}
       <div>
         <h2 className="posts-header">Posts</h2>
         <div className="posts-wrapper">{Posts}</div>
