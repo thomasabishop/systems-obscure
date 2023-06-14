@@ -18,6 +18,12 @@ export default function Home({
     <Main>
       <Helmet>
         <title>Systems Obscure</title>
+        <meta
+          name="description"
+          content="The thoughts and technical preoccupations of a software engineer from
+          London.
+"
+        />
       </Helmet>
 
       <div className="introduction">
