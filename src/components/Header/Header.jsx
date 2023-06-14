@@ -3,10 +3,8 @@ import { Link } from "gatsby"
 import "./Header.scss"
 export default function Header() {
   return (
-    <div className="Header">
-      <Link to="/" className="Header__site-title">
-        Systems Obscure
-      </Link>
-    </div>
+    <Link to="/" className="Header__site-title">
+      <div className="Header">Systems Obscure</div>
+    </Link>
   )
 }
