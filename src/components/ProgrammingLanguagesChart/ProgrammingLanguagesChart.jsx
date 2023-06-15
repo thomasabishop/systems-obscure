@@ -35,7 +35,7 @@ export const options = {
       display: false,
     },
     title: {
-      display: true,
+      display: false,
       text: "Programming Languages",
     },
   },

@@ -36,7 +36,7 @@ export default function CodeMetrics() {
     <Main>
       <div className="code-metrics">
         <div className="code-metrics__header">
-          <h1 className="post__title">Code Metrics</h1>
+          <h1 className="code-metrics__title">Code Metrics</h1>
         </div>
 
         <div className="code-metrics__block">
@@ -46,15 +46,22 @@ export default function CodeMetrics() {
         {/* {loading && <p>Loading...</p>}
         {error && <p>An error occurred: {error} </p>} */}
 
-        <SingleMetrics data={responseData} />
+        <div className="code-metrics__block">
+          <SingleMetrics data={responseData} />
+        </div>
 
-        <CodingDurationsChart />
+        <h3>Programming languages</h3>
         <ProgrammingLanguagesChart data={responseData?.languages} loading={loading} error={error} />
+
+        <h3>Operating systems</h3>
         <OperatingSystemsChart
           data={responseData?.operating_systems}
           loading={loading}
           error={error}
         />
+
+        <h3>Time coding</h3>
+        <CodingDurationsChart />
       </div>
     </Main>
   )
