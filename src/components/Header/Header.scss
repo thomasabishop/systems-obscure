@@ -4,8 +4,10 @@
   padding: 0.5rem 1rem;
   padding-left: 0;
   background: #f8f9fa;
-  border: 2px solid #c4c4c4;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   &__site-title {
     border-bottom: none;
     font-size: 1.8em;
