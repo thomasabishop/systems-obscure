@@ -4,9 +4,11 @@
   justify-content: space-between;
   flex-wrap: wrap; /* allows the items to wrap as needed */
   gap: 20px; /* size of the gap between items */
+
   & > * {
     flex-grow: 1; /* allows the element to grow to fill any remaining space */
     flex-shrink: 0; /* prevents the element from shrinking */
     flex-basis: calc(15% - 20px);
+    min-height: 100px;
   }
 }
