@@ -2,13 +2,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  flex-wrap: wrap; /* allows the items to wrap as needed */
-  gap: 20px; /* size of the gap between items */
+  flex-wrap: wrap;
+  gap: 20px;
 
   & > * {
-    flex-grow: 1; /* allows the element to grow to fill any remaining space */
-    flex-shrink: 0; /* prevents the element from shrinking */
+    flex-grow: 1;
+    flex-shrink: 0;
     flex-basis: calc(15% - 20px);
-    // min-height: 100px;
+    min-height: 10vh; /* child min-height is 50% of the viewport height */
   }
 }
