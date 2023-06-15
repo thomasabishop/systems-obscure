@@ -13,8 +13,11 @@ const OperatingSystemsChart = ({ data, loading, error }) => {
   const options = {
     plugins: {
       title: {
-        display: true,
+        display: false,
         text: "Operating Systems",
+      },
+      legend: {
+        position: "right",
       },
     },
   }
@@ -38,23 +41,9 @@ const OperatingSystemsChart = ({ data, loading, error }) => {
           <span>An error occurred: {error} </span>{" "}
         </div>
       )}
-
-      {loading ? (
-        <LoadingWidget />
-      ) : (
-        <div
-          style={{
-            width: "100%",
-            height: 300,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {" "}
-          <Doughnut data={chartJsData} options={options} />{" "}
-        </div>
-      )}
+      <div className="chart-wrapper" style={{ maxHeight: "5%" }}>
+        {loading ? <LoadingWidget /> : <Doughnut data={chartJsData} options={options} />}
+      </div>
     </React.Fragment>
   )
 }

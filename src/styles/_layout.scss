@@ -59,6 +59,14 @@ div.math-display {
     padding: 0.25rem;
   }
 
+  .chart-wrapper {
+    aspect-ratio: 2/1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .error-wrapper {
     font-family: $font_stack_sans;
     width: 100%;

@@ -66,8 +66,9 @@ const ProgrammingLanguagesChart = ({ data, loading, error }) => {
           <span>An error occurred: {error} </span>{" "}
         </div>
       )}
-
-      {loading ? <LoadingWidget /> : <Bar options={options} data={chartJsData} />}
+      <div className="chart-wrapper">
+        {loading ? <LoadingWidget /> : <Bar options={options} data={chartJsData} />}
+      </div>
     </React.Fragment>
   )
 }
