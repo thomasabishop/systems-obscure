@@ -5,7 +5,7 @@ $main_colour_darker: darken($main_colour, 3%);
 .Button {
   background: lighten($main_colour, 35%);
   color: $main_colour_darker;
-  border: 2px solid $main_colour_darker;
+  border: 1px solid $main_colour_darker;
   border-radius: 3px;
   font-weight: 500;
   padding: 0.5rem 1rem;
@@ -13,4 +13,9 @@ $main_colour_darker: darken($main_colour, 3%);
   cursor: pointer;
   outline: inherit;
   font-size: 14px;
+  transition: ease-in 0.3s;
+  &:hover {
+    background: royalblue;
+    color: white;
+  }
 }
