@@ -1,27 +1,33 @@
 import React, { useState, useEffect } from "react"
-
 import axios from "axios"
 import Main from "../templates/main/Main"
 import ProgrammingLanguagesChart from "../components/ProgrammingLanguagesChart/ProgrammingLanguagesChart"
 import OperatingSystemsChart from "../components/OperatingSystemsChart/OperatingSystemsChart"
-import SingleMetricDisplay from "../components/SingleMetricDisplay/SingleMetricDisplay"
 import CodingDurationsChart from "../components/CodingDurationsChart/CodingDurationsChart"
 import SingleMetrics from "../components/SingleMetrics/SingleMetrics"
 import CodeMetricsControls from "../components/CodeMetricsControls/CodeMetricsControls"
-const localEndpoiint = `http://127.0.0.1:3000/query-wakatime/main-metrics?timePeriod=last_30_days`
+
+const basePath = "http://127.0.0.1:3000/query-wakatime"
+
+const getApiEndpoint = (deployment, endpoint, timePeriod) => {
+  switch (deployment) {
+    case "local":
+      return `${basePath}/${endpoint}?timePeriod=${timePeriod}`
+  }
+}
 
 export default function CodeMetrics() {
-  const [responseData, setResponseData] = useState({})
+  const [data, setData] = useState({ mainMetrics: {}, durations: {} })
+
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-
-  console.log(responseData)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(localEndpoiint)
-        setResponseData(response?.data?.data)
+        const resp1 = await axios(getApiEndpoint("local", "main-metrics", "last_30_days"))
+        const resp2 = await axios(getApiEndpoint("local", "durations", "last_30_days"))
+        setData({ mainMetrics: resp1?.data?.data, durations: resp2?.data?.data })
         setLoading(false)
       } catch (err) {
         setError(err.message)
@@ -30,7 +36,7 @@ export default function CodeMetrics() {
     }
 
     fetchData()
-  }, []) // Empty array indicates this hook runs once on mount.
+  }, [])
 
   return (
     <Main>
@@ -43,19 +49,20 @@ export default function CodeMetrics() {
           <CodeMetricsControls />
         </div>
 
-        {/* {loading && <p>Loading...</p>}
-        {error && <p>An error occurred: {error} </p>} */}
-
         <div className="code-metrics__block">
-          <SingleMetrics data={responseData} />
+          <SingleMetrics data={data?.mainMetrics} />
         </div>
 
         <h3>Programming languages</h3>
-        <ProgrammingLanguagesChart data={responseData?.languages} loading={loading} error={error} />
+        <ProgrammingLanguagesChart
+          data={data?.mainMetrics?.languages}
+          loading={loading}
+          error={error}
+        />
 
         <h3>Operating systems</h3>
         <OperatingSystemsChart
-          data={responseData?.operating_systems}
+          data={data?.mainMetrics?.operating_systems}
           loading={loading}
           error={error}
         />
