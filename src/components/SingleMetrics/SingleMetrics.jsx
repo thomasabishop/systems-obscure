@@ -20,8 +20,8 @@ const SingleMetrics = ({ data }) => {
 
   return (
     <div className="SingleMetrics">
-      {singleMetrics.map((metric) => (
-        <SingleMetricDisplay title={metric?.title} value={metric?.value} />
+      {singleMetrics.map((metric, i) => (
+        <SingleMetricDisplay key={i} title={metric?.title} value={metric?.value} />
       ))}
     </div>
   )
