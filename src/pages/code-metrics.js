@@ -44,7 +44,10 @@ export default function CodeMetrics() {
         <div className="code-metrics__header">
           <h1 className="code-metrics__title">Code Metrics</h1>
         </div>
-
+        <p>
+          The metrics are derived from the <a>WakaTime</a> and <a>GitHub</a> APIs. The data is
+          cached client-side. Click 'Refresh' to see the latest data.
+        </p>
         <div className="code-metrics__block">
           <CodeMetricsControls />
         </div>
