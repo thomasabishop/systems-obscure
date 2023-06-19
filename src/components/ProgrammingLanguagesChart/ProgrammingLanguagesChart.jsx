@@ -43,7 +43,7 @@ export const options = {
 
 const ProgrammingLanguagesChart = ({ data, loading, error }) => {
   //  console.log(data)
-  const nonZeroValues = data?.filter((datum) => Number(datum?.decimal) > 0)
+  const nonZeroValues = data?.filter((datum) => Number(datum?.decimal) > 0.1)
   const labels = nonZeroValues?.map((value) => value?.name)
   const values = nonZeroValues?.map((value) => value?.decimal)
 
