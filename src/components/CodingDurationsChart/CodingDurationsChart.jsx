@@ -31,6 +31,14 @@ export const options = {
       borderWidth: 1,
     },
   },
+  scales: {
+    y: {
+      title: {
+        display: true,
+        text: "Hours",
+      },
+    },
+  },
   plugins: {
     legend: {
       display: false,
