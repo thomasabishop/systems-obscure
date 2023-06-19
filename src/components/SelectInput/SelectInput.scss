@@ -4,6 +4,7 @@
   width: 200px;
   position: relative;
   display: inline-block;
+  flex: 1;
 
   select {
     font-family: $font_stack_sans;
@@ -32,4 +33,7 @@
     pointer-events: none;
     color: $foreground;
   }
+  // @media (max-width: 768px) {
+  //   width: 100%;
+  // }
 }

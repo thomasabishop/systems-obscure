@@ -1,6 +1,11 @@
 .CodeMetricsControls {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 20px;
+  width: 100%;
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 }
