@@ -1,9 +1,19 @@
 import React from "react"
 import LoadingWidget from "../LoadingWidget/LoadingWidget"
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js"
+// import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js"
 import { Doughnut } from "react-chartjs-2"
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js"
+import { Bar } from "react-chartjs-2"
 
-ChartJS.register(ArcElement, Tooltip, Legend)
+ChartJS.register(Tooltip, Legend)
 
 const OperatingSystemsChart = ({ data, loading, error }) => {
   console.log(data)
@@ -18,6 +28,7 @@ const OperatingSystemsChart = ({ data, loading, error }) => {
       },
       legend: {
         position: "right",
+        display: false,
       },
     },
   }
@@ -41,8 +52,8 @@ const OperatingSystemsChart = ({ data, loading, error }) => {
           <span>An error occurred: {error} </span>{" "}
         </div>
       )}
-      <div className="chart-wrapper" style={{ maxHeight: "5%" }}>
-        {loading ? <LoadingWidget /> : <Doughnut data={chartJsData} options={options} />}
+      <div className="chart-wrapper" style={{ maxHeight: 250, width: "100%" }}>
+        {loading ? <LoadingWidget /> : <Bar data={chartJsData} options={options} />}
       </div>
     </React.Fragment>
   )
