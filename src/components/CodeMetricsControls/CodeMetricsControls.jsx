@@ -7,8 +7,7 @@ const CodeMetricsControls = () => {
   return (
     <div className="CodeMetricsControls">
       <SelectInput />
-
-      <Button buttonText="Refresh data" />
+      <Button buttonText="Refresh" />
     </div>
   )
 }
