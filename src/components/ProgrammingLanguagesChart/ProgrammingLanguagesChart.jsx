@@ -42,19 +42,19 @@ export const options = {
 }
 
 const ProgrammingLanguagesChart = ({ data, loading, error }) => {
-  console.log(data)
+  //  console.log(data)
   const nonZeroValues = data?.filter((datum) => Number(datum?.decimal) > 0)
   const labels = nonZeroValues?.map((value) => value?.name)
   const values = nonZeroValues?.map((value) => value?.decimal)
 
-  console.log(values)
+  //  console.log(values)
   const chartJsData = {
     labels,
     datasets: [
       {
         data: values,
         borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        backgroundColor: "rgba(53, 162, 235, 0.4)",
       },
     ],
   }

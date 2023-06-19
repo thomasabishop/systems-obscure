@@ -17,7 +17,7 @@ const getApiEndpoint = (deployment, endpoint, timePeriod) => {
 }
 
 export default function CodeMetrics() {
-  const [data, setData] = useState({ mainMetrics: {}, durations: {} })
+  const [data, setData] = useState({ mainMetrics: {}, durations: [] })
 
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -38,6 +38,7 @@ export default function CodeMetrics() {
     fetchData()
   }, [])
 
+  console.log(data)
   return (
     <Main>
       <div className="code-metrics">
@@ -56,22 +57,23 @@ export default function CodeMetrics() {
           <SingleMetrics data={data?.mainMetrics} />
         </div>
 
-        <h3>Programming languages</h3>
-        <ProgrammingLanguagesChart
-          data={data?.mainMetrics?.languages}
-          loading={loading}
-          error={error}
-        />
+        <h3>Time coding</h3>
+        <CodingDurationsChart data={data?.durations} loading={loading} error={error} />
 
+        <div className="code-metrics__block">
+          <h3>Programming languages</h3>
+          <ProgrammingLanguagesChart
+            data={data?.mainMetrics?.languages}
+            loading={loading}
+            error={error}
+          />
+        </div>
         <h3>Operating systems</h3>
         <OperatingSystemsChart
           data={data?.mainMetrics?.operating_systems}
           loading={loading}
           error={error}
         />
-
-        <h3>Time coding</h3>
-        <CodingDurationsChart />
       </div>
     </Main>
   )
