@@ -1,5 +1,5 @@
 import React from "react"
-import SingleMetricDisplay from "../SingleMetricDisplay/SingleMetricDisplay"
+import Scorecard from "../Scorecard/Scorecard"
 import "./SingleMetrics.scss"
 
 const SingleMetrics = ({ data }) => {
@@ -21,7 +21,7 @@ const SingleMetrics = ({ data }) => {
   return (
     <div className="SingleMetrics">
       {singleMetrics.map((metric, i) => (
-        <SingleMetricDisplay key={i} title={metric?.title} value={metric?.value} />
+        <Scorecard key={i} title={metric?.title} value={metric?.value} />
       ))}
     </div>
   )
