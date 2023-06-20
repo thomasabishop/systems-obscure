@@ -6,15 +6,19 @@ const SingleMetrics = ({ data }) => {
   const singleMetrics = [
     {
       title: "Total",
-      value: data?.human_readable_total,
+      value: data?.total,
+    },
+    {
+      title: "Total today",
+      value: data?.totalToday,
     },
     {
       title: "Daily average",
-      value: data?.human_readable_daily_average,
+      value: data?.dailyAverage,
     },
     {
       title: "Best single day",
-      value: data?.best_day?.text,
+      value: data?.bestDay,
     },
   ]
 

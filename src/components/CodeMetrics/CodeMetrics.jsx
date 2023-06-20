@@ -18,7 +18,7 @@ const getApiEndpoint = (deployment, endpoint, timePeriod) => {
 }
 
 const CodeMetrics = () => {
-  const [data, setData] = useState({ mainMetrics: {}, durations: [] })
+  const [data, setData] = useState({ mainMetrics: {}, durations: [], todayOnly: {} })
 
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -28,7 +28,12 @@ const CodeMetrics = () => {
       try {
         const resp1 = await axios(getApiEndpoint("local", "main-metrics", "last_30_days"))
         const resp2 = await axios(getApiEndpoint("local", "durations", "last_30_days"))
-        setData({ mainMetrics: resp1?.data?.data, durations: resp2?.data?.data })
+        const resp3 = await axios(getApiEndpoint("local", "today-only"))
+        setData({
+          mainMetrics: resp1?.data?.data,
+          durations: resp2?.data?.data,
+          todayOnly: resp3?.data?.data,
+        })
         setLoading(false)
       } catch (err) {
         setError(err.message)
@@ -39,7 +44,13 @@ const CodeMetrics = () => {
     fetchData()
   }, [])
 
-  console.log(data)
+  const singleMetricData = {
+    total: data?.mainMetrics?.human_readable_total,
+    dailyAverage: data?.mainMetrics?.human_readable_daily_average,
+    bestDay: data?.mainMetrics?.best_day?.text,
+    totalToday: data?.todayOnly?.grand_total?.text,
+  }
+
   return (
     <Main>
       <div className="CodeMetrics">
@@ -55,7 +66,7 @@ const CodeMetrics = () => {
         </div>
 
         <div className="CodeMetrics__block">
-          <SingleMetrics data={data?.mainMetrics} />
+          <SingleMetrics data={singleMetricData} />
         </div>
 
         <h3>Time coding</h3>
