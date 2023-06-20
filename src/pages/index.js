@@ -5,7 +5,7 @@ import { graphql, Link } from "gatsby"
 import "../styles/main.scss"
 import PostLink from "../components/PostLink/PostLink"
 import Main from "../templates/main/Main"
-export default function Home({
+export default function HomePage({
   data: {
     allMarkdownRemark: { edges },
   },
