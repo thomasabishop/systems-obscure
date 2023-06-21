@@ -1,9 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
+import { debounce } from "lodash"
 import "./SelectInput.scss"
 
 const SelectInput = ({ timePeriod, onChangeTimePeriod }) => {
+  const debouncedChange = debounce(onChangeTimePeriod, 300)
   const handleChange = (event) => {
-    onChangeTimePeriod(event.target.value)
+    debouncedChange(event.target.value)
   }
 
   return (
