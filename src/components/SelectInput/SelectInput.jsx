@@ -1,16 +1,25 @@
-import React from "react"
+import React, { useState } from "react"
 import "./SelectInput.scss"
 
-const SelectInput = () => {
+const SelectInput = ({ timePeriod, onChangeTimePeriod }) => {
+  const handleChange = (event) => {
+    onChangeTimePeriod(event.target.value)
+  }
+
   return (
-    <div class="SelectInput">
-      <select aria-label="Default select example">
-        <option selected>Time range</option>
-        <option value="1">Last seven days</option>
-        <option value="2">Last thirty days</option>
-        <option value="3">All time</option>
+    <form className="SelectInput">
+      <select value={timePeriod} onChange={handleChange} aria-label="Default select example">
+        <option value="this_week">This week</option>
+        <option value="last_7_days">Last seven days</option>
+        <option value="last_two_weeks">Last two weeks</option>
+        <option value="this_month">This month</option>
+        <option value="last_thirty_days">Last thirty days</option>
+        <option value="last_six_months">Last six months</option>
+        <option value="this_year">This year</option>
+        <option value="last_twelve_months">Last twelve months</option>
+        <option value="all_time">All time</option>
       </select>
-    </div>
+    </form>
   )
 }
 

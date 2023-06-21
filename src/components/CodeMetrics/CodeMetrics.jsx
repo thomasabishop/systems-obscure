@@ -19,9 +19,18 @@ const getApiEndpoint = (deployment, endpoint, timePeriod) => {
 
 const CodeMetrics = () => {
   const [data, setData] = useState({ mainMetrics: {}, durations: [], todayOnly: {} })
-
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+
+  // const [parentState, setParentState] = useState("option_one")
+
+  const [timePeriod, setTimePeriod] = useState("this_week")
+
+  const handleTimePeriodChange = (timePeriod) => {
+    setTimePeriod(timePeriod)
+  }
+
+  console.log(timePeriod)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,7 +71,10 @@ const CodeMetrics = () => {
           cached client-side. Click 'Refresh' to see the latest data.
         </p>
         <div className="CodeMetrics__block">
-          <CodeMetricsControls />
+          <CodeMetricsControls
+            timePeriod={timePeriod}
+            onChangeTimePeriod={handleTimePeriodChange}
+          />
         </div>
 
         <div className="CodeMetrics__block">
