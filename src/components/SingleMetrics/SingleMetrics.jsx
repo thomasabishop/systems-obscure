@@ -2,7 +2,7 @@ import React from "react"
 import Scorecard from "../Scorecard/Scorecard"
 import "./SingleMetrics.scss"
 
-const SingleMetrics = ({ data }) => {
+const SingleMetrics = ({ data, loading, error }) => {
   const singleMetrics = [
     {
       title: "Total",
@@ -25,7 +25,11 @@ const SingleMetrics = ({ data }) => {
   return (
     <div className="SingleMetrics">
       {singleMetrics.map((metric, i) => (
-        <Scorecard key={i} title={metric?.title} value={metric?.value} />
+        <Scorecard
+          key={i}
+          title={metric?.title}
+          value={error ? "Error" : loading ? "Loading ..." : metric?.value}
+        />
       ))}
     </div>
   )
