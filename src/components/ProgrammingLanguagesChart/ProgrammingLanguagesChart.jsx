@@ -59,18 +59,19 @@ const ProgrammingLanguagesChart = ({ data, loading, error }) => {
     ],
   }
 
-  return (
-    <React.Fragment>
-      {error && (
-        <div className="error-wrapper">
-          <span>An error occurred: {error} </span>{" "}
-        </div>
-      )}
+  if (error) {
+    return (
+      <div className="error-wrapper">
+        <span>An error occurred: {error} </span>{" "}
+      </div>
+    )
+  } else {
+    return (
       <div className="chart-wrapper">
         {loading ? <LoadingWidget /> : <Bar options={options} data={chartJsData} />}
       </div>
-    </React.Fragment>
-  )
+    )
+  }
 }
 
 export default ProgrammingLanguagesChart

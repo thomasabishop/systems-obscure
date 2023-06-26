@@ -16,7 +16,6 @@ import { Bar } from "react-chartjs-2"
 ChartJS.register(Tooltip, Legend)
 
 const OperatingSystemsChart = ({ data, loading, error }) => {
-  console.log(data)
   const labels = data?.map((datum) => datum?.name)
   const values = data?.map((datum) => datum?.percent)
 
@@ -45,18 +44,19 @@ const OperatingSystemsChart = ({ data, loading, error }) => {
     ],
   }
 
-  return (
-    <React.Fragment>
-      {error && (
-        <div className="error-wrapper">
-          <span>An error occurred: {error} </span>{" "}
-        </div>
-      )}
+  if (error) {
+    return (
+      <div className="error-wrapper">
+        <span>An error occurred: {error} </span>{" "}
+      </div>
+    )
+  } else {
+    return (
       <div className="chart-wrapper" style={{ maxHeight: 250, width: "100%" }}>
         {loading ? <LoadingWidget /> : <Bar data={chartJsData} options={options} />}
       </div>
-    </React.Fragment>
-  )
+    )
+  }
 }
 
 export default OperatingSystemsChart
