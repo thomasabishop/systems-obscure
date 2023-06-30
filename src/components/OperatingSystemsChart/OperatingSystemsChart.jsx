@@ -1,16 +1,6 @@
 import React from "react"
 import LoadingWidget from "../LoadingWidget/LoadingWidget"
-// import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js"
-import { Doughnut } from "react-chartjs-2"
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js"
+import { Chart as ChartJS, Tooltip, Legend } from "chart.js"
 import { Bar } from "react-chartjs-2"
 
 ChartJS.register(Tooltip, Legend)
@@ -37,26 +27,28 @@ const OperatingSystemsChart = ({ data, loading, error }) => {
     datasets: [
       {
         data: values,
-        backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
-        borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+        backgroundColor: [
+          "rgba(255, 206, 86, 0.3)",
+          "rgba(54, 162, 235, 0.3)",
+          "rgba(255, 159, 64, 0.3)",
+          "rgba(75, 192, 192, 0.3)",
+        ],
+        borderColor: [
+          "rgba(255, 206, 86, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(75, 192, 192, 1)",
+        ],
         borderWidth: 1,
       },
     ],
   }
 
-  if (error) {
-    return (
-      <div className="error-wrapper">
-        <span>An error occurred: {error} </span>{" "}
-      </div>
-    )
-  } else {
-    return (
-      <div className="chart-wrapper" style={{ maxHeight: 250, width: "100%" }}>
-        {loading ? <LoadingWidget /> : <Bar data={chartJsData} options={options} />}
-      </div>
-    )
-  }
+  return (
+    <div className="chart-wrapper" style={{ maxHeight: 250, width: "100%" }}>
+      {loading ? <LoadingWidget /> : <Bar data={chartJsData} options={options} />}
+    </div>
+  )
 }
 
 export default OperatingSystemsChart

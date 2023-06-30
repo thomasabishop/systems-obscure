@@ -11,15 +11,10 @@ const SelectInput = ({ timePeriod, onChangeTimePeriod }) => {
   return (
     <form className="SelectInput">
       <select value={timePeriod} onChange={handleChange} aria-label="Default select example">
-        <option value="this_week">This week</option>
-        <option value="last_7_days">Last seven days</option>
-        <option value="last_two_weeks">Last two weeks</option>
-        <option value="this_month">This month</option>
-        <option value="last_thirty_days">Last thirty days</option>
-        <option value="last_six_months">Last six months</option>
-        <option value="this_year">This year</option>
-        <option value="last_twelve_months">Last twelve months</option>
-        <option value="all_time">All time</option>
+        <option value="last_7_days">Last week</option>
+        <option value="last_30_days">Last month</option>
+        <option value="last_6_months">Last six months</option>
+        <option value="last_year">Last year</option>
       </select>
     </form>
   )

@@ -6,43 +6,33 @@ import OperatingSystemsChart from "../OperatingSystemsChart/OperatingSystemsChar
 import CodingDurationsChart from "../CodingDurationsChart/CodingDurationsChart"
 import SingleMetrics from "../SingleMetrics/SingleMetrics"
 import CodeMetricsControls from "../CodeMetricsControls/CodeMetricsControls"
+import generateDateParameters from "./helpers/generateDateParameters"
+import getApiEndpoint from "./helpers/getApiEndpoint"
+
 import "./CodeMetrics.scss"
 
-const basePath = "http://127.0.0.1:3000/query-wakatime"
-
-const getApiEndpoint = (deployment, endpoint, timePeriod) => {
-  switch (deployment) {
-    case "local":
-      return `${basePath}/${endpoint}?timePeriod=${timePeriod}`
-  }
-}
-
 const CodeMetrics = () => {
-  const [data, setData] = useState({ mainMetrics: {}, durations: [], todayOnly: {} })
+  const basePath = {
+    local: "http://127.0.0.1:3000/query-wakatime/main-metrics?timePeriod=",
+    prod: undefined,
+  }
+
+  const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  // const [parentState, setParentState] = useState("option_one")
-
-  const [timePeriod, setTimePeriod] = useState("this_week")
+  const [timePeriod, setTimePeriod] = useState("last_30_days")
 
   const handleTimePeriodChange = (timePeriod) => {
+    setLoading(true)
     setTimePeriod(timePeriod)
   }
-
-  console.log(timePeriod)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const resp1 = await axios(getApiEndpoint("local", "main-metrics", "last_30_days"))
-        const resp2 = await axios(getApiEndpoint("local", "durations", "last_30_days"))
-        const resp3 = await axios(getApiEndpoint("local", "today-only"))
-        setData({
-          mainMetrics: resp1?.data?.data,
-          durations: resp2?.data?.data,
-          todayOnly: resp3?.data?.data,
-        })
+        const res = await axios(basePath.local + timePeriod)
+        setData(res?.data)
         setLoading(false)
       } catch (err) {
         setError(err.message)
@@ -51,14 +41,9 @@ const CodeMetrics = () => {
     }
 
     fetchData()
-  }, [])
+  }, [timePeriod])
 
-  const singleMetricData = {
-    total: data?.mainMetrics?.human_readable_total,
-    dailyAverage: data?.mainMetrics?.human_readable_daily_average,
-    bestDay: data?.mainMetrics?.best_day?.text,
-    totalToday: data?.todayOnly?.grand_total?.text,
-  }
+  console.log(data)
 
   return (
     <Main>
@@ -70,6 +55,7 @@ const CodeMetrics = () => {
           The metrics are derived from the <a>WakaTime</a> and <a>GitHub</a> APIs. The data is
           cached client-side. Click 'Refresh' to see the latest data.
         </p>
+
         <div className="CodeMetrics__block">
           <CodeMetricsControls
             timePeriod={timePeriod}
@@ -77,27 +63,36 @@ const CodeMetrics = () => {
           />
         </div>
 
-        <div className="CodeMetrics__block">
-          <SingleMetrics data={singleMetricData} />
-        </div>
+        {error ? (
+          <div className="error-wrapper">
+            <span>An error occurred when retrieving WakaTime data: {error} </span>{" "}
+          </div>
+        ) : (
+          <div className="CodeMetrics_wakatime-outputs">
+            <div className="CodeMetrics__block">
+              <SingleMetrics
+                data={{
+                  total: data?.codingTimeTotal,
+                  dailyAverage: data?.codingTimeDailyAverage,
+                  bestDay: data?.codingTimeBestDay,
+                  totalToday: data?.codingTimeToday,
+                }}
+                loading={loading}
+                error={error?.mainMetrics || error?.todayOnly}
+              />
+            </div>
 
-        <h3>Time coding</h3>
-        <CodingDurationsChart data={data?.durations} loading={loading} error={error} />
+            <h3>Time coding</h3>
+            <CodingDurationsChart data={data?.codingDurations} loading={loading} />
 
-        <div className="CodeMetrics__block">
-          <h3>Programming languages</h3>
-          <ProgrammingLanguagesChart
-            data={data?.mainMetrics?.languages}
-            loading={loading}
-            error={error}
-          />
-        </div>
-        <h3>Operating systems</h3>
-        <OperatingSystemsChart
-          data={data?.mainMetrics?.operating_systems}
-          loading={loading}
-          error={error}
-        />
+            <div className="CodeMetrics__block">
+              <h3>Programming languages</h3>
+              <ProgrammingLanguagesChart data={data?.programmingLanguages} loading={loading} />
+            </div>
+            <h3>Operating systems</h3>
+            <OperatingSystemsChart data={data?.operatingSystems} loading={loading} />
+          </div>
+        )}
       </div>
     </Main>
   )

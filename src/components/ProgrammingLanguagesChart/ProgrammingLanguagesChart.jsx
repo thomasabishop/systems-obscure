@@ -42,36 +42,25 @@ export const options = {
 }
 
 const ProgrammingLanguagesChart = ({ data, loading, error }) => {
-  //  console.log(data)
   const nonZeroValues = data?.filter((datum) => Number(datum?.decimal) > 0.1)
   const labels = nonZeroValues?.map((value) => value?.name)
   const values = nonZeroValues?.map((value) => value?.decimal)
-
-  //  console.log(values)
   const chartJsData = {
     labels,
     datasets: [
       {
         data: values,
-        borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.4)",
+        borderColor: "rgba(153, 102, 255, 1)",
+        backgroundColor: "rgba(153, 102, 255, 0.3)",
       },
     ],
   }
 
-  if (error) {
-    return (
-      <div className="error-wrapper">
-        <span>An error occurred: {error} </span>{" "}
-      </div>
-    )
-  } else {
-    return (
-      <div className="chart-wrapper">
-        {loading ? <LoadingWidget /> : <Bar options={options} data={chartJsData} />}
-      </div>
-    )
-  }
+  return (
+    <div className="chart-wrapper">
+      {loading ? <LoadingWidget /> : <Bar options={options} data={chartJsData} />}
+    </div>
+  )
 }
 
 export default ProgrammingLanguagesChart

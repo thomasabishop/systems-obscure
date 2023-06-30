@@ -3,8 +3,8 @@
 .Scorecard {
   font-family: $font_stack_sans;
   font-size: 13px;
-  background-color: rgba(54, 162, 235, 0.2);
-  border: 1px solid rgba(54, 162, 235, 1);
+  background-color: $grey;
+  border: 1px solid $grey_darkened;
   border-radius: 3px;
   min-width: 140px;
   display: flex;
@@ -16,10 +16,10 @@
     align-self: center;
     font-size: 14px;
     padding: 0.5rem;
-    font-weight: 500;
+    font-weight: 400;
   }
   &__title {
-    // font-weight: 500;
+    font-weight: 500;
     padding: 0.8rem;
     justify-self: flex-start;
   }
