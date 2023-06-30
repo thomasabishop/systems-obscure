@@ -56,12 +56,7 @@ const CodeMetrics = () => {
           cached client-side. Click 'Refresh' to see the latest data.
         </p>
 
-        <div className="CodeMetrics__block">
-          <CodeMetricsControls
-            timePeriod={timePeriod}
-            onChangeTimePeriod={handleTimePeriodChange}
-          />
-        </div>
+        <CodeMetricsControls timePeriod={timePeriod} onChangeTimePeriod={handleTimePeriodChange} />
 
         {error ? (
           <div className="error-wrapper">
@@ -70,6 +65,7 @@ const CodeMetrics = () => {
         ) : (
           <div className="CodeMetrics_wakatime-outputs">
             <div className="CodeMetrics__block">
+              <h3>Time coding</h3>
               <SingleMetrics
                 data={{
                   total: data?.codingTimeTotal,
@@ -82,7 +78,6 @@ const CodeMetrics = () => {
               />
             </div>
 
-            <h3>Time coding</h3>
             <CodingDurationsChart data={data?.codingDurations} loading={loading} />
 
             <div className="CodeMetrics__block">

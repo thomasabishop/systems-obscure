@@ -15,7 +15,7 @@ import { Bar } from "react-chartjs-2"
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 export const options = {
-  indexAxis: "y",
+  indexAxis: "x",
   elements: {
     bar: {
       borderWidth: 1,
@@ -50,8 +50,8 @@ const ProgrammingLanguagesChart = ({ data, loading, error }) => {
     datasets: [
       {
         data: values,
-        borderColor: "rgba(153, 102, 255, 1)",
-        backgroundColor: "rgba(153, 102, 255, 0.3)",
+        borderColor: "rgba(54, 162, 235, 1)",
+        backgroundColor: "rgba(54, 162, 235, 0.3)",
       },
     ],
   }
