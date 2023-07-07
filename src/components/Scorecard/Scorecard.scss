@@ -1,0 +1,26 @@
+@import "../../styles/variables";
+
+.Scorecard {
+  font-family: $font_stack_sans;
+  font-size: 13px;
+  background-color: rgba(255, 99, 132, 0.2);
+  border: 1px solid rgba(255, 99, 132, 1);
+  border-radius: 3px;
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__value {
+    margin-bottom: 1rem;
+    align-self: center;
+    font-size: 14px;
+    padding: 0.5rem;
+    font-weight: 400;
+  }
+  &__title {
+    font-weight: 500;
+    padding: 0.8rem;
+    justify-self: flex-start;
+  }
+}

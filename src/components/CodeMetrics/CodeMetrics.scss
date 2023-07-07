@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+
+.CodeMetrics {
+  &__header {
+    padding-top: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    font-size: 1.7rem;
+    margin: 1rem 0 0 0;
+  }
+
+  &__block {
+    margin: 1rem 0;
+    padding: 0.25rem;
+  }
+
+  .chart-wrapper {
+    aspect-ratio: 2/1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .error-wrapper {
+    font-family: $font_stack_sans;
+    width: 100%;
+    color: red;
+    font-weight: 500;
+    font-size: 0.825rem;
+    border: 1px solid red;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    background-color: rgb(255, 198, 198);
+  }
+}

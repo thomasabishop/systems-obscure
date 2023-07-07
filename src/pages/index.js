@@ -1,11 +1,11 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 // import "../index.css"
 import "../styles/main.scss"
 import PostLink from "../components/PostLink/PostLink"
 import Main from "../templates/main/Main"
-export default function Home({
+export default function HomePage({
   data: {
     allMarkdownRemark: { edges },
   },
@@ -27,14 +27,6 @@ export default function Home({
       <div className="introduction">
         <p>Another software engineer with a blog.</p>
       </div>
-      {/* <div className="home-links">
-        <a
-          // style={{ paddingRight: "0.5rem" }}
-          href="https://github.com/thomasabishop"
-        >
-          GitHub
-        </a>
-      </div> */}
       <div>
         <h2 className="posts-header">Posts</h2>
         <div className="posts-wrapper">{Posts}</div>
