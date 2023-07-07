@@ -20,17 +20,12 @@ export default function Home({
         <title>Systems Obscure</title>
         <meta
           name="description"
-          content="The thoughts and technical preoccupations of a software engineer from
-          London.
-"
+          content="Another software engineer with a blog."
         />
       </Helmet>
 
       <div className="introduction">
-        <p>
-          The thoughts and technical preoccupations of a software engineer from
-          London.
-        </p>
+        <p>Another software engineer with a blog.</p>
       </div>
       {/* <div className="home-links">
         <a
