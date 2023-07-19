@@ -1,41 +1,100 @@
-/* Dark+ Prism.js Theme */
+/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #abb2bf;
+  background: none;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
 
-/* Base theme */
-/* body {
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-} */
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #383e49;
+}
 
-/* Tokens */
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #9aa2b1;
+}
+
+@media print {
+  code[class*="language-"],
+  pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #282c34;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
+
 .token.comment,
-.token.block-comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6a9955;
+  color: #5c6370;
 }
 
 .token.punctuation {
-  color: #808080;
+  color: #abb2bf;
+}
+
+.token.selector,
+.token.tag {
+  color: #e06c75;
 }
 
 .token.property,
-.token.tag,
 .token.boolean,
 .token.number,
 .token.constant,
 .token.symbol,
+.token.attr-name,
 .token.deleted {
-  color: #569cd6;
+  color: #d19a66;
 }
 
-.token.selector,
-.token.attr-name,
 .token.string,
 .token.char,
+.token.attr-value,
 .token.builtin,
 .token.inserted {
-  color: #ce9178;
+  color: #98c379;
 }
 
 .token.operator,
@@ -43,24 +102,22 @@
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #9cdcfe;
+  color: #56b6c2;
 }
 
 .token.atrule,
-.token.attr-value,
 .token.keyword {
-  color: #c586c0;
+  color: #c678dd;
 }
 
-.token.function,
-.token.class-name {
-  color: #dcdcaa;
+.token.function {
+  color: #61afef;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-  color: #b5cea8;
+  color: #c678dd;
 }
 
 .token.important,
@@ -76,82 +133,48 @@
   cursor: help;
 }
 
-/* Code block */
-pre[class*="language-"] {
-  background-color: #1e1e1e;
-  color: #d4d4d4;
-  border-radius: 0;
-  border: none;
-  padding: 1em;
-  overflow: auto;
-  white-space: pre;
-  word-wrap: normal;
-}
-
-code[class*="language-"] {
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  font-size: 13px;
-  line-height: 1.5;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  tab-size: 4;
-  hyphens: none;
-}
-
-/* Line numbers */
-pre[class*="language-"].line-numbers {
+pre.line-numbers {
   position: relative;
   padding-left: 3.8em;
   counter-reset: linenumber;
 }
 
-pre[class*="language-"].line-numbers > code {
+pre.line-numbers > code {
   position: relative;
-}
-
-pre[class*="language-"].line-numbers:before {
-  content: " ";
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3em;
-  min-width: 3em;
-  overflow: hidden;
-  counter-reset: linenumber;
-  opacity: 0.4;
-}
-
-pre[class*="language-"].line-numbers > code:before {
-  content: " ";
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3em;
-  min-width: 3em;
-  overflow: hidden;
-  counter-reset: linenumber;
-}
-
-pre[class*="language-"].line-numbers > code > .line-highlight:before {
-  content: " ";
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 3em;
-  min-width: 3em;
-  overflow: hidden;
-  counter-reset: linenumber;
 }
 
 .line-numbers .line-numbers-rows {
   position: absolute;
   pointer-events: none;
   top: 0;
+  font-size: 100%;
   left: -3.8em;
+  width: 3em; /* works for line-numbers below 1000 lines */
+  letter-spacing: -1px;
+  border-right: 0;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.line-numbers-rows > span {
+  pointer-events: none;
+  display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #5c6370;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+p code.language-text,
+li code.language-text {
+  background: transparent;
+  color: #c678dd;
 }
