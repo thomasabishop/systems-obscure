@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Main from "../templates/main/Main"
 import axios from "axios"
+import { formatUnixTimestamp } from "../helpers/formatUnixTimestamp"
 
 const localEndpoint = "http://127.0.0.1:3000/query-pocket/get-articles-by-tag?tag=website"
 
@@ -38,7 +39,7 @@ const ArticleListing = ({ article }) => {
           {article?.resolved_title}
         </a>
       </td>
-      <td>{formatDate(article?.time_added)}</td>
+      <td>{formatUnixTimestamp(article?.time_added)}</td>
     </tr>
   )
 }
