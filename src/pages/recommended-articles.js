@@ -3,33 +3,7 @@ import Main from "../templates/main/Main"
 import axios from "axios"
 import { formatUnixTimestamp } from "../helpers/formatUnixTimestamp"
 
-const localEndpoint = "http://127.0.0.1:3000/query-pocket/get-articles-by-tag?tag=website"
-
-const formatDate = (unixTimestamp) => {
-  unixTimestamp = Number(unixTimestamp)
-  let date = new Date(unixTimestamp * 1000)
-
-  let monthNames = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ]
-
-  let day = date.getDate()
-  let month = monthNames[date.getMonth()]
-  let year = date.getFullYear()
-
-  return day + " " + month + " " + year
-}
+const ENDPOINT = process.env.GATSBY_POCKET_LAMBDA_ENDPOINT
 
 const ArticleListing = ({ article }) => {
   return (
@@ -50,7 +24,7 @@ export default function RecommendedArticlesPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(localEndpoint)
+        const response = await axios.get(`${ENDPOINT}?tag=website`)
         setData(response?.data?.data?.list)
       } catch (error) {
         console.error(error)
