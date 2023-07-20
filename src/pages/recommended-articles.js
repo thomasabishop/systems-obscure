@@ -19,23 +19,25 @@ const ArticleListing = ({ article }) => {
 }
 
 export default function RecommendedArticlesPage() {
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState({})
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true)
         const response = await axios.get(`${ENDPOINT}?tag=website`)
         setData(response?.data?.data?.list)
       } catch (error) {
         console.error(error)
+      } finally {
+        setLoading(false)
       }
     }
     fetchData()
   }, [])
 
-  console.log(data)
   const articles = Object.keys(data).map((key) => data[key])
-  console.log(articles)
   return (
     <Main>
       <div className="page-header">
@@ -45,16 +47,17 @@ export default function RecommendedArticlesPage() {
         Articles written by others that I have learned from or which present interesting viewpoints.
       </p>
 
-      <table>
-        <thead>
-          <tr style={{ textAlign: "left" }}>
+      <table className="articles-table">
+        <thead className={loading ? "loading" : ""}>
+          <tr>
             <th>Title</th>
             <th>Date added</th>
           </tr>
         </thead>
         <tbody>
-          {articles &&
-            articles?.map((article) => <ArticleListing key={article?.item_id} article={article} />)}
+          {articles?.map((article) => (
+            <ArticleListing key={article?.item_id} article={article} />
+          ))}
         </tbody>
       </table>
     </Main>
