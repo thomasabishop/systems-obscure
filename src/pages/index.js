@@ -1,10 +1,10 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { graphql, Link } from "gatsby"
-// import "../index.css"
 import "../styles/main.scss"
 import PostLink from "../components/PostLink/PostLink"
 import Main from "../templates/main/Main"
+
 export default function HomePage({
   data: {
     allMarkdownRemark: { edges },
@@ -18,10 +18,7 @@ export default function HomePage({
     <Main>
       <Helmet>
         <title>Systems Obscure</title>
-        <meta
-          name="description"
-          content="Another software engineer with a blog."
-        />
+        <meta name="description" content="Another software engineer with a blog." />
       </Helmet>
 
       <div className="introduction">
