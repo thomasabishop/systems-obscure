@@ -43,5 +43,8 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1"
   }
 }
