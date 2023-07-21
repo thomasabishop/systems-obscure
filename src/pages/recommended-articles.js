@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import Main from "../templates/main/Main"
 import axios from "axios"
 import { formatUnixTimestamp } from "../helpers/formatUnixTimestamp"
+import PageHeader from "../components/PageHeader/PageHeader"
 
 const ENDPOINT = process.env.GATSBY_POCKET_LAMBDA_ENDPOINT
 
@@ -40,9 +41,7 @@ export default function RecommendedArticlesPage() {
   const articles = Object.keys(data).map((key) => data[key])
   return (
     <Main>
-      <div className="page-header">
-        <h1 className="page-h1">Recommended articles</h1>
-      </div>
+      <PageHeader headerTitle="Recommended articles" />
       <p>
         Articles written by others that I have learned from or which present interesting viewpoints.
       </p>
