@@ -8,6 +8,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "start": "gatsby develop",
+    "start:lambdas": "./scripts/start_lambdas.sh",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "deploy": "gatsby-plugin-s3 deploy --yes; aws cloudfront create-invalidation --distribution-id E26F4V6JLBB7PL --paths '/*';",
