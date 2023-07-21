@@ -11,7 +11,7 @@ import "./CodeMetrics.scss"
 
 const CodeMetrics = () => {
   const basePath = {
-    local: "http://127.0.0.1:3000/query-wakatime/main-metrics?timePeriod=",
+    local: "http://127.0.0.1:3001/query-wakatime/main-metrics?timePeriod=",
     prod: undefined,
   }
 
