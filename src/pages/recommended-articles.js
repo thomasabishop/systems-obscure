@@ -4,7 +4,7 @@ import axios from "axios"
 import { formatUnixTimestamp } from "../helpers/formatUnixTimestamp"
 import PageHeader from "../components/PageHeader/PageHeader"
 
-const ENDPOINT = process.env.GATSBY_POCKET_LAMBDA_ENDPOINT
+const ENDPOINT = process.env.GATSBY_POCKET_AWS_LAMBDA_ENDPOINT
 
 const ArticleListing = ({ article }) => {
   return (
