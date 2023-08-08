@@ -9,28 +9,26 @@ import getApiEndpoint from "./helpers/getApiEndpoint"
 
 import "./CodeMetrics.scss"
 
-const CodeMetrics = () => {
-  const basePath = {
-    local: "http://127.0.0.1:3001/query-wakatime/main-metrics?timePeriod=",
-    prod: undefined,
-  }
+const ENDPOINT = process.env.GATSBY_METRICS_AWS_LAMBDA_ENDPOINT
 
+const CodeMetrics = () => {
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
-  const [timePeriod, setTimePeriod] = useState("last_30_days")
+  const [range, setRange] = useState("last_30_days")
 
-  const handleTimePeriodChange = (timePeriod) => {
+  const handleRangeChange = (range) => {
     setLoading(true)
-    setTimePeriod(timePeriod)
+    setRange(range)
   }
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios(basePath.local + timePeriod)
-        setData(res?.data)
+        const response = await axios.get(`${ENDPOINT}?timePeriod=${range}`)
+        setData(response?.data)
+        // setData(res?.data)
         setLoading(false)
       } catch (err) {
         setError(err.message)
@@ -39,7 +37,7 @@ const CodeMetrics = () => {
     }
 
     fetchData()
-  }, [timePeriod])
+  }, [range])
 
   console.log(data)
 
@@ -50,7 +48,7 @@ const CodeMetrics = () => {
         client-side. Click 'Refresh' to see the latest data.
       </p>
 
-      <CodeMetricsControls timePeriod={timePeriod} onChangeTimePeriod={handleTimePeriodChange} />
+      <CodeMetricsControls timePeriod={range} onChangeRange={handleRangeChange} />
 
       {error ? (
         <div className="error-wrapper">

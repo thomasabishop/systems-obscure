@@ -3,10 +3,10 @@ import "./CodeMetricsControls.scss"
 import Button from "../Button/Button"
 import SelectInput from "../SelectInput/SelectInput"
 
-const CodeMetricsControls = ({ timePeriod, onChangeTimePeriod }) => {
+const CodeMetricsControls = ({ range, onChangeRange }) => {
   return (
     <div className="CodeMetricsControls">
-      <SelectInput timePeriod={timePeriod} onChangeTimePeriod={onChangeTimePeriod} />
+      <SelectInput range={range} onChangeRange={onChangeRange} />
       <Button buttonText="Refresh" />
     </div>
   )
