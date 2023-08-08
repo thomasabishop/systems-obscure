@@ -4,7 +4,7 @@ slug: /recommended-articles-integration
 date: 2023-07-07
 ---
 
-I've just added a new small feature to the blog: a page that lists links to articles that I have found interesting. Here I will walk through the development process as it is a good example of setting up a simple AWS Lambda and will be useful for future reference.
+I've just added a new feature to the blog: a page that lists links to articles that I have found interesting. Here I will walk through the development process as it is a good example of setting up a simple AWS Lambda and will be useful for future reference.
 
 ## Implementation
 
@@ -14,13 +14,11 @@ I've just added a new small feature to the blog: a page that lists links to arti
 
 I use Pocket to manage my reading list. When I save an article that I want to share to the blog I tag it with `website`. When querying the Pocket API I use this tag to distinguish articles I wish to share from my other saves. I deploy a Lambda function (written in TypeScript) that is accessible through an [AWS API Gateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) endpoint. This function simply sends a fetch request to the Pocket API and returns the response via the Gateway endpoint.
 
-The Lambda is just a wrapper around the API request - I am not storing any data in a database. Using a Lambda means that I can access my API credentials securely on the backend and also sidestep the issue of Pocket not allowing CORS requests from a frontend.
+The Lambda is just a wrapper around the API request - I am not storing any data in a database. Using a Lambda means that I can access my Pocket API credentials securely on the backend and also sidestep the issue of Pocket not allowing CORS requests from a frontend.
 
 ## Backend
 
-I will use the AWS [Single Application Model](https://aws.amazon.com/serverless/sam/) (SAM) for development. This will allow me to develop and provision the Lambda locally and then deploy my specifications as a template to AWS via the terminal. Once deployed this template will be used by AWS CloudFormation to create a manage the resources I have specified. This abstracts much of the implementation of running a serverless application on AWS.
-
-### Create user
+I will use the AWS [Single Application Model](https://aws.amazon.com/serverless/sam/) (SAM) for development. This will allow me to develop and provision the Lambda locally and then deploy my specifications as a template to AWS via the terminal. Once deployed this template will be used by AWS CloudFormation to create a manage the resources I have specified. This simplifies and programatises much of the work involved in creating and running a serverless application on AWS, since you don't have to fiddle too much with different AWS services in the AWS web console.
 
 Following best practice I create a dedicated [Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) (IAM) user for the project and will use it for the AWS services I require.
 
@@ -132,18 +130,20 @@ First I add the two values to Secrets Manager:
 
 ![](./img/secrets-manager-aws-console.png)
 
-Then I add a resource permission to the existing `Permissions` array for the `QueryPocketFunctionIamRole` to allow the Lambda to access the secret, specifying the ARN of the secret just created:
+Then I add a resource permission to the existing `Policies` array for the `QueryPocketFunctionIamRole` to allow the Lambda to access the secret, specifying the ARN of the secret just created:
 
 ```yml
 - PolicyName: secrets-manager-access
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: Allow
-                Action:
-                  - secretsmanager:GetSecretValue
-                Resource: arn:aws:secretsmanager:eu-west-2:885135949562:secret:pocket-api-credentials-wEvQMI
+    PolicyDocument:
+      Version: "2012-10-17"
+      Statement:
+        - Effect: Allow
+        Action:
+         - secretsmanager:GetSecretValue
+        Resource: arn:aws:secretsmanager:eu-west-2:[ACCOUNT_ID]:secret:[SECRET_REF]
 ```
+
+> I have put redacted private info by using square brackets: this isn't SAM syntax
 
 ### Accessing credentials
 
@@ -194,7 +194,7 @@ First I create this file at `env/local.env.json`:
 {
   "QueryPocketFunction": {
     "NODE_ENV": "development",
-    "POCKET_CREDENTIALS": "{\"POCKET_ACCESS_TOKEN\": \"[access_token_here]\",\"POCKET_CONSUMER_KEY\": \"[consumer_key_value_here]\"}"
+    "POCKET_CREDENTIALS": "{\"POCKET_ACCESS_TOKEN\": \"[ACCESS_TOKEN_HERE]\",\"POCKET_CONSUMER_KEY\": \"[CONSUMER_KEY_VALUE_HERE]\"}"
   }
 }
 ```
@@ -280,11 +280,15 @@ Finally I will write the actual handler function:
 ```ts
 export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   let response: APIGatewayProxyResult
+  const endpoint = `https://getpocket.com/v3/get`
 
   try {
     const { accessToken, consumerKey } = await getPocketCredentials()
-    const endpoint = `https://getpocket.com/v3/get`
     const tag = event.queryStringParameters?.tag
+    const responseHeaders = {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    }
 
     const requestBody = {
       consumer_key: consumerKey,
@@ -306,6 +310,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
 
     response = {
       statusCode: 200,
+      headers: responseHeaders,
       body: JSON.stringify({
         data: requestJson,
       }),
@@ -314,6 +319,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
     console.error(err)
     response = {
       statusCode: 500,
+      header: responseHeaders
       body: JSON.stringify({
         message: err instanceof Error ? err.message : "some error happened",
       }),
@@ -324,9 +330,9 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
 }
 ```
 
-Pretty straightforward. You'll notice I am retrieving `queryStringParameter` from the `event` object. This means I can pass in different tags later, in case I want to retrieve different articles.
+I'm sending a POST request to the Pocket API endpoint. If successful, I return the data as the response, else I return an error code. You'll notice I am retrieving `queryStringParameter` from the `event` object. This means I can pass in different tags later, in case I want to retrieve different articles.
 
-Locally, I would call the endpoint thus: `http://127.0.0.1:3000/query-pocket/get-articles-by-tag?tag=website`
+Locally, I would call the endpoint using the following URL: `http://127.0.0.1:3000/query-pocket/get-articles-by-tag?tag=website`
 
 ### The template file in full
 
@@ -372,7 +378,7 @@ Resources:
               - Effect: Allow
                 Action:
                   - secretsmanager:GetSecretValue
-                Resource: arn:aws:secretsmanager:eu-west-2:885135949562:secret:pocket-api-credentials-wEvQMI
+                Resource: arn:aws:secretsmanager:eu-west-2:[ACCOUNT_ID]:secret:[SECRET_ID]
   QueryPocketFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -390,7 +396,7 @@ Resources:
             Method: get
       Environment:
         Variables:
-          SECRET_ARN: arn:aws:secretsmanager:eu-west-2:885135949562:secret:pocket-api-credentials-wEvQMI
+          SECRET_ARN: arn:aws:secretsmanager:eu-west-2:[ACCOUNT_ID]:secret:[SECRET_ID]
           NODE_ENV: production
           POCKET_CREDENTIALS: ""
     Metadata:
@@ -415,7 +421,7 @@ Outputs:
 
 To summarise, and cover the parts of the template I have not already explained:
 
-- I am creating provisions for three main entities:
+- I am creating provisions for three entities:
 
   - A Lambda function
   - An API Gateway enpoint that will trigger the function
@@ -424,8 +430,6 @@ To summarise, and cover the parts of the template I have not already explained:
 - In addition I am setting permissions so that my Lambda function can access a value stored in Secrets Manager, along with associated environment variables.
 
 - I have a single endpoint: `/query-pocket/get-articles-by-tag`. I have given it it's own path rather than just using the root `/query-pocket` because I may add additional endpoints in the future
-
-- I have configured my API endpoint to use authentication via IAM. This will mean that only a user with the requisite permissions will be able to call the endpoint and access the data the Lambda returns
 
 - My Lambda function is defined in `/query-pocket/index.ts`
 
@@ -448,7 +452,7 @@ Then I run a build:
 sam build
 ```
 
-Next we package the application. CloudFront can only receive one file as an input. When we package the application we create this single file. The packaging proces will first archive all of the project artefacts into a zip file and then upload that to an AWS S3 bucket. A reference to this S3 entity is then provided to CloudFormation and used to retrieve the requisite artefacts.
+Next I package the application. CloudFront can only receive one file as an input. When we package the application we create this single file. The packaging proces will first archive all of the project artefacts into a zip file and then upload that to an [AWS S3](https://aws.amazon.com/s3/) bucket. A reference to this S3 entity is then provided to CloudFormation and used to retrieve the requisite artefacts.
 
 ```
 sam package
@@ -490,37 +494,101 @@ And a new function is added to AWS Lambda with the API Gateway endpoint as the t
 
 ![](./img/newly-created-pocket-lambda.png)
 
-And the API has also been set up:
+And in API Gateway the API has also been set up:
 
 ![](./img/api-gateway-pocket-api.png)
 
-### Configuring user authentication
+## Frontend
 
-If we actually send a request via Postman to the production endpoint it currently returns a 403 with the message `Missing authentication token`. This confirms that the authentication provisions in the `template.yml` are working as expected, since we have yet to give our dedicated IAM user access rights to the endpoint or make our requests as this user.
+My frontend is built with the GatsbyJS library and so is React-based.
 
-To set this up, we need to go back to the IAM console and add an access policy which we will then ascribe to the `pocket-api-lambda-user` we created earlier.
+### Environment variables
 
-The policy is as follows:
+Early I took to trouble to run both development and production versions of the API. When I am working locally on my site I want to be querying the local endpoint rather than the production version since this will accrue fees and also requires me to deploy after every change.
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": ["execute-api:Invoke"],
-      "Resource": ["arn:aws:execute-api:eu-west-2:[aws_account_id]:[api_id]/*"]
+I will use an environment variable to distinguish the local and production endpoints. I do this using the [dotenv](https://www.npmjs.com/package/dotenv) Node package and create the following two files:
+
+```sh
+# .env.production
+GATSBY_POCKET_AWS_LAMBDA_ENDPOINT=https://[HASH].execute-api.eu-west-2.amazonaws.com/Prod/query-pocket/get-articles-by-tag
+```
+
+```sh
+# .env.development
+GATSBY_POCKET_AWS_LAMBDA_ENDPOINT=http://127.0.0.1:3000/query-pocket/get-articles-by-tag
+```
+
+By prepending the variable name with `GATSBY`, Gatsby will know to inject these values at runtime. This way, and by adding my `.env` files to the `.gitignore`, I can avoid hardcoding my endpoints and can use a single reference in my React component.
+
+### React component
+
+Below is the React component:
+
+```jsx
+const ENDPOINT = process.env.GATSBY_POCKET_AWS_LAMBDA_ENDPOINT
+
+const ArticleListing = ({ article }) => {
+  return (
+    <tr>
+      <td>
+        <a href={article?.resolved_url} target="_blank">
+          {article?.resolved_title}
+        </a>
+      </td>
+      <td>{formatUnixTimestamp(article?.time_added)}</td>
+    </tr>
+  )
+}
+
+export default function RecommendedArticlesPage() {
+  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState({})
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true)
+        const response = await axios.get(`${ENDPOINT}?tag=website`)
+        setData(response?.data?.data?.list)
+      } catch (error) {
+        console.error(error)
+      } finally {
+        setLoading(false)
+      }
     }
-  ]
+    fetchData()
+  }, [])
+
+  const articles = Object.keys(data).map((key) => data[key])
+  return (
+    <Main>
+      <PageHeader headerTitle="Recommended articles" />
+      <p>
+        Articles written by others that I have learned from or which present interesting viewpoints.
+      </p>
+
+      <table className="articles-table">
+        <thead className={loading ? "loading" : ""}>
+          <tr>
+            <th>Title</th>
+            <th>Date added</th>
+          </tr>
+        </thead>
+        <tbody>
+          {articles?.map((article) => (
+            <ArticleListing key={article?.item_id} article={article} />
+          ))}
+        </tbody>
+      </table>
+    </Main>
+  )
 }
 ```
 
-Next we go to the `pocket-api-lambda-user` and add the policy as a permission:
+Here I source my environment variable from the Node runtime context and use it to query the API via the React `useEffect` hook that runs once on load. Then I loop through the data to populate the rows of an HTML table.
 
-![](./img/access-api-permission.png)
+## Addendum: authentication
 
-For now, we will test that this works just using Postman. (Later we will configure access from the frontend React application that will be accessing the AWS application.) Postman has inbuilt support for AWS Signature, which makes it easy to call the production endpoint as our `pocket-api-lambda-user`.
+I have set up a basic AWS Gateway API with two execution contexts (local and production) that trigger a Lambda function. In closing I want to note that a considerable oversight is the lack of authentication for the remote endpoint. In its current state anyone with access to the production URL can call the API.
 
-When the `AccessKey` and `SecretKey` associated with the user are supplied, our data is returned as expected:
-
-![](./img/query-remote-endpoint-with-auth.png)
+In this context it's not that big of a deal since the information is not sensitive or particularly interesting however if I was following best practice I would need to provide a way for AWS to authenticate requests. I did attempt this using an IAM role and an AWS Cognito user pool however I was unable to get this working despite my best efforts. This is something I will return to in a future post.
