@@ -5,8 +5,6 @@ import OperatingSystemsChart from "../OperatingSystemsChart/OperatingSystemsChar
 import CodingDurationsChart from "../CodingDurationsChart/CodingDurationsChart"
 import SingleMetrics from "../SingleMetrics/SingleMetrics"
 import CodeMetricsControls from "../CodeMetricsControls/CodeMetricsControls"
-import getApiEndpoint from "./helpers/getApiEndpoint"
-
 import "./CodeMetrics.scss"
 
 const ENDPOINT = process.env.GATSBY_METRICS_AWS_LAMBDA_ENDPOINT
