@@ -46,7 +46,7 @@ const CodeMetrics = () => {
         client-side. Click 'Refresh' to see the latest data.
       </p>
 
-      <CodeMetricsControls timePeriod={range} onChangeRange={handleRangeChange} />
+      <CodeMetricsControls range={range} onChangeRange={handleRangeChange} />
 
       {error ? (
         <div className="error-wrapper">
