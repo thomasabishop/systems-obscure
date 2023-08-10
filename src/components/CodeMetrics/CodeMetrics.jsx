@@ -68,8 +68,8 @@ const CodeMetrics = () => {
   return (
     <div className="CodeMetrics">
       <p>
-        The metrics are derived from the <a>WakaTime</a> and <a>GitHub</a> APIs. The data is cached
-        client-side. Click 'Refresh' to see the latest data.
+        Use the dropdown to change the time range. The data is cached. Click 'Refresh' to see the
+        latest data.
       </p>
 
       <CodeMetricsControls
@@ -109,6 +109,10 @@ const CodeMetrics = () => {
           <OperatingSystemsChart data={data?.operatingSystems} loading={loading} />
         </div>
       )}
+
+      <p style={{ fontSize: "0.875rem", textAlign: "center" }}>
+        The metrics are derived from the <a>WakaTime</a> API.
+      </p>
     </div>
   )
 }
