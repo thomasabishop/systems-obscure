@@ -22,7 +22,7 @@ export const options = {
     },
   },
   scales: {
-    x: {
+    y: {
       title: {
         display: true,
         text: "Time percentage",
