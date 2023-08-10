@@ -1,11 +1,16 @@
 @import "../../styles/variables";
 $main_colour: royalblue;
 $main_colour_darker: darken($main_colour, 3%);
+$disabled_colour: grey;
 
-.Button {
+@mixin button_core {
   background: lighten($main_colour, 35%);
   color: $main_colour_darker;
   border: 1px solid $main_colour_darker;
+}
+
+.Button {
+  @include button_core;
   border-radius: 3px;
   font-weight: 400;
   padding: 0.5rem 1rem;
@@ -18,6 +23,14 @@ $main_colour_darker: darken($main_colour, 3%);
     background: royalblue;
     color: white;
   }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    &:hover {
+      @include button_core;
+    }
+  }
+
   @media (max-width: 768px) {
     width: 100%;
   }
