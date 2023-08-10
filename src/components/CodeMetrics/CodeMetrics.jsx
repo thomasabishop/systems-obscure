@@ -75,7 +75,7 @@ const CodeMetrics = () => {
       <CodeMetricsControls
         range={range}
         onChangeRange={handleRangeChange}
-        buttonDisabled={loading}
+        disabled={loading}
         buttonAction={handleDataRefresh}
       />
 
