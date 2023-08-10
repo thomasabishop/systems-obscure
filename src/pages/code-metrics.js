@@ -1,7 +1,8 @@
 import React from "react"
+import Main from "../templates/main/Main"
 import CodeMetrics from "../components/CodeMetrics/CodeMetrics"
 import PageHeader from "../components/PageHeader/PageHeader"
-import Main from "../templates/main/Main"
+
 export default function CodeMetricsPage(props) {
   return (
     <Main>
