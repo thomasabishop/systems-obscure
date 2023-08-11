@@ -10,7 +10,7 @@ const ArticleListing = ({ article }) => {
   return (
     <tr>
       <td>
-        <a href={article?.resolved_url} target="_blank">
+        <a href={article?.resolved_url} target="_blank" rel="noreferrer">
           {article?.resolved_title}
         </a>
       </td>

@@ -111,7 +111,7 @@ const CodeMetrics = () => {
       )}
 
       <p style={{ fontSize: "0.875rem", textAlign: "center" }}>
-        The metrics are derived from the <a>WakaTime</a> API.
+        The metrics are derived from the <a href="https://www.wakatime.com">WakaTime</a> API.
       </p>
     </div>
   )

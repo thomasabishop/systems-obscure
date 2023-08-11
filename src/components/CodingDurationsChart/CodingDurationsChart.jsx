@@ -10,7 +10,7 @@ import {
   Filler,
   Legend,
 } from "chart.js"
-import { Bar, Line } from "react-chartjs-2"
+import { Bar } from "react-chartjs-2"
 import LoadingWidget from "../LoadingWidget/LoadingWidget"
 
 ChartJS.register(
