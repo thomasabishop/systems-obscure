@@ -56,7 +56,7 @@ export default function RecommendedArticlesPage() {
         <thead className={loading ? "loading" : ""}>
           <tr>
             <th>Title</th>
-            <th>Date added</th>
+            <th>Added</th>
           </tr>
         </thead>
         <tbody>
