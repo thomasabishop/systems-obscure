@@ -26,6 +26,10 @@ jobs:
             ${{ runner.os }}-systemsobscure-site-build-
       - name: Install dependencies
         run: npm install
+      - name: Set environment variables
+        run: |
+          echo "GATSBY_POCKET_AWS_LAMBDA_ENDPOINT=${{ secrets.GATSBY_POCKET_AWS_LAMBDA_ENDPOINT }}" >> $GITHUB_ENV
+          echo "GATSBY_METRICS_AWS_LAMBDA_ENDPOINT=${{ secrets.GATSBY_METRICS_AWS_LAMBDA_ENDPOINT }}" >> $GITHUB_ENV
       - name: Build
         run: npm run build
       - name: Set AWS credentials
