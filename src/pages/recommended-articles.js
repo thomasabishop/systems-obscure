@@ -3,7 +3,7 @@ import Main from "../templates/main/Main"
 import axios from "axios"
 import { formatUnixTimestamp } from "../helpers/formatUnixTimestamp"
 import PageHeader from "../components/PageHeader/PageHeader"
-
+import useSessionStorage from "../hooks/useSessionStorage"
 const ENDPOINT = process.env.GATSBY_POCKET_AWS_LAMBDA_ENDPOINT
 
 const ArticleListing = ({ article }) => {
@@ -22,21 +22,27 @@ const ArticleListing = ({ article }) => {
 export default function RecommendedArticlesPage() {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState({})
-
+  const [storedData, setStoredData] = useSessionStorage("so_recommended_articles", {})
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        setLoading(true)
-        const response = await axios.get(`${ENDPOINT}?tag=website`)
-        setData(response?.data?.data?.list)
-      } catch (error) {
-        console.error(error)
-      } finally {
+      setLoading(true)
+      if (Object.keys(storedData).length) {
+        setData(storedData)
         setLoading(false)
+      } else {
+        try {
+          const response = await axios.get(`${ENDPOINT}?tag=website`)
+          console.log(response)
+          setStoredData(response?.data?.data?.list)
+          setData(response?.data?.data?.list)
+          setLoading(false)
+        } catch (err) {
+          console.error(err)
+        }
       }
     }
     fetchData()
-  }, [])
+  }, [storedData, setStoredData])
 
   const articles = Object.keys(data).map((key) => data[key])
   return (

@@ -11,7 +11,7 @@ import "./CodeMetrics.scss"
 const ENDPOINT = process.env.GATSBY_METRICS_AWS_LAMBDA_ENDPOINT
 
 const CodeMetrics = () => {
-  const [storedData, setStoredData] = useSessionStorage("code_metrics_wakatime", {})
+  const [storedData, setStoredData] = useSessionStorage("so_code_metrics_wakatime", {})
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
