@@ -520,6 +520,16 @@ GATSBY_POCKET_AWS_LAMBDA_ENDPOINT=http://127.0.0.1:3000/query-pocket/get-article
 
 By prepending the variable name with `GATSBY`, Gatsby will know to inject these values at runtime. This way, and by adding my `.env` files to the `.gitignore`, I can avoid hardcoding my endpoints and can use a single reference in my React component.
 
+When working locally I can run `NODE_ENV=development npm run start` to source the local endpoint variable and `NODE_ENV=production npm run start` to source the production endpoint variable. In the deployed production context however, `.env.production` will not be available because it is an ignored file. Thus to source the variables when `npm run build` is run remotely, it is necessary to store them as secrets that can be accessed in my CI/CD pipeline. I use a [GitHub Action](https://systemsobscure.blog/how-I-deploy-this-site/) to build my site and deploy it to AWS when I push changes, so I add the following line to my `main.file` build script:
+
+```yml
+steps:
+ - name: Set environment variables
+    run: |
+      echo "GATSBY_POCKET_AWS_LAMBDA_ENDPOINT=${{ secrets.GATSBY_POCKET_AWS_LAMBDA_ENDPOINT }}" >> $GITHUB_ENV
+      echo "GATSBY_METRICS_AWS_LAMBDA_ENDPOINT=${{ secrets.GATSBY_METRICS_AWS_LAMBDA_ENDPOINT }}" >> $GITHUB_ENV
+```
+
 ### React component
 
 Below is the React component:
