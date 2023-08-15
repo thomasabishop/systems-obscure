@@ -3,8 +3,8 @@
 .Header {
   padding: 0.5rem 1rem;
   padding-left: 0;
-  background: $grey;
-  text-align: center;
+  //  background: $grey;
+  // text-align: center;
   //  border: 1px solid #ccc;
   border-radius: 3px;
   // position: sticky;
@@ -12,7 +12,7 @@
   z-index: 100;
   &__site-title {
     border-bottom: none;
-    font-size: 1.8em;
+    font-size: 2em;
     font-weight: 800;
     color: $foreground;
     &:hover {
