@@ -1,18 +1,3 @@
-const monthNames = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-]
-
 /**
  *
  * @param {*} unixTimestamp : Number
@@ -22,10 +7,15 @@ const formatUnixTimestamp = (unixTimestamp) => {
   unixTimestamp = Number(unixTimestamp)
   let date = new Date(unixTimestamp * 1000)
   let day = date.getDate()
-  let month = monthNames[date.getMonth()]
+  let monthIndex = date.getMonth() + 1 // Get month index (0 based, hence +1)
   let year = date.getFullYear()
 
-  return day + " " + month + " " + year
+  // Add leading zero for single digit day
+  day = day < 10 ? "0" + day : day
+  // Add leading zero for single digit month
+  monthIndex = monthIndex < 10 ? "0" + monthIndex : monthIndex
+
+  return day + "-" + monthIndex + "-" + year
 }
 
 export { formatUnixTimestamp }
