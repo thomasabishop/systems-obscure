@@ -1,5 +1,5 @@
 ---
-title: "New lambda: save articles"
+title: "New AWS Lambda: save articles"
 slug: /save-articles-lambda
 date: 2023-09-07
 ---

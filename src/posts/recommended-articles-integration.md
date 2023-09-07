@@ -1,5 +1,5 @@
 ---
-title: "Recommended articles integration"
+title: "AWS Lambda integration: recommended articles"
 slug: /recommended-articles-integration
 date: 2023-07-07
 ---
@@ -19,30 +19,6 @@ The Lambda is just a wrapper around the API request - I am not storing any data 
 ## Backend
 
 I will use the AWS [Single Application Model](https://aws.amazon.com/serverless/sam/) (SAM) for development. This will allow me to develop and provision the Lambda locally and then deploy my specifications as a template to AWS via the terminal. Once deployed this template will be used by AWS CloudFormation to create a manage the resources I have specified. This simplifies and programatises much of the work involved in creating and running a serverless application on AWS, since you don't have to fiddle too much with different AWS services in the AWS web console.
-
-Following best practice I create a dedicated [Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) (IAM) user for the project and will use it for the AWS services I require.
-
-I do this via IAM in the AWS console and apply the AdministratorAccess policy to the user:
-
-![](./img/create-iam-user-aws-console.png)
-
-I then create an access key which will give me an Access Key ID and Secret Access Key. I add these values to a dedicated profile vie the `aws-cli`
-
-```sh
-aws configure --profile pocket-api-profile
-```
-
-This will prompt for the Access Key ID and secret key and then add the profile to `./aws/credentials`:
-
-```
-[default]
-aws_access_key_id = [access_key_value_here]
-aws_secret_access_key = [secret_access_key_here]
-
-[pocket-api-profile]
-aws_access_key_id = [access_key_value_here]
-aws_secret_access_key = [secret_access_key_here]
-```
 
 ### Create Lambda template
 
