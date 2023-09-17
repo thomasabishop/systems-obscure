@@ -1,5 +1,4 @@
 import React from "react"
-import LoadingWidget from "../LoadingWidget/LoadingWidget"
 import { Chart as ChartJS, Tooltip, Legend } from "chart.js"
 import { Bar } from "react-chartjs-2"
 
@@ -48,7 +47,7 @@ const OperatingSystemsChart = ({ data, loading, error }) => {
 
   return (
     <div className="chart-wrapper" style={{ maxHeight: 250, width: "100%" }}>
-      {loading ? <LoadingWidget /> : <Bar data={chartJsData} options={options} />}
+      {loading ? <span>Loading...</span> : <Bar data={chartJsData} options={options} />}
     </div>
   )
 }

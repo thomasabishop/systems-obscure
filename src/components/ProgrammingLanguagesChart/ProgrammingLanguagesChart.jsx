@@ -1,5 +1,4 @@
 import React from "react"
-import LoadingWidget from "../LoadingWidget/LoadingWidget"
 
 import {
   Chart as ChartJS,
@@ -59,7 +58,11 @@ const ProgrammingLanguagesChart = ({ data, loading, error }) => {
 
   return (
     <div className="chart-wrapper">
-      {loading ? <LoadingWidget /> : <Bar height="300px" options={options} data={chartJsData} />}
+      {loading ? (
+        <span>Loading...</span>
+      ) : (
+        <Bar height="300px" options={options} data={chartJsData} />
+      )}
     </div>
   )
 }

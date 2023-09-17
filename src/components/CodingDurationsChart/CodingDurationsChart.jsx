@@ -11,7 +11,6 @@ import {
   Legend,
 } from "chart.js"
 import { Bar } from "react-chartjs-2"
-import LoadingWidget from "../LoadingWidget/LoadingWidget"
 
 ChartJS.register(
   CategoryScale,
@@ -77,7 +76,11 @@ const CodingDurationsChart = ({ data, loading, error }) => {
 
   return (
     <div className="chart-wrapper">
-      {loading ? <LoadingWidget /> : <Bar height="300px" options={options} data={chartJsData} />}
+      {loading ? (
+        <span>Loading...</span>
+      ) : (
+        <Bar height="300px" options={options} data={chartJsData} />
+      )}
     </div>
   )
 }
