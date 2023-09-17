@@ -21,16 +21,9 @@ export default function HomePage({
         <meta name="description" content="Another software engineer with a blog." />
       </Helmet>
 
-      <div className="introduction">
-        <p>Another software engineer with a blog.</p>
-      </div>
-
-      <div>
-        <h2 className="posts-header">Pages</h2>
-        <div className="home-links">
-          <Link to="/code-metrics">Code Metrics</Link>
-          <Link to="/recommended-articles">Recommended Articles</Link>
-        </div>
+      <div className="home-links">
+        <Link to="/code-metrics">Code Metrics</Link>
+        <Link to="/recommended-articles">Recommended Articles</Link>
       </div>
 
       <div>
