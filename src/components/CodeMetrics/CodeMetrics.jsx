@@ -14,7 +14,7 @@ const CodeMetrics = () => {
   const [storedData, setStoredData] = useSessionStorage("so_code_metrics_wakatime", {})
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(true)
+  const [error, setError] = useState(false)
   const [range, setRange] = useState("last_30_days")
 
   const handleRangeChange = (range) => {
