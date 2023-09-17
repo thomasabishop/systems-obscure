@@ -14,7 +14,7 @@ const CodeMetrics = () => {
   const [storedData, setStoredData] = useSessionStorage("so_code_metrics_wakatime", {})
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(true)
   const [range, setRange] = useState("last_30_days")
 
   const handleRangeChange = (range) => {
@@ -110,9 +110,9 @@ const CodeMetrics = () => {
         </div>
       )}
 
-      <p style={{ fontSize: "0.875rem", textAlign: "center" }}>
+      {/* <p style={{ fontSize: "0.875rem", textAlign: "center" }}>
         The metrics are derived from the <a href="https://www.wakatime.com">WakaTime</a> API.
-      </p>
+      </p> */}
     </div>
   )
 }
