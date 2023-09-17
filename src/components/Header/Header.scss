@@ -1,33 +1,8 @@
 @import "../../styles/variables";
 
 .Header {
-  padding: 0.5rem 1rem;
-  padding-left: 0;
-  //  background: $grey;
-  // text-align: center;
-  //  border: 1px solid #ccc;
-  border-radius: 3px;
-  // position: sticky;
-  top: 0;
-  z-index: 100;
-  &__site-title {
-    border-bottom: none;
-    font-size: 2em;
-    font-weight: 800;
-    color: $foreground;
-    &:hover {
-      text-decoration: none;
-      border-bottom: none;
-      color: $foreground;
-    }
-  }
-}
-
-@media only screen and (max-width: 778px) {
-  .Header {
-    padding-top: 0.5rem;
-    &__site-title {
-      //   font-size: 1.3em;
-    }
+  a {
+    text-decoration: none;
+    color: black;
   }
 }

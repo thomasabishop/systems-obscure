@@ -10,6 +10,7 @@ table {
 
 th {
   background-color: #f8f9fa;
+  text-align: left;
 }
 
 tbody tr:nth-child(even) {
@@ -42,7 +43,7 @@ thead.loading::after {
   content: "";
   display: block;
   height: 2px;
-  background-color: royalblue;
+  background-color: blue;
   position: absolute;
   left: 0;
   bottom: 0;

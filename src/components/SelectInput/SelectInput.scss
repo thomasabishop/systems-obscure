@@ -7,19 +7,12 @@
   flex: 1;
 
   select {
-    font-family: $font_stack_sans;
-    font-size: 14px;
-    font-weight: 400;
-    border-radius: 3px;
     width: 100%;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     padding: 10px;
     background-color: $grey;
-    color: $foreground;
-    border: 1px solid $grey_darkened;
-    outline: none;
   }
 
   &:after {
@@ -31,9 +24,9 @@
     padding: 0;
     font-size: 10px;
     pointer-events: none;
-    color: $foreground;
+    color: inherit;
   }
-  // @media (max-width: 768px) {
-  //   width: 100%;
-  // }
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }

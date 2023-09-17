@@ -86,7 +86,7 @@ const CodeMetrics = () => {
       ) : (
         <div className="CodeMetrics_wakatime-outputs">
           <div className="CodeMetrics__block">
-            <h3>Time coding</h3>
+            <h2>Time coding</h2>
             <SingleMetrics
               data={{
                 total: data?.codingTimeTotal,
@@ -102,10 +102,10 @@ const CodeMetrics = () => {
           <CodingDurationsChart data={data?.codingDurations} loading={loading} />
 
           <div className="CodeMetrics__block">
-            <h3>Programming languages</h3>
+            <h2>Programming languages</h2>
             <ProgrammingLanguagesChart data={data?.programmingLanguages} loading={loading} />
           </div>
-          <h3>Operating systems</h3>
+          <h2>Operating systems</h2>
           <OperatingSystemsChart data={data?.operatingSystems} loading={loading} />
         </div>
       )}

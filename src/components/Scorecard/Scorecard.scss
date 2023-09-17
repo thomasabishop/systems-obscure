@@ -1,11 +1,10 @@
 @import "../../styles/variables";
 
 .Scorecard {
-  font-family: $font_stack_sans;
+  font-family: sans-serif;
   font-size: 13px;
   background-color: $grey;
-  border: 1px solid $grey_darkened;
-  border-radius: 3px;
+  border: 1px solid grey;
   min-width: 140px;
   display: flex;
   flex-direction: column;

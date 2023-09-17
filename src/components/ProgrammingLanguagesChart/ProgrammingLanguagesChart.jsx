@@ -15,6 +15,7 @@ import { Bar } from "react-chartjs-2"
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 export const options = {
+  maintainAspectRatio: false,
   indexAxis: "x",
   elements: {
     bar: {
@@ -58,7 +59,7 @@ const ProgrammingLanguagesChart = ({ data, loading, error }) => {
 
   return (
     <div className="chart-wrapper">
-      {loading ? <LoadingWidget /> : <Bar options={options} data={chartJsData} />}
+      {loading ? <LoadingWidget /> : <Bar height="300px" options={options} data={chartJsData} />}
     </div>
   )
 }

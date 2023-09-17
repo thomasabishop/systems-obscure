@@ -15,39 +15,12 @@ body {
 }
 
 .main {
-  width: 80%;
-  margin: 0.5rem auto;
-  padding: 1rem 2rem;
-  max-width: 778px;
+  margin: 1.5rem;
+  max-width: 1080px;
 }
 
 .home-links {
-  margin-bottom: 2rem;
   * {
     margin-right: 1rem;
-  }
-}
-
-.introduction {
-  padding: 0.5rem 0;
-}
-
-.posts-wrapper {
-  padding-top: 1rem;
-}
-
-.post {
-  padding-top: 0.5rem;
-}
-
-div.math-display {
-  overflow-x: auto;
-}
-
-@media only screen and (max-width: 778px) {
-  .main {
-    padding: 0.5rem;
-    width: 90%;
-    margin: 0.5rem auto;
   }
 }

@@ -24,10 +24,15 @@ export default function HomePage({
       <div className="introduction">
         <p>Another software engineer with a blog.</p>
       </div>
-      <div className="home-links">
-        <Link to="/code-metrics">Code Metrics</Link>
-        <Link to="/recommended-articles">Recommended Articles</Link>
+
+      <div>
+        <h2 className="posts-header">Pages</h2>
+        <div className="home-links">
+          <Link to="/code-metrics">Code Metrics</Link>
+          <Link to="/recommended-articles">Recommended Articles</Link>
+        </div>
       </div>
+
       <div>
         <h2 className="posts-header">Posts</h2>
         <div className="posts-wrapper">{Posts}</div>

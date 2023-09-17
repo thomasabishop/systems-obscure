@@ -6,7 +6,12 @@ const Button = ({ buttonText, action, disabled }) => {
   }
 
   return (
-    <button className="Button" onClick={handleClick} disabled={disabled}>
+    <button
+      className="Button"
+      style={{ minWidth: "80px" }}
+      onClick={handleClick}
+      disabled={disabled}
+    >
       {buttonText}
     </button>
   )

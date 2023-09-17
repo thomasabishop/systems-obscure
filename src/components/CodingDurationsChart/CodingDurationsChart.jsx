@@ -25,6 +25,7 @@ ChartJS.register(
 )
 
 export const options = {
+  maintainAspectRatio: false,
   responsive: true,
   elements: {
     line: {
@@ -76,7 +77,7 @@ const CodingDurationsChart = ({ data, loading, error }) => {
 
   return (
     <div className="chart-wrapper">
-      {loading ? <LoadingWidget /> : <Bar options={options} data={chartJsData} />}
+      {loading ? <LoadingWidget /> : <Bar height="300px" options={options} data={chartJsData} />}
     </div>
   )
 }
