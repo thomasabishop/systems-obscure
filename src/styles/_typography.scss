@@ -5,3 +5,13 @@ body {
 h1.post__title {
   font-size: 1.75rem;
 }
+
+blockquote {
+  font-style: italic;
+}
+
+.post {
+  &__date {
+    font-style: italic;
+  }
+}
