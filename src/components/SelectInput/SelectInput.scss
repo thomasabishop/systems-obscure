@@ -2,31 +2,27 @@
 
 .SelectInput {
   width: 200px;
-  position: relative;
-  display: inline-block;
-  flex: 1;
 
   select {
+    //    border-radius: 3px;
+    // border-color: grey;
     width: 100%;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    padding: 10px;
-    background-color: $grey;
+    // appearance: none;
+    // -webkit-appearance: none;
+    // -moz-appearance: none;
+    //  padding: 10px;
+    // background-color: $grey;
   }
 
-  &:after {
-    content: "\25BC";
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    padding: 0;
-    font-size: 10px;
-    pointer-events: none;
-    color: inherit;
-  }
-  @media (max-width: 768px) {
-    width: 100%;
-  }
+  // &:after {
+  //   content: "\25BC";
+  //   position: absolute;
+  //   top: 50%;
+  //   right: 15px;
+  //   transform: translateY(-50%);
+  //   padding: 0;
+  //   font-size: 10px;
+  //   pointer-events: none;
+  //   color: inherit;
+  // }
 }

@@ -25,7 +25,7 @@ export const options = {
     y: {
       title: {
         display: true,
-        text: "Time percentage",
+        text: "Hours",
       },
     },
   },

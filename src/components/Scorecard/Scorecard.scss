@@ -1,19 +1,20 @@
 @import "../../styles/variables";
 
 .Scorecard {
-  font-family: sans-serif;
-  font-size: 13px;
+  // font-family: sans-serif;
+  font-size: 14px;
   background-color: $grey;
-  border: 1px solid grey;
+  // border: 1px solid rgba(54, 162, 235, 1);
   min-width: 140px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 2px;
 
   &__value {
     margin-bottom: 1rem;
     align-self: center;
-    font-size: 14px;
+    // font-size: 14px;
     padding: 0.5rem;
     font-weight: 400;
   }

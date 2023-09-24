@@ -67,11 +67,6 @@ const CodeMetrics = () => {
 
   return (
     <div className="CodeMetrics">
-      <p>
-        Use the dropdown to change the time range. The data is cached. Click 'Refresh' to see the
-        latest data.
-      </p>
-
       <CodeMetricsControls
         range={range}
         onChangeRange={handleRangeChange}
@@ -99,8 +94,9 @@ const CodeMetrics = () => {
             />
           </div>
 
-          <CodingDurationsChart data={data?.codingDurations} loading={loading} />
-
+          <div className="CodeMetrics__block">
+            <CodingDurationsChart data={data?.codingDurations} loading={loading} />
+          </div>
           <div className="CodeMetrics__block">
             <h2>Programming languages</h2>
             <ProgrammingLanguagesChart data={data?.programmingLanguages} loading={loading} />

@@ -17,7 +17,7 @@ const SingleMetrics = ({ data, loading, error }) => {
       value: data?.dailyAverage,
     },
     {
-      title: "Best single day",
+      title: "Longest day",
       value: data?.bestDay,
     },
   ]

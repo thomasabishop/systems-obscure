@@ -6,8 +6,9 @@ import SelectInput from "../SelectInput/SelectInput"
 const CodeMetricsControls = ({ range, onChangeRange, buttonAction, disabled }) => {
   return (
     <div className="CodeMetricsControls">
+      <span>Time range: </span>
       <SelectInput range={range} onChangeRange={onChangeRange} disabled={disabled} />
-      <Button buttonText="Refresh" action={buttonAction} disabled={disabled} />
+      <Button buttonText="Refresh data" action={buttonAction} disabled={disabled} />
     </div>
   )
 }

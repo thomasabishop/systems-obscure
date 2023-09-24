@@ -9,14 +9,12 @@ const SelectInput = ({ range, onChangeRange, disabled }) => {
   }
 
   return (
-    <form className="SelectInput">
-      <select value={range} onChange={handleChange} disabled={disabled}>
-        <option value="last_7_days">Last week</option>
-        <option value="last_30_days">Last month</option>
-        <option value="last_6_months">Last six months</option>
-        <option value="last_year">Last year</option>
-      </select>
-    </form>
+    <select value={range} onChange={handleChange} disabled={disabled}>
+      <option value="last_7_days">Last week</option>
+      <option value="last_30_days">Last month</option>
+      <option value="last_6_months">Last six months</option>
+      <option value="last_year">Last year</option>
+    </select>
   )
 }
 
