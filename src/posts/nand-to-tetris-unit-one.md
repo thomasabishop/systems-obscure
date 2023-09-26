@@ -1,7 +1,7 @@
 ---
 title: "Nand to Tetris Unit One: Boolean functions and gate logic"
 slug: /nand-to-tetris-unit-one/
-date: 2023-01-12
+date: 2023-01-13
 ---
 
 I have recently started [Nand to Tetris](https://www.nand2tetris.org/course). This course teaches the foundations of hardware and computer achitecture and is based on the textbook _The Elements of Computing Systems_ by Noam Nisan and Shimon Schocken. As the course proceeds you build a functioning general-purpose computer starting from basic logic gates that is eventually capable of running Tetris and any number of other programs. The hardware is built primarily through simulation software running on Hack, a simplified [hardware description language](https://en.wikipedia.org/wiki/Hardware_description_language) similar to Verilog and VHDL.
