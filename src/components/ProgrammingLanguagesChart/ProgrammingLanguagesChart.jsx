@@ -58,11 +58,7 @@ const ProgrammingLanguagesChart = ({ data, loading, error }) => {
 
   return (
     <div className="chart-wrapper">
-      {loading ? (
-        <span>Loading...</span>
-      ) : (
-        <Bar height="300px" options={options} data={chartJsData} />
-      )}
+      <Bar height="300px" options={options} data={chartJsData} />
     </div>
   )
 }

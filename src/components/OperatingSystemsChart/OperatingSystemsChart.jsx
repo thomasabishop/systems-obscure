@@ -47,7 +47,7 @@ const OperatingSystemsChart = ({ data, loading, error }) => {
 
   return (
     <div className="chart-wrapper" style={{ maxHeight: 250, width: "100%" }}>
-      {loading ? <span>Loading...</span> : <Bar data={chartJsData} options={options} />}
+      <Bar data={chartJsData} options={options} />
     </div>
   )
 }

@@ -1,10 +1,13 @@
 body {
   font-family: sans-serif;
+  font-smooth: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
 .PageHeader h1 {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
 }
 
 h2 {
@@ -29,4 +32,18 @@ blockquote {
 
 p code {
   color: black !important;
+}
+
+p,
+ul,
+blockquote,
+a {
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }

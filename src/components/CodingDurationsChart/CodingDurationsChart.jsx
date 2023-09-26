@@ -10,7 +10,7 @@ import {
   Filler,
   Legend,
 } from "chart.js"
-import { Bar } from "react-chartjs-2"
+import { Line } from "react-chartjs-2"
 
 ChartJS.register(
   CategoryScale,
@@ -76,11 +76,7 @@ const CodingDurationsChart = ({ data, loading, error }) => {
 
   return (
     <div className="chart-wrapper">
-      {loading ? (
-        <span>Loading...</span>
-      ) : (
-        <Bar height="300px" options={options} data={chartJsData} />
-      )}
+      <Line height="300px" options={options} data={chartJsData} />
     </div>
   )
 }

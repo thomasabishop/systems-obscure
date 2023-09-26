@@ -28,7 +28,8 @@ const SingleMetrics = ({ data, loading, error }) => {
         <Scorecard
           key={i}
           title={metric?.title}
-          value={error ? "Error" : loading ? "Loading ..." : metric?.value}
+          value={error ? "Error" : metric?.value}
+          loading={loading}
         />
       ))}
     </div>

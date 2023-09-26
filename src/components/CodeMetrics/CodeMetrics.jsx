@@ -74,7 +74,9 @@ const CodeMetrics = () => {
         buttonAction={handleDataRefresh}
       />
 
-      {error ? (
+      {loading ? (
+        <div className="loading-line"></div>
+      ) : error ? (
         <div className="error-wrapper">
           <span>An error occurred when retrieving WakaTime data: {error} </span>{" "}
         </div>
@@ -95,7 +97,7 @@ const CodeMetrics = () => {
           </div>
 
           <div className="CodeMetrics__block">
-            <CodingDurationsChart data={data?.codingDurations} loading={loading} />
+            <CodingDurationsChart data={data?.codingDurations} />
           </div>
           <div className="CodeMetrics__block">
             <h2>Programming languages</h2>
@@ -105,10 +107,6 @@ const CodeMetrics = () => {
           <OperatingSystemsChart data={data?.operatingSystems} loading={loading} />
         </div>
       )}
-
-      {/* <p style={{ fontSize: "0.875rem", textAlign: "center" }}>
-        The metrics are derived from the <a href="https://www.wakatime.com">WakaTime</a> API.
-      </p> */}
     </div>
   )
 }
