@@ -22,7 +22,7 @@ n # start a new partition
 w # write the partition to the disk
 ```
 
-I now have a partition at `/dev/sda/sda1`.
+I now have a partition at `/dev/sda/sda1`
 
 Next I create the file system:
 
