@@ -4,31 +4,31 @@ slug: /some-nice-typescript/
 date: 2023-09-26
 ---
 
-I wanted to share a snippet of a TypeScript function I wrote recently. Although it's not a particulaly interesting scenario, I like it because it is simple and elegant, if I say so myself.
+I wanted to share a snippet of a TypeScript function I wrote recently. Although it's not a particularly interesting scenario, I like it because it is simple and elegant, if I say so myself.
 
 At the moment I am working on an AWS Lambda that queries the API of the Toggl time-tracking service to retrieve a list of time entries for a given date range. The API returns an array of time entries with the following structure:
 
 ```json
-    {
-        "id": 3136598124,
-        "workspace_id": 2360906,
-        "project_id": 193325937,
-        "task_id": null,
-        "billable": false,
-        "start": "2023-09-21T20:10:02+00:00",
-        "stop": "2023-09-21T20:39:54Z",
-        "duration": 1792,
-        "description": "pytest blog post",
-        "tags": [],
-        "tag_ids": [],
-        "duronly": true,
-        "at": "2023-09-21T20:39:54+00:00",
-        "server_deleted_at": null,
-        "user_id": 3700888,
-        "uid": 3700888,
-        "wid": 2360906,
-        "pid": 193325937
-    },
+{
+  "id": 3136598124,
+  "workspace_id": 2360906,
+  "project_id": 193325937,
+  "task_id": null,
+  "billable": false,
+  "start": "2023-09-21T20:10:02+00:00",
+  "stop": "2023-09-21T20:39:54Z",
+  "duration": 1792,
+  "description": "pytest blog post",
+  "tags": [],
+  "tag_ids": [],
+  "duronly": true,
+  "at": "2023-09-21T20:39:54+00:00",
+  "server_deleted_at": null,
+  "user_id": 3700888,
+  "uid": 3700888,
+  "wid": 2360906,
+  "pid": 193325937
+}
 ```
 
 Notice that the `project_id` is a number rather than the human-readable string that appears in the Toggl UI. When I return the data to the frontend I want to have the name of the project rather than this number. So I wrote the following transformer:
