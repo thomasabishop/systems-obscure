@@ -414,7 +414,6 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 p code.language-text,
 li code.language-text {
   background: transparent;
-  color: #404040;
   font-weight: 400;
   text-shadow: none;
   padding: 0;

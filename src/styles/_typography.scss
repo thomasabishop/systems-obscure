@@ -1,10 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;600;700&display=swap");
 
 body {
-  font-family: "Times New Roman", "Times", serif;
-  font-smooth: antialiased;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: serif;
 }
 
 h1,
@@ -33,12 +30,12 @@ blockquote {
 }
 
 p code {
-  font-size: 13px;
+  font-size: 14px;
   color: black !important;
 }
 
 code {
-  font-size: 12px;
+  font-size: 13px;
   font-family: "Noto Sans Mono", monospace;
 }
 
