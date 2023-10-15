@@ -12,7 +12,7 @@ In this post I outline what I learned in the first unit. This broadly follows th
 
 The workings of a classical computer can be reduced to a series of operations on the binary digits (bits) 0 and 1. A computational process can be represented as a function: data (a series of bits) goes into the function in one state and comes out in a another state. The new state is a product of the function.
 
-![](/img/function-diagram.png)
+![](/img/function-diagram-new.png)
 
 The most primitive bit operations are equivalent to the truth-conditions of the logical connectives of Boolean algebra. There are multiple logical connectives but we will mostly focus on AND, OR, and NOT for simplicity.
 
