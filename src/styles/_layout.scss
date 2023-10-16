@@ -15,7 +15,7 @@ body {
 }
 
 .main {
-  margin: 1rem;
+  margin: 2rem;
   max-width: 992px;
 }
 
@@ -23,5 +23,11 @@ body {
   margin-top: 1rem;
   * {
     margin-right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 778px) {
+  .main {
+    margin: 1rem;
   }
 }
