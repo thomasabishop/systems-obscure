@@ -6,27 +6,23 @@ date: 2023-01-07
 
 This year I read twenty-two books in total. Before I go into the specific books, I'll note some themes.
 
-Earlier in the year, I spent a fair amount of time reading about western political history, specifically the English Civil War and the period from the accession of James I in 1603 to the "Glorious Revolution" of 1688.
+Earlier in the year, I spent time reading about western political history, specifically the English Civil War and the period from the accession of James I in 1603 to the "Glorious Revolution" of 1688.
 
-This is part of a broader objective of mine to understand the historical trajectory of capitalism. I want to chart its emergence and evolution by studying history at the following key junctures: the English Civil War and the emergence of parliamentary democracy from feudal absolute monarchy; the American Revolution and War of Independence; the development of British and European imperialism and its system of colonial extraction, enslavement and dispossession; the French Revolution and Enlightenment; and land enclosure and the Industrial Revolution.
+This is part of a broader objective to understand the historical trajectory of capitalism. I want to understand its emergence and evolution by studying history at the following key junctures: the English Civil War and the development of parliamentary democracy from feudal absolute monarchy; the American Revolution and War of Independence; the development of British and European imperialism and its system of colonial extraction, enslavement and dispossession; the French Revolution and Enlightenment; and land enclosure and the Industrial Revolution.
 
-This will probably take many years but I now feel I have a better grasp of the development of English democracy and the Liberal principles that shaped it and which continue to be touchstones in contemporary capitalist discourse.
-
-Other than history and politics I read a great deal of science fiction as always. I had quite a challenging year in my personal life and I'll often binge on SF novels as it helps me to escape stressful realities.
-
-Let's go through the books...
+This will take many years but I now feel I have a better grasp of the development of English democracy and the Liberal principles that shaped it and which continue to be touchstones in contemporary capitalist discourse.
 
 ## Dorinda Outram, The Enlightenment (2013)
 
-This was a short primer designed for undergraduate students. The key aspects I recall are the contradictions between the ideals of the key figures and the actual social and political realities they were prepared to abide, such the existence of slavery and the subjugation of women. Also interesting was the debate over the extent to which the violence of the French Revolution (typically viewed as closing the Enlightenment) was a consequence or a corruption of the radical debates that preceded it.
+This was a short primer designed for undergraduate students. The key aspects I recall are the contradictions between the ideals of the key figures and the actual social and political realities they were prepared to abide, such the existence of slavery and the subjugation of women. Also interesting was the debate over whether the violence of the French Revolution was a consequence or a corruption of the radical ideas that preceded it.
 
 ## James Lovelock, Gaia (1979)
 
-Lovelock died shortly after I finished this. An interesting figure not afraid to question scientific orthodoxy. The main thing I took from my reading was an awareness of the technical problem of how to remotely determine whether a planet supports life. If you can't visit an exoplanet because of the distances involved, how might you detect biosignatures? It was whilst working on this problem for NASA that Lovelock (in collaboration with Lynn Margullis) conceived of the Earth as a self-sustaining complex system over and above its specific subsystems (soil, tides, weather, geology, organic evolution etc).
+The main thing I took from this book was an awareness of the technical problem of how to remotely determine whether a planet supports life. If you can't visit an planet because of the distances involved, how might you detect biosignatures? It was whilst working on this problem for NASA that Lovelock (in collaboration with Lynn Margullis) conceived of the Earth as a self-sustaining complex system over and above its specific subsystems (soil, tides, weather, geology, organic evolution etc).
 
 ## Ananyo Bhattacharya, The Man from the Future (2021)
 
-This biography of John von Neumann comprehensively validates the author's thesis that he was the single most important scientist of the 20th century in terms of sheer breadth and contemporary relevance. It offers a compelling and fairly comprehensible account of his contributions to pure mathematics, quantum physics, computer science, economics, artificial intelligence and the theory of cellular automata. It was also interesting to learn how his right-wing geopolitical stance derived from his early experiences as a bourgeois during the Bolshevik terror of Bela Kun in Hungary
+This biography of John von Neumann comprehensively validates the author's thesis that he was the single most important scientist of the 20th century in terms of sheer breadth and contemporary relevance. It offers a compelling and fairly comprehensible account of his contributions to pure mathematics, quantum physics, computer science, economics, artificial intelligence and the theory of cellular automata. It was also interesting to learn how his right-wing attitudes to geopolitics derived from his early experiences as a bourgeois during the Bolshevik terror of Bela Kun in Hungary
 
 ## Nicolo Machiavelli, The Prince (1532)
 
@@ -34,7 +30,7 @@ This was supposed to be the first of several key texts in political philosophy t
 
 ## Sean Carroll, The Big Picture: On the Origins of Life, Meaning and the Universe Itself (2006)
 
-Whenever scientists weigh-in on philosophical debates in popular scientific literature, the results are consistently incoherent and naive about the metaphysical nuances or pedestrian to the point of platitude. (Richard Dawkins on religion is the canonical example of this.) Carroll doesn't buck this trend but his accounts of the current theories of abiogenesis, entropy and Bayesian statistics were clear, enjoyable and thought-provoking. The latter half of the book which focuses on morality in a meaningless and godless universe are safely skippable however.
+Whenever scientists weigh-in on philosophical debates in popular scientific literature, the results are often incoherent or naive about the metaphysical nuances (Richard Dawkins on religion is the canonical example of this.) Carroll doesn't buck this trend but his accounts of the current theories of abiogenesis, entropy and Bayesian statistics were clear, enjoyable and thought-provoking. The latter half of the book which focuses on morality in a meaningless and godless universe is pretty skippable though.
 
 ## Anthony Beevor, The Second World War (2012)
 
@@ -62,7 +58,11 @@ This was a short but rigorous account of the main components of the capitalist e
 
 ## Kim Stanley Robinson, The Ministry for the Future (2020)
 
-A typically dry and colourless book as we should expect from Robinson (he will happily write five pages describing a rock) set in the just-near future where humans are grappling the the biospheric collapse we are currently doing so well to prevent (not). You read Robinson for the ideas rather than the plot or characters and here they are mostly one-dimensional mouthpieces for different ideological and practical responses to the climate emergency. It is structured in a sort of John Dos Passos way of cascading short chapters written from a variety of perspectives that together create an overlapping composite. Robinson's ideas for solutions are thought-provoking and engaging and whilst he focuses mainly on the actions of technocrats at a Bretton-Woods style NGO (the ministry of the title) he also explores the likelihood of terrorism and unilateral geoengineering by the victims of western-generated climate change in the developing world.
+A typically dry and colourless book as we should expect from Robinson (he will happily write five pages describing a rock) set in the near future where humans are grappling with the climactic collapse we are currently doing so well to prevent.
+
+You read Robinson for the ideas rather than the plot or characters and here they are mostly one-dimensional mouthpieces for different ideological and practical responses to the climate emergency.
+
+It is structured in a sort of John Dos Passos way of cascading short chapters written from a variety of perspectives that together create an overlapping composite. Robinson's ideas for solutions are thought-provoking and engaging and whilst he focuses mainly on the actions of technocrats at a Bretton-Woods style NGO (the ministry of the title) he also explores the likelihood of terrorism and unilateral geoengineering by the victims of western-generated climate change in the developing world.
 
 ## Fyodor Doestoevsky, The Brothers Karamazov (1880)
 
@@ -70,7 +70,7 @@ I obviously can't begin to talk meaningfully about such a book in this summarise
 
 ## Olaf Stapledon, First and Last Men (1930)
 
-So this was epically boring. In theory I should've really enjoyed it because it is Marxist sci-fi. But in fact it was an exercise in compulsive listing rather than a work of literature. He charts the evolution of humanity from the end of the First World War to several millennia in the future. It's highly repetitive: a civilization grows-up, destroys itself and then a new civilization develops from the splinters of the old. This is not a process of linear advancement and much of the development is regressive. War is abolished only to return, slavery reoccurs frequently etc etc. There is absolutely zero characterisation or points of colour amid the ceaseless summarising of the same sorts of events. I'll be honest, I skimmed the last fifty pages as I just wanted it to end. I'm re-boring myself writing about it. Unfathomable to me why this is considered a classic of the genre by people I otherwise respect.
+So this was epically boring. In theory I should've really enjoyed it because it is Marxist sci-fi. But in fact it was an exercise in compulsive listing rather than a work of literature. He charts the evolution of humanity from the end of the First World War to several millennia in the future. It's highly repetitive: a civilization grows-up, destroys itself and then a new civilization develops from the splinters of the old. This is not a process of linear advancement and much of the development is regressive. War is abolished only to return, slavery reoccurs frequently etc etc. There is absolutely zero characterisation or points of colour amid the ceaseless summarising of the same sorts of events. I'll be honest, I skimmed the last fifty pages as I just wanted it to end. Unfathomable to me why this is considered a classic of the genre by people I otherwise respect.
 
 ## Greg Egan, Diaspora (1997)
 
@@ -82,7 +82,7 @@ When I first read this about ten years ago I found it to be an affecting meditat
 
 ## Gene Wolfe, The Fifth Head of Cerberus (1972)
 
-This was another re-read however I got much more out of it this time around. From the first sentence you are aware that you are reading the work of an allusive master stylist. (Wolfe is often called the Proust of science-fiction.) It comprises a triptych of novellas that employ the science-fictional trope of cloning with elements of detective stories to offer a deep rumination on colonialism, slavery and cultural displacement. As you read you are actively trying to piece together the different fragmented perspectives into an integrated and consistent whole in order to discern the ultimate "message". As such it invites re-readings and much online interpretation.
+This was another re-read however I got much more out of it this time around. From the first sentence you are aware that you are reading the work of an allusive master stylist. It comprises a triptych of novellas that employ the science-fictional trope of cloning with elements of detective stories to ruminate on colonialism, slavery and cultural displacement. As you read you are actively trying to piece together the different fragmented perspectives into an integrated and consistent whole in order to discern the ultimate "message". As such it invites re-readings and much online interpretation.
 
 ## Iain M. Banks, The Player of Games (1988)
 
@@ -90,7 +90,7 @@ I am reading all of the Culture novels in publication sequence. This is the seco
 
 ## Iain M. Banks, Use of Weapons (1990)
 
-This was far more experimental in form. The story is told in alternating pairs of chapters where one is set at the end of the novel and the other is set at the beginning. Eventually at the end the two stories converge into a single present. This entry in the Culture series focuses, as the title suggests, on the war and violence that Special Circumstances (the black-ops wing of the Culture) engages in with the ultimate aim of civilising alien cultures that still engage in war and slavery in order to bring them into the enlightened federation of the Culture.
+This was far more experimental in form. The story is told in alternating pairs of chapters where one is set at the end of the novel and the other is set at the beginning. Eventually at the end the two stories converge into a single present. This entry in the Culture series focuses, as the title suggests, on the war and violence that Special Circumstances (the espionage wing of the Culture) engages in with the ultimate aim of civilising alien cultures that still engage in war and slavery in order to bring them into the enlightened federation of the Culture.
 
 ## M. John Harrison, Light (2002)
 
