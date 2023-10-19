@@ -1,12 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;600;700&family=Noto+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 body {
-  font-family: "Noto Serif", serif;
+  font-family: $font_stack_serif;
+  font-size: 15px;
 }
 
 h1,
 .PageHeader h1 {
   font-size: 1.3rem;
+}
+
+h1.post__title {
+  //  font-family: $font_stack_sans;
+  font-size: 28px;
+  margin-bottom: 0.5rem;
 }
 
 h2 {
@@ -25,8 +33,12 @@ blockquote {
 
 .post {
   &__date {
-    font-style: italic;
+    //    font-style: italic;
   }
+}
+
+p {
+  margin-bottom: 30px;
 }
 
 p code,
@@ -39,6 +51,11 @@ code {
   font-size: 13px;
   font-family: "Noto Sans Mono", monospace;
 }
+
+// .posts-header {
+//   font-family: $font_stack_sans;
+//   letter-spacing: -1px;
+// }
 
 // p,
 // ul,

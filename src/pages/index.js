@@ -22,7 +22,7 @@ export default function HomePage({
       </Helmet>
 
       <div className="home-links">
-        <h2 className="posts-header">Pages</h2>
+        {/* <h2 className="posts-header">Pages</h2> */}
         <Link to="/code-metrics">Code Metrics</Link>
         <Link to="/recommended-articles">Recommended Articles</Link>
       </div>

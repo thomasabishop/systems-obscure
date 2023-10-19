@@ -13,7 +13,7 @@ export default function Main(props) {
           </div>
         </div>
 
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </React.Fragment>
   )

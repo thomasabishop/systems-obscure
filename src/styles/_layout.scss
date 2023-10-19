@@ -2,6 +2,7 @@ html,
 body {
   height: 100%;
   margin: 0 auto;
+  line-height: 1.75;
 }
 
 .site-container {
@@ -16,7 +17,7 @@ body {
 
 .main {
   margin: 2rem;
-  max-width: 992px;
+  max-width: 778px;
 }
 
 .home-links {
@@ -30,4 +31,8 @@ body {
   .main {
     margin: 1rem;
   }
+}
+
+.gatsby-highlight {
+  margin-bottom: 30px;
 }

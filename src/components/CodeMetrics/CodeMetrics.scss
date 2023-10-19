@@ -1,6 +1,7 @@
 @import "../../styles/variables";
 
 .CodeMetrics {
+  font-family: $font_stack_sans;
   &__header {
     padding-top: 0.5rem;
     display: flex;
@@ -19,7 +20,7 @@
 
   .chart-wrapper {
     position: relative;
-    display: flex;
+    display: flexcenter;
     align-items: center;
   }
 
