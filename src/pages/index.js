@@ -23,7 +23,7 @@ export default function HomePage({
       <p>Another software engineer with a blog.</p>
       <h2 className="h3">Pages</h2>
       <div className="home-links">
-        <Link to="/code-metrics">Code Metrics</Link>
+        {/* <Link to="/code-metrics">Code Metrics</Link> */}
         <Link to="/recommended-articles">Recommended Articles</Link>
       </div>
 
