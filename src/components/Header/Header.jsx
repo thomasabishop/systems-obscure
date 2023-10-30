@@ -14,7 +14,7 @@ export default function Header() {
             Systems Obscure
           </Navbar.Brand>
           <Nav className="me justify-content-end">
-            <Nav.Link href="#home">GitHub</Nav.Link>
+            <Nav.Link href="https://github.com/thomasabishop">GitHub</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
