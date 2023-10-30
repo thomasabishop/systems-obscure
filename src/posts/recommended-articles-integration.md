@@ -1,5 +1,5 @@
 ---
-title: "AWS Lambda integration: recommended articles"
+title: "AWS Lambda: recommended articles"
 slug: /recommended-articles-integration
 date: 2023-07-07
 ---
