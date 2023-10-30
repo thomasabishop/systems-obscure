@@ -1,49 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
-body {
-  font-family: $font_stack_serif;
-  font-size: 15px;
-}
-
-h1,
-.PageHeader h1 {
-  font-size: 1.3rem;
-}
-
-h1.post__title {
-  //  font-family: $font_stack_sans;
-  font-size: 28px;
-  margin-bottom: 0.5rem;
-}
-
-h2 {
-  font-size: 1.25rem;
-}
-
-h3,
-h4,
-h5 {
-  font-size: 1rem;
-}
-
 blockquote {
   font-style: italic;
 }
 
-.post {
-  &__date {
-    //    font-style: italic;
+h3.post_title {
+  margin-bottom: 0.5rem;
+}
+
+.main-content {
+  h2 {
+    font-size: 1.4rem !important;
+  }
+  h3 {
+    font-size: 1.25rem !important;
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 1rem !important;
   }
 }
 
-p {
-  margin-bottom: 30px;
+.post {
+  &__date {
+    font-style: italic;
+  }
 }
 
 p code,
 li code {
-  font-size: 14px;
+  // font-size: 14px;
   color: black !important;
   background: transparent !important;
 }
@@ -63,4 +51,34 @@ code {
 // blockquote,
 // a {
 //   line-height: 1.5;
+// }
+
+// body {
+//   font-family: $font_stack_serif;
+//   font-size: 15px;
+// }
+
+// h1,
+// .PageHeader h1 {
+//   font-size: 1.3rem;
+// }
+
+// h1.post__title {
+//   //  font-family: $font_stack_sans;
+//   font-size: 28px;
+// ////    margin-bottom: 0.5rem;
+// }
+
+// h2 {
+//   font-size: 1.25rem;
+// }
+
+// h3,
+// h4,
+// h5 {
+//   font-size: 1rem;
+// }
+
+// p {
+//   margin-bottom: 30px;
 // }

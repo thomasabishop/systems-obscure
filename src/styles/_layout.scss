@@ -1,38 +1,56 @@
-html,
-body {
-  height: 100%;
-  margin: 0 auto;
-  line-height: 1.75;
-}
-
-.site-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; // this makes sure the container takes at least the full viewport height
-}
-
 .main-content {
-  flex: 1 0 auto; // this makes sure the main content expands as much as it can, pushing the footer down
-}
-
-.main {
-  margin: 2rem;
-  max-width: 778px;
+  padding-top: 85px;
 }
 
 .home-links {
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   * {
     margin-right: 1rem;
   }
 }
 
-@media only screen and (max-width: 778px) {
-  .main {
-    margin: 1rem;
-  }
+.gatsby-highlight {
+  margin-bottom: 1rem;
 }
 
-.gatsby-highlight {
-  margin-bottom: 30px;
+.post {
+  margin-bottom: 1rem;
 }
+
+// html,
+// body {
+//   height: 100%;
+//   margin: 0 auto;
+//   // line-height: 1.75;
+// }
+
+// body {
+//   padding-top: 60px;
+// }
+
+// @media (max-width: 979px) {
+//   body {
+//     padding-top: 0px;
+//   }
+// }
+
+// .site-container {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh; // this makes sure the container takes at least the full viewport height
+// }
+
+// .main-content {
+//   flex: 1 0 auto; // this makes sure the main content expands as much as it can, pushing the footer down
+// }
+
+// .main {
+//   margin: 2rem;
+//   max-width: 778px;
+// }
+
+// @media only screen and (max-width: 778px) {
+//   .main {
+//     margin: 1rem;
+//   }
+// }

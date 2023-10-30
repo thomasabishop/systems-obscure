@@ -1,20 +1,20 @@
 import React from "react"
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer"
-
+import { Container } from "react-bootstrap"
 export default function Main(props) {
   return (
-    <React.Fragment>
-      <div className="site-container">
-        <div className="main-content">
-          <div className="main">
-            <Header />
-            {props.children}
+    <>
+      <Header />
+      <Container>
+        <div className="site-container">
+          <div className="main-content">
+            <div className="main">{props.children}</div>
           </div>
-        </div>
 
-        {/* <Footer /> */}
-      </div>
-    </React.Fragment>
+          {/* <Footer /> */}
+        </div>
+      </Container>
+    </>
   )
 }

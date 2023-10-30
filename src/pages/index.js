@@ -20,15 +20,16 @@ export default function HomePage({
         <title>Systems Obscure</title>
         <meta name="description" content="Another software engineer with a blog." />
       </Helmet>
-
+      <p>Another software engineer with a blog.</p>
+      <h2 className="h3">Pages</h2>
       <div className="home-links">
-        {/* <h2 className="posts-header">Pages</h2> */}
         <Link to="/code-metrics">Code Metrics</Link>
         <Link to="/recommended-articles">Recommended Articles</Link>
       </div>
 
+      <h2 className="h3">Posts</h2>
       <div>
-        <h2 className="posts-header">Posts</h2>
+        {/* <h2 className="posts-header h4">Posts</h2> */}
         <div className="posts-wrapper">{Posts}</div>
       </div>
     </Main>
