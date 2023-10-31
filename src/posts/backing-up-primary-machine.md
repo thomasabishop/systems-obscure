@@ -22,7 +22,7 @@ n # start a new partition
 w # write the partition to the disk
 ```
 
-I now have a partition at `/dev/sda/sda1`
+I now have a 500GB partition at `/dev/sda/sda1`
 
 Next I create the file system:
 
@@ -33,7 +33,7 @@ mkfs -t ext4 /dev/sda1
 And I label my disk so that I it has a readable name rather than the default GUID that Linux will apply.
 
 ```
-e2label /dev/sda1 archbish_backups # name the disk
+e2label /dev/sda1 archbish_backups
 ```
 
 At this point you would create or specify a mount directory and mount the partition with `mount`, also adding it to your `fstab` file to ensure that the disk mounts to the same location in future.
