@@ -2,15 +2,6 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 1em;
-  a,
-  a:hover {
-    border-bottom: none;
-  }
-}
-
-th {
-  background-color: #f8f9fa;
-  text-align: left;
 }
 
 tbody tr:nth-child(even) {
@@ -29,7 +20,7 @@ td {
 }
 
 thead {
-  position: relative;
+  // position: relative;
   height: 1rem;
 }
 
