@@ -8,7 +8,7 @@ import Navbar from "react-bootstrap/Navbar"
 export default function Header() {
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark" fixed="top">
+      <Navbar bg="light" data-bs-theme="light" fixed="top">
         <Container>
           <Navbar.Brand as={Link} to="/">
             Systems Obscure
