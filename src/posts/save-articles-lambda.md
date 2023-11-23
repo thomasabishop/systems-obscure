@@ -4,7 +4,7 @@ slug: /save-articles-lambda
 date: 2023-09-07
 ---
 
-I've just finished a new [AWS Lambda](https://github.com/thomasabishop/lambdas/tree/main/save-articles) ca written in Python. It retrieves entries from my saved articles in Pocket, parses the key metadata and saves it to a Google Sheet.
+I've just finished a new [AWS Lambda](https://github.com/thomasabishop/lambdas/tree/main/save-articles) written in Python. It retrieves entries from my saved articles in Pocket, parses the key metadata and saves it to a Google Sheet.
 
 I've done this because I find the Pocket app to be really uncongenial and confusing to use. However I've used Pocket for a long time and the alternatives are worse or have bad APIs.
 
