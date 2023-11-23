@@ -108,6 +108,6 @@ describe("deletePageFromS3()", () => {
 
 The process under test is a function that uses the AWS SDK to delete objects from an S3 bucket. I am checking that the (mocked) S3 client is called with the correct parameters.
 
-This time I am passing in an array of objects to the `each` function rather than a multi-dimensional array. This makes it easier to destructure the specific properties in the individual test cases. Again I use `%s` to interpolate a subset of the parameters into each test description. `%s` applies to the each value in the `each` array sequentially so just repeat it as required.
+This time I am passing in an array of objects to the `each` function rather than a multi-dimensional array. This makes it easier to destructure the specific properties in the individual test cases. Again I use `%s` to interpolate a subset of the parameters into each test description. `%s` applies to the each value in the `each` array in sequence so you just repeat it to individuate the different params.
 
-This has been a brief sketch of some applied examples of parameterization. For a more detailed and admirably clear account, see [Parameterized tests in JavaScript with Jest](https://blog.codeleak.pl/2021/12/parameterized-tests-with-jest.html) by Rafał Borowiec.
+This has been a brief sketch of some applied examples of parameterization. For a better account, see [Parameterized tests in JavaScript with Jest](https://blog.codeleak.pl/2021/12/parameterized-tests-with-jest.html) by Rafał Borowiec.
