@@ -5,6 +5,17 @@ import axios from "axios"
 import useSessionStorage from "../../hooks/useSessionStorage"
 import { options } from "./options"
 import { chartColours } from "./chartColours"
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js"
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const ActivitiesChart = ({ endpoint }) => {
   const [data, setData] = useState([])
