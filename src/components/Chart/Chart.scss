@@ -1,0 +1,17 @@
+.Chart {
+  margin-bottom: 1rem 0;
+  &__controls {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  &__content {
+    position: relative;
+    display: flexcenter;
+    align-items: center;
+  }
+}

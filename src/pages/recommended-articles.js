@@ -20,22 +20,24 @@ const ArticleListing = ({ article }) => {
 }
 
 export default function RecommendedArticlesPage() {
-  const [loading, setLoading] = useState(false)
+  // const [loading, setLoading] = useState(false)
   const [data, setData] = useState({})
-  const [storedData, setStoredData] = useSessionStorage("so_recommended_articles", {})
+  const [storedData, setStoredData] = useSessionStorage("recommended_articles", {})
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true)
+      // setLoading(true)
       if (Object.keys(storedData).length) {
         setData(storedData)
-        setLoading(false)
+        //  setLoading(false)
       } else {
         try {
           const response = await axios.get(`${ENDPOINT}?tag=website`)
-          console.log(response)
-          setStoredData(response?.data?.data?.list)
-          setData(response?.data?.data?.list)
-          setLoading(false)
+          const sortedData = Object.values(response?.data?.data?.list).sort(
+            (a, b) => b.time_added - a.time_added
+          )
+          setStoredData(sortedData)
+          setData(sortedData)
+          //      setLoading(false)
         } catch (err) {
           console.error(err)
         }
@@ -53,7 +55,7 @@ export default function RecommendedArticlesPage() {
       </p>
 
       <table className="articles-table">
-        <thead className={loading ? "loading" : ""}>
+        <thead>
           <tr>
             <th>Title</th>
             <th>Added</th>
