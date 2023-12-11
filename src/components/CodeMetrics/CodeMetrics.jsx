@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import CodingDurationsChart from "../CodingDurationsChart/CodingDurationsChart"
+import CodingDurationsChart from "../charts/CodingDurationsChart/CodingDurationsChart"
 import "./CodeMetrics.scss"
-import ActivitiesChart from "../ActivitiesChart/ActivitiesChart"
+import ActivitiesChart from "../charts/ActivitiesChart/ActivitiesChart"
 
 // const ENDPOINT = process.env.GATSBY_METRICS_AWS_LAMBDA_ENDPOINT
 

@@ -14,7 +14,7 @@ import {
 import Chart from "../Chart/Chart"
 import { Line } from "react-chartjs-2"
 import ChartControls from "../ChartControls/ChartControls"
-import useSessionStorage from "../../hooks/useSessionStorage"
+import useSessionStorage from "../../../hooks/useSessionStorage"
 import { options } from "./options"
 ChartJS.register(
   CategoryScale,

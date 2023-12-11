@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Bar } from "react-chartjs-2"
 import Chart from "../Chart/Chart"
 import axios from "axios"
-import useSessionStorage from "../../hooks/useSessionStorage"
+import useSessionStorage from "../../../hooks/useSessionStorage"
 import { options } from "./options"
 import { chartColours } from "./chartColours"
 import {
