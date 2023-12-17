@@ -70,7 +70,7 @@ const CodingDurationsChart = ({ endpoint }) => {
     }
   }, [timeRange, sessionStorage, setSessionStorage])
 
-  const chartJsData = {
+  const chartData = {
     labels,
     datasets: [
       {
@@ -83,15 +83,33 @@ const CodingDurationsChart = ({ endpoint }) => {
     ],
   }
 
+  const chartControls = [
+    {
+      name: "Week",
+      value: "last_7_days",
+    },
+    {
+      name: "Month",
+      value: "last_30_days",
+    },
+    {
+      name: "Year",
+      value: "last_year",
+    },
+  ]
+
   return (
     <Chart
       chartTitle="Time coding"
-      chart={<Line height="300px" options={options} data={chartJsData} />}
+      chart={<Line height="400px" options={options} data={chartData} />}
       controls={
         <ChartControls
+          id="durations-controls"
           loading={loading}
           timeRange={timeRange}
           onChangeTimeRange={handleTimeRangeChange}
+          controls={chartControls}
+          refreshable={true}
           onRefreshData={handleRefreshData}
         />
       }

@@ -34,7 +34,6 @@ const ActivitiesChart = ({ endpoint }) => {
   useEffect(() => {
     fetchData(timeRange)
   }, [])
-  console.log(data)
 
   const uniqueDates = new Set(data.map((item) => item.date))
   const labels = [...uniqueDates]

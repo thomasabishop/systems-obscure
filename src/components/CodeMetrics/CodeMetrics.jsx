@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import CodingDurationsChart from "../charts/CodingDurationsChart/CodingDurationsChart"
 import "./CodeMetrics.scss"
 import ActivitiesChart from "../charts/ActivitiesChart/ActivitiesChart"
+import MetricHighlights from "../MetricHighlights/MetricHighlights"
 
 // const ENDPOINT = process.env.GATSBY_METRICS_AWS_LAMBDA_ENDPOINT
 
@@ -14,6 +15,9 @@ const CodeMetrics = () => {
       <p className="pt-2">
         This dashboard integrates data on my coding activity from a variety of sources.
       </p>
+      <div className="CodeMetrics__block pt-3">
+        <MetricHighlights endpoint={codeMetricsEndpoint} />
+      </div>
       <div className="CodeMetrics__block pt-3">
         <ActivitiesChart endpoint={activitiesEndpoint} />
       </div>

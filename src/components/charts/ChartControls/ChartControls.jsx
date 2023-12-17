@@ -5,32 +5,26 @@ import ToggleButton from "react-bootstrap/ToggleButton"
 import ButtonToolbar from "react-bootstrap/ButtonToolbar"
 import Button from "react-bootstrap/Button"
 
-const ChartControls = ({ timeRange, loading, onChangeTimeRange, onRefreshData }) => {
-  const controls = [
-    {
-      name: "Week",
-      value: "last_7_days",
-    },
-    {
-      name: "Month",
-      value: "last_30_days",
-    },
-    {
-      name: "Year",
-      value: "last_year",
-    },
-  ]
+const ChartControls = ({
+  id,
+  name,
+  timeRange,
+  loading,
+  onChangeTimeRange,
+  onRefreshData,
+  controls,
+  refreshable,
+}) => {
   return (
     <ButtonToolbar>
       <ButtonGroup className="me-2">
         {controls.map((control, index) => (
           <ToggleButton
             key={index}
-            id={`${control.name}- + ${index}`}
+            id={`${id}-${control.name}-${index}`}
             checked={timeRange === control.value}
             onChange={(event) => onChangeTimeRange(event.target.value)}
             type="radio"
-            name={control.name}
             value={control.value}
             variant="secondary"
             size="sm"
@@ -46,11 +40,13 @@ const ChartControls = ({ timeRange, loading, onChangeTimeRange, onRefreshData })
           </ToggleButton>
         ))}
       </ButtonGroup>
-      <ButtonGroup>
-        <Button disabled={loading} size="sm" variant="primary" onClick={onRefreshData}>
-          Refresh
-        </Button>
-      </ButtonGroup>
+      {refreshable && (
+        <ButtonGroup>
+          <Button disabled={loading} size="sm" variant="primary" onClick={onRefreshData}>
+            Refresh
+          </Button>
+        </ButtonGroup>
+      )}
     </ButtonToolbar>
   )
 }
