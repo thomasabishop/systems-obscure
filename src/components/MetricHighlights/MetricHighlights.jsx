@@ -67,8 +67,6 @@ const MetricHighlights = ({ endpoint }) => {
 
   return (
     <div className="MetricHighlights">
-      <h2>Highlights</h2>
-
       <div className="MetricHighlights__controls-wrapper">
         <ChartControls
           id="highlights-controls"
