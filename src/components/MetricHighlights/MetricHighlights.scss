@@ -15,7 +15,7 @@
     min-height: 55px;
   }
   .card {
-    @media (min-width: 576px) {
+    @media (max-width: 768px) {
       margin-bottom: 1rem !important;
     }
   }
