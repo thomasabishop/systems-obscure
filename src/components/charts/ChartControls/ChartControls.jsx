@@ -17,7 +17,7 @@ const ChartControls = ({
 }) => {
   return (
     <ButtonToolbar>
-      <ButtonGroup className="me-2">
+      <ButtonGroup className={`${refreshable ? "me-2" : ""}`}>
         {controls.map((control, index) => (
           <ToggleButton
             key={index}

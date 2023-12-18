@@ -27,7 +27,7 @@ ChartJS.register(
   Legend
 )
 
-const CodingDurationsChart = ({ endpoint }) => {
+const CodingDurations = ({ endpoint }) => {
   const resourcePath = "time-coding"
   const [data, setData] = useState(null)
   const [sessionStorage, setSessionStorage] = useSessionStorage("code_metrics_time_coding", {})
@@ -117,4 +117,4 @@ const CodingDurationsChart = ({ endpoint }) => {
   )
 }
 
-export default CodingDurationsChart
+export default CodingDurations
