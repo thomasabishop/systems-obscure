@@ -5,6 +5,8 @@ import axios from "axios"
 import useSessionStorage from "../../../hooks/useSessionStorage"
 import { options } from "./options"
 import { chartColours } from "./chartColours"
+import ViewControls from "./ViewControls"
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -72,6 +74,7 @@ const ActivitiesChart = ({ endpoint }) => {
       chartTitle="Activities"
       chart={<Bar height="400px" options={options} data={chartData} />}
       controls={null}
+      viewControls={<ViewControls />}
     />
   )
 }
