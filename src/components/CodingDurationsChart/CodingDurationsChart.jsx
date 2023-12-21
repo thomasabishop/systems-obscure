@@ -1,44 +1,47 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import Chart from "../Chart/Chart"
-import ChartControls from "../ChartControls/ChartControls"
-import { options } from "./options"
-import useSessionStorage from "../../../hooks/useSessionStorage"
-
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  PointElement,
+  LineElement,
   Title,
   Tooltip,
+  Filler,
   Legend,
 } from "chart.js"
-import { Bar } from "react-chartjs-2"
+import Chart from "../Chart/Chart"
+import { Line } from "react-chartjs-2"
+import ChartControls from "../ChartControls/ChartControls"
+import useSessionStorage from "../../hooks/useSessionStorage"
+import { options } from "./options"
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend
+)
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
-
-const ProgrammingLanguages = ({ endpoint }) => {
-  const resourcePath = "stats"
+const CodingDurations = ({ endpoint }) => {
+  const resourcePath = "time-coding"
   const [data, setData] = useState(null)
-  const [sessionStorage, setSessionStorage] = useSessionStorage(
-    "code_metrics_programming_languages",
-    {}
-  )
-
+  const [sessionStorage, setSessionStorage] = useSessionStorage("code_metrics_time_coding", {})
   const [timeRange, setTimeRange] = useState("last_30_days")
   const [loading, setLoading] = useState(null)
-
-  const nonZeroValues = data?.filter((datum) => Number(datum?.decimal) > 0.1)
-  const labels = nonZeroValues?.map((value) => value?.name)
-  const values = nonZeroValues?.map((value) => value?.decimal)
+  const labels = data?.map((datum) => datum?.date)
+  const values = data?.map((datum) => datum?.duration)
 
   const fetchData = async (timeRange) => {
     try {
       const response = await axios.get(`${endpoint}/${resourcePath}?timePeriod=${timeRange}`)
-      const freshData = { ...sessionStorage, [timeRange]: response?.data?.data?.languages }
+      const freshData = { ...sessionStorage, [timeRange]: response?.data?.data }
       setSessionStorage(freshData)
-      setData(response?.data?.data?.languages)
+      setData(response?.data?.data)
       setLoading(false)
     } catch (err) {
       // setError(err.message);
@@ -71,9 +74,11 @@ const ProgrammingLanguages = ({ endpoint }) => {
     labels,
     datasets: [
       {
+        fill: true,
         data: values,
         borderColor: "rgba(54, 162, 235, 1)",
         backgroundColor: "rgba(54, 162, 235, 0.3)",
+        borderWidth: 1,
       },
     ],
   }
@@ -95,11 +100,11 @@ const ProgrammingLanguages = ({ endpoint }) => {
 
   return (
     <Chart
-      chartTitle="Programming Languages"
-      chart={<Bar height="400px" data={chartData} options={options} />}
+      chartTitle="Time coding"
+      chart={<Line height="400px" options={options} data={chartData} />}
       controls={
         <ChartControls
-          id="programming-languages-controls"
+          id="durations-controls"
           loading={loading}
           timeRange={timeRange}
           onChangeTimeRange={handleTimeRangeChange}
@@ -112,4 +117,4 @@ const ProgrammingLanguages = ({ endpoint }) => {
   )
 }
 
-export default ProgrammingLanguages
+export default CodingDurations

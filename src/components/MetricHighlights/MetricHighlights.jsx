@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Spinner from "react-bootstrap/Spinner"
-import ChartControls from "../charts/ChartControls/ChartControls"
+import ChartControls from "../ChartControls/ChartControls"
 import { unixSecondsToDay } from "../../helpers/unixSecondsToDay"
 import "./MetricHighlights.scss"
 

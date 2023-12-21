@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
-import CodingDurations from "../charts/CodingDurations/CodingDurations"
-import ActivitiesChart from "../charts/ActivitiesChart/ActivitiesChart"
+import CodingDurationsChart from "../CodingDurationsChart/CodingDurationsChart"
+import ActivitiesChart from "../ActivitiesChart/ActivitiesChart"
 import MetricHighlights from "../MetricHighlights/MetricHighlights"
-import ProgrammingLanguages from "../charts/ProgrammingLanguages/ProgrammingLanguages"
+import ProgrammingLanguagesChart from "../ProgrammingLanguagesChart/ProgrammingLanguagesChart"
 import "./CodeMetrics.scss"
 // const ENDPOINT = process.env.GATSBY_METRICS_AWS_LAMBDA_ENDPOINT
 
@@ -22,11 +22,11 @@ const CodeMetrics = () => {
         <ActivitiesChart endpoint={activitiesEndpoint} />
       </div>
       <div className="CodeMetrics__block pt-3">
-        <CodingDurations endpoint={codeMetricsEndpoint} />
+        <CodingDurationsChart endpoint={codeMetricsEndpoint} />
       </div>
 
       <div className="CodeMetrics__block pt-3">
-        <ProgrammingLanguages endpoint={codeMetricsEndpoint} />
+        <ProgrammingLanguagesChart endpoint={codeMetricsEndpoint} />
       </div>
     </div>
   )
