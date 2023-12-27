@@ -1,11 +1,27 @@
 import React from "react"
-import IconButton from "../IconButton/IconButton"
-const ViewControls = () => {
+import { ButtonGroup, ToggleButton, ButtonToolbar, Button } from "react-bootstrap"
+import "./ViewControls.scss"
+
+const ViewControls = ({ controls, currentView, onViewChange }) => {
   return (
-    <>
-      <IconButton iconName="bar-chart" tooltipText="View as chart" isActive={true} />
-      <IconButton iconName="table" tooltipText="View as table" isActive={false} />
-    </>
+    <ButtonToolbar className="ViewControls">
+      <ButtonGroup>
+        {controls.map((control, index) => (
+          <ToggleButton
+            key={index}
+            id={`${control.name}-${index}`}
+            checked={control.value === currentView}
+            onChange={(event) => onViewChange(event.target.value)}
+            type="radio"
+            value={control.value}
+            variant="secondary"
+            size="sm"
+          >
+            <i className={`bi bi-${control.iconName}`}></i>
+          </ToggleButton>
+        ))}
+      </ButtonGroup>
+    </ButtonToolbar>
   )
 }
 

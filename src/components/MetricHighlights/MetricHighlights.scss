@@ -4,19 +4,10 @@
     flex-direction: row;
     justify-content: flex-end;
   }
-  .card-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+
   .card-body {
     width: 100%; /* Adjust as needed */
     height: auto; /* Adjust as needed */
     min-height: 55px;
-  }
-  .card {
-    @media (max-width: 768px) {
-      margin-bottom: 1rem !important;
-    }
   }
 }

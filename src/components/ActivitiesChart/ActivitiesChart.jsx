@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react"
 import { Bar } from "react-chartjs-2"
 import Chart from "../Chart/Chart"
 import axios from "axios"
-// import useSessionStorage from "../../../hooks/useSessionStorage"
 import { options } from "./options"
 import { chartColours } from "./chartColours"
 import ViewControls from "../ViewControls/ViewControls"
+import MetricsView from "../MetricsView/MetricsView"
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -19,8 +19,13 @@ import {
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const ActivitiesChart = ({ endpoint }) => {
+  const [currentView, setCurrentView] = useState("barChart")
   const [data, setData] = useState([])
   const [timeRange, setTimeRange] = useState("month")
+
+  const handleViewChange = (view) => {
+    setCurrentView(view)
+  }
 
   const fetchData = async (timeRange) => {
     try {
@@ -68,12 +73,39 @@ const ActivitiesChart = ({ endpoint }) => {
     datasets,
   }
 
+  const viewControls = [
+    {
+      name: "bar-chart",
+      value: "barChart",
+      iconName: "bar-chart",
+    },
+    {
+      name: "table",
+      value: "table",
+      iconName: "table",
+    },
+  ]
+
   return (
-    <Chart
-      chartTitle="Activities"
-      chart={<Bar height="400px" options={options} data={chartData} />}
-      controls={null}
-      viewControls={<ViewControls />}
+    <MetricsView
+      metricName="Activities"
+      viewControls={
+        <ViewControls
+          controls={viewControls}
+          currentView={currentView}
+          onViewChange={handleViewChange}
+        />
+      }
+      metricView={
+        currentView === "barChart" ? (
+          <Chart
+            chart={<Bar height="400px" options={options} data={chartData} />}
+            controls={null}
+          />
+        ) : (
+          <div>other content</div>
+        )
+      }
     />
   )
 }

@@ -1,28 +1,11 @@
 import React, { useState, useEffect } from "react"
 import axios from "axios"
-import Card from "react-bootstrap/Card"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import Spinner from "react-bootstrap/Spinner"
 import ChartControls from "../ChartControls/ChartControls"
 import { unixSecondsToDay } from "../../helpers/unixSecondsToDay"
+import MetricsView from "../MetricsView/MetricsView"
 import "./MetricHighlights.scss"
-
-const Highlight = ({ title, value, loading }) => {
-  return (
-    <Col md>
-      <Card className="Higlight">
-        <Card.Header as="h5">
-          <span>{title}</span>
-          {loading && <Spinner variant="secondary" animation="border" size="sm" />}
-        </Card.Header>
-        <Card.Body>
-          <Card.Text>{value}</Card.Text>
-        </Card.Body>
-      </Card>
-    </Col>
-  )
-}
 
 const MetricHighlights = ({ endpoint }) => {
   const resourcePath = "stats"
@@ -77,23 +60,29 @@ const MetricHighlights = ({ endpoint }) => {
       </div>
       <div className="MetricHighlights__highlights mt-4">
         <Row>
-          <Highlight
-            title="Total time"
-            value={
-              !loading && (unixSecondsToDay(data?.total_seconds) || data?.human_readable_total)
-            }
-            loading={loading}
-          />
-          <Highlight
-            title="Daily average"
-            value={!loading && data?.human_readable_daily_average}
-            loading={loading}
-          />
-          <Highlight
-            title="Longest day"
-            value={!loading && data?.best_day?.text}
-            loading={loading}
-          />
+          <Col md className="mb-3 mb-md-0">
+            <MetricsView
+              metricName={"Total time"}
+              metricView={
+                !loading && (unixSecondsToDay(data?.total_seconds) || data?.human_readable_total)
+              }
+              loadingIndicator={loading}
+            />
+          </Col>
+          <Col md className="mb-3 mb-md-0">
+            <MetricsView
+              metricName={"Daily average"}
+              metricView={!loading && data?.human_readable_daily_average}
+              loadingIndicator={loading}
+            />
+          </Col>
+          <Col md>
+            <MetricsView
+              metricName={"Longest day"}
+              metricView={!loading && data?.best_day?.text}
+              loadingIndicator={loading}
+            />
+          </Col>
         </Row>
       </div>
     </div>

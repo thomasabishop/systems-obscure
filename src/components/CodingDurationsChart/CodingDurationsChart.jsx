@@ -16,6 +16,7 @@ import { Line } from "react-chartjs-2"
 import ChartControls from "../ChartControls/ChartControls"
 import useSessionStorage from "../../hooks/useSessionStorage"
 import { options } from "./options"
+import MetricsView from "../MetricsView/MetricsView"
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -99,22 +100,43 @@ const CodingDurations = ({ endpoint }) => {
   ]
 
   return (
-    <Chart
-      chartTitle="Time coding"
-      chart={<Line height="400px" options={options} data={chartData} />}
-      controls={
-        <ChartControls
-          id="durations-controls"
-          loading={loading}
-          timeRange={timeRange}
-          onChangeTimeRange={handleTimeRangeChange}
-          controls={chartControls}
-          refreshable={true}
-          onRefreshData={handleRefreshData}
+    <MetricsView
+      metricName="Time coding"
+      metricView={
+        <Chart
+          chart={<Line height="400px" options={options} data={chartData} />}
+          controls={
+            <ChartControls
+              id="durations-controls"
+              loading={loading}
+              timeRange={timeRange}
+              onChangeTimeRange={handleTimeRangeChange}
+              controls={chartControls}
+              refreshable={true}
+              onRefreshData={handleRefreshData}
+            />
+          }
         />
       }
     />
   )
+
+  // <Chart
+  //   chartTitle="Time coding"
+  //   chart={<Line height="400px" options={options} data={chartData} />}
+  //   controls={
+  //     <ChartControls
+  //       id="durations-controls"
+  //       loading={loading}
+  //       timeRange={timeRange}
+  //       onChangeTimeRange={handleTimeRangeChange}
+  //       controls={chartControls}
+  //       refreshable={true}
+  //       onRefreshData={handleRefreshData}
+  //     />
+  //   }
+  // />
+  //  )
 }
 
 export default CodingDurations

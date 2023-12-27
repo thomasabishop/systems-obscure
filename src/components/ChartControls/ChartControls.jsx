@@ -1,13 +1,8 @@
 import React, { useState } from "react"
-import Spinner from "react-bootstrap/Spinner"
-import ButtonGroup from "react-bootstrap/ButtonGroup"
-import ToggleButton from "react-bootstrap/ToggleButton"
-import ButtonToolbar from "react-bootstrap/ButtonToolbar"
-import Button from "react-bootstrap/Button"
+import { Spinner, ButtonGroup, ToggleButton, ButtonToolbar, Button } from "react-bootstrap"
 
 const ChartControls = ({
   id,
-  name,
   timeRange,
   loading,
   onChangeTimeRange,
@@ -52,15 +47,3 @@ const ChartControls = ({
 }
 
 export default ChartControls
-
-{
-  /* <ToggleButton type="radio" name="radio" value="week" variant="secondary" size="sm">
-        Week
-      </ToggleButton>
-      <ToggleButton type="radio" name="radio" value="Month" variant="secondary" size="sm" checked>
-        Month
-      </ToggleButton>
-      <ToggleButton type="radio" name="radio" value="Year" variant="secondary" size="sm">
-        Year
-      </ToggleButton> */
-}

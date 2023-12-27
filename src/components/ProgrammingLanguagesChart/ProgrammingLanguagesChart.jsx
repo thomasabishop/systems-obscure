@@ -15,6 +15,7 @@ import {
   Legend,
 } from "chart.js"
 import { Bar } from "react-chartjs-2"
+import MetricsView from "../MetricsView/MetricsView"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
@@ -94,18 +95,22 @@ const ProgrammingLanguagesChart = ({ endpoint }) => {
   ]
 
   return (
-    <Chart
-      chartTitle="Programming Languages"
-      chart={<Bar height="400px" data={chartData} options={options} />}
-      controls={
-        <ChartControls
-          id="programming-languages-controls"
-          loading={loading}
-          timeRange={timeRange}
-          onChangeTimeRange={handleTimeRangeChange}
-          controls={chartControls}
-          refreshable={true}
-          onRefreshData={handleRefreshData}
+    <MetricsView
+      metricName="Programming languages"
+      metricView={
+        <Chart
+          chart={<Bar height="400px" data={chartData} options={options} />}
+          controls={
+            <ChartControls
+              id="programming-languages-controls"
+              loading={loading}
+              timeRange={timeRange}
+              onChangeTimeRange={handleTimeRangeChange}
+              controls={chartControls}
+              refreshable={true}
+              onRefreshData={handleRefreshData}
+            />
+          }
         />
       }
     />
