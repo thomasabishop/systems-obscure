@@ -9,7 +9,7 @@ const ViewControls = ({ controls, currentView, onViewChange }) => {
         {controls.map((control, index) => (
           <ToggleButton
             key={index}
-            id={`${control.name}-${index}`}
+            id={`${control.value}-${index}`}
             checked={control.value === currentView}
             onChange={(event) => onViewChange(event.target.value)}
             type="radio"

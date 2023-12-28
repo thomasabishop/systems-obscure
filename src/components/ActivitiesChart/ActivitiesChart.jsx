@@ -15,6 +15,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js"
+import { createActivityDatasets } from "../../helpers/createActivityDatasets"
+import ActivitiesTable from "../ActivitiesTable/ActivitiesTable"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
@@ -41,50 +43,25 @@ const ActivitiesChart = ({ endpoint }) => {
     fetchData(timeRange)
   }, [])
 
-  const uniqueDates = new Set(data.map((item) => item.date))
-  const labels = [...uniqueDates]
-
-  const datasets = data.reduce((acc, obj, i) => {
-    let newDuration = Number(
-      (
-        parseFloat(obj.duration) +
-        (acc.find((item) => item.label === obj.project)?.data[labels.indexOf(obj.date)] || 0)
-      ).toFixed(2)
-    )
-    let index = acc.findIndex((item) => item.label === obj.project)
-    if (index === -1) {
-      let newData = new Array(labels.length).fill(0)
-      newData[labels.indexOf(obj.date)] = newDuration
-      acc.push({
-        label: obj.project,
-        data: newData,
-        backgroundColor: chartColours[obj.project][0],
-        borderColor: chartColours[obj.project][1],
-        borderWidth: 1,
-      })
-    } else {
-      acc[index].data[labels.indexOf(obj.date)] = newDuration
-    }
-    return acc
-  }, [])
+  const { labels, datasets } = createActivityDatasets(data, chartColours)
 
   const chartData = {
-    labels: labels, // Change this if you want different labels
+    labels: labels,
     datasets,
   }
 
   const viewControls = [
     {
-      name: "bar-chart",
       value: "barChart",
       iconName: "bar-chart",
     },
     {
-      name: "table",
       value: "table",
       iconName: "table",
     },
   ]
+
+  console.log(data)
 
   return (
     <MetricsView
@@ -103,7 +80,7 @@ const ActivitiesChart = ({ endpoint }) => {
             controls={null}
           />
         ) : (
-          <div>other content</div>
+          <ActivitiesTable data={data} chartColours={chartColours} />
         )
       }
     />

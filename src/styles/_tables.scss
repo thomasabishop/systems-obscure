@@ -1,16 +1,17 @@
+$background-color: rgba(33, 37, 41, 0.03);
+
 table {
-  border-collapse: collapse;
   width: 100%;
   margin-bottom: 1em;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f8f9fa;
+  background-color: $background-color;
 }
 
-th {
-  background-color: #fff;
-  border: 1px solid #ccc;
+thead th {
+  background-color: #212529;
+  color: white;
 }
 
 /* Style table cells */
@@ -23,43 +24,3 @@ thead {
   // position: relative;
   height: 1rem;
 }
-
-th {
-  padding: 5px;
-}
-
-/* Show loading bar if dynamic data */
-
-thead.loading::after {
-  content: "";
-  display: block;
-  height: 2px;
-  background-color: lightgrey;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  animation: loadingAnimation 2s linear infinite;
-}
-
-/* Animation keyframes */
-@keyframes loadingAnimation {
-  0% {
-    width: 0;
-  }
-  50% {
-    width: 50%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-/* Longer width for article title in Recommended Articles table */
-
-// table.articles-table {
-//   td:first-of-type,
-//   tr th:first-of-type {
-//     //    width: 500px;
-//   }
-// }
