@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Table, Alert } from "react-bootstrap"
 import "./ActivitiesTable.scss"
 
-const ActivitiesTable = ({ data, chartColours }) => {
+const ActivitiesTable = ({ data, colours }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
   const maxDuration = Math.max(...data.map((activity) => activity.duration))
 
@@ -40,8 +40,8 @@ const ActivitiesTable = ({ data, chartColours }) => {
                 <span
                   className="ActivitiesTable__badge"
                   style={{
-                    backgroundColor: chartColours[activity.project][0],
-                    borderColor: chartColours[activity.project][1],
+                    backgroundColor: colours[activity.project][0],
+                    borderColor: colours[activity.project][1],
                   }}
                 >
                   {activity.project}
