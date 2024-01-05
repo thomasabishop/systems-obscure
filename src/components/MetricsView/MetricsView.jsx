@@ -7,9 +7,9 @@ const MetricsView = ({ metricName, metricView, viewControls, loadingIndicator })
     <Card className="MetricsView">
       <Card.Header as="h4">
         <div>{metricName}</div>
-        <div>
-          {viewControls && <div>{viewControls}</div>}
+        <div className="controls-block">
           {loadingIndicator && <Spinner variant="secondary" animation="border" size="sm" />}
+          {viewControls && <div>{viewControls}</div>}
         </div>
       </Card.Header>
       <Card.Body>{metricView}</Card.Body>

@@ -74,6 +74,7 @@ const ActivitiesView = ({ endpoint, onError }) => {
   return (
     <MetricsView
       metricName="Activities"
+      loadingIndicator={loading}
       viewControls={
         <ViewControls
           controls={viewControls}

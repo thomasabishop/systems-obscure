@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Spinner, ButtonGroup, ToggleButton, ButtonToolbar, Button } from "react-bootstrap"
+import { ButtonGroup, ToggleButton, ButtonToolbar, Button } from "react-bootstrap"
 
 const ChartControls = ({
   id,
@@ -24,14 +24,7 @@ const ChartControls = ({
             variant="secondary"
             size="sm"
           >
-            {loading && timeRange === control.value ? (
-              <>
-                <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />{" "}
-                <span className="visually-hidden">{control.name}</span>
-              </>
-            ) : (
-              control.name
-            )}
+            {control.name}
           </ToggleButton>
         ))}
       </ButtonGroup>

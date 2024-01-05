@@ -102,6 +102,7 @@ const CodingDurations = ({ endpoint, onError }) => {
   return (
     <MetricsView
       metricName="Time coding"
+      loadingIndicator={loading}
       metricView={
         <Chart
           chart={<Line height="400px" options={options} data={chartData} />}

@@ -97,6 +97,7 @@ const ProgrammingLanguagesChart = ({ endpoint, onError }) => {
   return (
     <MetricsView
       metricName="Programming languages"
+      loadingIndicator={loading}
       metricView={
         <Chart
           chart={<Bar height="400px" data={chartData} options={options} />}
