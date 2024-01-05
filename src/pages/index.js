@@ -24,7 +24,6 @@ export default function HomePage({
       <h2 className="h3">Pages</h2>
       <div className="home-links">
         <Link to="/code-metrics">Code Metrics</Link>
-        <Link to="/recommended-articles">Recommended Articles</Link>
       </div>
 
       <h2 className="h3">Posts</h2>
