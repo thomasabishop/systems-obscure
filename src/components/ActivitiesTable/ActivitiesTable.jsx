@@ -23,7 +23,7 @@ const ActivitiesTable = ({ data, colours }) => {
   }
   return (
     <div className="ActivitiesTable">
-      <Table striped size="sm">
+      <Table striped bordered size="sm">
         <thead>
           <tr>
             <th>Date</th>

@@ -26,10 +26,24 @@ $$
 
 NOT ($\lnot$) is a unary operator which means it takes one operand ($x$). We pass a single bit as the operand and the function inverts its value. We can utilise logical [truth tables]() to represent all possible inputs and outputs for the operator:
 
-| $x$ | $f(x) = \lnot(x)$ |
-| --- | ----------------- |
-| 1   | 0                 |
-| 0   | 1                 |
+<table class="table table-bordered table-striped">
+  <thead >
+    <tr>
+      <th>x</th>
+      <th>f(x) = ¬(x)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 
 If NOT receives 0 as an input it will return 1 as the output. If it receives 1 as the input it will return 0 as the output.
 
@@ -37,23 +51,73 @@ AND ($\land$) and OR($\lor$) are binary operators: they receive two operands as 
 
 For AND this gives us:
 
-| $x$ | $y$ | $f(x) = x \land y$ |
-| --- | --- | ------------------ |
-| 1   | 1   | 1                  |
-| 0   | 1   | 0                  |
-| 1   | 0   | 0                  |
-| 0   | 0   | 0                  |
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>f(x) = x & y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 
 AND returns 1 if both input bits are 1, otherwise it returns 0.
 
 OR returns 1 if one or both bits are 1, otherwise it returns 0:
 
-| $x$ | $y$ | $f(x) = x \lor y$ |
-| --- | --- | ----------------- |
-| 1   | 1   | 1                 |
-| 0   | 1   | 1                 |
-| 1   | 0   | 1                 |
-| 0   | 0   | 0                 |
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>f(x) = x || y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Logic gates
 
@@ -119,24 +183,99 @@ This complex or compound expression comprises several simpler atomic expressions
 
 The first step is to construct a truth table. On the left-hand side we list all the possible truth values for each individual expression. On the right-hand side, we assign an overall truth value for their combination, based on whether or not they reflect the truth conditions for $P$.
 
-| $x$ | $y$ | $z$ | $P$ |
-| --- | --- | --- | --- |
-| 1   | 1   | 1   | 0   |
-| 1   | 1   | 0   | 1   |
-| 1   | 0   | 1   | 0   |
-| 1   | 0   | 0   | 1   |
-| 0   | 1   | 1   | 0   |
-| 0   | 1   | 0   | 1   |
-| 0   | 0   | 1   | 0   |
-| 0   | 0   | 0   | 0   |
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>P</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 
 We are only interested in the cases where $P$ is true, so we can discount any lines that result in a truth value of 0 for the complex expresssion. This leaves us with:
 
-| $x$ | $y$ | $z$ | $P$ |
-| --- | --- | --- | --- |
-| 1   | 1   | 0   | 1   |
-| 1   | 0   | 0   | 1   |
-| 0   | 1   | 0   | 1   |
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>$x$</th>
+      <th>$y$</th>
+      <th>$z$</th>
+      <th>$P$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 
 Parsing each line, the truth table tells us that our complex expression ($P$) is true in the following scenarios:
 
@@ -178,12 +317,37 @@ If we look closely we can see that this expression is displaying the truth condi
 
 This recalls our earlier definition of OR:
 
-| $x$ | $y$ | $f(x) = x \lor y$ |
-| --- | --- | ----------------- |
-| 1   | 1   | 1                 |
-| 0   | 1   | 1                 |
-| 1   | 0   | 1                 |
-| 0   | 0   | 0                 |
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>f(x) = x || y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 
 Thus we can reduce $(x \land y) \lor (x \land \lnot y) \lor (\lnot x \land y)$ to $x \lor y$.
 
@@ -201,11 +365,40 @@ $$
 
 If we construct a truth table for the original expression and its simplification we see that they are true under the same logical conditions which demonstrates their equivalence:
 
-| $x$ | $y$ | $z$ | $((x \land y) \land \lnot z) \lor ((x \land \lnot y) \land \lnot z) \lor ((\lnot x \land y) \land \lnot z)$ | $(x \lor y) \land \lnot z$ |
-| --- | --- | --- | ----------------------------------------------------------------------------------------------------------- | -------------------------- |
-| 1   | 1   | 0   | 1                                                                                                           | 1                          |
-| 1   | 0   | 0   | 1                                                                                                           | 1                          |
-| 0   | 1   | 0   | 1                                                                                                           | 1                          |
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>((x & y) & ¬z) || ((x & ¬y) & ¬z) || ((¬x & y) & ¬z)</th>
+      <th>(x || y) &  ¬z</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 
 ### Constructing the digital circuit
 
@@ -223,12 +416,37 @@ Our circuit uses three different types of logic gate. This is satisfactory but i
 
 NAND stands for _not and_ and its truth conditions are the inversion of AND:
 
-| $x$ | $y$ | $f(x) =  x \tilde\land y$ |
-| --- | --- | ------------------------- |
-| 1   | 1   | 0                         |
-| 0   | 1   | 1                         |
-| 1   | 0   | 1                         |
-| 0   | 0   | 1                         |
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>x</th>
+      <th>y</th>
+      <th>f(x) =  x ¬& y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 
 So in essence, NAND returns 1 whenever $x$ and $y$ are not both true.
 
