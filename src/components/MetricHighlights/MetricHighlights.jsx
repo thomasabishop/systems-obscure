@@ -7,7 +7,7 @@ import { unixSecondsToDay } from "../../helpers/unixSecondsToDay"
 import MetricsView from "../MetricsView/MetricsView"
 import "./MetricHighlights.scss"
 
-const MetricHighlights = ({ endpoint }) => {
+const MetricHighlights = ({ endpoint, onError }) => {
   const resourcePath = "stats"
   const [data, setData] = useState(null)
   const [timeRange, setTimeRange] = useState("last_30_days")
@@ -21,6 +21,7 @@ const MetricHighlights = ({ endpoint }) => {
       setLoading(false)
     } catch (err) {
       setLoading(false)
+      onError("Coding highlights could not be fetched: " + err.message)
     }
   }
 

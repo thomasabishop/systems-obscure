@@ -24,9 +24,10 @@
     align-items: center;
   }
 
-  .error-wrapper {
-    color: red;
-    padding: 0.5rem;
-    margin: 1rem 0;
+  .ToastContainer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
   }
 }

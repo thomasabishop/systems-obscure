@@ -28,7 +28,7 @@ ChartJS.register(
   Legend
 )
 
-const CodingDurations = ({ endpoint }) => {
+const CodingDurations = ({ endpoint, onError }) => {
   const resourcePath = "time-coding"
   const [data, setData] = useState(null)
   const [sessionStorage, setSessionStorage] = useSessionStorage("code_metrics_time_coding", {})
@@ -45,8 +45,8 @@ const CodingDurations = ({ endpoint }) => {
       setData(response?.data?.data)
       setLoading(false)
     } catch (err) {
-      // setError(err.message);
-      // setLoading(false);
+      setLoading(false)
+      onError("Coding durations could not be fetched: " + err.message)
     }
   }
 
@@ -69,7 +69,7 @@ const CodingDurations = ({ endpoint }) => {
     } else {
       fetchData(timeRange)
     }
-  }, [timeRange, sessionStorage, setSessionStorage])
+  }, [timeRange, sessionStorage])
 
   const chartData = {
     labels,
@@ -120,23 +120,6 @@ const CodingDurations = ({ endpoint }) => {
       }
     />
   )
-
-  // <Chart
-  //   chartTitle="Time coding"
-  //   chart={<Line height="400px" options={options} data={chartData} />}
-  //   controls={
-  //     <ChartControls
-  //       id="durations-controls"
-  //       loading={loading}
-  //       timeRange={timeRange}
-  //       onChangeTimeRange={handleTimeRangeChange}
-  //       controls={chartControls}
-  //       refreshable={true}
-  //       onRefreshData={handleRefreshData}
-  //     />
-  //   }
-  // />
-  //  )
 }
 
 export default CodingDurations

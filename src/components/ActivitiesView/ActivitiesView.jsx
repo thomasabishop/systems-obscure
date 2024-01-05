@@ -5,7 +5,6 @@ import ViewControls from "../ViewControls/ViewControls"
 import ActivitiesTable from "../ActivitiesTable/ActivitiesTable"
 import ActivitiesChart from "../ActivitiesChart/ActivitiesChart"
 import useSessionStorage from "../../hooks/useSessionStorage"
-import { set } from "lodash"
 
 const activityColours = {
   Projects: ["rgba(54, 162, 235, 0.3)", "rgba(54, 162, 235, 1)"],
@@ -16,7 +15,7 @@ const activityColours = {
   "Theoretical study": ["rgba(235, 123, 54, 0.3)", "rgba(235, 123, 54, 1)"],
 }
 
-const ActivitiesView = ({ endpoint }) => {
+const ActivitiesView = ({ endpoint, onError }) => {
   const [currentView, setCurrentView] = useState("chart")
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(null)
@@ -50,8 +49,8 @@ const ActivitiesView = ({ endpoint }) => {
       setData(response?.data?.data)
       setLoading(false)
     } catch (err) {
-      // setError(err.message)
-      // setLoading(false)
+      onError("Activity data could not be sourced: " + err.message)
+      setLoading(false)
     }
   }
 
@@ -70,7 +69,7 @@ const ActivitiesView = ({ endpoint }) => {
     } else {
       fetchData(timeRange)
     }
-  }, [timeRange, sessionStorage, setSessionStorage])
+  }, [timeRange, sessionStorage])
 
   return (
     <MetricsView

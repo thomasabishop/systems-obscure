@@ -19,7 +19,7 @@ import MetricsView from "../MetricsView/MetricsView"
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
-const ProgrammingLanguagesChart = ({ endpoint }) => {
+const ProgrammingLanguagesChart = ({ endpoint, onError }) => {
   const resourcePath = "stats"
   const [data, setData] = useState(null)
   const [sessionStorage, setSessionStorage] = useSessionStorage(
@@ -42,8 +42,8 @@ const ProgrammingLanguagesChart = ({ endpoint }) => {
       setData(response?.data?.data?.languages)
       setLoading(false)
     } catch (err) {
-      // setError(err.message);
-      // setLoading(false);
+      onError("Programming languages data could not be sourced: " + err.message)
+      setLoading(false)
     }
   }
 
