@@ -47,7 +47,7 @@ const CodeMetrics = () => {
       </div>
 
       <div className="CodeMetrics__block pt-3">
-        <ProgrammingLanguagesChart endpoint={codeMetricsEndpoint} />
+        <ProgrammingLanguagesChart endpoint={codeMetricsEndpoint} onError={addError} />
       </div>
     </div>
   )
