@@ -1,21 +1,26 @@
 import React from "react"
 import { Link } from "gatsby"
-import "./Header.scss"
 import Container from "react-bootstrap/Container"
 import Nav from "react-bootstrap/Nav"
 import Navbar from "react-bootstrap/Navbar"
-
 export default function Header() {
   return (
     <>
-      <Navbar bg="dark" data-bs-theme="dark" fixed="top">
+      <Navbar collapseOnSelect bg="dark" expand="lg" data-bs-theme="dark" fixed="top">
         <Container>
-          <Navbar.Brand as={Link} to="/">
-            Systems Obscure
+          <Navbar.Brand as={Link} to="/" style={{ letterSpacing: "0.4px" }}>
+            SYSTEMS OBSCURE
           </Navbar.Brand>
-          <Nav className="me justify-content-end">
-            <Nav.Link href="https://github.com/thomasabishop">GitHub</Nav.Link>
-          </Nav>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
+            <Nav className="me">
+              <Nav.Link as={Link} to="/code-metrics">
+                Code Metrics
+              </Nav.Link>
+
+              <Nav.Link href="https://github.com/thomasabishop">GitHub</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
         </Container>
       </Navbar>
     </>

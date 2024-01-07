@@ -66,7 +66,7 @@ const ProgrammingLanguagesChart = ({ endpoint, onError }) => {
     } else {
       fetchData(timeRange)
     }
-  }, [timeRange, sessionStorage, setSessionStorage])
+  }, [timeRange, sessionStorage])
 
   const chartData = {
     labels,

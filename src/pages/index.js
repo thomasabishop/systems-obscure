@@ -21,12 +21,7 @@ export default function HomePage({
         <meta name="description" content="Another software engineer with a blog." />
       </Helmet>
       <p>Another software engineer with a blog.</p>
-      <h2 className="h3">Pages</h2>
-      <div className="home-links">
-        <Link to="/code-metrics">Code Metrics</Link>
-      </div>
 
-      <h2 className="h3">Posts</h2>
       <div>
         {/* <h2 className="posts-header h4">Posts</h2> */}
         <div className="posts-wrapper">{Posts}</div>
