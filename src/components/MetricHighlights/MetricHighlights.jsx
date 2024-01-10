@@ -8,14 +8,13 @@ import MetricsView from "../MetricsView/MetricsView"
 import "./MetricHighlights.scss"
 
 const MetricHighlights = ({ endpoint, onError }) => {
-  const resourcePath = "stats"
   const [data, setData] = useState(null)
   const [timeRange, setTimeRange] = useState("last_30_days")
   const [loading, setLoading] = useState(null)
 
   const fetchData = async (timeRange) => {
     try {
-      const response = await axios.get(`${endpoint}/${resourcePath}?timePeriod=${timeRange}`)
+      const response = await axios.get(`${endpoint}?timePeriod=${timeRange}`)
 
       setData(response?.data?.data)
       setLoading(false)

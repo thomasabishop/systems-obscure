@@ -7,7 +7,8 @@ import ActivitiesView from "../ActivitiesView/ActivitiesView"
 import { ToastContainer } from "react-bootstrap"
 import ErrorToast from "../ErrorToast/ErrorToast"
 
-const codeMetricsEndpoint = process.env.GATSBY_CODE_METRICS_API
+const codeStatsEndpoint = process.env.GATSBY_CODE_STATS_LAMBDA
+const codeDurationsEndpoint = process.env.GATSBY_CODE_DURATIONS_LAMBDA
 const activitiesEndpoint = process.env.GATSBY_ACTIVITIES_LAMBDA
 
 const CodeMetrics = () => {
@@ -35,7 +36,7 @@ const CodeMetrics = () => {
       </p>
 
       <div className="CodeMetrics__block pt-3">
-        <MetricHighlights endpoint={codeMetricsEndpoint} onError={addError} />
+        <MetricHighlights endpoint={codeStatsEndpoint} onError={addError} />
       </div>
 
       <div className="CodeMetrics__block pt-3">
@@ -43,11 +44,11 @@ const CodeMetrics = () => {
       </div>
 
       <div className="CodeMetrics__block pt-3">
-        <CodingDurationsChart endpoint={codeMetricsEndpoint} onError={addError} />
+        <CodingDurationsChart endpoint={codeDurationsEndpoint} onError={addError} />
       </div>
 
       <div className="CodeMetrics__block pt-3">
-        <ProgrammingLanguagesChart endpoint={codeMetricsEndpoint} onError={addError} />
+        <ProgrammingLanguagesChart endpoint={codeStatsEndpoint} onError={addError} />
       </div>
     </div>
   )

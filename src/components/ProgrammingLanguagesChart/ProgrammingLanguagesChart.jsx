@@ -20,7 +20,6 @@ import MetricsView from "../MetricsView/MetricsView"
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const ProgrammingLanguagesChart = ({ endpoint, onError }) => {
-  const resourcePath = "stats"
   const [data, setData] = useState(null)
   const [sessionStorage, setSessionStorage] = useSessionStorage(
     "code_metrics_programming_languages",
@@ -36,7 +35,7 @@ const ProgrammingLanguagesChart = ({ endpoint, onError }) => {
 
   const fetchData = async (timeRange) => {
     try {
-      const response = await axios.get(`${endpoint}/${resourcePath}?timePeriod=${timeRange}`)
+      const response = await axios.get(`${endpoint}?timePeriod=${timeRange}`)
       const freshData = { ...sessionStorage, [timeRange]: response?.data?.data?.languages }
       setSessionStorage(freshData)
       setData(response?.data?.data?.languages)

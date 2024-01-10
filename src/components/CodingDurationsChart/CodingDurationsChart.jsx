@@ -39,7 +39,7 @@ const CodingDurations = ({ endpoint, onError }) => {
 
   const fetchData = async (timeRange) => {
     try {
-      const response = await axios.get(`${endpoint}/${resourcePath}?timePeriod=${timeRange}`)
+      const response = await axios.get(`${endpoint}?timePeriod=${timeRange}`)
       const freshData = { ...sessionStorage, [timeRange]: response?.data?.data }
       setSessionStorage(freshData)
       setData(response?.data?.data)
