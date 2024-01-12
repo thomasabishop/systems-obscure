@@ -9,7 +9,7 @@ export default function Header() {
       <Navbar collapseOnSelect bg="dark" expand="lg" data-bs-theme="dark" fixed="top">
         <Container>
           <Navbar.Brand as={Link} to="/" style={{ letterSpacing: "0.4px" }}>
-            SYSTEMS OBSCURE
+            Systems Obscure
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
