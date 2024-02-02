@@ -4,7 +4,13 @@ import "./ErrorToast.scss"
 
 const ErrorToast = ({ errorMessage, onClose }) => {
   return (
-    <Toast className="ErrorToast" show={!!errorMessage} onClose={onClose} delay={3000} autohide>
+    <Toast
+      className="ErrorToast"
+      show={!!errorMessage}
+      onClose={onClose}
+      delay={3000}
+      autohide
+    >
       <Toast.Header>
         <strong className="me-auto">Error</strong>
       </Toast.Header>

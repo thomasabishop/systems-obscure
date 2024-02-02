@@ -1,5 +1,10 @@
 import React, { useState } from "react"
-import { ButtonGroup, ToggleButton, ButtonToolbar, Button } from "react-bootstrap"
+import {
+  ButtonGroup,
+  ToggleButton,
+  ButtonToolbar,
+  Button,
+} from "react-bootstrap"
 
 const ChartControls = ({
   id,
@@ -30,7 +35,12 @@ const ChartControls = ({
       </ButtonGroup>
       {refreshable && (
         <ButtonGroup>
-          <Button disabled={loading} size="sm" variant="primary" onClick={onRefreshData}>
+          <Button
+            disabled={loading}
+            size="sm"
+            variant="primary"
+            onClick={onRefreshData}
+          >
             Refresh
           </Button>
         </ButtonGroup>

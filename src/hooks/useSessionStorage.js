@@ -2,7 +2,8 @@ import { useState } from "react"
 
 function useSessionStorage(key, initialValue) {
   // Get from session storage by key
-  const storedValue = typeof window !== "undefined" && sessionStorage.getItem(key)
+  const storedValue =
+    typeof window !== "undefined" && sessionStorage.getItem(key)
   const initial = storedValue ? JSON.parse(storedValue) : initialValue
 
   // State to store our value

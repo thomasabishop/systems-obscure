@@ -6,7 +6,9 @@ const createActivityDatasets = (rawData, chartColours) => {
     let newDuration = Number(
       (
         parseFloat(obj.duration) +
-        (acc.find((item) => item.label === obj.project)?.data[labels.indexOf(obj.date)] || 0)
+        (acc.find((item) => item.label === obj.project)?.data[
+          labels.indexOf(obj.date)
+        ] || 0)
       ).toFixed(2)
     )
     let index = acc.findIndex((item) => item.label === obj.project)

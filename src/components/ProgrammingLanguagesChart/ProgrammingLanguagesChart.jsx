@@ -36,7 +36,10 @@ const ProgrammingLanguagesChart = ({ endpoint, onError }) => {
   const fetchData = async (timeRange) => {
     try {
       const response = await axios.get(`${endpoint}?timePeriod=${timeRange}`)
-      const freshData = { ...sessionStorage, [timeRange]: response?.data?.data?.languages }
+      const freshData = {
+        ...sessionStorage,
+        [timeRange]: response?.data?.data?.languages,
+      }
       setSessionStorage(freshData)
       setData(response?.data?.data?.languages)
       setLoading(false)

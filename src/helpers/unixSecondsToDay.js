@@ -5,7 +5,9 @@ const unixSecondsToDay = (seconds) => {
   seconds -= hours * 60 * 60
 
   if (days > 0) {
-    return `${days} ${days === 1 ? "day" : "days"} ${hours} ${hours === 1 ? "hour" : "hours"}`
+    return `${days} ${days === 1 ? "day" : "days"} ${hours} ${
+      hours === 1 ? "hour" : "hours"
+    }`
   } else {
     return null
   }

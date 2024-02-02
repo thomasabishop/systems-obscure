@@ -19,7 +19,11 @@ const ActivitiesTable = ({ data, colours }) => {
   }, [])
 
   if (isMobile) {
-    return <Alert variant="info">Table component cannot be viewed on this device width. </Alert>
+    return (
+      <Alert variant="info">
+        Table component cannot be viewed on this device width.{" "}
+      </Alert>
+    )
   }
   return (
     <div className="ActivitiesTable">

@@ -18,7 +18,10 @@ export default function HomePage({
     <Main>
       <Helmet>
         <title>Systems Obscure</title>
-        <meta name="description" content="Another software engineer with a blog." />
+        <meta
+          name="description"
+          content="Another software engineer with a blog."
+        />
       </Helmet>
       <p>Another software engineer with a blog.</p>
 

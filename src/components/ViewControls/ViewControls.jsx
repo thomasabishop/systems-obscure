@@ -1,5 +1,10 @@
 import React from "react"
-import { ButtonGroup, ToggleButton, ButtonToolbar, Button } from "react-bootstrap"
+import {
+  ButtonGroup,
+  ToggleButton,
+  ButtonToolbar,
+  Button,
+} from "react-bootstrap"
 import "./ViewControls.scss"
 
 const ViewControls = ({ controls, currentView, onViewChange }) => {

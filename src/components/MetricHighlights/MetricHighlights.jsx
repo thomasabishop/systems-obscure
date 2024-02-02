@@ -64,7 +64,9 @@ const MetricHighlights = ({ endpoint, onError }) => {
             <MetricsView
               metricName={"Total time"}
               metricView={
-                !loading && (unixSecondsToDay(data?.total_seconds) || data?.human_readable_total)
+                !loading &&
+                (unixSecondsToDay(data?.total_seconds) ||
+                  data?.human_readable_total)
               }
               loadingIndicator={loading}
             />

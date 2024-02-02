@@ -26,13 +26,17 @@ const CodeMetrics = () => {
     <div className="CodeMetrics">
       <ToastContainer position="bottom-end" className="ToastContainer p-4">
         {errors.map((error, i) => (
-          <ErrorToast key={i} errorMessage={error} onClose={() => removeError(i)} />
+          <ErrorToast
+            key={i}
+            errorMessage={error}
+            onClose={() => removeError(i)}
+          />
         ))}
       </ToastContainer>
 
       <p className="pt-2">
-        This dashboard integrates data on my coding activity from a variety of APIs. The data is
-        cached client-side, click 'Refresh' to update.
+        This dashboard integrates data on my coding activity from a variety of
+        APIs. The data is cached client-side, click 'Refresh' to update.
       </p>
 
       <div className="CodeMetrics__block pt-3">
@@ -44,11 +48,17 @@ const CodeMetrics = () => {
       </div>
 
       <div className="CodeMetrics__block pt-3">
-        <CodingDurationsChart endpoint={codeDurationsEndpoint} onError={addError} />
+        <CodingDurationsChart
+          endpoint={codeDurationsEndpoint}
+          onError={addError}
+        />
       </div>
 
       <div className="CodeMetrics__block pt-3">
-        <ProgrammingLanguagesChart endpoint={codeStatsEndpoint} onError={addError} />
+        <ProgrammingLanguagesChart
+          endpoint={codeStatsEndpoint}
+          onError={addError}
+        />
       </div>
     </div>
   )

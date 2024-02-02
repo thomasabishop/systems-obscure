@@ -31,7 +31,10 @@ ChartJS.register(
 const CodingDurations = ({ endpoint, onError }) => {
   const resourcePath = "time-coding"
   const [data, setData] = useState(null)
-  const [sessionStorage, setSessionStorage] = useSessionStorage("code_metrics_time_coding", {})
+  const [sessionStorage, setSessionStorage] = useSessionStorage(
+    "code_metrics_time_coding",
+    {}
+  )
   const [timeRange, setTimeRange] = useState("last_30_days")
   const [loading, setLoading] = useState(null)
   const labels = data?.map((datum) => datum?.date)
