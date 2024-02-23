@@ -37,35 +37,38 @@ const ActivitiesTable = ({ data, colours }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((activity, index) => (
-            <tr key={index}>
-              <td>{activity.date}</td>
-              <td>
-                <span
-                  className="ActivitiesTable__badge"
-                  style={{
-                    backgroundColor: colours[activity.project][0],
-                    borderColor: colours[activity.project][1],
-                  }}
-                >
-                  {activity.project}
-                </span>
-              </td>
-              <td>
-                <span
-                  style={{
-                    width: `${(activity.duration / maxDuration) * 100}%`,
-                    minWidth: "30px",
-                  }}
-                  className="ActivitiesTable__duration-bar
+          {data.map(
+            (activity, index) =>
+              activity.project && (
+                <tr key={index}>
+                  <td>{activity.date}</td>
+                  <td>
+                    <span
+                      className="ActivitiesTable__badge"
+                      style={{
+                        backgroundColor: colours[activity?.project][0],
+                        borderColor: colours[activity?.project][1],
+                      }}
+                    >
+                      {activity.project}
+                    </span>
+                  </td>
+                  <td>
+                    <span
+                      style={{
+                        width: `${(activity.duration / maxDuration) * 100}%`,
+                        minWidth: "30px",
+                      }}
+                      className="ActivitiesTable__duration-bar
                 "
-                >
-                  {activity.duration}
-                </span>
-              </td>
-              <td>{activity.task_description}</td>
-            </tr>
-          ))}
+                    >
+                      {activity.duration}
+                    </span>
+                  </td>
+                  <td>{activity.task_description}</td>
+                </tr>
+              )
+          )}
         </tbody>
       </Table>
     </div>
