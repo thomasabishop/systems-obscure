@@ -1,7 +1,7 @@
 ---
 title: "Note-taking routine"
 slug: /note-taking-routine/
-date: 2024-11-20
+date: 2024-03-01
 ---
 
 ![Notes view](./img/full-note-view.png)
