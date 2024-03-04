@@ -25,10 +25,9 @@ time-tracking.
 ## Code metrics module
 
 I use WakaTime to collate metrics on my coding activity (time coding,
-programming languages, projects etc.) I already have a
-[dashboard](https://systemsobscure.blog/code-metrics/) on this site that
-displays some of this data but I thought it would be useful to see my stats from
-the status bar as I am working.
+programming languages, projects etc.) I already have a dashboard on this site
+that displays some of this data but I thought it would be useful to see my stats
+from the status bar as I am working.
 
 Below is an image of the module. The permanent display outputs the coding
 duration for the current day. When you hover you see a summary of the main
