@@ -5,29 +5,34 @@ blockquote {
   font-style: italic;
 }
 
-h3.post_title {
-  margin-bottom: 0.5rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 16px;
 }
 
-.main-content {
-  h2 {
-    font-size: 1.4rem !important;
-  }
-  h3 {
-    font-size: 1.25rem !important;
-  }
-  h4,
-  h5,
-  h6 {
-    font-size: 1rem !important;
-  }
-}
+// .main-content {
+//   h2 {
+//     font-size: 1.4rem !important;
+//   }
+//   h3 {
+//     font-size: 1.25rem !important;
+//   }
+//   h4,
+//   h5,
+//   h6 {
+//     font-size: 1rem !important;
+//   }
+// }
 
-.post {
-  &__date {
-    font-style: italic;
-  }
-}
+// .post {
+//   &__date {
+//     font-style: italic;
+//   }
+// }
 
 p code,
 li code {

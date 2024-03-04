@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import "../styles/main.scss"
 import PostLink from "../components/PostLink/PostLink"
 import Main from "../templates/main/Main"
-
+import Header from "../components/Header/Header"
 export default function HomePage({
   data: {
     allMarkdownRemark: { edges },
@@ -23,7 +23,14 @@ export default function HomePage({
           content="Another software engineer with a blog."
         />
       </Helmet>
+
+      <Header />
       <p>Another software engineer with a blog.</p>
+
+      <div className="links">
+        {/* <Link to="/code-metrics">Code Metrics</Link> */}
+        <a href="">GitHub</a>
+      </div>
 
       <div>
         {/* <h2 className="posts-header h4">Posts</h2> */}

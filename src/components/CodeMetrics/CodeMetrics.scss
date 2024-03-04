@@ -1,7 +1,8 @@
 @import "../../styles/variables";
 
 .CodeMetrics {
-  font-family: $font_stack_sans;
+  font-family: $font_stack_serif;
+
   &__header {
     padding-top: 0.5rem;
     display: flex;

@@ -12,7 +12,7 @@ export default function Post({ data }) {
         <title>{post.frontmatter.title} | Systems Obscure</title>
       </Helmet>
       <div className="post">
-        <h1 className="post__title h3">{post.frontmatter.title}</h1>
+        <h2 className="post__title h3">{post.frontmatter.title}</h2>
         {/* <hr /> */}
         <span className="post__date">{post.frontmatter.date}</span>
       </div>

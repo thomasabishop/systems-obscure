@@ -5,16 +5,15 @@ import { Container } from "react-bootstrap"
 export default function Main(props) {
   return (
     <>
-      <Header />
-      <Container>
-        <div className="site-container">
-          <div className="main-content">
-            <div className="main">{props.children}</div>
-          </div>
-
-          {/* <Footer /> */}
+      {/* <Container> */}
+      <div className="site-container">
+        <div className="main-content">
+          <div className="main">{props.children}</div>
         </div>
-      </Container>
+
+        {/* <Footer /> */}
+      </div>
+      {/* </Container> */}
     </>
   )
 }

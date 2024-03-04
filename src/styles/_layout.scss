@@ -1,8 +1,30 @@
-.main-content {
-  padding-top: 85px;
+* {
+  max-width: 768px;
 }
 
-.home-links {
+h2.post__title {
+  font-size: 1rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.post__date {
+  // font-style: italic;
+  font-size: 14px;
+}
+
+// .main-content {
+//   padding-top: 85px;
+// }
+
+// .home-links {
+//   margin-bottom: 1rem;
+//   * {
+//     margin-right: 1rem;
+//   }
+// }
+
+.links {
   margin-bottom: 1rem;
   * {
     margin-right: 1rem;
@@ -11,11 +33,12 @@
 
 .gatsby-highlight {
   margin-bottom: 1rem;
+  max-width: 768px;
 }
 
-.post {
-  margin-bottom: 1rem;
-}
+// .post {
+//   margin-bottom: 1rem;
+// }
 
 // html,
 // body {
