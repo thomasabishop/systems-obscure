@@ -1,8 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import Container from "react-bootstrap/Container"
-import Nav from "react-bootstrap/Nav"
-import Navbar from "react-bootstrap/Navbar"
 import "./Header.scss"
 
 export default function Header() {
@@ -39,14 +36,15 @@ export default function Header() {
     // </>
 
     <div className="Header">
-      <Link to="/">
-        <h2 className="site-title">Systems Obscure</h2>
-        {/* <span>Another software engineer with a blog</span> */}
-        {/* <div className="Header">
+      <div className="box-outline">
+        <Link to="/">
+          <h2 className="site-title">Systems Obscure</h2>
+          {/* <div className="Header">
         <h1>Systems Obscure</h1> */}
-        {/* <div className="Header__site-title">Systems Obscure</div> */}
-        {/* </div> */}
-      </Link>
+          {/* <div className="Header__site-title">Systems Obscure</div> */}
+          {/* </div> */}
+        </Link>
+      </div>
     </div>
   )
 }

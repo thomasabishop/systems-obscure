@@ -1,28 +1,27 @@
-* {
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 90%;
+  min-height: 90% !important;
+}
+
+body {
+  max-width: 768px;
+  background: #282828;
   max-width: 768px;
 }
 
 h2.post__title {
   font-size: 1rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid #504945;
   padding-bottom: 0.5rem;
 }
 
 .post__date {
-  // font-style: italic;
+  font-style: italic;
   font-size: 14px;
 }
-
-// .main-content {
-//   padding-top: 85px;
-// }
-
-// .home-links {
-//   margin-bottom: 1rem;
-//   * {
-//     margin-right: 1rem;
-//   }
-// }
 
 .links {
   margin-bottom: 1rem;
@@ -35,45 +34,3 @@ h2.post__title {
   margin-bottom: 1rem;
   max-width: 768px;
 }
-
-// .post {
-//   margin-bottom: 1rem;
-// }
-
-// html,
-// body {
-//   height: 100%;
-//   margin: 0 auto;
-//   // line-height: 1.75;
-// }
-
-// body {
-//   padding-top: 60px;
-// }
-
-// @media (max-width: 979px) {
-//   body {
-//     padding-top: 0px;
-//   }
-// }
-
-// .site-container {
-//   display: flex;
-//   flex-direction: column;
-//   min-height: 100vh; // this makes sure the container takes at least the full viewport height
-// }
-
-// .main-content {
-//   flex: 1 0 auto; // this makes sure the main content expands as much as it can, pushing the footer down
-// }
-
-// .main {
-//   margin: 2rem;
-//   max-width: 778px;
-// }
-
-// @media only screen and (max-width: 778px) {
-//   .main {
-//     margin: 1rem;
-//   }
-// }

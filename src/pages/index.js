@@ -15,28 +15,29 @@ export default function HomePage({
     .map((edge) => <PostLink key={edge.node.id} post={edge.node} />)
 
   return (
-    <Main>
-      <Helmet>
+    <div>
+      <Main>
+        {/* <Helmet>
         <title>Systems Obscure</title>
         <meta
           name="description"
           content="Another software engineer with a blog."
         />
-      </Helmet>
+      </Helmet> */}
 
-      <Header />
-      <p>Another software engineer with a blog.</p>
+        {/* <p>
+          <i>Another software engineer with a blog.</i>
+        </p> */}
 
-      <div className="links">
-        {/* <Link to="/code-metrics">Code Metrics</Link> */}
-        <a href="">GitHub</a>
-      </div>
+        <div className="links">
+          {/* <Link to="/code-metrics">Code Metrics</Link> */}
+          <a href="">GitHub</a>
+        </div>
 
-      <div>
         {/* <h2 className="posts-header h4">Posts</h2> */}
-        <div className="posts-wrapper">{Posts}</div>
-      </div>
-    </Main>
+        <div>{Posts}</div>
+      </Main>
+    </div>
   )
 }
 

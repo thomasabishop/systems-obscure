@@ -1,4 +1,4 @@
-$background-color: rgba(33, 37, 41, 0.03);
+$background-color: #3c3836;
 
 table {
   width: 100%;
@@ -10,15 +10,17 @@ tbody tr:nth-child(even) {
 }
 
 thead th {
-  background-color: #212529;
-  color: white;
-  border: 1px solid #212529;
+  background-color: #1d2021;
+  color: #ebdbb2;
+  // border: 1px solid #212529;
+  text-align: left;
+  padding: 5px;
 }
 
 /* Style table cells */
 td {
   padding: 5px;
-  border: 1px solid #ccc;
+  //  border: 1px solid #ccc;
 }
 
 thead {
