@@ -17,17 +17,15 @@ export default function HomePage({
   return (
     <div>
       <Main>
-        {/* <Helmet>
-        <title>Systems Obscure</title>
-        <meta
-          name="description"
-          content="Another software engineer with a blog."
-        />
-      </Helmet> */}
+        <Helmet>
+          <title>Systems Obscure</title>
+          <meta
+            name="description"
+            content="Another software engineer with a blog."
+          />
+        </Helmet>
 
-        {/* <p>
-          <i>Another software engineer with a blog.</i>
-        </p> */}
+        <p className="byline">Another software engineer with a blog.</p>
 
         <div className="links">
           {/* <Link to="/code-metrics">Code Metrics</Link> */}
