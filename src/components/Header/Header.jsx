@@ -10,7 +10,7 @@ export default function Header() {
           <h2 className="site-title">Systems Obscure</h2>
         </Link>
       </div>
-      {/* <img className="flag" src={palestine} alt="Palestine flag" /> */}
+      <img className="flag" src={palestine} alt="Palestine flag" />
     </div>
   )
 }
