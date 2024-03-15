@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import "./Header.scss"
-import palestine from "../../img/palestine.svg"
 export default function Header() {
   return (
     <div className="Header">
