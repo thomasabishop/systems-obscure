@@ -1,0 +1,86 @@
+$green: #a9b665;
+$orange: #e78a4e;
+$white: #ebdbb2;
+$buttonBorder: #504945;
+$buttonBackground: #3c3836;
+$anotherDark: #32302f;
+$blue: #7daea3;
+$red: #ea6962;
+$black: #282828;
+
+.ui-char-emph {
+  border-bottom: 1px solid $white;
+  &.active {
+    border-bottom: 1px solid $green;
+  }
+}
+
+.ui-error {
+  color: $red;
+}
+
+.ui-group {
+  margin-bottom: 1rem;
+  &__content {
+    //    background-color: $anotherDark;
+    margin-top: 0.25rem;
+    padding: 0.5rem 0.5rem;
+    border-left: 2px solid $buttonBorder;
+    border-right: 2px solid $buttonBorder;
+    border-bottom: 2px solid $buttonBorder;
+
+    .no-bottom-padding {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.ui-header {
+  background-color: $buttonBackground;
+  line-height: 1 !important;
+  padding: 0.4rem 0.4rem 0.1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-width: 5px;
+  border-color: $buttonBorder;
+  border-style: double;
+  .title {
+    font-weight: bold;
+  }
+}
+
+.ui-time-controls {
+  display: inline-flex;
+  .option {
+    cursor: pointer;
+    margin-left: 0.75rem;
+
+    &.active {
+      color: $green !important;
+    }
+  }
+}
+
+.ui-scorecard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  // border-bottom: 1px solid $buttonBorder;
+  padding: 0.3rem 0.3rem 0.1rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Visx-specific styles */
+
+.ui-visx-axis-line {
+  stroke: #665c54;
+  stroke-width: 1px;
+}
+
+.ui-visx-axis-tick text {
+  font-family: "Sys TT";
+  font-style: italic;
+}

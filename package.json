@@ -15,6 +15,11 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@visx/axis": "^3.10.1",
+    "@visx/group": "^3.3.0",
+    "@visx/pattern": "^3.3.0",
+    "@visx/scale": "^3.5.0",
+    "@visx/shape": "^3.5.0",
     "bootstrap": "^5.3.2",
     "chart.js": "^4.3.0",
     "gatsby": "^5.11.0",
