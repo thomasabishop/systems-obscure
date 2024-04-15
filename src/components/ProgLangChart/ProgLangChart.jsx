@@ -7,10 +7,10 @@ import useSessionStorage from "../../hooks/useSessionStorage"
 
 const orange = "#e78a4e"
 
-const TimeCodingChart = ({ endpoint, reload }) => {
+const ProgLangChart = ({ endpoint, reload }) => {
   const [data, setData] = useState(null)
   const [sessionStorage, setSessionStorage] = useSessionStorage(
-    "code_metrics_time_coding",
+    "code_metrics_programming_languages",
     {}
   )
   const [timeRange, setTimeRange] = useState("last_7_days")
@@ -20,22 +20,14 @@ const TimeCodingChart = ({ endpoint, reload }) => {
   const fetchData = async (timeRange) => {
     try {
       const response = await axios.get(`${endpoint}?timePeriod=${timeRange}`)
-      const freshData = {
-        ...sessionStorage,
-        [timeRange]: response?.data?.data.map((d) => ({
-          ...d,
-          duration: parseFloat(d.duration),
-        })),
-      }
+      const languages = response?.data?.data?.languages
 
-      setSessionStorage(freshData)
+      const parsed = languages.map((lang) => ({
+        language: lang.name,
+        percent: lang.percent,
+      }))
 
-      setData(
-        response?.data?.data.map((d) => ({
-          ...d,
-          duration: parseFloat(d.duration),
-        }))
-      )
+      setData(parsed)
       setLoading(false)
     } catch (err) {
       setLoading(false)
@@ -68,7 +60,7 @@ const TimeCodingChart = ({ endpoint, reload }) => {
 
   return (
     <UiGroup
-      title="Time coding"
+      title="Programming Languages"
       minHeight={350}
       controls={
         <UiTimeControls
@@ -90,4 +82,4 @@ const TimeCodingChart = ({ endpoint, reload }) => {
   )
 }
 
-export default TimeCodingChart
+export default ProgLangChart
