@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +15,6 @@ jobs:
         with:
           node-version: 18
       - name: Caching Gatsby
-        id: gatsby-cache-build
         uses: actions/cache@v2
         with:
           path: |
@@ -45,7 +45,6 @@ jobs:
         id: slack
         uses: slackapi/slack-github-action@v1.25.0
         with:
-          # For posting a rich message using Block Kit
           payload: |
             {
               "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
@@ -53,12 +52,12 @@ jobs:
                 {
                   "type": "section",
                   "text": {
-                  "type": "mrkdwn",
-                  "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                    "type": "mrkdwn",
+                    "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  }
                 }
-              }
-            ]
-          }
+              ]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
