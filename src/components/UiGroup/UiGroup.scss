@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+
+.UiGroup {
+  max-width: 768px;
+  margin-bottom: 1rem;
+  &__content {
+    margin-top: 0.25rem;
+    padding: 0.5rem 0.5rem;
+    border-left: 2px solid $buttonBorder;
+    border-right: 2px solid $buttonBorder;
+    border-bottom: 2px solid $buttonBorder;
+    .no-bottom-padding {
+      padding-bottom: 0;
+    }
+  }
+}

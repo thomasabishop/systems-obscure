@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+
+.UiTimeControls {
+  display: inline-flex;
+  cursor: pointer;
+  user-select: none;
+  &__option {
+    margin-left: 0.75rem;
+    &--active {
+      color: $green !important;
+      .ui-char-emph {
+        border-bottom: 1px solid $white;
+        &__active {
+          border-bottom: 1px solid $green;
+        }
+      }
+    }
+  }
+}
