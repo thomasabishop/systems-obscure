@@ -27,17 +27,19 @@ export default function HomePage({
 
         <p className="byline">Another software engineer with a blog.</p>
 
+        <h2 className="posts-header h4">Pages</h2>
         <div className="links">
           <Link to="/code-metrics">Code Metrics</Link>
         </div>
-  
-  
+
         {/* <div className="links"> */}
         {/* <Link to="/code-metrics">Code Metrics</Link> */}
         {/* <a href="">GitHub</a> */}
         {/* </div> */}
 
         {/* <h2 className="posts-header h4">Posts</h2> */}
+
+        <h2 className="posts-header h4">Posts</h2>
         <div>{Posts}</div>
       </Main>
     </div>
