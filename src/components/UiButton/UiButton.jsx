@@ -1,12 +1,12 @@
 import React from "react"
-
+import "./UiButton.scss"
 const UiButton = ({ text, action }) => {
   const handleClick = () => {
     action()
   }
 
   return (
-    <button className="ui-button" onClick={handleClick}>
+    <button className="UiButton" onClick={handleClick}>
       {text}
     </button>
   )

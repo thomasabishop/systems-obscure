@@ -7,6 +7,9 @@ import useSessionStorage from "../../hooks/useSessionStorage"
 
 const orange = "#e78a4e"
 
+const getLanguage = (datum) => datum.language
+const getPercent = (datum) => datum.percent
+
 const ProgLangChart = ({ endpoint, reload }) => {
   const [data, setData] = useState(null)
   const [sessionStorage, setSessionStorage] = useSessionStorage(
@@ -22,10 +25,17 @@ const ProgLangChart = ({ endpoint, reload }) => {
       const response = await axios.get(`${endpoint}?timePeriod=${timeRange}`)
       const languages = response?.data?.data?.languages
 
-      const parsed = languages.map((lang) => ({
-        language: lang.name,
-        percent: lang.percent,
-      }))
+      let parsed = languages
+        .filter((lang) => lang.percent > 0.5)
+        .map((lang) => ({
+          language: lang.name,
+          percent: lang.percent,
+        }))
+
+      setSessionStorage({
+        ...sessionStorage,
+        [timeRange]: parsed,
+      })
 
       setData(parsed)
       setLoading(false)
@@ -75,6 +85,11 @@ const ProgLangChart = ({ endpoint, reload }) => {
         loading={loading}
         barColour={orange}
         timeRange={timeRange}
+        xMetric="language"
+        yMetric="percent"
+        yUnit="%"
+        getX={getLanguage}
+        getY={getPercent}
       />
 
       {}

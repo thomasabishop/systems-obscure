@@ -25,7 +25,7 @@ export default function CodeMetrics() {
       <div className="ui-button-wrapper">
         <UiButton action={clearCache} text="Clear cache" />
       </div>
-      <CodeHighlights endpoint={codeStatsEndpoint} />
+      <CodeHighlights endpoint={codeStatsEndpoint} reload={triggerReload} />
       <TimeCodingChart
         endpoint={codeDurationsEndpoint}
         reload={triggerReload}

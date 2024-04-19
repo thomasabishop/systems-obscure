@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+
+.UiButton {
+  color: $white;
+  font-size: 1rem;
+  font-family: "Sys TT";
+  max-width: 100px;
+  text-align: center;
+  padding: 4px 6px 2px;
+  background-color: $buttonBackground;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $buttonHighlight $buttonBorder $buttonBorder $buttonHighlight;
+  box-shadow: none;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.UiButton:hover {
+  background-color: $buttonHover;
+}
+
+.UiButton:active {
+  background-color: #32302f;
+  border-color: $buttonBorder $buttonHighlight $buttonHighlight $buttonBorder;
+  padding-top: 4px;
+  padding-bottom: 2px;
+}
+

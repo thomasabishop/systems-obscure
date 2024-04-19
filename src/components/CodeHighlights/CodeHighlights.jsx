@@ -5,14 +5,26 @@ import UiScorecard from "../UiScorecard/UiScorecard"
 import UiGroup from "../UiGroup/UiGroup"
 import { unixSecondsToDay } from "../../helpers/unixSecondsToDay"
 
-const UiHighlights = ({ endpoint }) => {
+import useSessionStorage from "../../hooks/useSessionStorage"
+
+const UiHighlights = ({ endpoint, reload }) => {
   const [data, setData] = useState({})
   const [timeRange, setTimeRange] = useState("last_30_days")
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [sessionStorage, setSessionStorage] = useSessionStorage(
+    "code_metrics_highlights",
+    {}
+  )
+
   const fetchData = async (timeRange) => {
     try {
       const response = await axios.get(`${endpoint}?timePeriod=${timeRange}`)
+      const freshData = {
+        ...sessionStorage,
+        [timeRange]: response?.data?.data,
+      }
+      setSessionStorage(freshData)
       setData(response?.data?.data)
       setLoading(false)
     } catch (err) {
@@ -25,10 +37,24 @@ const UiHighlights = ({ endpoint }) => {
     setTimeRange(time)
   }
 
+  const handleRefreshData = async () => {
+    setSessionStorage({})
+  }
+
   useEffect(() => {
     setLoading(true)
-    fetchData(timeRange)
-  }, [timeRange])
+    const cachedData = sessionStorage[timeRange]
+    if (cachedData) {
+      setData(cachedData)
+      setLoading(false)
+    } else {
+      fetchData(timeRange)
+    }
+  }, [timeRange, sessionStorage])
+
+  useEffect(() => {
+    handleRefreshData()
+  }, [reload])
 
   return (
     <>

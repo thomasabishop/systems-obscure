@@ -1,11 +1,12 @@
 import React from "react"
 import UiHeader from "../UiHeader/UiHeader"
+import "./UiGroup.scss"
 
 const UiGroup = ({ title, controls, children, minHeight = undefined }) => {
   return (
-    <div className="ui-group">
+    <div className="UiGroup">
       <UiHeader title={title} controls={controls} />
-      <div className="ui-group__content" style={{ minHeight: minHeight }}>
+      <div className="UiGroup__content" style={{ minHeight: minHeight }}>
         {children}
       </div>
     </div>

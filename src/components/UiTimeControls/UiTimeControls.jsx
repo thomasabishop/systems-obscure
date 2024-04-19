@@ -1,4 +1,5 @@
 import React from "react"
+import "./UiTimeControls.scss"
 
 const UiTimeControls = ({ timeRange, onRangeChange }) => {
   const handleClick = (timeRange) => {
@@ -6,14 +7,18 @@ const UiTimeControls = ({ timeRange, onRangeChange }) => {
   }
 
   return (
-    <div className="ui-time-controls">
+    <div className="UiTimeControls">
       <div
-        className={`option ${timeRange === "last_7_days" ? "active" : ""}`}
+        className={`option ${
+          timeRange === "last_7_days" ? "UiTimeControls__option--active" : ""
+        }`}
         onClick={() => handleClick("last_7_days")}
       >
         <span>
           <span
-            className={`ui-char-emph ${timeRange === "last_7_days" ? "active" : ""}`}
+            className={`ui-char-emph ${
+              timeRange === "last_7_days" ? "ui-char-emph__active" : ""
+            }`}
           >
             W
           </span>
@@ -22,12 +27,16 @@ const UiTimeControls = ({ timeRange, onRangeChange }) => {
       </div>
 
       <div
-        className={`option ${timeRange === "last_30_days" ? "active" : ""}`}
+        className={`UiTimeControls__option ${
+          timeRange === "last_30_days" ? "UiTimeControls__option--active" : ""
+        }`}
         onClick={() => handleClick("last_30_days")}
       >
         <span>
           <span
-            className={`ui-char-emph ${timeRange === "last_30_days" ? "active" : ""}`}
+            className={`ui-char-emph ${
+              timeRange === "last_30_days" ? "ui-char-emph__active" : ""
+            }`}
           >
             M
           </span>
@@ -36,12 +45,16 @@ const UiTimeControls = ({ timeRange, onRangeChange }) => {
       </div>
 
       <div
-        className={`option ${timeRange === "last_year" ? "active" : ""}`}
+        className={`UiTimeControls__option ${
+          timeRange === "last_year" ? "UiTimeControls__option--active" : ""
+        }`}
         onClick={() => handleClick("last_year")}
       >
         <span>
           <span
-            className={`ui-char-emph ${timeRange === "last_year" ? "active" : ""}`}
+            className={`ui-char-emph ${
+              timeRange === "last_year" ? "ui-char-emph__active" : ""
+            }`}
           >
             Y
           </span>

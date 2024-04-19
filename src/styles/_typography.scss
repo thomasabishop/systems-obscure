@@ -1,3 +1,10 @@
+@import url("https://fonts.cdnfonts.com/css/liberation-mono");
+
+::selection {
+  background: $blue;
+  color: $black;
+}
+
 h1,
 h2,
 h3,
@@ -10,8 +17,8 @@ ul,
 a,
 div,
 blockquote {
-  font-family: "Sys";
-  color: #ebdbb2;
+  font-family: $fontFamilySans;
+  color: $white;
 }
 
 div,
@@ -37,22 +44,22 @@ h6 {
 }
 
 a {
-  color: #8dc07c;
+  color: $aqua;
   // font-weight: bold;
 }
 
 p code,
 li code {
   // font-size: 14px;
-  color: #e78a4e !important;
+  color: $orange !important;
   background: transparent !important;
 }
 
 code {
   font-size: 13px;
-  font-family: "Liberation Mono";
+  font-family: $fontFamilyMono;
 }
 
 .byline {
-  font-weight: bold;
+  font-weight: normal;
 }

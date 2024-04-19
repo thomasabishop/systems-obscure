@@ -1,9 +1,14 @@
 import React from "react"
+import "./UiStaticTooltip.scss"
 
 const UiStaticTooltip = ({ x, y }) => {
   return (
-    <div className={`ui-static-tooltip ${x !== undefined ? "" : "visible"}`}>
-      <div className="wrapper">
+    <div
+      className={`UiStaticTooltip ${
+        x !== undefined ? "" : "UiStaticTooltip__visible"
+      }`}
+    >
+      <div className="UiStaticTooltip__wrapper">
         <div>{x}</div>
         <div>{y}</div>
       </div>

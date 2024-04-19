@@ -15,10 +15,18 @@ const height = 300
 const verticalMargin = 80
 const horizontalMargin = 30
 
-const getDate = (datum) => datum.date || datum.language
-const getDuration = (datum) => datum.duration || datum.percent
-
-const UiBarChart = ({ data, loading, error, barColour, timeRange }) => {
+const UiBarChart = ({
+  data,
+  loading,
+  error,
+  barColour,
+  timeRange,
+  xMetric,
+  yMetric,
+  yUnit,
+  getX,
+  getY,
+}) => {
   console.log(timeRange)
   const [smallScreen, setSmallScreen] = useState(false)
   const [tooltipData, setTooltipData] = useState({})
@@ -33,9 +41,7 @@ const UiBarChart = ({ data, loading, error, barColour, timeRange }) => {
   const yScale = useMemo(() => {
     if (!data || data?.length === 0) return undefined
 
-    const maxDuration = Math.max(
-      ...data?.map((d) => parseFloat(getDuration(d)))
-    )
+    const maxDuration = Math.max(...data?.map((d) => parseFloat(getY(d))))
 
     return scaleLinear({
       range: [yMax, 0],
@@ -48,7 +54,7 @@ const UiBarChart = ({ data, loading, error, barColour, timeRange }) => {
     if (!data) return undefined
     return scaleBand({
       range: [0, xMax],
-      domain: data && data?.map(getDate),
+      domain: data && data?.map(getX),
       padding: 0.4,
     })
   }, [data, xMax])
@@ -85,16 +91,16 @@ const UiBarChart = ({ data, loading, error, barColour, timeRange }) => {
   ) : (
     <>
       <UiStaticTooltip
-        x={tooltipData?.date}
-        y={`${tooltipData?.duration} hrs`}
+        x={tooltipData?.[xMetric]}
+        y={`${tooltipData?.[yMetric]} ${yUnit}`}
       />
       <div className="ui-responsive-chart-wrapper" ref={parentRef}>
         <svg width={width} height={height} className="visx-svg-chart">
           <rect width={width} height={height} fill="transparent" />
           <Group left={horizontalMargin / 2} top={verticalMargin / 2}>
             {data?.map((d) => {
-              const date = getDate(d)
-              const duration = getDuration(d)
+              const date = getX(d)
+              const duration = getY(d)
               const barWidth = xScale.bandwidth()
               const barHeight = yMax - (yScale(duration) ?? 0)
               const barX = xScale(date)

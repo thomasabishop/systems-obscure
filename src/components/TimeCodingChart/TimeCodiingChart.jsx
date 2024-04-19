@@ -7,6 +7,9 @@ import useSessionStorage from "../../hooks/useSessionStorage"
 
 const orange = "#e78a4e"
 
+const getDate = (datum) => datum.date
+const getDuration = (datum) => datum.duration
+
 const TimeCodingChart = ({ endpoint, reload }) => {
   const [data, setData] = useState(null)
   const [sessionStorage, setSessionStorage] = useSessionStorage(
@@ -52,10 +55,6 @@ const TimeCodingChart = ({ endpoint, reload }) => {
   }
 
   useEffect(() => {
-    handleRefreshData()
-  }, [reload])
-
-  useEffect(() => {
     setLoading(true)
     const cachedData = sessionStorage[timeRange]
     if (cachedData) {
@@ -65,6 +64,10 @@ const TimeCodingChart = ({ endpoint, reload }) => {
       fetchData(timeRange)
     }
   }, [timeRange, sessionStorage])
+
+  useEffect(() => {
+    handleRefreshData()
+  }, [reload])
 
   return (
     <UiGroup
@@ -83,6 +86,11 @@ const TimeCodingChart = ({ endpoint, reload }) => {
         loading={loading}
         barColour={orange}
         timeRange={timeRange}
+        xMetric="date"
+        yMetric="duration"
+        yUnit="hrs"
+        getX={getDate}
+        getY={getDuration}
       />
 
       {}
