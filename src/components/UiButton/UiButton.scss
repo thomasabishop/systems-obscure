@@ -1,7 +1,7 @@
-@import '../../styles/variables';
-
+@import "../../styles/variables";
 
 .UiButton {
+  font-family: $fontFamilySans;
   color: $white;
   font-size: 1rem;
   font-family: "Sys TT";
@@ -32,4 +32,3 @@
   padding-top: 4px;
   padding-bottom: 2px;
 }
-
