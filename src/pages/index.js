@@ -29,6 +29,7 @@ export default function HomePage({
 
         <h2 className="posts-header h4">Pages</h2>
         <div className="links">
+          <Link to="/about">About</Link>
           <Link to="/code-metrics">Code Metrics</Link>
         </div>
 
