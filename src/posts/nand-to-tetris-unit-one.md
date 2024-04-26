@@ -45,11 +45,6 @@ pass a single bit as the operand and the function inverts its value. We can
 utilise logical [truth tables]() to represent all possible inputs and outputs
 for the operator:
 
-<p>
-  When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-  \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
-</p>
-
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
@@ -436,10 +431,11 @@ This recalls our earlier definition of OR:
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>x</th>
-      <th>y</th>
-      <th>f(x) = x || y</th>
+      <th> \(x \)</th>
+      <th> \(y \)</th>
+      <th> \( f(x) = x  \lor y  \)</th>
     </tr>
+
   </thead>
   <tbody>
     <tr>
@@ -487,11 +483,11 @@ their equivalence:
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>x</th>
-      <th>y</th>
-      <th>z</th>
-      <th>((x & y) & ¬z) || ((x & ¬y) & ¬z) || ((¬x & y) & ¬z)</th>
-      <th>(x || y) &  ¬z</th>
+      <th> \(x \)</th>
+      <th> \(y \)</th>
+      <th> \(z \)</th>
+      <th> \( ((x \land y) \land ¬z)  \lor ((x \land ¬y) \land ¬z) \lor ((¬x \land y) \land ¬z) \)</th>
+      <th> \( (x \lor y) \land  ¬z \)</th>
     </tr>
   </thead>
   <tbody>
@@ -549,9 +545,9 @@ NAND stands for _not and_ and its truth conditions are the inversion of AND:
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>x</th>
-      <th>y</th>
-      <th>f(x) =  x ¬& y</th>
+      <th> \(x \)</th>
+      <th> \(y \)</th>
+      <th> \( f(x) =  x \tilde\land y \)</th>
     </tr>
   </thead>
   <tbody>
