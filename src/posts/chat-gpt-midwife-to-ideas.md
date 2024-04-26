@@ -1,8 +1,25 @@
 ---
-title: "Initial thoughts on the practical benefits of ChatGPT"
-slug: /chat-gpt-practical-benefits/
+title: "ChatGPT: midwife to ideas?"
+slug: /chat-gpt-midwife-to-ideas/
 date: 2023-03-12
 ---
+
+_Socrates: The only difference [between my trade and that of midwives] is that
+my patients are men, not women, and my concern is not with the body but with the
+soul that is experiencing birth pangs...I am like the midwife, in that I cannot
+myself give birth to wisdom. The common reproach is true, that, though I
+question others, I can myself bring nothing to light because there is no wisdom
+in me...Of myself I have no sort of wisdom, nor has any discovery ever been born
+to me as the child of my soul_
+
+-- Plato, _Theaetetus_
+
+_One person seeks a midwife for his thoughts; the other, someone he can assist.
+Here is the origin of a good conversation._
+
+-- Friedrich Nietzshe, _Beyond Good and Evil_ (1886)
+
+<br/>
 
 Like a lot of people who make software for a living I'm currently coming to
 terms with ChatGPT. I have mixed feelings and conflicting thoughts.
@@ -13,8 +30,9 @@ I want to discuss the benefits from my point of view as a software engineer. I
 will argue that for now at least, it is an asset to human programmers rather
 then a threat.
 
-The interaction pictured below marked the point at which I realised that there
-was something of substance to the technology beyond the hype.
+The interaction pictured at the bottom of this post marked the point at which I
+realised that there was something of substance to the technology beyond the
+hype.
 
 The Bash code I had written looked fine to me and I couldn't see what I was
 doing wrong. Provided with the code and the expected output, ChatGPT identified
@@ -43,16 +61,17 @@ concept and they do not simply grasp it in a flash of _a priori_ discernment,
 the best thing you can do is present examples of the concept under different
 aspects and in relation to things they _do_ know, whilst all the time
 questioning them and encouraging them to verbalise their reasoning and question
-you.
+you. The [Socratic method](https://en.wikipedia.org/wiki/Socratic_method) in
+other words.
 
-ChatGPT excels in this role of midwife to your ideas.[^nietzshe] It is like
-having a patient and knowledgeable teacher at your side that turns frustrating
-bugs and errors into opportunities for intellectual enrichment. I can query
-ChatGPT on a shallow level about bugs and syntax but I can also ask for broader
-advice on architectural questions and matters of style. _Which data structure
-should I use for maximum efficiency?_, _How can I reduce repetition and achieve
-greater abstraction?_, _How do I do this thing in Java that I can already do in
-Python_? etc.
+ChatGPT excels in this role of "midwife to your ideas". It is like having a
+patient and knowledgeable teacher at your side that turns frustrating bugs and
+errors into opportunities for intellectual enrichment. I can query ChatGPT on a
+shallow level about bugs and syntax but I can also ask for broader advice on
+architectural questions and matters of style. _Which data structure should I use
+for maximum efficiency?_, _How can I reduce repetition and achieve greater
+abstraction?_, _How do I do this thing in Java that I can already do in Python_?
+etc.
 
 At least in its current form, I do not see this as a threat to my role as a
 human programmer because real rational interchange is only possible if both
@@ -95,8 +114,3 @@ to hold it to account, ChatGPT is valuable tool for programming and personal
 development, without yet quite being a surrogate for competent human engineers.
 
 ![](./img/chat-gpt-explanation-bug.png)
-
-[^nietzshe]:
-    "One person seeks a midwife for his thoughts; the other, someone he can
-    assist. Here is the origin of a good conversation." Friedrich Nietzshe.
-    _Beyond Good and Evil_. 1886.
