@@ -45,11 +45,16 @@ pass a single bit as the operand and the function inverts its value. We can
 utilise logical [truth tables]() to represent all possible inputs and outputs
 for the operator:
 
+<p>
+  When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+  \[x = {-b \pm \sqrt{b^2-4ac} \over 2a}.\]
+</p>
+
 <table class="table table-bordered table-striped">
-  <thead >
+  <thead>
     <tr>
-      <th>x</th>
-      <th>f(x) = ¬(x)</th>
+      <th>\(x\)</th>
+      <th> \( f(x) = ¬(x)\) </th>
     </tr>
   </thead>
   <tbody>
@@ -77,9 +82,9 @@ For AND this gives us:
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>x</th>
-      <th>y</th>
-      <th>f(x) = x & y</th>
+      <th> \(x \)</th>
+      <th> \(y \)</th>
+      <th> \( f(x) = x \land y \)</th>
     </tr>
   </thead>
   <tbody>
@@ -113,9 +118,9 @@ OR returns 1 if one or both bits are 1, otherwise it returns 0:
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>x</th>
-      <th>y</th>
-      <th>f(x) = x || y</th>
+      <th> \(x \)</th>
+      <th> \(y \)</th>
+      <th> \( f(x) = x \lor y \)</th>
     </tr>
   </thead>
   <tbody>
@@ -277,10 +282,10 @@ or not they reflect the truth conditions for $P$.
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>x</th>
-      <th>y</th>
-      <th>z</th>
-      <th>P</th>
+      <th> \(x \)</th>
+      <th> \(y \)</th>
+      <th> \(z \)</th>
+      <th> \(P \)</th>
     </tr>
   </thead>
   <tbody>
@@ -342,10 +347,10 @@ us with:
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th>$x$</th>
-      <th>$y$</th>
-      <th>$z$</th>
-      <th>$P$</th>
+      <th> \(x \)</th>
+      <th> \(y \)</th>
+      <th> \(z \)</th>
+      <th> \(P \)</th>
     </tr>
   </thead>
   <tbody>

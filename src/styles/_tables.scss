@@ -10,17 +10,19 @@ tbody tr:nth-child(even) {
 }
 
 thead th {
+  border: 1px solid $buttonHover;
   background-color: #1d2021;
-  color: #ebdbb2;
+  color: $white;
   // border: 1px solid #212529;
   text-align: left;
-  padding: 5px;
+
+  padding: 4px 3px 0;
 }
 
 /* Style table cells */
 td {
-  padding: 5px;
-  //  border: 1px solid #ccc;
+  padding: 4px 3px 0;
+  border: 1px solid $buttonHover;
 }
 
 thead {

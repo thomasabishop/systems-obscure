@@ -70,7 +70,7 @@ const ProgLangChart = ({ endpoint, reload }) => {
 
   return (
     <UiGroup
-      title="Programming Languages"
+      title="Programming languages"
       minHeight={350}
       controls={
         <UiTimeControls

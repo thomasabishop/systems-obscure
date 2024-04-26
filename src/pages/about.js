@@ -7,20 +7,13 @@ export default function About() {
       <h2 className="post__title">About</h2>
       <p>
         This blog is a sort of personal scrapbook. I don't pretend it's
-        interesting to anyone but me. I'm a self-taught and probably mediocre
-        software engineer, working hard to get better.
+        interesting to anyone but me.
       </p>
 
       <p>
         I document the minutiae of my technical life so I can have some kind of
         record of progress when I look back. Doing this publicly motivates me to
         take care with my writing and to be as clear as possible.{" "}
-      </p>
-
-      <p>
-        Sometimes I try to write about matters of substance - politics, culture
-        and the like. But I find it very difficult to express my thoughts
-        coherently and usually abandon these posts.
       </p>
 
       <h3>Website theme</h3>

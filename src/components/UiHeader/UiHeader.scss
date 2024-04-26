@@ -8,8 +8,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-width: 5px;
-  border-color: $buttonBorder;
+  border-width: 3px;
+  border-color: $buttonHover;
   border-style: double;
   &__title {
     font-weight: bold;
