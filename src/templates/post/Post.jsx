@@ -17,7 +17,10 @@ export default function Post({ data }) {
         {/* <hr /> */}
         <span className="post__date">{post.frontmatter.date}</span>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div
+        className="post__body"
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
     </Main>
   )
 }
