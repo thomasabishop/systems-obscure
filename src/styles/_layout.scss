@@ -18,7 +18,10 @@ body {
 
 h2.post__title {
   font-size: 1rem;
-  padding: 0.5rem 0.35rem 0.25rem;
+  padding-bottom: 0px !important;
+  padding-top: 5px !important;
+  padding: 5px;
+  background-color: $buttonBackground;
   //padding-top: 6px !important;
   //padding-bottom: 0.5rem;
   border-width: 3px;
