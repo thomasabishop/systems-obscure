@@ -30,5 +30,4 @@ Deleted unused image: multiplication_03.gif
 Deleted unused image: Pasted_image_20220319174839.png
 Deleted unused image: multiplication_04.gif
 Deleted unused image: multiplication_02.gif
-Deleted unused image: multiplication_01.gif
 ```
