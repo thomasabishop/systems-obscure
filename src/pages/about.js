@@ -26,7 +26,8 @@ export default function About() {
           Gruvbox Material
         </a>
         . The body font is <a href="https://fsd.it/shop/fonts/sys/">Sys</a> and
-        the monospaced font is Liberation Mono.
+        the monospaced font is{" "}
+        <a href="https://terminus-font.sourceforge.net/">Terminus</a>.
       </p>
       <p>
         The UI elements are directly inspired by Windows 95 and Windows 98. I've
