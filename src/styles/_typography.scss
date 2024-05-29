@@ -4,27 +4,6 @@
   color: $black;
 }
 
-@font-face {
-  font-family: "Terminus TrueType";
-  src: url(../fonts/TerminusTTF-4.49.3.ttf);
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Terminus TrueType";
-  src: url(../fonts/TerminusTTF-Bold-4.49.3.ttf);
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Terminus TrueType";
-  src: url(../fonts/TerminusTTF-Italic-4.49.3.ttf);
-  font-weight: normal;
-  font-style: italic;
-}
-
 h1,
 h2,
 h3,
@@ -70,13 +49,13 @@ a {
 
 p code,
 li code {
-  font-size: 15px;
+  font-size: 14px;
   color: $orange !important;
   background: transparent !important;
 }
 
 code {
-  font-size: 15px;
+  font-size: 14px;
   font-family: $fontFamilyMono;
 }
 
