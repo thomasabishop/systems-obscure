@@ -8,9 +8,9 @@ I have recently started [Nand to Tetris](https://www.nand2tetris.org/course).
 This course teaches the foundations of hardware and computer achitecture and is
 based on the textbook _The Elements of Computing Systems_ by Noam Nisan and
 Shimon Schocken. As the course proceeds you build a functioning general-purpose
-computer starting from basic logic gates that is eventually capable of running
-Tetris and any number of other programs. The hardware is built primarily through
-simulation software running on Hack, a simplified
+computer that is eventually capable of running Tetris and any number of other
+programs. The hardware is built primarily through simulation software running on
+Hack, a simplified
 [hardware description language](https://en.wikipedia.org/wiki/Hardware_description_language)
 similar to Verilog and VHDL.
 
@@ -22,17 +22,18 @@ fullest account.
 
 The workings of a classical computer can be reduced to a series of operations on
 the binary digits (bits) 0 and 1. A computational process can be represented as
-a function: data (a series of bits) goes into the function in one state and
-comes out in a another state. The new state is a product of the function.
+a function: data (a series of bits) enters the function in one state and exits
+in another state. This new state is a product of the function.
 
 ![](/img/function-diagram-new.png)
 
 The most primitive bit operations are equivalent to the truth-conditions of the
-logical connectives of Boolean algebra. There are multiple logical connectives
-but we will mostly focus on AND, OR, and NOT for simplicity.
+logical connectives of Boolean algebra. In logic, the Boolean values are _true_
+and _false_ but we will use 1 and 0, to represent these states as bits. There
+are multiple logical connectives but we will mostly focus on AND, OR, and NOT
+for simplicity.
 
-For each Boolean connective we can use function notation and the formal
-conventions of propositional logic to express their operation as a function.
+The logic of each Boolean connective can be expressed as a function.
 
 NOT can be represented as follows;
 
@@ -40,107 +41,42 @@ $$
 f(x) = \lnot (x)
 $$
 
-NOT ($\lnot$) is a unary operator which means it takes one operand ($x$). We
-pass a single bit as the operand and the function inverts its value. We can
-utilise logical [truth tables]() to represent all possible inputs and outputs
-for the operator:
+NOT (¬) is a unary operator which means it takes one operand (_x_). We pass a
+single bit as the operand and the function inverts its value. We can utilise
+logical [truth tables]() to represent all possible inputs and outputs for the
+operator:
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>\(x\)</th>
-      <th> \( f(x) = ¬(x)\) </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
+| x   | f(x) = NOT(x) |
+| --- | ------------- |
+| 1   | 0             |
+| 0   | 1             |
 
 If NOT receives 0 as an input it will return 1 as the output. If it receives 1
 as the input it will return 0 as the output.
 
 AND ($\land$) and OR($\lor$) are binary operators: they receive two operands as
-input. This means we are passing in two bits to the function. As a bit can be
-one of two values (0 or 1), there are four possible configurations of the input
-state.
+input. Therefore we pass two bits to the function. As a bit can be one of two
+values (0 or 1), there are four possible inputs.
 
 For AND this gives us:
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th> \(x \)</th>
-      <th> \(y \)</th>
-      <th> \( f(x) = x \land y \)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
+| x   | y   | f(x) = x AND y |
+| --- | --- | -------------- |
+| 1   | 1   | 1              |
+| 0   | 1   | 0              |
+| 1   | 0   | 0              |
+| 0   | 0   | 0              |
 
 AND returns 1 if both input bits are 1, otherwise it returns 0.
 
 OR returns 1 if one or both bits are 1, otherwise it returns 0:
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th> \(x \)</th>
-      <th> \(y \)</th>
-      <th> \( f(x) = x \lor y \)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
+| x   | y   | f(x) = x OR y |
+| --- | --- | ------------- |
+| 1   | 1   | 1             |
+| 0   | 1   | 1             |
+| 1   | 0   | 1             |
+| 0   | 0   | 0             |
 
 ## Logic gates
 
@@ -153,14 +89,13 @@ The diagram below shows the logic gates for AND, OR, and NOT.
 
 ![](./img/and-or-not-gates.png)
 
-It is important to recognise that logic gates are an abstraction. In reality,
-you cannot _see_ a logic gate in a computer. If we were to look inside a chip
-that implements gate logic we would see an arrangement of transistors and
-resistors connected by wires. These components are configured to mimic the
-behaviour of the logical operators.
+Logic gates are an abstraction. In reality, you cannot _see_ a logic gate in a
+computer. If we were to look inside a chip that implements gate logic we would
+see an arrangement of transistors, capacitors and resistors connected by wires.
+These components are configured to mimic the behaviour of the logical operators.
 
 _Nand to Tetris_ starts at the level of gates and does not discuss how the
-individual gates are realised in electrical circuits. However, I think it is
+individual gates are realised in electronic circuits. However, I think it is
 useful to understand the basics of the electrical engineering so we might begin
 to grasp how it is possible to go from an inert block of metal and silicon to
 fully functioning computer.
@@ -168,32 +103,34 @@ fully functioning computer.
 ### The electronic implementation of gate logic
 
 We can start with the concept of a switch. Consider what is happening when we
-turn on a light using a wall switch. When the switch is off, the electrical
-circuit that connects the bulb to the voltage source is broken. As a result,
-there is no potential difference between the terminals and the current cannot
-reach the bulb. When the switch is on, the circuit is complete and the current
-flows freely to the bulb.
+turn on a light using a wall switch.
 
-We can represent this with a very simple circuit:
+When the switch is off, the electrical circuit that connects the bulb to the
+voltage source is broken. As a result, there is no potential difference between
+the terminals and the current cannot reach the bulb. When the switch is on, the
+circuit is complete and the current flows freely to the bulb.
+
+This is represented by the following simple schematic:
 
 ![](./img/single-switch-and-circuit.png)
 
-This circuit embodies the logic of a NOT gate. We can think of the light as 1
-and the absence of light as 0. When the switch is on, 1 is the output and 0 is
-inverted. When the switch is off, 0 is the output and 1 is inverted.
+This circuit embodies the logic of a NOT gate. Think of the light as 1 and the
+absence of light as 0. When the switch is on, 1 is the output and 0 is inverted.
+When the switch is off, 0 is the output and 1 is inverted.
 
-We can develop this scenario to represent the logical behaviour of an AND gate.
-Imagine now that this room is a bit strange and there are two switches
+This scenario can be developed to represent the logical behaviour of an AND
+gate. Imagine now that this room is a bit strange and there are two switches
 controlling the operation of the bulb. If both switches are off the bulb will
 not emit light. If one of the switches is on and the other is off the bulb will
 not emit light. The bulb will only emit light when _both_ switches are on.
 
-The circuit for this scenario embodies the logic of the Boolean AND connective:
+The schematic for this scenario embodies the logic of the Boolean AND
+connective:
 
 ![](./img/double-and-circ.png)
 
 Switch-controlled circuits are functionally equivalent to what actually happens
-inside a computer when logical conditions are expressed via gates. Electrical
+inside a computer when logical conditions are implemented via gates. Electrical
 charge is directed along different routes depending on the value of an on/off
 condition. However, in modern computers the actual component that controls the
 flow of current is not a switch.
@@ -201,12 +138,14 @@ flow of current is not a switch.
 Whilst we could construct primitive computers with switches, the average CPU has
 more than a million logic gates. Controlling this number of gates with
 mechanical switches would be practically impossible and even if it were
-achieved, it would result in glacial processing times. This matters because the
-computational power of logic gates emerges from their behaviour at scale.
-Collections of gates are combined to express complex logical conditions that are
-a function of their individual parts. For this to be possible, the output of a
-collection of gates needs to be able to be fed into another collection and this
-is very difficult to achieve in a mechancial switch-based system.
+achieved, it would result in extremely slow processing times.
+
+This is an important point because the computational power of logic gates
+emerges from their behaviour at scale. Collections of gates are combined to
+express complex logical conditions that are a function of their individual
+parts. For this to be possible, the output of a collection of gates needs to be
+able to be fed into another collection and this it would be difficult to achieve
+in a mechancial switch-based system.
 
 Instead of mechanical switches, computers use transistors. Transistors are
 semi-conductors: components that possess an electrical conductivity between that
@@ -226,13 +165,14 @@ a surplus of electrons (negatively charged) whereas the base has a deficiency of
 electrons (positively charged). This state creates a modifiable potential
 difference, reducing or increasing the current based on the voltage.
 
-Thus the base terminal of a transistor is another way of implementating the
-gate-like behaviour we previously achieved with mechanical switches. There is an
-important difference however. With a switch, the circuit is actually broken when
-it is in the "off" state and thus there is no current flowing at all. In
-contrast, with a transistor, the current drops in the "off" state but a voltage
-remains. Because a continuous circuit is an analogue system, the quantities of
-resistance, voltage and current are not discrete values - they will vary over a
+The base terminal of a transistor is another way of implementating the gate-like
+behaviour we previously achieved with mechanical switches. However, there is an
+important difference. With a switch, the circuit is actually broken when it is
+in the "off" state and there is no current flowing at all. With a transistor,
+the current drops in the "off" state but a voltage remains.
+
+Because a continuous circuit is an analogue system, the quantities of
+resistance, voltage and current are not discrete values, they will vary over a
 given range. Thus "off" corresponds to "low" voltage and "on" corresponds to
 "high" voltage. The specific stipulation will depend on the circuit design but
 it is typically the case that a state of 1 or "on" is within the range 2-5V
@@ -243,9 +183,9 @@ whereas a state of 0 or "off" is within the range 0.0 - 0.8V.
 To recap, elementary computational processes can be represented as logical
 functions. A function consists in one or more Boolean operators processing bits.
 For each Boolean operator we can construct a chip that represents its truth
-conditions. We call these logic gates. Logic gates are built with transistors
-that either block or permit the flow of electric current. This makes them behave
-in a manner identical to mechanical switches.
+conditions. We call these chips logic gates. Logic gates are built with
+transistors that either block or permit the flow of electric current. This makes
+them behave in a manner almost identical to mechanical switches.
 
 Now that we know how the individual logic gates work and how they are
 implemented electronically, we will explore how they can be applied in
@@ -258,10 +198,9 @@ following state of affairs:
 
 > The team plays on either Monday or Thursday and not at weekends
 
-Let's call this $P$ for ease of reference.
+Let's call this _P_ for ease of reference.
 
-This complex or compound expression comprises several simpler atomic
-expressions:
+This complex comprises several simpler atomic expressions:
 
 <ol type="a" start="24">
   <li>The team plays on Monday</li>
@@ -272,105 +211,30 @@ expressions:
 The first step is to construct a truth table. On the left-hand side we list all
 the possible truth values for each individual expression. On the right-hand
 side, we assign an overall truth value for their combination, based on whether
-or not they reflect the truth conditions for $P$.
+or not they reflect the truth conditions for _P_.
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th> \(x \)</th>
-      <th> \(y \)</th>
-      <th> \(z \)</th>
-      <th> \(P \)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
+| x   | y   | z   | _P_ |
+| --- | --- | --- | --- |
+| 1   | 1   | 1   | 0   |
+| 1   | 1   | 0   | 1   |
+| 1   | 0   | 1   | 0   |
+| 1   | 0   | 0   | 1   |
+| 0   | 1   | 1   | 0   |
+| 0   | 1   | 0   | 1   |
+| 0   | 0   | 1   | 0   |
+| 0   | 0   | 0   | 0   |
 
-We are only interested in the cases where $P$ is true, so we can discount any
+We are only interested in the cases where _P_ is true, so we can discount any
 lines that result in a truth value of 0 for the complex expresssion. This leaves
 us with:
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th> \(x \)</th>
-      <th> \(y \)</th>
-      <th> \(z \)</th>
-      <th> \(P \)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
+| x   | y   | z   | _P_ |
+| --- | --- | --- | --- |
+| 1   | 1   | 0   | 1   |
+| 1   | 0   | 0   | 1   |
+| 0   | 1   | 0   | 1   |
 
-Parsing each line, the truth table tells us that our complex expression ($P$) is
+Parsing each line, the truth table tells us that our complex expression (_P_) is
 true in the following scenarios:
 
 - If the team plays on both Mondays and Thursdays but not at weekends
@@ -379,22 +243,22 @@ true in the following scenarios:
 
 We can formalise each case:
 
-- $(x \land y) \land \lnot z$
-- $(x \land \lnot y) \land \lnot z$
-- $(\lnot x \land y) \land \lnot z$
+- _(x AND y) AND NOT z_
+- _(x AND NOT y) AND NOT z_
+- _(NOT x and y) AND NOT z_
 
 We now have three logical expressions that if constructed with logic gates would
-result in a partial representation of $P$. The representation would be partial
+result in a partial representation of _P_. The representation would be partial
 because each individual expression only conveys a single aspect of the truth of
-$P$, not its totality. For example, if we constructed a circuit that represents
-$(x \land \lnot y) \land \lnot z$, this would only cover occasions where the
-team plays on Mondays but not on Thursdays (or the weekend). It wouldn't cover
-the case where the team plays on Thursdays but not Mondays (or the weekend).
+_P_, not its totality. For example, if we constructed a circuit that represents
+_(x AND NOT y) AND NOT z_, this would only cover occasions where the team plays
+on Mondays but not on Thursdays (or the weekend). It wouldn't cover the case
+where the team plays on Thursdays but not Mondays (or the weekend).
 
-So we want a circuit that captures all possible instances where $P$ returns
-true. There are also practical benefits to seeking a single implementation. In
-order to maximise our computational resources we want to use the minimum number
-of gates in the simplest configuration possible.
+We want a circuit that captures all possible instances where _P_ returns true.
+There are practical benefits to seeking a single implementation. In order to
+maximise our computational resources we want to use the minimum number of gates
+in the simplest configuration possible.
 
 We start by concatenating each individual expression into a single disjunctive
 expression using logical OR:
@@ -405,64 +269,48 @@ $$
 
 Next, we look for opportunities to simplify this complex expression. This is
 similar to simplifying equations in mathematical algebra. It is a heuristic
-process - there is no formal or automated procedure that will work in every
-case.
+process; there is no formal or automated procedure that will work in every case.
 
-The first thing that stands out is that $\lnot z$ occurs in each of the
-individual disjunctive expressions. Therefore we can reduce the repetition by
-using it only once:
+_NOT z_ occurs in each of the individual disjunctive expressions. Therefore we
+can reduce the repetition by using it only once:
 
 $$
 (x \land y) \lor (x \land \lnot y) \lor (\lnot x \land y) \land \lnot z
 $$
 
-Now we need to consider how we can simplify
-$(x \land y) \lor (x \land \lnot y) \lor (\lnot x \land y)$.
+Now we need to consider how we can simplify the remaining expressions:
+
+$$
+(x \land y) \lor (x \land \lnot y) \lor (\lnot x \land y)
+$$
 
 If we look closely we can see that this expression is displaying the truth
-conditions for OR. The truth conditions for $x$ and $y$ are:
+conditions for OR. The truth conditions for _x_ and _y_ are:
 
-- true if $x$ and $y$ are true
-- true if $x$ is true and $y$ is false
-- true if $x$ is false and $y$ is true
+- true if _x_ and _y_ are true
+- true if _x_ is true and _y_ is false
+- true if _x_ is false and _y_ is true
 
 This recalls our earlier definition of OR:
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th> \(x \)</th>
-      <th> \(y \)</th>
-      <th> \( f(x) = x  \lor y  \)</th>
-    </tr>
+| x   | y   | f(x) = x OR y |
+| --- | --- | ------------- |
+| 1   | 1   | 1             |
+| 0   | 1   | 1             |
+| 1   | 0   | 1             |
+| 0   | 0   | 0             |
 
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
+Thus we can reduce:
 
-Thus we can reduce $(x \land y) \lor (x \land \lnot y) \lor (\lnot x \land y)$
-to $x \lor y$.
+$$
+(x \land y) \lor (x \land \lnot y) \lor (\lnot x \land y)
+$$
+
+to:
+
+$$
+x \lor y
+$$
 
 The reduction is now complete, allowing us to reduce:
 
@@ -476,133 +324,84 @@ $$
 (x \lor y) \land \lnot z
 $$
 
-If we construct a truth table for the original expression and its simplification
-we see that they are true under the same logical conditions which demonstrates
-their equivalence:
+If we construct a truth table for the original expression (_P_) and its
+simplification (_P'_) we see that they are true under the same logical
+conditions which demonstrates their equivalence:
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th> \(x \)</th>
-      <th> \(y \)</th>
-      <th> \(z \)</th>
-      <th> \( ((x \land y) \land ¬z)  \lor ((x \land ¬y) \land ¬z) \lor ((¬x \land y) \land ¬z) \)</th>
-      <th> \( (x \lor y) \land  ¬z \)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
+| x   | y   | z   | _P_ | _P'_ |
+| --- | --- | --- | --- | ---- |
+| 1   | 1   | 0   | 1   | 1    |
+| 1   | 0   | 0   | 1   | 1    |
+| 0   | 1   | 0   | 1   | 1    |
 
 ### Constructing the digital circuit
 
-Now that we have reduced $P$ to its simplest form using the connectives AND, OR
+Now that we have reduced _P_ to its simplest form using the connectives AND, OR
 and NOT we can construct a circuit using the logic gates for these connectives
-to represent the overall state of affairs expresed by $P$. We will have three
-input bits which correspond to $x$, $y$, $z$, and a single output bit that will
-reflect the truth value of $P$ based on the inputs. The input bits will be fed
-into an arrangement of logic gates that that matches the logical connectives in
-$(x \lor y) \land \lnot z$.
+to represent the overall state of affairs expressed by _P_.
+
+We will have three input bits which correspond to _x_, _y_, _z_, and a single
+output bit that will reflect the truth value of _P_ based on the inputs. The
+input bits will be fed into an arrangement of logic gates that that matches the
+logical connectives in _(x OR y) AND NOT z_.
 
 <div style="display:flex;margin-top:1.5rem">
 <iframe src="https://circuitverse.org/simulator/embed/nandtotetris-blog-post?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
 We can confirm that the circuit implementation is an accurate representation of
-$P$ by toggling the input values to confirm that the output is only 1 when
-either $x$ or $y$ is true and $z$ is false.
+_P_ by toggling the input values to confirm that the output is only 1 when
+either _x_ or _y_ is true and _z_ is false.
 
 ### Further simplification with NAND
 
 Our circuit uses three different types of logic gate. This is satisfactory but
 it would better if we could simplify the circuit even further and use a single
-type of gate rather than three different gates. To do so we need to further
-reduce our logic and introduce another type of logic gate: NAND.
+gate rather than three. To do so we need to further reduce our logic and
+introduce another type of logic gate: NAND.
 
-NAND stands for _not and_ and its truth conditions are the inversion of AND:
+NAND stands for "NOT AND" and its truth conditions are the inversion of AND:
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th> \(x \)</th>
-      <th> \(y \)</th>
-      <th> \( f(x) =  x \tilde\land y \)</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
+| x   | y   | f(x) = x NAND y |
+| --- | --- | --------------- |
+| 1   | 1   | 0               |
+| 0   | 1   | 1               |
+| 1   | 0   | 1               |
+| 0   | 0   | 1               |
 
-So in essence, NAND returns 1 whenever $x$ and $y$ are not both true.
+NAND returns 1 whenever _x_ and _y_ are not both true. We will represent NAND in
+our formulae with the symbol:
+
+$$
+\tilde\land
+$$
 
 NAND is a _universal logic gate_. This means that by using NAND gates and only
 NAND gates, we can represent the truth function of every other logic gate (AND
-can be expressed with just NAND gates, as can OR and so on). It follows from
-this that represent every possible logical circuit using NAND gates alone.
+can be expressed with just NAND gates, as can OR and so on). It follows that we
+can create every possible logical circuit using NAND gates alone.
 
-So let's demonstrate this by rephrasing $(x \lor y) \land \lnot z$ with just
-NANDs.
+Let's demonstrate this by reformulating _(x OR y) AND NOT z_ with just NANDs:
 
 $$
 ( [(x \tilde\land x) \tilde\land (y \tilde\land y)] \tilde\land (z \tilde\land z) ) \tilde\land ( [(x \tilde\land x) \tilde\land (y \tilde\land y)] \tilde\land (z \tilde\land z) )
 $$
 
 This is quite difficult to parse, so let's look at the circuit representation
-and derive its equivalence to $(x \lor y) \land \lnot z$:
+and derive its equivalence to _(x OR y) AND NOT z_:
 
 <iframe src="https://circuitverse.org/simulator/embed/nand-simplification?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
 You will notice that there is repeated forking pattern to most of the inputs.
 This occurs when the same input value is used for both input pins, equivalent to
-$(x \tilde\land x)$ in the equation:
+_x NAND x_ in the equation:
 
 ![](./img/nand-fork.png)
 
 When a NAND is wired to receive the same value for each input, it embodies the
-truth conditions for NOT: in the diagram above when $a$ is 1 the output is 0 and
-when $a$ is 0 the output is 1.
+truth conditions for NOT: in the diagram above when _a_ is 1 the output is 0 and
+when _a_ is 0 the output is 1.
 
 If we feed two of these sub-circuits into a NAND, we observe that the output is
 consistent with the truth conditions for OR:
@@ -611,13 +410,12 @@ consistent with the truth conditions for OR:
 <iframe src="https://circuitverse.org/simulator/embed/or_with_nand?theme=default&display_title=false&clock_time=true&fullscreen=true&zoom_in_out=true" style="border-width:; border-style: solid; border-color:;" name="myiframe" id="projectPreview" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="250" width="100%" allowFullScreen></iframe>
 </div>
 
-This is equivalent to the $(x \tilde\land x) \tilde\land (y \tilde\land y)$
-section of our NAND equation which we can see is equivalent to $x \lor y$.
+This is equivalent to the _(x NAND x) NAND (y NAND y)_ section of our NAND
+equation which we can see is equivalent to _x OR y_.
 
-The final part of the NAND equation is dedicated to: $\lnot z$. This is achieved
-by using another forking NAND and applying it to $z$, this is then joined with
-the existing fragment ($(x \tilde\land x) \tilde\land (y \tilde\land y)$) via a
-NAND to give:
+The final part of the NAND equation is dedicated to: _NOT z_. This is achieved
+by using another forking NAND and applying it to _z_, this is then joined with
+the existing fragment via a NAND to give:
 
 $$
 ( [(x \tilde\land x) \tilde\land (y \tilde\land y)] \tilde\land (z \tilde\land z) )
@@ -625,10 +423,10 @@ $$
 
 Which is then itself forked into a NAND to give the final output.
 
-This is probably harder to process mentally than the implementation that used
-three different operators but the point is just to demonstrate that such a
-reduction is possible and that complex abstract states can be constructed from
-the concatenation of primitive electrical components.
+This is harder to parse than the implementation that used three different
+operators but the point is just to demonstrate that such a reduction is possible
+and that complex abstract states can be constructed from the concatenation of
+primitive electronic components.
 
 ## Hardware Description Language
 
@@ -881,11 +679,13 @@ CHIP DMux {
 
 Multi-bit chips are variants of the chips and gates already produced. The logic
 of a multi-bit AND is the same as the logic for a normal AND gate. They differ
-only in the number of bits they can receive and output. In a real computer,
-passing single 1s and 0s into chips would be inefficient since very little
-information can be represented or encoded in a single bit. When we build the
-computer we will be passing values with a bit-length of 8-bits (a byte) as a
-miniumum (e.g. 10101100) and we need chips that can handle bits of this length.
+only in the number of bits they can receive and output.
+
+In a real computer, passing single 1s and 0s into chips would be inefficient
+since very little information can be represented or encoded in a single bit.
+When we build the computer we will be passing values with a bit-length of 8-bits
+(a byte) as a miniumum (e.g. 10101100) and we need chips that can handle bits of
+this length.
 
 For illustration, here is the HDL implementation of an AND-16:
 
@@ -914,20 +714,21 @@ CHIP And16 {
 }
 ```
 
-Here, instead of a single-bit AND gate that takes two single-bit inputs and
-produces a single-bit output, the 16-bit AND takes two 16-bit inputs and
-produces a single 16-bit output. Each bit of the output is determined by the AND
-operation which is executed on each of the input bits. Don't be confused by the
-base-10 numbers: we are still working with binary values however we use denary
-digits to individuate each bit in the 16-bit number. For example if
-`a = 10101111`, `a[4]` refers to the fourth bit in `a` counting from the
-right-hand side (`0`).
+Instead of a single-bit AND gate that takes two single-bit inputs and produces a
+single-bit output, the 16-bit AND takes two 16-bit inputs and produces a single
+16-bit output. Each bit of the output is determined by the AND operation which
+is executed on each of the input bits.
+
+Don't be confused by the base-10 numbers: we are still working with binary
+values however we use denary digits to individuate each bit in the 16-bit
+number. For example if `a = 10101111`, `a[4]` refers to the fourth bit in `a`
+counting from the right-hand side (`0`).
 
 In addition to `And16` I created multi-bit variants of OR, NOT, MUX and DMUX.
 
 ### Multi-way chips
 
-We also produced _multi-way_ variants of some of the main gates and chips. These
+I also produced _multi-way_ variants of some of the main gates and chips. These
 versions accept more than the standard one or two input pins but execute the
 same logic. For example instead of a standard 2-pin input AND gate, a 3-pin
 input AND gate would take three inputs and produce a `1` output when all three
