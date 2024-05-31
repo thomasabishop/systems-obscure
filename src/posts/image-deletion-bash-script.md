@@ -11,8 +11,6 @@ that reads each file in the image directory and looks to see if it is referenced
 in any Markdown files. If it isn't, the image is deleted.
 
 ```bash
-#!/bin/bash
-
 find /home/thomas/repos/eolas/_img -type f | while read filename; do
     rg "${filename##*/}" ../ --type markdown >/dev/null 2>&1
     if [ "$?" -eq 1 ]; then
