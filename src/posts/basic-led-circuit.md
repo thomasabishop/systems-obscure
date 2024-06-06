@@ -7,7 +7,7 @@ date: 2024-05-22
 My first project is the _hello world_ of hobbyist electronics: a simple LED
 circuit.
 
-![](./img/basic-led-circuit.jpeg)
+![](./img/new-circuit-photo-again.jpg)
 
 I have connected a 9V battery to a breadboard containing a 330Ω resistor and
 LED. Assuming a forward voltage drop of 2V from the LED, this circuit produces a
