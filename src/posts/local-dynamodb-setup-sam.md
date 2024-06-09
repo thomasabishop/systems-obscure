@@ -8,9 +8,8 @@ date: 2024-06-08
 I wasted most of an afternoon trying to get the following set-up:
 
 - Two local instances of DynamoDB running in Docker
-- A local AWS Lambda working via AWS SAM
 - The ability to add table data to either instance via NoSQL Workbench and query
-  it via the lambda
+  it via an AWS lambda
 
 If you are coming from SQLPro or DBeaver, Amazon's NoSQL workbench is a bit
 unintuitive. Creating the lambdas and the Docker containers was easy, it was
@@ -60,7 +59,7 @@ network has been created (it prepends the network name with the repo name):
 ![](./img/docker-network-ls.png)
 
 Next comes SAM. I've just created the default Typescript Lambda template using
-the SAM CLI. For now this will just expose a single API Gateway endpoint,
+the SAM CLI. For now this will only expose a single API Gateway endpoint,
 `/fetch`, which I will use to GET my DynamoDB table data. The key info from the
 template:
 
@@ -104,11 +103,11 @@ here. I go to the _Operation builder_ and add a new connection:
 
 This automatically generates an _Access key ID_ and _Secret access key_ even
 though this is a local service that won't interact with the production version
-in any way. You _must_ use these. A lot of guides say you can put anything here
-when connecting but this is _not true_.
+in any way. You _must_ use these. Some guides say you can put anything when
+connecting locally but in my experience this is _not true_.
 
-Taking these keys, I write a skeletal lambda just to check the connection,
-utilising the AWS SDK for DynamoDB:
+Using these keys, I write a skeletal lambda just to check the connection via the
+AWS SDK for DynamoDB:
 
 ```ts
 import { DynamoDBClient, ListTablesCommand } from "@aws-sdk/client-dynamodb"
@@ -137,12 +136,12 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
 ...
 ```
 
-This was the first gotcha: I wasn't providing a region because, why would I,
-this is local. But it needs to be `localhost`. And again, you must put the
-actual credential values that the Workbench gives you.
+The first problem because I wasn't providing a region. Why would I, this is
+local? But it needs to be `localhost`. And again, you must put the actual
+credential values that the Workbench gives you.
 
-The next gotcha was that this function, when invoked via my `/fetch` endpoint
-was returning an empty array even though I had set up a table in Workbench:
+The next issue was that this function was returning an empty array when I
+queried the `/fetch` endpoint. Even though I had set up a table in Workbench:
 
 ![](./img/workbench-data-modeller.png)
 
