@@ -44,7 +44,6 @@ module.exports = {
               strict: `ignore`,
             },
           },
-          "gatsby-remark-numbered-footnotes",
         ],
       },
     },
