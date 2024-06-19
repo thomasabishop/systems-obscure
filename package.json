@@ -5,8 +5,7 @@
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
-    "start:dev": "gatsby develop",
-    "start:prod": "npm run build && NODE_ENV=production gatsby serve --port 8001 --host 0.0.0.0",
+    "start": "gatsby develop",
     "build": "gatsby build",
     "start:lambdas": "./scripts/start_lambdas.sh",
     "serve": "gatsby serve",
