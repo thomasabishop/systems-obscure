@@ -13,21 +13,6 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-mermaid`,
-            options: {
-              launchOptions: {
-                executablePath: "/usr/bin/google-chrome-stable",
-              },
-              svgo: {
-                plugins: [{ name: "removeTitle", active: false }],
-              },
-              mermaidOptions: {
-                theme: "neutral",
-                themeCSS: ".node rect { fill: #fff; }",
-              },
-            },
-          },
-          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 600,
@@ -70,7 +55,6 @@ module.exports = {
         hostname: "systemsobscure.blog",
       },
     },
-    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sass",

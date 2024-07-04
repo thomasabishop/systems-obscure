@@ -25,7 +25,7 @@ the binary digits (bits) 0 and 1. A computational process can be represented as
 a function: data (a series of bits) enters the function in one state and exits
 in another state. This new state is a product of the function.
 
-![](/img/function-diagram-new.png)
+![](./img/function-diagram-new.png)
 
 The most primitive bit operations are equivalent to the truth-conditions of the
 logical connectives of Boolean algebra. In logic, the Boolean values are _true_
