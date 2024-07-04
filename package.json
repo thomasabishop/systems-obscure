@@ -24,7 +24,7 @@
     "@visx/shape": "^3.5.0",
     "@visx/tooltip": "^3.3.0",
     "axios": "^1.7.2",
-    "gatsby": "^5.13.0",
+    "gatsby": "^5.13.6",
     "gatsby-plugin-s3": "^0.4.1",
     "gatsby-plugin-sass": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
@@ -47,6 +47,6 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "devDependencies": {
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.4.5"
   }
 }
