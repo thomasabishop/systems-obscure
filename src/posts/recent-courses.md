@@ -2,6 +2,7 @@
 title: "Recent courses"
 slug: /recent-courses/
 date: 2023-05-03
+tags: ["log", "personal"]
 ---
 
 Below are the recent courses I have completed.

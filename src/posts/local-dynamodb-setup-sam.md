@@ -3,6 +3,7 @@ title: "Getting a local DynamoDB instance working with AWS SAM and NoSQL
 Workbench"
 slug: /local-dynamodb-setup-sam/
 date: 2024-06-08
+tags: ["log", "aws", "dynamodb"]
 ---
 
 I wasted most of an afternoon trying to get the following set-up:

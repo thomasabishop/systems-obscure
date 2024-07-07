@@ -2,6 +2,7 @@
 title: "Using Slack as a desktop notification center"
 slug: /slack-notification-center/
 date: 2024-04-10
+tags: ["log", "project", "productivity", "javascript"]
 ---
 
 My current desktop environment is very bare-bones and consists basically of a

@@ -27,13 +27,32 @@ h2.post__title {
   border-style: double;
 }
 
-.post__date {
-  font-style: italic;
+.post-metadata {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.post-metadata__date {
   font-size: 14px;
+  display: inline-block;
+  // font-style: italic;
+  //  margin-right: 0.75rem;
+}
+
+.post-metadata__tag {
+  font-size: 14px;
+  margin-right: 0.5rem;
 }
 
 .links {
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   * {
     margin-right: 1rem;
   }

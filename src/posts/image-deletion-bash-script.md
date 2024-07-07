@@ -2,6 +2,7 @@
 title: "Bash script: delete unused images"
 slug: /image-deletion-bash-script/
 date: 2023-04-16
+tags: ["log", "bash"]
 ---
 
 When I'm working on my technical notes I often insert images, diagrams,

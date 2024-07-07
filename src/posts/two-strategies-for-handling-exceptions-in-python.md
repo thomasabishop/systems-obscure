@@ -2,6 +2,7 @@
 title: "Two strategies for handling exceptions in Python"
 slug: /two-strategies-for-handling-exceptions-in-python/
 date: 2023-10-03
+tags: ["learning", "python"]
 ---
 
 The following function evinces two strategies for handling exceptions in Python:

@@ -2,6 +2,7 @@
 title: "And the world knew him not (lossless compression)"
 slug: /the-world-knew-him-not/
 date: 2023-02-16
+tags: ["random", "reading"]
 ---
 
 Last night I was reading 'Three Versions of Judas' from Juan Luis Borges'

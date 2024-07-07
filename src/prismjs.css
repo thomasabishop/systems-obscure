@@ -43,11 +43,11 @@ pre[class*="language-"] {
 
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  background: #1d2021;
+  background: #32302f;
   /* border-width: 3px;
   border-color: #665c54;
   border-style: double; */
-  /* border: 2px solid #504945; */
+  /* border: 1px solid #504945; */
 }
 
 /* Inline code */

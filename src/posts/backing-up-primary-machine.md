@@ -2,6 +2,7 @@
 title: "How I backup my primary machine"
 slug: /backing-up-primary-machine/
 date: 2023-01-08
+tags: ["log", "linux"]
 ---
 
 I use the `rsnapshots` package to run sequenced backups of my ThinkPad T15

@@ -2,6 +2,7 @@
 title: "Note-taking routine"
 slug: /note-taking-routine/
 date: 2024-03-01
+tags: ["log", "productivity", "zettelkasten", "personal"]
 ---
 
 ![Notes view](./img/full-note-view.png)

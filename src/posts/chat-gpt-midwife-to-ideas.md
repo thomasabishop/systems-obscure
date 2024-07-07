@@ -2,6 +2,7 @@
 title: "ChatGPT: midwife to ideas?"
 slug: /chat-gpt-midwife-to-ideas/
 date: 2023-03-12
+tags: ["article"]
 ---
 
 _Socrates: The only difference [between my trade and that of midwives] is that

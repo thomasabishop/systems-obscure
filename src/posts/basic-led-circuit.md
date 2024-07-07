@@ -2,6 +2,7 @@
 title: "Electronics: basic LED"
 slug: /basic-led-circuit
 date: 2024-05-22
+tags: ["learning", "electronics"]
 ---
 
 My first project is the _hello world_ of hobbyist electronics: a simple LED

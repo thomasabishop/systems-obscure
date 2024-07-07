@@ -2,6 +2,7 @@
 title: "Waybar customisation"
 slug: /waybar-customisation/
 date: 2024-03-03
+tags: ["log", "productivity", "python", "linux"]
 ---
 
 On my local machine I am currently replacing my desktop environment (Gnome) with

@@ -2,6 +2,7 @@
 title: "Jest parameterization"
 slug: /jest-parameterization/
 date: 2023-11-20
+tags: ["learning", "javascript", "unit-testing"]
 ---
 
 At work I am in the process of upgrading our AWS Lambdas to use the v.18 Node

@@ -2,6 +2,7 @@
 title: Some nice TypeScript
 slug: /some-nice-typescript/
 date: 2023-09-26
+tags: ["log", "typescript"]
 ---
 
 I wanted to share a snippet of a TypeScript function I wrote recently. Although

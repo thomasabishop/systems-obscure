@@ -2,6 +2,7 @@
 title: "AWS Lambda: recommended articles"
 slug: /recommended-articles-integration
 date: 2023-07-07
+tags: ["log", "project", "aws", "productivity"]
 ---
 
 I've just added a new feature to the blog: a page that lists links to articles

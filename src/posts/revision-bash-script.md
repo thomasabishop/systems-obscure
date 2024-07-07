@@ -2,6 +2,7 @@
 title: "Bash script: random revision topic"
 slug: /revision-bash-script
 date: 2022-12-28
+tags: ["log", "productivity", "bash"]
 ---
 
 I keep all my study notes in Markdown format in a

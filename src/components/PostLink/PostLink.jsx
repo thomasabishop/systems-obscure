@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import "./PostLink.scss"
-export default function PostLink({ post }) {
+export default function PostLink({ title, date, link }) {
   return (
     <div className="PostLink">
-      <div className="PostLink__date">{post.frontmatter.date}</div>
-      <Link to={post.frontmatter.slug}>{post.frontmatter.title}</Link>
+      <div className="PostLink__date">{date}</div>
+      <Link to={link}>{title}</Link>
     </div>
   )
 }

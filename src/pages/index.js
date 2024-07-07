@@ -1,29 +1,28 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import "../styles/main.scss"
-import PostLink from "../components/PostLink/PostLink"
+import PostListing from "../components/PostListing/PostListing"
 import Main from "../templates/main/Main"
+import UiGroup from "../components/UiGroup/UiGroup"
+import "../styles/main.scss"
+
 export default function HomePage({
   data: {
     allMarkdownRemark: { edges },
   },
 }) {
-  const Posts = edges
-    .filter((edge) => !!edge.node.frontmatter.date)
-    .map((edge) => <PostLink key={edge.node.id} post={edge.node} />)
-
   return (
     <div>
       <Main>
         <p className="byline">Another software engineer with a blog.</p>
 
-        <h2 className="posts-header h4">Pages</h2>
-        <div className="links">
-          <Link to="/about">About</Link>
-          <Link to="/code-metrics">Code Metrics</Link>
-        </div>
-        <h2 className="posts-header h4">Posts</h2>
-        <div>{Posts}</div>
+        <UiGroup title="Pages">
+          <div className="links">
+            <Link to="/about">About</Link>
+            <Link to="/code-metrics">Code Metrics</Link>
+          </div>
+        </UiGroup>
+
+        <PostListing graphqlEdges={edges} />
       </Main>
     </div>
   )
@@ -47,6 +46,7 @@ export const pageQuery = graphql`
             date(formatString: "DD MMMM YYYY")
             slug
             title
+            tags
           }
         }
       }

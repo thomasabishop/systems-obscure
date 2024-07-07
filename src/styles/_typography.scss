@@ -20,7 +20,6 @@ blockquote {
   color: $white;
 }
 
-div,
 p,
 ul,
 ol,
@@ -49,16 +48,17 @@ a {
 
 p code,
 li code {
-  font-size: 13px;
+  font-size: 14px;
   color: $orange !important;
   background: transparent !important;
 }
 
 code {
-  font-size: 13px;
+  font-size: 14px;
   font-family: $fontFamilyMono;
 }
 
 .byline {
   font-weight: normal;
+  // font-style: italic;
 }

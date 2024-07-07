@@ -2,6 +2,7 @@
 title: "How I deploy this site"
 slug: /how-I-deploy-this-site/
 date: 2023-01-02
+tags: ["log", "linux"]
 ---
 
 I want to make a note of how this blog is maintained and deployed for future

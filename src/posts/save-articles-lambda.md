@@ -2,6 +2,7 @@
 title: "AWS Lambda: save articles"
 slug: /save-articles-lambda
 date: 2023-09-07
+tags: ["log", "project", "productivity", "aws", "python"]
 ---
 
 I've just finished a new

@@ -2,6 +2,7 @@
 title: "Nand to Tetris Unit One: Boolean functions and gate logic"
 slug: /nand-to-tetris-unit-one/
 date: 2023-01-13
+tags: ["article", "learning", "computer-architecture"]
 ---
 
 I have recently started [Nand to Tetris](https://www.nand2tetris.org/course).
