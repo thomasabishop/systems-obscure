@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import PostListing from "../components/PostListing/PostListing"
 import Main from "../templates/main/Main"
 import UiGroup from "../components/UiGroup/UiGroup"
+import PostListing from "../components/PostListing/PostListing"
 import "../styles/main.scss"
 
 export default function HomePage({

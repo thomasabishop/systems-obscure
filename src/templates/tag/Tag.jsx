@@ -1,8 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-import PostLink from "../../components/PostLink/PostLink"
+import { graphql } from "gatsby"
 import Main from "../main/Main"
 import UiGroup from "../../components/UiGroup/UiGroup"
+import PostLink from "../../components/PostLink/PostLink"
 
 export default function Tag({ pageContext, data }) {
   const { tag } = pageContext
