@@ -1,4 +1,12 @@
 @import url("https://fonts.cdnfonts.com/css/liberation-mono");
+
+@font-face {
+  font-family: "Gohu";
+  src: url("../fonts/GohuFont14NerdFont-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 ::selection {
   background: $blue;
   color: $black;
@@ -48,12 +56,14 @@ a {
 
 p code,
 li code {
+  font-weight: 200;
   font-size: 14px;
   color: $orange !important;
   background: transparent !important;
 }
 
 code {
+  font-weight: 300;
   font-size: 14px;
   font-family: $fontFamilyMono;
 }

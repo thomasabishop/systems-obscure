@@ -31,6 +31,10 @@ export default function HomePage({
 export const Head = () => (
   <>
     <title>Systems Obscure</title>
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css"
+    ></link>
     <meta name="description" content="Another software engineer with a blog." />
   </>
 )
