@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Main from "../templates/main/Main"
+import UiGroup from "../components/UiGroup/UiGroup"
 import CodeHighlights from "../components/CodeHighlights/CodeHighlights"
 import TimeCodingChart from "../components/TimeCodingChart/TimeCodiingChart"
 import UiButton from "../components/UiButton/UiButton"
@@ -17,20 +18,23 @@ export default function CodeMetrics() {
 
   return (
     <Main>
-      <h2 className="post__title">Code Metrics</h2>
-      <p className="pt-2" style={{ marginBottom: "0" }}>
-        This dashboard integrates data on my coding activity from several APIs.{" "}
-      </p>
+      <UiGroup title="Code Metrics">
+        <p style={{ marginBottom: "0" }}>
+          This dashboard integrates data on my coding activity from several
+          APIs.
+        </p>
+        <div className="ui-button-wrapper">
+          <UiButton action={clearCache} text="Clear cache" />
+        </div>
 
-      <div className="ui-button-wrapper">
-        <UiButton action={clearCache} text="Clear cache" />
-      </div>
-      <CodeHighlights endpoint={codeStatsEndpoint} reload={triggerReload} />
-      <TimeCodingChart
-        endpoint={codeDurationsEndpoint}
-        reload={triggerReload}
-      />
-      <ProgLangChart endpoint={codeStatsEndpoint} reload={triggerReload} />
+        <CodeHighlights endpoint={codeStatsEndpoint} reload={triggerReload} />
+
+        <TimeCodingChart
+          endpoint={codeDurationsEndpoint}
+          reload={triggerReload}
+        />
+        <ProgLangChart endpoint={codeStatsEndpoint} reload={triggerReload} />
+      </UiGroup>
     </Main>
   )
 }

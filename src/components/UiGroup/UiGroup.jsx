@@ -4,15 +4,17 @@ import "./UiGroup.scss"
 
 const UiGroup = ({
   title,
+  child = false,
   icon,
   controls,
   children,
   minHeight = undefined,
 }) => {
+  const variant = child ? `UiGroup__child` : `UiGroup`
   return (
-    <div className="UiGroup">
+    <div className={variant}>
       <UiHeader icon={icon} title={title} controls={controls} />
-      <div className="UiGroup__content" style={{ minHeight: minHeight }}>
+      <div className="content" style={{ minHeight: minHeight }}>
         {children}
       </div>
     </div>

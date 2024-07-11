@@ -59,6 +59,7 @@ const UiHighlights = ({ endpoint, reload }) => {
   return (
     <>
       <UiGroup
+        child
         title="Highlights"
         controls={
           <UiTimeControls

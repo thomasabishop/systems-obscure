@@ -19,6 +19,7 @@ export default function HomePage({
           <div className="links">
             <Link to="/about">About</Link>
             <Link to="/code-metrics">Code Metrics</Link>
+            <Link to="/activity-log">Activity Log</Link>
           </div>
         </UiGroup>
 
