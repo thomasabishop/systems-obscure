@@ -21,6 +21,9 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-static-images`,
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
           },
           {
