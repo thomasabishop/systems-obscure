@@ -41,6 +41,20 @@ export default function About() {
           If you are really keen you can look at the{" "}
           <a href="https://github.com/thomasabishop">source code</a>.
         </p>
+
+        <h3>The name</h3>
+
+        <p>
+          The phrase <i>systems obscure</i> just popped into my head one day and
+          seemed perfect for the topics of this blog. I was reading{" "}
+          <i>
+            <a href="https://en.wikipedia.org/wiki/Paradise_Lost">
+              Paradise Lost
+            </a>
+          </i>{" "}
+          at the time (humblebrag) and there is a definite Miltonian cadence to
+          it so perhaps it derived subconsciously from that.
+        </p>
       </UiGroup>
     </Main>
   )
