@@ -1,5 +1,6 @@
 import React from "react"
 import "./UiSelect.scss"
+import Select from "react-select"
 
 const UiSelect = ({ options, value, onChange, name }) => {
   return (

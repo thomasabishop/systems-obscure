@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react"
 import UiGroup from "../UiGroup/UiGroup"
 import PostLink from "../PostLink/PostLink"
 import UiSelect from "../UiSelect/UiSelect"
+import Select from "react-select"
 
 const tagFilterOptions = [
   {
@@ -21,6 +22,41 @@ const tagFilterOptions = [
     label: "Log",
   },
 ]
+
+const customStyles = {
+  control: (base) => ({
+    ...base,
+    height: 10,
+    minHeight: 20,
+  }),
+
+  valueContainer: (provided, state) => ({
+    ...provided,
+    //   height: "20px",
+    padding: "0px 6px",
+  }),
+
+  input: (provided, state) => ({
+    ...provided,
+    margin: 0,
+  }),
+
+  indicator: (provided, state) => ({
+    ...provided,
+    height: 30,
+    width: 30,
+  }),
+
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    height: 10,
+    width: 10,
+  }),
+
+  indicatorSeparator: (state) => ({
+    display: "none",
+  }),
+}
 
 const PostListing = ({ graphqlEdges }) => {
   const [selectedTag, setSelectedTag] = useState("all")
@@ -56,11 +92,11 @@ const PostListing = ({ graphqlEdges }) => {
     <UiGroup
       title="Posts"
       controls={
-        <UiSelect
+        <Select
           options={tagFilterOptions}
-          values={selectedTag}
-          onChange={handleChange}
-          name="post-filter-select"
+          className="react-select-container"
+          classNamePrefix="react-select"
+          styles={customStyles}
         />
       }
     >
