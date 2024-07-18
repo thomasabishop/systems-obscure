@@ -1,37 +1,75 @@
 @import "../../styles/variables";
 
 .UiSelect {
-  display: inline-block;
-  position: relative;
-  line-height: 0 !important;
-  padding-top: 1px;
-  select {
-    font-family: $fontFamilySans;
-    color: $white;
-    font-size: 1rem;
-    background-color: $buttonBackground;
-    border: 0px solid $buttonHover;
-    padding: 2px 28px 0px 4px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
-    width: 100%;
-    // Dropdown arrow
-    background-image: url("../../img/icons/arrow.svg");
-    background-repeat: no-repeat;
-    background-position: right 1px center;
-    background-size: 16px;
+  width: 120px;
+  border: 1px solid;
+  border-color: $buttonBorder $buttonHighlight $buttonHighlight $buttonBorder;
 
-    &:focus {
-      outline: none;
+  .UiSelect__control--is-focused,
+  .UiSelect__control--menu-is-open .UiSelect__control--is-focused:hover {
+    border-color: transparent !important;
+    box-shadow: none;
+  }
+
+  .UiSelect__placeholder,
+  .UiSelect__single-value {
+    color: $white;
+  }
+
+  .UiSelect__placeholder,
+  .UiSelect__single-value {
+    margin-top: 4px;
+  }
+
+  .UiSelect__indicator {
+    background-color: $buttonHover;
+    border-top: 1px solid $buttonHighlight;
+    border-left: 1px solid $buttonHighlight;
+    border-right: 1px solid $black;
+    border-bottom: 1px solid $black;
+  }
+
+  .UiSelect__indicator:before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5'%3E%3Cpath d='M0 0 L5 5 L10 0 Z' fill='%23ebdbb2'/%3E%3C/svg%3E");
+    transform: translate(-5px, -9px);
+  }
+
+  .UiSelect__control {
+    border: 0px;
+    border-radius: 0;
+    background: $black;
+    box-shadow: none;
+  }
+
+  .UiSelect__indicator-separator {
+    display: none;
+  }
+
+  .UiSelect__menu {
+    margin-top: 6px;
+    background: $black;
+    border: 1px solid $buttonHighlight;
+    border-radius: 0 !important;
+  }
+
+  .UiSelect__menu-list {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-radius: 0 !important;
+    background-color: $black;
+    .UiSelect__option {
+      padding: 2px 3px 0px 3px;
+    }
+    .UiSelect__option--is-selected {
+      padding: 2px 3px 0px 3px;
+      background-color: $black;
+      color: $white;
     }
 
-    option {
-      color: $white;
-      text-shadow: none;
-      font-family: sans-serif;
-      font-size: 14px;
+    .UiSelect__option--is-focused,
+    .UiSelect__option--is-focused:active {
+      background-color: $blue;
+      color: $black;
     }
   }
 }

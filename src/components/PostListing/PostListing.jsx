@@ -2,13 +2,8 @@ import React, { useState, useEffect, useMemo } from "react"
 import UiGroup from "../UiGroup/UiGroup"
 import PostLink from "../PostLink/PostLink"
 import UiSelect from "../UiSelect/UiSelect"
-import Select from "react-select"
 
 const tagFilterOptions = [
-  {
-    value: "all",
-    label: "All",
-  },
   {
     value: "article",
     label: "Articles",
@@ -21,63 +16,25 @@ const tagFilterOptions = [
     value: "log",
     label: "Log",
   },
+  {
+    value: "all",
+    label: "All",
+  },
 ]
 
-const customStyles = {
-  control: (base) => ({
-    ...base,
-    height: 10,
-    minHeight: 20,
-  }),
-
-  valueContainer: (provided, state) => ({
-    ...provided,
-    //   height: "20px",
-    padding: "0px 6px",
-  }),
-
-  input: (provided, state) => ({
-    ...provided,
-    margin: 0,
-  }),
-
-  indicator: (provided, state) => ({
-    ...provided,
-    height: 30,
-    width: 30,
-  }),
-
-  dropdownIndicator: (provided, state) => ({
-    ...provided,
-    height: 10,
-    width: 10,
-  }),
-
-  indicatorSeparator: (state) => ({
-    display: "none",
-  }),
-}
-
 const PostListing = ({ graphqlEdges }) => {
-  const [selectedTag, setSelectedTag] = useState("all")
-
-  useEffect(() => {
-    console.log(selectedTag)
-  }, [selectedTag])
-
-  const handleChange = (tag) => {
-    setSelectedTag(tag)
-  }
+  const [tagFilter, setTagFilter] = useState({ value: "all", label: "All" })
 
   const filteredPosts = useMemo(() => {
     return graphqlEdges.filter((edge) => {
       const { frontmatter } = edge.node
       return (
         !!frontmatter.date &&
-        (selectedTag === "all" || frontmatter.tags?.includes(selectedTag))
+        (tagFilter.value === "all" ||
+          frontmatter.tags?.includes(tagFilter?.value))
       )
     })
-  }, [graphqlEdges, selectedTag])
+  }, [graphqlEdges, tagFilter])
 
   const Posts = filteredPosts.map((edge) => (
     <PostLink
@@ -92,11 +49,11 @@ const PostListing = ({ graphqlEdges }) => {
     <UiGroup
       title="Posts"
       controls={
-        <Select
+        <UiSelect
+          defaultValue={tagFilter}
+          onChange={setTagFilter}
           options={tagFilterOptions}
-          className="react-select-container"
-          classNamePrefix="react-select"
-          styles={customStyles}
+          placeholder="Filter..."
         />
       }
     >
