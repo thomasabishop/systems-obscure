@@ -1,21 +1,53 @@
 import React from "react"
 import "./UiSelect.scss"
+import Select from "react-select"
 
-const UiSelect = ({ options, value, onChange, name }) => {
+const customStyles = {
+  control: (base) => ({
+    ...base,
+    height: 10,
+    minHeight: 20,
+    maxHeight: 10,
+  }),
+
+  valueContainer: (provided, state) => ({
+    ...provided,
+    padding: "0px 6px",
+  }),
+
+  input: (provided, state) => ({
+    ...provided,
+    margin: 0,
+  }),
+
+  indicator: (provided, state) => ({
+    ...provided,
+    height: 30,
+    width: 30,
+  }),
+
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    height: 10,
+    width: 10,
+  }),
+
+  indicatorSeparator: (state) => ({
+    display: "none",
+  }),
+}
+
+const UiSelect = ({ defaultValue, onChange, options, placeholder }) => {
   return (
-    <div className="UiSelect">
-      <select
-        name={name}
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-      >
-        {options.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </div>
+    <Select
+      defaultValue={defaultValue}
+      onChange={onChange}
+      options={options}
+      placeholder={placeholder}
+      className="UiSelect"
+      classNamePrefix="UiSelect"
+      styles={customStyles}
+    />
   )
 }
 

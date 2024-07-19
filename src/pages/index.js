@@ -4,7 +4,7 @@ import Main from "../templates/main/Main"
 import UiGroup from "../components/UiGroup/UiGroup"
 import PostListing from "../components/PostListing/PostListing"
 import "../styles/main.scss"
-
+import computer from "../img/gruvbox-computer.svg"
 export default function HomePage({
   data: {
     allMarkdownRemark: { edges },
@@ -14,7 +14,6 @@ export default function HomePage({
     <div>
       <Main>
         <p className="byline">Another software engineer with a blog.</p>
-
         <UiGroup title="Pages">
           <div className="links">
             <Link to="/about">About</Link>
@@ -46,7 +45,6 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          excerpt(pruneLength: 250)
           frontmatter {
             date(formatString: "DD MMMM YYYY")
             slug

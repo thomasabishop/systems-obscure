@@ -21,6 +21,16 @@ module.exports = {
             },
           },
           {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+          },
+          // {
+          //   resolve: `gatsby-remark-static-images`,
+          // },
+
+          {
             resolve: `gatsby-remark-prismjs`,
           },
           {

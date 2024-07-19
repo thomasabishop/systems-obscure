@@ -1,12 +1,13 @@
 @import "../../styles/variables";
 
 .UiHeader {
+  max-height: 25px;
+  max-height: 25px;
+  height: 20px;
+
   background-color: $buttonBackground;
   line-height: 1;
-  //padding-bottom: 0px !important;
-  // padding-top: 5px !important;
-  padding: 3px 5px;
-  // padding: 0.4rem 0.4rem 0.1rem;
+  padding: 3px 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -20,7 +21,8 @@
     font-weight: bold;
     padding-top: 0;
     span {
-      padding-top: 3.5px;
+      //      font-size: 18px;
+      padding-top: 4px;
     }
   }
 }

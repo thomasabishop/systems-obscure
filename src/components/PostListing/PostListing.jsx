@@ -5,10 +5,6 @@ import UiSelect from "../UiSelect/UiSelect"
 
 const tagFilterOptions = [
   {
-    value: "all",
-    label: "All",
-  },
-  {
     value: "article",
     label: "Articles",
   },
@@ -20,28 +16,25 @@ const tagFilterOptions = [
     value: "log",
     label: "Log",
   },
+  {
+    value: "all",
+    label: "All",
+  },
 ]
 
 const PostListing = ({ graphqlEdges }) => {
-  const [selectedTag, setSelectedTag] = useState("all")
-
-  useEffect(() => {
-    console.log(selectedTag)
-  }, [selectedTag])
-
-  const handleChange = (tag) => {
-    setSelectedTag(tag)
-  }
+  const [tagFilter, setTagFilter] = useState({ value: "all", label: "All" })
 
   const filteredPosts = useMemo(() => {
     return graphqlEdges.filter((edge) => {
       const { frontmatter } = edge.node
       return (
         !!frontmatter.date &&
-        (selectedTag === "all" || frontmatter.tags?.includes(selectedTag))
+        (tagFilter.value === "all" ||
+          frontmatter.tags?.includes(tagFilter?.value))
       )
     })
-  }, [graphqlEdges, selectedTag])
+  }, [graphqlEdges, tagFilter])
 
   const Posts = filteredPosts.map((edge) => (
     <PostLink
@@ -57,10 +50,10 @@ const PostListing = ({ graphqlEdges }) => {
       title="Posts"
       controls={
         <UiSelect
+          defaultValue={tagFilter}
+          onChange={setTagFilter}
           options={tagFilterOptions}
-          values={selectedTag}
-          onChange={handleChange}
-          name="post-filter-select"
+          placeholder="Filter..."
         />
       }
     >

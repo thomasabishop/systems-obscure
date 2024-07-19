@@ -10,9 +10,12 @@ const PostMetadata = ({ date, tags }) => {
       <div>
         <span style={{ fontSize: "14px" }}>Tags: </span>
         {tags?.map((tag, i) => (
-          <Link key={i} className="post-metadata__tag" to={`/tags/${tag}/`}>
-            {tag}
-          </Link>
+          <>
+            <Link key={i} className="post-metadata__tag" to={`/tags/${tag}/`}>
+              {tag}
+            </Link>
+            {i !== tags.length - 1 && <span>,&nbsp;</span>}
+          </>
         ))}
       </div>
       <span className="post-metadata__date">{date}</span>
