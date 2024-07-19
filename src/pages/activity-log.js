@@ -13,7 +13,7 @@ const timeFilterOptions = [
   },
   {
     value: "fortnight",
-    label: "Two weeks",
+    label: "Fortnight",
   },
   {
     value: "month",
@@ -29,7 +29,7 @@ const timeFilterOptions = [
 // Next: add CORS to lambda
 
 export default function ActivityLog() {
-  const [timeRange, setTimeRange] = useState("week")
+  const [timeRange, setTimeRange] = useState({ value: "week", label: "Week" })
   const [data, setData] = useState({})
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -39,10 +39,6 @@ export default function ActivityLog() {
     setLoading(true)
     fetchData(timeRange)
   }, [timeRange])
-
-  const handleChange = (timeFilter) => {
-    setTimeRange(timeFilter)
-  }
 
   const fetchData = async (timeRange) => {
     try {
@@ -65,9 +61,10 @@ export default function ActivityLog() {
         title="Activity Log"
         controls={
           <UiSelect
+            defaultValue={timeRange}
             options={timeFilterOptions}
             values={timeRange}
-            onChange={handleChange}
+            onChange={setTimeRange}
             name="activity-time-select"
           />
         }
