@@ -1,0 +1,86 @@
+@import "../../styles/variables";
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin outset-border {
+  border-width: 2px;
+  border-style: solid;
+  border-color: $buttonHighlight $black $black $buttonHighlight;
+}
+
+@mixin inset-border {
+  border-width: 2px;
+  border-style: solid;
+  border-color: $black $buttonHighlight $buttonHighlight $black;
+}
+
+.UiDataTable {
+  padding: 0.25rem;
+  background-color: $buttonHover;
+  font-size: 14px;
+
+  .UiDataTable__footer {
+    @include flex-row;
+
+    max-height: 18px;
+    justify-content: space-between;
+    padding: 0px 0.25rem;
+    padding-bottom: 0;
+    //    margin-top: 0.25rem;
+    border-left: 2px solid $buttonBackground;
+    border-right: 2px solid $buttonHighlight;
+    border-top: 2px solid $buttonBackground;
+    border-bottom: 2px solid $buttonHighlight;
+    &--element {
+      &__count {
+        flex: 1;
+      }
+      &__count,
+      &__paginator {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .UiDataTable__table {
+    &--headings {
+      @include flex-row;
+      justify-content: space-between;
+      margin-bottom: 0.25rem;
+      &__header {
+        max-height: 18px;
+        background-color: $buttonBackground;
+        @include outset-border;
+        flex: 1;
+        padding: 0px;
+        padding-left: 0.25rem;
+        span {
+          display: inline-block;
+          padding-top: 2px;
+        }
+        // div {
+        //   padding-top: 3px;
+        //   padding-bottom: 0;
+        // }
+      }
+    }
+
+    &--rows {
+      @include flex-row;
+      justify-content: space-between;
+      background-color: $buttonHover;
+      &__row {
+        flex: 1;
+        padding-left: 0.35rem;
+        span {
+          display: inline-block;
+          //padding-top: 1px;
+        }
+      }
+    }
+  }
+}

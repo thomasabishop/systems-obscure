@@ -3,6 +3,7 @@ import axios from "axios"
 import Main from "../templates/main/Main"
 import UiGroup from "../components/UiGroup/UiGroup"
 import UiSelect from "../components/UiSelect/UiSelect"
+import UiDataTable from "../components/UiDataTable/UiDataTable"
 
 const TIME_ENTRIES_ENDPOINT = process.env.GATSBY_TIME_ENTRIES_LAMBDA
 
@@ -26,8 +27,6 @@ const timeFilterOptions = [
   },
 ]
 
-// Next: add CORS to lambda
-
 export default function ActivityLog() {
   const [timeRange, setTimeRange] = useState({ value: "week", label: "Week" })
   const [data, setData] = useState({})
@@ -35,16 +34,16 @@ export default function ActivityLog() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    console.log(timeRange)
     setLoading(true)
     fetchData(timeRange)
+    console.log(data)
   }, [timeRange])
 
   const fetchData = async (timeRange) => {
     try {
       console.log(TIME_ENTRIES_ENDPOINT)
       const response = await axios.get(
-        `${TIME_ENTRIES_ENDPOINT}?period=${timeRange}`
+        `${TIME_ENTRIES_ENDPOINT}?period=${timeRange.value}`
       )
       setData(response?.data?.data)
       console.log(data)
@@ -70,6 +69,7 @@ export default function ActivityLog() {
         }
       >
         <p>This dashboard lorem ipsum dolar sit avec amet.</p>
+        <UiDataTable />
       </UiGroup>
     </Main>
   )
