@@ -3,7 +3,7 @@
 .UiSelect {
   width: 120px;
   border: 1px solid;
-  border-color: $buttonBorder $buttonHighlight $buttonHighlight $buttonBorder;
+  border-color: $grey $greyLightest $greyLightest $grey;
 
   .UiSelect__control--is-focused,
   .UiSelect__control--menu-is-open .UiSelect__control--is-focused:hover {
@@ -22,9 +22,9 @@
   }
 
   .UiSelect__indicator {
-    background-color: $buttonHover;
-    border-top: 1px solid $buttonHighlight;
-    border-left: 1px solid $buttonHighlight;
+    background-color: $greyLight;
+    border-top: 1px solid $greyLightest;
+    border-left: 1px solid $greyLightest;
     border-right: 1px solid $black;
     border-bottom: 1px solid $black;
   }
@@ -48,7 +48,7 @@
   .UiSelect__menu {
     margin-top: 6px;
     background: $black;
-    border: 1px solid $buttonHighlight;
+    border: 1px solid $greyLightest;
     border-radius: 0 !important;
   }
 

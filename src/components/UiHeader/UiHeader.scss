@@ -1,27 +1,24 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 .UiHeader {
+  @include outset-border;
+  background-color: $greyDark;
   max-height: 25px;
   max-height: 25px;
   height: 20px;
-
-  background-color: $buttonBackground;
   line-height: 1;
   padding: 3px 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-width: 3px;
-  border-color: $buttonHover;
-  border-style: double;
   &__title {
     display: flex;
     align-items: center;
     font-weight: bold;
     padding-top: 0;
     span {
-      //      font-size: 18px;
       padding-top: 4px;
     }
   }

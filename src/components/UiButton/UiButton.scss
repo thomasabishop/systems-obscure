@@ -1,6 +1,8 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 .UiButton {
+  @include outset-border;
   font-family: $fontFamilySans !important;
   color: $white;
   font-size: 1rem;
@@ -8,10 +10,7 @@
   max-width: 100px;
   text-align: center;
   padding: 4px 6px 2px;
-  background-color: $buttonBackground;
-  border-width: 2px;
-  border-style: solid;
-  border-color: $buttonHighlight $buttonBorder $buttonBorder $buttonHighlight;
+  background-color: $greyDark;
   box-shadow: none;
   cursor: pointer;
   user-select: none;
@@ -19,13 +18,9 @@
   margin: 0.25rem 0 0.75rem;
 }
 
-.UiButton:hover {
-  background-color: $buttonHover;
-}
-
 .UiButton:active {
-  background-color: #32302f;
-  border-color: $buttonBorder $buttonHighlight $buttonHighlight $buttonBorder;
+  @include outset-border-inverted;
+  background-color: $greyDarkest;
   padding-top: 4px;
   padding-bottom: 2px;
 }
