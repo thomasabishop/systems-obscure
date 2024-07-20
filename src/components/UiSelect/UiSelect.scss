@@ -2,8 +2,8 @@
 
 .UiSelect {
   width: 120px;
-  border: 1px solid;
-  border-color: $grey $greyLightest $greyLightest $grey;
+  border: 2px solid;
+  border-color: $black $greyLightest $greyLightest $black;
 
   .UiSelect__control--is-focused,
   .UiSelect__control--menu-is-open .UiSelect__control--is-focused:hover {
@@ -22,11 +22,11 @@
   }
 
   .UiSelect__indicator {
-    background-color: $greyLight;
-    border-top: 1px solid $greyLightest;
-    border-left: 1px solid $greyLightest;
-    border-right: 1px solid $black;
-    border-bottom: 1px solid $black;
+    background-color: $grey;
+    border-top: 2px solid $greyLightest;
+    border-left: 2px solid $greyLightest;
+    border-right: 2px solid $black;
+    border-bottom: 2px solid $black;
   }
 
   .UiSelect__indicator:before {
@@ -37,7 +37,7 @@
   .UiSelect__control {
     border: 0px;
     border-radius: 0;
-    background: $black;
+    background: $greyLight;
     box-shadow: none;
   }
 
@@ -47,7 +47,7 @@
 
   .UiSelect__menu {
     margin-top: 6px;
-    background: $black;
+    background: $greyLight;
     border: 1px solid $greyLightest;
     border-radius: 0 !important;
   }
@@ -56,19 +56,19 @@
     padding-top: 0 !important;
     padding-bottom: 0 !important;
     border-radius: 0 !important;
-    background-color: $black;
+    background-color: $greyLight;
     .UiSelect__option {
       padding: 2px 3px 0px 3px;
     }
     .UiSelect__option--is-selected {
       padding: 2px 3px 0px 3px;
-      background-color: $black;
+      background-color: $greyLight;
       color: $white;
     }
 
     .UiSelect__option--is-focused,
     .UiSelect__option--is-focused:active {
-      background-color: $blue;
+      background-color: $orange;
       color: $black;
     }
   }
