@@ -1,14 +1,25 @@
 $fontFamilySans: "Sys", sans-serif;
 $fontFamilyMono: "Liberation Mono";
-$green: #a9b665;
-$orange: #e78a4e;
-$aqua: #8dc07c;
-$white: #ebdbb2;
-$buttonHover: #665c54;
-$buttonHighlight: #a89984;
-$buttonBorder: #504945;
-$buttonBackground: #3c3836;
-$anotherDark: #32302f;
+
 $blue: #7daea3;
+$green: #a9b665;
+$aqua: #8dc07c;
+$yellow: #d8a657;
+$orange: #e78a4e;
 $red: #ea6962;
+$purple: #d3869b;
+
+$white: #ebdbb2;
+
+$greyLightest: #a89984; // formerly `buttonHighlight`
+$greyLighter: #928374;
+$greyLightVariant: #7c6f64;
+$greyLight: #665c54; // formerly `buttonHover`
+
+$grey: #504945; // formerly `buttonBorder`
+$greyDark: #3c3836; // formerly `buttonBackground`
+$greyDarkest: #32302f; //formerly `anotherDark`
+
 $black: #282828;
+$blacker: #1d2021;
+$blackest: #141617;

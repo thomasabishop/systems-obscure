@@ -1,0 +1,17 @@
+@mixin outset-border {
+  border-width: 2px;
+  border-style: solid;
+  border-color: $greyLightest $grey $grey $greyLightest;
+}
+
+@mixin outset-border-darker {
+  border-width: 2px;
+  border-style: solid;
+  border-color: $greyLightest $grey $grey $greyLightest;
+}
+
+@mixin outset-border-inverted {
+  border-width: 2px;
+  border-style: solid;
+  border-color: $grey $greyLightest $greyLightest $grey;
+}

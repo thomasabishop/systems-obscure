@@ -40,6 +40,7 @@ const customStyles = {
 const UiSelect = ({ defaultValue, onChange, options, placeholder }) => {
   return (
     <Select
+      isSearchable={false}
       defaultValue={defaultValue}
       onChange={onChange}
       options={options}

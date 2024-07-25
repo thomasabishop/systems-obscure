@@ -10,7 +10,7 @@ tbody tr:nth-child(even) {
 }
 
 thead th {
-  border: 1px solid $buttonHover;
+  border: 1px solid $greyLight;
   background-color: #1d2021;
   color: $white;
   // border: 1px solid #212529;
@@ -22,7 +22,7 @@ thead th {
 /* Style table cells */
 td {
   padding: 4px 3px 0;
-  border: 1px solid $buttonHover;
+  border: 1px solid $greyLight;
 }
 
 thead {
