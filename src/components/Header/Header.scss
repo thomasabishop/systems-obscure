@@ -18,7 +18,7 @@ $borderLight: #fa9a5c;
   border-style: solid;
   border-color: $borderLight $borderDark $borderDark $borderLight;
   background-color: $orange;
-  // height: 32px;
+  height: 32px;
   .box-outline {
     width: 100%;
     padding: 3px 8px;
@@ -37,7 +37,7 @@ $borderLight: #fa9a5c;
   }
 
   h2 {
-    padding-top: 1px;
+    padding-top: 3px;
     color: #282828 !important;
     font-size: 20px;
     margin: 0;
