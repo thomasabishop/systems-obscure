@@ -4,7 +4,7 @@ import Main from "../templates/main/Main"
 import UiGroup from "../components/UiGroup/UiGroup"
 import UiSelect from "../components/UiSelect/UiSelect"
 import UiDataTable from "../components/UiDataTable/UiDataTable"
-
+import { parseTimeEntries } from "../helpers/parseTimeEntries"
 const TIME_ENTRIES_ENDPOINT = process.env.GATSBY_TIME_ENTRIES_LAMBDA
 
 const timeFilterOptions = [
@@ -30,8 +30,10 @@ const timeFilterOptions = [
 export default function ActivityLog() {
   const [timeRange, setTimeRange] = useState({ value: "week", label: "Week" })
   const [data, setData] = useState({})
+  const [tableData, setTableData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const headers = ["Date", "Activity", "Duration", "Description"]
 
   useEffect(() => {
     setLoading(true)
@@ -46,7 +48,8 @@ export default function ActivityLog() {
         `${TIME_ENTRIES_ENDPOINT}?period=${timeRange.value}`
       )
       setData(response?.data?.data)
-      console.log(data)
+      setTableData(parseTimeEntries(response?.data?.data))
+      console.log(tableData)
       setLoading(false)
     } catch (err) {
       setLoading(false)
@@ -68,8 +71,7 @@ export default function ActivityLog() {
           />
         }
       >
-        <p>This dashboard lorem ipsum dolar sit avec amet.</p>
-        <UiDataTable />
+        <UiDataTable headers={headers} rows={tableData} />
       </UiGroup>
     </Main>
   )

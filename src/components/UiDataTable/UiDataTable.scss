@@ -9,32 +9,33 @@
 @mixin outset-border {
   border-width: 2px;
   border-style: solid;
-  border-color: $buttonHighlight $black $black $buttonHighlight;
+  border-color: $greyLighter $black $black $greyLighter;
 }
 
 @mixin inset-border {
   border-width: 2px;
   border-style: solid;
-  border-color: $black $buttonHighlight $buttonHighlight $black;
+  border-color: $black $greyLighter $greyLighter $black;
 }
 
 .UiDataTable {
   padding: 0.25rem;
-  background-color: $buttonHover;
+  background-color: $greyLight;
   font-size: 14px;
 
   .UiDataTable__footer {
     @include flex-row;
-
+    background-color: $greyDark;
     max-height: 18px;
     justify-content: space-between;
     padding: 0px 0.25rem;
     padding-bottom: 0;
     //    margin-top: 0.25rem;
-    border-left: 2px solid $buttonBackground;
-    border-right: 2px solid $buttonHighlight;
-    border-top: 2px solid $buttonBackground;
-    border-bottom: 2px solid $buttonHighlight;
+    @include inset-border;
+    // border-left: 2px solid $greyDark;
+    // border-right: 2px solid $greyLightest;
+    // border-top: 2px solid $greyDark;
+    // border-bottom: 2px solid $greyLightest;
     &--element {
       &__count {
         flex: 1;
@@ -47,40 +48,90 @@
   }
 
   .UiDataTable__table {
+    display: grid;
+    grid-template-columns: 140px 100px 70px 1fr;
+    row-gap: 0;
     &--headings {
-      @include flex-row;
-      justify-content: space-between;
-      margin-bottom: 0.25rem;
+      display: contents;
       &__header {
+        //       margin-bottom: 0.25rem;
         max-height: 18px;
-        background-color: $buttonBackground;
+        background-color: $greyDark;
         @include outset-border;
-        flex: 1;
         padding: 0px;
         padding-left: 0.25rem;
         span {
           display: inline-block;
           padding-top: 2px;
         }
-        // div {
-        //   padding-top: 3px;
-        //   padding-bottom: 0;
-        // }
+        div {
+          padding-top: 3px;
+          padding-bottom: 0;
+        }
       }
     }
 
     &--rows {
-      @include flex-row;
-      justify-content: space-between;
-      background-color: $buttonHover;
+      display: contents;
+      &.first-row > div {
+        padding-top: 0.25rem; // Adjust this value as needed
+      }
+
       &__row {
-        flex: 1;
-        padding-left: 0.35rem;
+        //       background-color: $grey;
+        padding: 0 0.35rem 0;
+        margin: 0;
         span {
-          display: inline-block;
-          //padding-top: 1px;
+          //         display: inline-block;
+          padding: 0;
+        }
+
+        &.description {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
     }
   }
+
+  //&--headings {
+  //  @include flex-row;
+  //  justify-content: space-between;
+  //  margin-bottom: 0.25rem;
+  //  &__header {
+  //    max-height: 18px;
+  //    background-color: $greyDark;
+  //    @include outset-border;
+  //    flex: 1;
+  //    padding: 0px;
+  //    padding-left: 0.25rem;
+  //    span {
+  //      display: inline-block;
+  //      padding-top: 2px;
+  //    }
+  //    // div {
+  //    //   padding-top: 3px;
+  //    //   padding-bottom: 0;
+  //    // }
+  //  }
+  //}
+
+  //&--rows {
+  //  @include flex-row;
+  //  justify-content: space-between;
+  //  background-color: $greyLight;
+  //  &__row {
+  //    flex: 1;
+  //    padding-left: 0.35rem;
+  //    span {
+  //      display: inline-block;
+  //      //padding-top: 1px;
+  //    }
+  //    .description {
+  //      flex: 1;
+  //    }
+  //  }
+  //}
+  //}
 }
