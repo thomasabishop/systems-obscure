@@ -45,3 +45,5 @@ export default function About() {
     </Main>
   )
 }
+
+export const Head = () => <title>About | Systems Obscure</title>

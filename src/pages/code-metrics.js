@@ -38,3 +38,5 @@ export default function CodeMetrics() {
     </Main>
   )
 }
+
+export const Head = () => <title> Code Metrics | Systems Obscure</title>
