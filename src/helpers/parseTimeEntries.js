@@ -4,17 +4,25 @@ const formatDate = (isoString) => {
     .toLocaleString("en-GB", {
       weekday: "short",
       day: "2-digit",
-      month: "long",
-      // hour: "2-digit",
-      // minute: "2-digit",
-      // hour12: false,
+      month: "short",
+      year: "numeric",
     })
     .replace(",", "")
+}
+
+const formatStartTime = (isoString) => {
+  const time = new Date(isoString)
+  return time.toLocaleString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  })
 }
 
 export const parseTimeEntries = (timeEntries) => {
   return timeEntries.map((entry) => ({
     date: formatDate(entry.start),
+    time: formatStartTime(entry.start),
     activity: entry.activity_type,
     duration: `${entry.duration} hrs`,
     description: entry.description,

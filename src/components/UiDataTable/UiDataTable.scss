@@ -18,6 +18,16 @@
   border-color: $black $greyLighter $greyLighter $black;
 }
 
+@mixin paginate-button {
+  height: 14px;
+  width: 14px;
+  background-color: $grey;
+  border-top: 2px solid $greyLightest;
+  border-left: 2px solid $greyLightest;
+  border-right: 2px solid $black;
+  border-bottom: 2px solid $black;
+}
+
 .UiDataTable {
   padding: 0.25rem;
   background-color: $greyLight;
@@ -28,33 +38,46 @@
     background-color: $greyDark;
     max-height: 18px;
     justify-content: space-between;
-    padding: 0px 0.25rem;
+    padding: 0px 0px 0px 0.25rem;
     padding-bottom: 0;
-    //    margin-top: 0.25rem;
+    gap: 15px;
     @include inset-border;
-    // border-left: 2px solid $greyDark;
-    // border-right: 2px solid $greyLightest;
-    // border-top: 2px solid $greyDark;
-    // border-bottom: 2px solid $greyLightest;
     &--element {
       &__count {
-        flex: 1;
+        //flex: 1;
       }
-      &__count,
+
       &__paginator {
-        margin-top: 5px;
+        @include flex-row;
+        div.previous svg {
+          transform: rotate(90deg) translate(0px, 1px);
+        }
+
+        div.next svg {
+          transform: rotate(-90deg) translate(0px, 5px);
+        }
+
+        div.previous,
+        div.next {
+          @include paginate-button;
+          cursor: pointer;
+        }
+      }
+
+      &__count,
+      &__current {
+        margin-top: 3px;
       }
     }
   }
 
   .UiDataTable__table {
     display: grid;
-    grid-template-columns: 140px 100px 70px 1fr;
+    grid-template-columns: 130px 60px 100px 70px 1fr;
     row-gap: 0;
     &--headings {
       display: contents;
       &__header {
-        //       margin-bottom: 0.25rem;
         max-height: 18px;
         background-color: $greyDark;
         @include outset-border;
@@ -79,8 +102,13 @@
 
       &__row {
         //       background-color: $grey;
+
         padding: 0 0.35rem 0;
         margin: 0;
+        &:nth-child(odd) {
+          background-color: $grey;
+        }
+
         span {
           //         display: inline-block;
           padding: 0;
@@ -94,44 +122,4 @@
       }
     }
   }
-
-  //&--headings {
-  //  @include flex-row;
-  //  justify-content: space-between;
-  //  margin-bottom: 0.25rem;
-  //  &__header {
-  //    max-height: 18px;
-  //    background-color: $greyDark;
-  //    @include outset-border;
-  //    flex: 1;
-  //    padding: 0px;
-  //    padding-left: 0.25rem;
-  //    span {
-  //      display: inline-block;
-  //      padding-top: 2px;
-  //    }
-  //    // div {
-  //    //   padding-top: 3px;
-  //    //   padding-bottom: 0;
-  //    // }
-  //  }
-  //}
-
-  //&--rows {
-  //  @include flex-row;
-  //  justify-content: space-between;
-  //  background-color: $greyLight;
-  //  &__row {
-  //    flex: 1;
-  //    padding-left: 0.35rem;
-  //    span {
-  //      display: inline-block;
-  //      //padding-top: 1px;
-  //    }
-  //    .description {
-  //      flex: 1;
-  //    }
-  //  }
-  //}
-  //}
 }

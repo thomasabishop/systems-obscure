@@ -33,7 +33,7 @@ export default function ActivityLog() {
   const [tableData, setTableData] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
-  const headers = ["Date", "Activity", "Duration", "Description"]
+  const headers = ["Date", "Time", "Activity", "Duration", "Description"]
 
   useEffect(() => {
     setLoading(true)
