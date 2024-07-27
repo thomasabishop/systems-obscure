@@ -1,76 +1,11 @@
 @import "../../styles/variables";
-
-@mixin flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-@mixin outset-border {
-  border-width: 2px;
-  border-style: solid;
-  border-color: $greyLighter $black $black $greyLighter;
-}
-
-@mixin inset-border {
-  border-width: 2px;
-  border-style: solid;
-  border-color: $black $greyLighter $greyLighter $black;
-}
-
-@mixin paginate-button {
-  height: 14px;
-  width: 14px;
-  background-color: $grey;
-  border-top: 2px solid $greyLightest;
-  border-left: 2px solid $greyLightest;
-  border-right: 2px solid $black;
-  border-bottom: 2px solid $black;
-}
+@import "../../styles/mixins";
 
 .UiDataTable {
+  @include default-font;
   padding: 0.25rem;
   background-color: $greyLight;
   font-size: 14px;
-
-  .UiDataTable__footer {
-    @include flex-row;
-    background-color: $greyDark;
-    max-height: 18px;
-    justify-content: space-between;
-    padding: 0px 0px 0px 0.25rem;
-    padding-bottom: 0;
-    gap: 15px;
-    @include inset-border;
-    &--element {
-      &__count {
-        //flex: 1;
-      }
-
-      &__paginator {
-        @include flex-row;
-        div.previous svg {
-          transform: rotate(90deg) translate(0px, 1px);
-        }
-
-        div.next svg {
-          transform: rotate(-90deg) translate(0px, 5px);
-        }
-
-        div.previous,
-        div.next {
-          @include paginate-button;
-          cursor: pointer;
-        }
-      }
-
-      &__count,
-      &__current {
-        margin-top: 3px;
-      }
-    }
-  }
-
   .UiDataTable__table {
     display: grid;
     grid-template-columns: 130px 60px 100px 70px 1fr;
@@ -80,7 +15,7 @@
       &__header {
         max-height: 18px;
         background-color: $greyDark;
-        @include outset-border;
+        @include outset-border-darker;
         padding: 0px;
         padding-left: 0.25rem;
         span {

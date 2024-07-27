@@ -1,7 +1,37 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import "./UiDataTable.scss"
+import UiDataTableFooter from "../UiDataTableFooter/UiDataTableFooter"
 
-const UiDataTable = ({ headers = [], rows = [] }) => {
+const chunkData = (rows) => {
+  const chunkSize = 12
+  const chunks = []
+  for (let i = 0; i < rows.length; i += chunkSize) {
+    const chunk = rows.slice(i, i + chunkSize)
+    chunks.push(chunk)
+  }
+  return chunks
+}
+
+const UiDataTable = ({ headers = [], rows = [], loading }) => {
+  const [chunks, setChunks] = useState([])
+  const [currentChunk, setCurrentChunk] = useState(0)
+
+  useEffect(() => {
+    const chunks = chunkData(rows)
+    setChunks(chunks)
+  }, [rows])
+
+  const handleLoadNextChunk = () => {
+    setCurrentChunk(currentChunk++)
+  }
+
+  // const handleLoadPrevChunk = () => {
+  // setCurrentChunk(currentChunk++)
+  // }
+
+  console.log(chunks)
+  console.log(chunks[currentChunk])
+
   const fields = rows.length ? Object.keys(rows[0]) : []
 
   return (
@@ -14,7 +44,7 @@ const UiDataTable = ({ headers = [], rows = [] }) => {
             </div>
           ))}
         </div>
-        {rows.map((row, i) => (
+        {chunks[currentChunk]?.map((row, i) => (
           <div
             className={`UiDataTable__table--rows ${i === 0 ? "first-row" : ""}`}
           >
@@ -26,37 +56,11 @@ const UiDataTable = ({ headers = [], rows = [] }) => {
           </div>
         ))}
       </div>
-
-      <div className="UiDataTable__footer">
-        <div className="UiDataTable__footer--element__count">
-          <div>5 entries of 15</div>
-        </div>
-        <div className="UiDataTable__footer--element__current">
-          <div>1</div>
-        </div>
-        <div className="UiDataTable__footer--element__paginator">
-          <div className="previous">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="10"
-              height="10"
-              viewBox="0 0 10 10"
-            >
-              <path d="M0 0 L5 5 L10 0 Z" fill="#ebdbb2" />
-            </svg>
-          </div>
-          <div className="next">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="10"
-              height="10"
-              viewBox="0 0 10 10"
-            >
-              <path d="M0 0 L5 5 L10 0 Z" fill="#ebdbb2" />
-            </svg>
-          </div>
-        </div>
-      </div>
+      <UiDataTableFooter
+        loading={loading}
+        pageCount={chunks.length}
+        totalRows={rows.length}
+      />
     </div>
   )
 }

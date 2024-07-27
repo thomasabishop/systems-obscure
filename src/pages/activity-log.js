@@ -38,7 +38,7 @@ export default function ActivityLog() {
   useEffect(() => {
     setLoading(true)
     fetchData(timeRange)
-    console.log(data)
+    //    console.log(data)
   }, [timeRange])
 
   const fetchData = async (timeRange) => {
@@ -49,7 +49,7 @@ export default function ActivityLog() {
       )
       setData(response?.data?.data)
       setTableData(parseTimeEntries(response?.data?.data))
-      console.log(tableData)
+      //      console.log(tableData)
       setLoading(false)
     } catch (err) {
       setLoading(false)
@@ -71,7 +71,7 @@ export default function ActivityLog() {
           />
         }
       >
-        <UiDataTable headers={headers} rows={tableData} />
+        <UiDataTable headers={headers} rows={tableData} loading={loading} />
       </UiGroup>
     </Main>
   )

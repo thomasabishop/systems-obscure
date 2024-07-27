@@ -1,10 +1,15 @@
-@mixin outset-border {
-  border-width: 2px;
-  border-style: solid;
-  border-color: $greyLightest $grey $grey $greyLightest;
+@mixin default-font {
+  font-family: $fontFamilySans;
+  color: $white;
 }
 
-@mixin outset-border-darker {
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin outset-border {
   border-width: 2px;
   border-style: solid;
   border-color: $greyLightest $grey $grey $greyLightest;
@@ -14,4 +19,16 @@
   border-width: 2px;
   border-style: solid;
   border-color: $grey $greyLightest $greyLightest $grey;
+}
+
+@mixin outset-border-darker {
+  border-width: 2px;
+  border-style: solid;
+  border-color: $greyLighter $black $black $greyLighter;
+}
+
+@mixin outset-border-darker-inverted {
+  border-width: 2px;
+  border-style: solid;
+  border-color: $black $greyLighter $greyLighter $black;
 }
