@@ -2,6 +2,7 @@
 @import "../../styles/mixins";
 
 .UiHeader {
+  @include default-font;
   @include outset-border;
   background-color: $greyDark;
   max-height: 25px;

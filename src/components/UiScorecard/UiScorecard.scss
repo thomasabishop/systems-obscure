@@ -1,4 +1,8 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
 .UiScorecard {
+  @include default-font;
   display: flex;
   flex-direction: row;
   align-items: center;

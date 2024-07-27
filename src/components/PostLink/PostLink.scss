@@ -1,4 +1,8 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
 .PostLink {
+  @include default-font;
   gap: 0;
   margin-bottom: 1rem;
 
