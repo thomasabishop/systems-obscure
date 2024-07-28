@@ -1,18 +1,32 @@
 import React from "react"
 import Main from "../templates/main/Main"
 import UiGroup from "../components/UiGroup/UiGroup"
+import portrait from "../img/portrait.jpg"
 
 export default function About() {
   return (
     <Main>
       <UiGroup title="About">
+        <div className="float">
+          <img alt="A portrait of the blog author" src={portrait} width="250" />
+          <div className="caption">
+            Pictured with the Colossus Mk.2 at the{" "}
+            <a href="https://www.tnmoc.org/" target="_blank">
+              National Museum of Computing
+            </a>
+            , Bletchley Park.
+          </div>
+        </div>
         <p>
-          This blog is a sort of personal scrapbook. I document the details of
-          my technical life so I can have a record of progress when I look back.
-          Doing this publicly motivates me to take care with my writing and to
-          be as clear as possible.{" "}
+          Hi, I'm Thomas. I'm a self-taught software engineer currently working
+          at the BBC.
         </p>
-
+        <p>
+          This blog is a sort of scrapbook and probably only interesting to me!
+          I document the details of my technical life so I can have a record of
+          progress when I look back. Doing this publicly motivates me to take
+          care with my writing and to be as clear as possible.{" "}
+        </p>
         <h3>Website theme</h3>
         <p>
           This is my own design but it is obviously inspired by the peerless
