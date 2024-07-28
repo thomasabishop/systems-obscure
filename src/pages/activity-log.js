@@ -71,7 +71,12 @@ export default function ActivityLog() {
           />
         }
       >
-        <UiDataTable headers={headers} rows={tableData} loading={loading} />
+        <UiDataTable
+          headers={headers}
+          rows={tableData}
+          loading={loading}
+          key={timeRange.value}
+        />
       </UiGroup>
     </Main>
   )

@@ -2,16 +2,13 @@
 @import "../../styles/mixins";
 
 @mixin paginate-button {
-  // appearance: none !important;
-  // outline: none;
   height: 18px;
   width: 18px;
   background-color: $grey;
-  border-top: 2px solid $greyLightest;
-  border-left: 2px solid $greyLightest;
-  border-right: 2px solid $black;
-  border-bottom: 2px solid $black;
-  // box-shadow: none;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $greyLightest $black $black $greyLightest;
+  cursor: pointer;
 }
 
 .UiDataTableFooter {
@@ -22,11 +19,7 @@
   justify-content: space-between;
   padding: 0px 0px 0px 0.25rem;
   padding-bottom: 0;
-  gap: 15px;
-
-  &__loading {
-    color: $yellow;
-  }
+  // gap: 15px;
 
   &__pages {
     display: inline-grid;
@@ -39,23 +32,22 @@
     }
   }
 
-  &__count {
-    //flex: 1;
-  }
-
-  &__paginator {
+  &__controls {
     @include flex-row;
     button.previous svg {
       transform: rotate(90deg) translate(-1px, 7px);
     }
 
-    div.next svg {
-      transform: rotate(-90deg) translate(0px, 5px);
+    button.next svg {
+      transform: rotate(-90deg) translate(1px, 0px);
     }
 
     button.previous,
-    div.next {
+    button.next {
       @include paginate-button;
+      &:active {
+        border-color: $black $greyLightest $greyLightest $black;
+      }
     }
   }
 

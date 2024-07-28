@@ -3,7 +3,7 @@ import "./UiDataTable.scss"
 import UiDataTableFooter from "../UiDataTableFooter/UiDataTableFooter"
 
 const chunkData = (rows) => {
-  const chunkSize = 12
+  const chunkSize = 10
   const chunks = []
   for (let i = 0; i < rows.length; i += chunkSize) {
     const chunk = rows.slice(i, i + chunkSize)
@@ -21,19 +21,21 @@ const UiDataTable = ({ headers = [], rows = [], loading }) => {
     setChunks(chunks)
   }, [rows])
 
+  useEffect(() => {
+    console.log(currentChunk)
+  }, [currentChunk])
+
   const handleLoadNextChunk = () => {
-    setCurrentChunk(currentChunk++)
+    setCurrentChunk((prev) => Math.min(prev + 1, chunks.length - 1))
   }
 
-  // const handleLoadPrevChunk = () => {
-  // setCurrentChunk(currentChunk++)
-  // }
-
-  console.log(chunks)
-  console.log(chunks[currentChunk])
+  const handleLoadPrevChunk = () => {
+    setCurrentChunk((prev) => Math.max(prev - 1, 0))
+  }
 
   const fields = rows.length ? Object.keys(rows[0]) : []
 
+  const emptyRowsCount = 10 - (chunks[currentChunk]?.length || 0)
   return (
     <div className="UiDataTable">
       <div className="UiDataTable__table">
@@ -55,11 +57,26 @@ const UiDataTable = ({ headers = [], rows = [], loading }) => {
             ))}
           </div>
         ))}
+        {[...Array(emptyRowsCount)].map((_, i) => (
+          <div
+            className="UiDataTable__table--rows empty-row"
+            key={`empty-${i}`}
+          >
+            {fields.map((_, j) => (
+              <div className="UiDataTable__table--rows__row" key={j}>
+                <span>&nbsp;</span>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
       <UiDataTableFooter
         loading={loading}
         pageCount={chunks.length}
         totalRows={rows.length}
+        currentPage={currentChunk + 1}
+        onLoadNextPage={handleLoadNextChunk}
+        onLoadPrevPage={handleLoadPrevChunk}
       />
     </div>
   )

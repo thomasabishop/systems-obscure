@@ -9,7 +9,9 @@
   .UiDataTable__table {
     display: grid;
     grid-template-columns: 130px 60px 100px 70px 1fr;
+    grid-auto-rows: min-content;
     row-gap: 0;
+    overflow-y: auto;
     &--headings {
       display: contents;
       &__header {
@@ -18,13 +20,10 @@
         @include outset-border-darker;
         padding: 0px;
         padding-left: 0.25rem;
+
         span {
           display: inline-block;
           padding-top: 2px;
-        }
-        div {
-          padding-top: 3px;
-          padding-bottom: 0;
         }
       }
     }
@@ -32,12 +31,10 @@
     &--rows {
       display: contents;
       &.first-row > div {
-        padding-top: 0.25rem; // Adjust this value as needed
+        padding-top: 2px;
       }
 
       &__row {
-        //       background-color: $grey;
-
         padding: 0 0.35rem 0;
         margin: 0;
         &:nth-child(odd) {
@@ -45,7 +42,6 @@
         }
 
         span {
-          //         display: inline-block;
           padding: 0;
         }
 

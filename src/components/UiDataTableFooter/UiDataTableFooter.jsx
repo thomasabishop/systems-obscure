@@ -14,8 +14,14 @@ const ChevronIcon = () => {
   )
 }
 
-const UiDataTableFooter = ({ loading, pageCount, totalRows }) => {
-  console.log(pageCount)
+const UiDataTableFooter = ({
+  loading,
+  pageCount,
+  totalRows,
+  currentPage,
+  onLoadNextPage,
+  onLoadPrevPage,
+}) => {
   return (
     <div className="UiDataTableFooter">
       {loading ? (
@@ -28,18 +34,16 @@ const UiDataTableFooter = ({ loading, pageCount, totalRows }) => {
             <div>{`Total entries: ${totalRows}`}</div>
           </div>
           <div className="UiDataTableFooter__pages">
-            <div>{`1 of ${pageCount}`}</div>
+            <div>{`${currentPage} of ${pageCount}`}</div>
           </div>
         </>
       )}
 
-      <div className="UiDataTableFooter__paginator">
-        <button
-          className="previous"
-          onClick={() => {
-            console.log("clicked")
-          }}
-        >
+      <div className="UiDataTableFooter__controls">
+        <button className="previous" onClick={onLoadPrevPage}>
+          <ChevronIcon />
+        </button>
+        <button className="next" onClick={onLoadNextPage}>
           <ChevronIcon />
         </button>
       </div>
