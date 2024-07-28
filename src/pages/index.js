@@ -34,6 +34,7 @@ export const Head = () => (
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css"
     ></link>
+    <meta name="title" content="Systems Obscure"></meta>
     <meta name="description" content="Another software engineer with a blog." />
   </>
 )
