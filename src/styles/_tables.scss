@@ -1,27 +1,31 @@
+@import "../styles/mixins";
+
 $background-color: #3c3836;
 
 table {
   width: 100%;
-  margin-bottom: 1em;
+  padding: 0.25rem;
+  background-color: $greyLight;
+  font-size: 14px;
 }
 
-tbody tr:nth-child(even) {
-  background-color: $background-color;
-}
+// tbody tr:nth-child(even) {
+//   background-color: $background-color;
+// }
 
 thead th {
-  border: 1px solid $greyLight;
-  background-color: #1d2021;
+  @include outset-border-darker;
+  background-color: $greyDark;
   color: $white;
-  // border: 1px solid #212529;
   text-align: left;
+  font-weight: 400;
 
-  padding: 4px 3px 0;
+  //padding: 4px 3px 0;
 }
 
 /* Style table cells */
 td {
-  padding: 4px 3px 0;
+  // padding: 4px 3px 0;
   border: 1px solid $greyLight;
 }
 
