@@ -23,14 +23,16 @@ export default function About() {
         </p>
         <p>
           This blog is a sort of scrapbook and probably only interesting to me!
+        </p>
+        <p>
           I document the details of my technical life so I can have a record of
           progress when I look back. Doing this publicly motivates me to take
           care with my writing and to be as clear as possible.{" "}
         </p>
         <h3>Website theme</h3>
         <p>
-          This is my own design but it is obviously inspired by the peerless
-          interfaces of the past.
+          This is my own design and something of a labour of love. Obviously it
+          is inspired by the peerless interfaces of yesteryear.
         </p>
         <p>
           In creating the UI elements I've studied{" "}
