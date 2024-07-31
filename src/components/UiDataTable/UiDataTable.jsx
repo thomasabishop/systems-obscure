@@ -34,8 +34,23 @@ const UiDataTable = ({ headers = [], rows = [], loading }) => {
   }
 
   const fields = rows.length ? Object.keys(rows[0]) : []
-
   const emptyRowsCount = 10 - (chunks[currentChunk]?.length || 0)
+
+  const renderCell = (row, field) => {
+    // For date fields, format the date using CSS grid for even lengths
+    const value = row[field]
+    if (field === "date" && typeof value === "object") {
+      return (
+        <div className="grid-date">
+          <span>{value.day}</span>
+          <span>{value.month}</span>
+          <span>{value.year}</span>
+        </div>
+      )
+    }
+    return <span>{value}</span>
+  }
+
   return (
     <div className="UiDataTable">
       <div className="UiDataTable__table">
@@ -52,7 +67,7 @@ const UiDataTable = ({ headers = [], rows = [], loading }) => {
           >
             {fields.map((field, j) => (
               <div className="UiDataTable__table--rows__row" key={j}>
-                <span>{row[field]}</span>
+                {renderCell(row, field)}
               </div>
             ))}
           </div>

@@ -8,7 +8,7 @@
   font-size: 14px;
   .UiDataTable__table {
     display: grid;
-    grid-template-columns: 130px 60px 100px 70px 1fr;
+    grid-template-columns: 100px 60px 100px 70px 1fr;
     grid-auto-rows: min-content;
     row-gap: 0;
     overflow-y: auto;
@@ -37,8 +37,14 @@
       &__row {
         padding: 0 0.35rem 0;
         margin: 0;
+
         &:nth-child(odd) {
           background-color: $grey;
+        }
+
+        .grid-date {
+          display: grid;
+          grid-template-columns: repeat(4, 20px);
         }
 
         span {
