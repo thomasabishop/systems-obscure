@@ -1,35 +1,34 @@
 @import "../styles/mixins";
 
-$background-color: #3c3836;
-
 table {
   width: 100%;
   padding: 0.25rem;
   background-color: $greyLight;
   font-size: 14px;
+  border-spacing: 0;
+  line-height: 1.2;
+  overflow-y: auto;
 }
 
-// tbody tr:nth-child(even) {
-//   background-color: $background-color;
-// }
+tbody tr:first-child td {
+  padding-top: 5px;
+}
 
 thead th {
   @include outset-border-darker;
+  line-height: 1;
+  padding: 0 0.25rem;
+  padding-top: 5px;
   background-color: $greyDark;
   color: $white;
   text-align: left;
   font-weight: 400;
-
-  //padding: 4px 3px 0;
 }
 
-/* Style table cells */
 td {
-  // padding: 4px 3px 0;
-  border: 1px solid $greyLight;
+  padding-left: 0.35rem;
 }
 
-thead {
-  // position: relative;
-  height: 1rem;
+td:nth-child(odd) {
+  background-color: $grey;
 }
