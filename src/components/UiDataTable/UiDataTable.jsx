@@ -3,7 +3,7 @@ import "./UiDataTable.scss"
 import UiDataTableFooter from "../UiDataTableFooter/UiDataTableFooter"
 
 const chunkData = (rows) => {
-  const chunkSize = 10
+  const chunkSize = 12
   const chunks = []
   for (let i = 0; i < rows.length; i += chunkSize) {
     const chunk = rows.slice(i, i + chunkSize)
@@ -34,7 +34,7 @@ const UiDataTable = ({ headers = [], rows = [], loading }) => {
   }
 
   const fields = rows.length ? Object.keys(rows[0]) : []
-  const emptyRowsCount = 10 - (chunks[currentChunk]?.length || 0)
+  const emptyRowsCount = 12 - (chunks[currentChunk]?.length || 0)
 
   const renderCell = (row, field) => {
     // For date fields, format the date using CSS grid for even lengths
