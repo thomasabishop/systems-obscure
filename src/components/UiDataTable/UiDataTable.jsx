@@ -15,6 +15,16 @@ const chunkData = (rows) => {
 const UiDataTable = ({ headers = [], rows = [], loading }) => {
   const [chunks, setChunks] = useState([])
   const [currentChunk, setCurrentChunk] = useState(0)
+  const [smallScreen, setSmallScreen] = useState(false)
+
+  useEffect(() => {
+    const checkScreenWidth = () => {
+      setSmallScreen(window.innerWidth < 600)
+    }
+    checkScreenWidth()
+    window.addEventListener("resize", checkScreenWidth)
+    return () => window.removeEventListener("resize", checkScreenWidth)
+  }, [])
 
   useEffect(() => {
     const chunks = chunkData(rows)
@@ -85,6 +95,7 @@ const UiDataTable = ({ headers = [], rows = [], loading }) => {
           </div>
         ))}
       </div>
+
       <UiDataTableFooter
         loading={loading}
         pageCount={chunks.length}
