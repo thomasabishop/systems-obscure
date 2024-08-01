@@ -7,30 +7,30 @@ tags: ["projects", "beige"]
 
 ![Gruvbox95 screenshot](./img/gruvbox95.png)
 
-![Gruvbox95 detail: menubar](./img/toolbar-one.png)
+Back in April I was working on a full system rice. It was going to be called
+_Gruvbox95_ and would basically apply the aesthetics of Windows95/98 to the
+Hyprland window manager but with the seductive beige of the Gruvbox light theme.
+beyond fonts and old Windows assets.
 
-Back in April I was working on a full system rice. These were the early days of
-my beige addiction when I was only looking at beige at weekends and thought I
-had it under control.
-
-It was going to be called _Gruvbox95_ and would basically apply the aesthetics
-of Windows95/98 to the XFCE desktop environment but with the seductive **beige**
-of the Gruvbox light theme. This would be a theme written from scratch without
-any major dependencies, beyond fonts and old Windows assets.
+Alas I was ultimately defeated by box-shadow and my own limitations but I came
+across a screenshot when I was clearing out my phone.
 
 ![Gruvbox95 detail: menubar](./img/toolbar-three.png)
 
-Alas I was ultimately defeated by box-shadow and my own limitations but I came
-across a screenshot when I was clearing out my phone. My only relic of those
-ambitious days.
+![Gruvbox95 detail: menubar](./img/toolbar-one.png)
 
-_I tried so hard and got so far. But in the end it doesn't even matter._
+<div style="text-align: center;font-style:italic">
+Details of the toolbar created with <a href="https://github.com/Alexays/Waybar">Waybar</a>.
+</div>
 
 ![Gruvbox95 detail: menubar](./img/file-launcher.png)
 
-<div style="text-align:center; padding-bottom: 1rem;">
-<span style= "font-style:normal;">My glamorous assistant on
-the <b>doomed project</b>, working on what would've been the launch icon:</span>
+<div style="text-align: center;font-style:italic">
+App launcher created with <a href="https://github.com/philj56/tofi">Tofi</a>.
 </div>
 
-<img src="./img/tux.jpg" width="400px"/>
+![Gruvbox95 detail: menubar](./img/tux-icon.png)
+
+<div style="text-align: center;font-style:italic">
+Pixel art icon intended for the launch button.
+</div>
