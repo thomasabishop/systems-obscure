@@ -19,6 +19,7 @@
   justify-content: space-between;
   padding: 0px 0px 0px 0.25rem;
   padding-bottom: 0;
+  font-style: bold;
   // gap: 15px;
 
   &__pages {
@@ -54,6 +55,6 @@
   &__count,
   &__pages,
   &__loading {
-    margin-top: 3px;
+    margin-top: 4px;
   }
 }

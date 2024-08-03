@@ -1,8 +1,45 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
 .UiDataTableBody {
   &__standard {
     .headings {
+      display: contents;
+      &__header {
+        max-height: 18px;
+        background-color: $greyDark;
+        @include outset-border-darker;
+        padding: 0px;
+        padding-left: 0.25rem;
+
+        span {
+          display: inline-block;
+          padding-top: 2px;
+        }
+      }
     }
-    .rows {
+    .row {
+      display: contents;
+      &.first-row > div {
+        padding-top: 3px;
+        &__field {
+          padding: 0 0.35rem 0;
+          margin: 0;
+
+          &:nth-child(odd) {
+            background-color: $grey;
+          }
+
+          .grid-date {
+            display: grid;
+            grid-template-columns: repeat(4, 20px);
+          }
+
+          span {
+            padding: 0;
+          }
+        }
+      }
     }
   }
   &__.condensed {

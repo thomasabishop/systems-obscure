@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react"
 import "./UiDataTable.scss"
 import UiDataTableFooter from "../UiDataTableFooter/UiDataTableFooter"
 
-const chunkData = (rows) => {
-  const chunkSize = 12
+const chunkData = (rows, chunkSize) => {
   const chunks = []
   for (let i = 0; i < rows.length; i += chunkSize) {
     const chunk = rows.slice(i, i + chunkSize)
@@ -12,28 +11,46 @@ const chunkData = (rows) => {
   return chunks
 }
 
+const DataCell = (headers, row, field, index) => {
+  const value = row[field]
+  const header = headers[index] || field
+  return (
+    <>
+      <div className="cell-header">{header}</div>
+      <div className="cell-content">
+        <div data-header={header}>
+          <span>{value}</span>
+        </div>
+      </div>
+    </>
+  )
+}
+
 const UiDataTable = ({ headers = [], rows = [], loading }) => {
   const [chunks, setChunks] = useState([])
   const [currentChunk, setCurrentChunk] = useState(0)
   const [smallScreen, setSmallScreen] = useState(false)
 
   useEffect(() => {
-    const checkScreenWidth = () => {
-      setSmallScreen(window.innerWidth < 600)
+    const handleResize = () => {
+      const isSmallScreen = window.innerWidth < 600
+      if (isSmallScreen !== smallScreen) {
+        setSmallScreen(window.innerWidth < 600)
+        setCurrentChunk(0)
+      }
     }
-    checkScreenWidth()
-    window.addEventListener("resize", checkScreenWidth)
-    return () => window.removeEventListener("resize", checkScreenWidth)
-  }, [])
+    window.addEventListener("resize", handleResize)
+    handleResize()
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [smallScreen])
 
   useEffect(() => {
-    const chunks = chunkData(rows)
+    const size = smallScreen ? 5 : 12
+    const chunks = chunkData(rows, size)
     setChunks(chunks)
-  }, [rows])
-
-  useEffect(() => {
-    console.log(currentChunk)
-  }, [currentChunk])
+  }, [rows, smallScreen])
 
   const handleLoadNextChunk = () => {
     setCurrentChunk((prev) => Math.min(prev + 1, chunks.length - 1))
@@ -44,58 +61,25 @@ const UiDataTable = ({ headers = [], rows = [], loading }) => {
   }
 
   const fields = rows.length ? Object.keys(rows[0]) : []
-  const emptyRowsCount = 12 - (chunks[currentChunk]?.length || 0)
-
-  const renderCell = (row, field) => {
-    // For date fields, format the date using CSS grid for even lengths
-    const value = row[field]
-    if (field === "date" && typeof value === "object") {
-      return (
-        <div className="grid-date">
-          <span>{value.day}</span>
-          <span>{value.month}</span>
-          <span>{value.year}</span>
-        </div>
-      )
-    }
-    return <span>{value}</span>
-  }
 
   return (
     <div className="UiDataTable">
-      <div className="UiDataTable__table">
-        <div className="UiDataTable__table--headings">
+      <div
+        className={`UiDataTable__table ${smallScreen ? "condensed" : "fullwidth"}`}
+      >
+        <div className="headings">
           {headers.map((heading, i) => (
-            <div className="UiDataTable__table--headings__header" key={i}>
+            <div className="header" key={i}>
               <span>{heading}</span>
             </div>
           ))}
         </div>
         {chunks[currentChunk]?.map((row, i) => (
-          <div
-            className={`UiDataTable__table--rows ${i === 0 ? "first-row" : ""}`}
-          >
-            {fields.map((field, j) => (
-              <div className="UiDataTable__table--rows__row" key={j}>
-                {renderCell(row, field)}
-              </div>
-            ))}
-          </div>
-        ))}
-        {[...Array(emptyRowsCount)].map((_, i) => (
-          <div
-            className="UiDataTable__table--rows empty-row"
-            key={`empty-${i}`}
-          >
-            {fields.map((_, j) => (
-              <div className="UiDataTable__table--rows__row" key={j}>
-                <span>&nbsp;</span>
-              </div>
-            ))}
+          <div className="rows">
+            {fields.map((field, j) => DataCell(headers, row, field, j))}
           </div>
         ))}
       </div>
-
       <UiDataTableFooter
         loading={loading}
         pageCount={chunks.length}

@@ -43,17 +43,15 @@ export default function ActivityLog() {
 
   const fetchData = async (timeRange) => {
     try {
-      console.log(TIME_ENTRIES_ENDPOINT)
       const response = await axios.get(
         `${TIME_ENTRIES_ENDPOINT}?period=${timeRange.value}`
       )
       setData(response?.data?.data)
-      setTableData(parseTimeEntries(response?.data?.data))
-      //      console.log(tableData)
+      setTableData(parseTimeEntries(response?.data?.data).reverse())
       setLoading(false)
     } catch (err) {
       setLoading(false)
-      setError("Coding highlights could not be fetched: " + err.message + ".")
+      setError("Data could not be fetched")
     }
   }
 

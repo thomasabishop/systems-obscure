@@ -1,6 +1,6 @@
 const formatDate = (isoString) => {
   const date = new Date(isoString)
-  const parts = date
+  return date
     .toLocaleString("en-GB", {
       weekday: "short",
       day: "2-digit",
@@ -8,16 +8,6 @@ const formatDate = (isoString) => {
       year: "2-digit",
     })
     .split(",")
-
-  const [weekday, rest] = parts
-  const [day, month, year] = rest.trim().split(" ")
-
-  return {
-    weekday: weekday.padEnd(3),
-    day: day.padStart(2),
-    month: month.padEnd(3),
-    year,
-  }
 }
 
 const formatStartTime = (isoString) => {

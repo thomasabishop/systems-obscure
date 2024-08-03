@@ -6,57 +6,112 @@
   padding: 0.25rem;
   background-color: $greyLight;
   font-size: 14px;
-  .UiDataTable__table {
+  .UiDataTable__table.fullwidth {
     display: grid;
-    grid-template-columns: 100px 60px 100px 70px 1fr;
     grid-auto-rows: min-content;
-    row-gap: 0;
-    overflow-y: auto;
-    &--headings {
-      display: contents;
-      &__header {
+    row-gap: 3px;
+    overflow-y: hidden;
+
+    height: 328px;
+    // height: 264px;
+    // max-height: 264px;
+
+    .headings {
+      display: grid;
+      grid-template-columns: 120px 60px 95px 70px 1fr;
+
+      margin-bottom: 2px;
+      .header {
+        //        font-weight: bold;
         max-height: 18px;
         background-color: $greyDark;
         @include outset-border-darker;
         padding: 0px;
         padding-left: 0.25rem;
-
         span {
           display: inline-block;
           padding-top: 2px;
         }
       }
     }
+    .rows {
+      display: grid;
+      grid-template-columns: 120px 60px 95px 70px 1fr;
+      margin: 0;
+      height: 18px;
+      max-height: 18px;
+      border-top: 2px solid $greyLighter;
+      border-right: 2px solid $grey;
+      border-left: 2px solid $greyLightest;
+      border-bottom: 2px solid $grey;
+      &:nth-child(odd) {
+        background-color: $grey;
+        border-bottom: 2px solid $greyDark;
 
-    &--rows {
-      display: contents;
-      &.first-row > div {
-        padding-top: 3px;
+        border-right: 2px solid $greyDark;
       }
 
-      &__row {
-        padding: 0 0.35rem 0;
-        margin: 0;
-
-        &:nth-child(odd) {
-          background-color: $grey;
-        }
-
-        .grid-date {
-          display: grid;
-          grid-template-columns: repeat(4, 20px);
-        }
-
-        span {
-          padding: 0;
-        }
-
-        &.description {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+      .cell-content {
+        padding: 0 0.25rem 0;
+        max-height: 20px;
+        overflow: hidden;
+        div span {
+          display: inline-block;
+          padding-top: 2px;
+          margin: 0;
         }
       }
+
+      .cell-header {
+        display: none;
+      }
+    }
+  }
+
+  .UiDataTable__table.condensed {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 0.5rem;
+    .headings {
+      display: none;
+    }
+
+    .rows {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      background-color: $grey;
+      border: 1px solid $greyDark;
+      overflow-x: auto;
+
+      .cell-header {
+        max-height: 18px;
+        padding-bottom: 0;
+        height: 18px;
+        background-color: $greyDark;
+        @include outset-border-darker;
+        padding-left: 0.25rem;
+        padding-bottom: 0;
+        padding-top: 2px;
+      }
+
+      .cell-content {
+        margin-left: 10px;
+        padding-bottom: 0;
+        padding-top: 5px;
+        padding-bottom: 0;
+        max-height: 18px;
+        height: 18px;
+      }
+
+      &:nth-child(even) {
+        background-color: $greyLight;
+      }
+    }
+
+    // Hide empty rows in condensed view
+    .empty-row {
+      display: none;
     }
   }
 }

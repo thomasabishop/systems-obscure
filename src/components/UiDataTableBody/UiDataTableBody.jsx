@@ -1,22 +1,43 @@
 import React from "react"
-import ".UiDataTableBody.scss"
+import "./UiDataTableBody.scss"
 
-const UiDataTableBody = ({ smallScreen, headers, dataChunks, emptyRows }) => {
+const UiDataTableBody = ({
+  smallScreen,
+  headers,
+  chunks,
+  currentChunk,
+  fields,
+  emptyRowsCount,
+}) => {
+  const renderCell = (row, field) => {
+    // For date fields, format the date using CSS grid for even lengths
+    const value = row[field]
+    if (field === "date" && typeof value === "object") {
+      return (
+        <div className="grid-date">
+          <span>{value.day}</span>
+          <span>{value.month}</span>
+          <span>{value.year}</span>
+        </div>
+      )
+    }
+    return <span>{value}</span>
+  }
   return (
     <div className="UiDataTableBody">
       {!smallScreen ? (
         <div className="UiDataTableBody__standard">
           <div className="headings">
             {headers.map((heading, i) => (
-              <div className="UiDataTable__table--headings__header" key={i}>
+              <div className="headings__header" key={i}>
                 <span>{heading}</span>
               </div>
             ))}
           </div>
-          {dataChunks[currentChunk]?.map((row, i) => (
+          {chunks[currentChunk]?.map((row, i) => (
             <div className={`row ${i === 0 ? "first-row" : ""}`}>
               {fields.map((field, j) => (
-                <div className="field" key={j}>
+                <div className="row__field" key={j}>
                   {renderCell(row, field)}
                 </div>
               ))}
