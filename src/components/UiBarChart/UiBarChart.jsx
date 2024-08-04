@@ -27,7 +27,6 @@ const UiBarChart = ({
   getX,
   getY,
 }) => {
-  console.log(timeRange)
   const [smallScreen, setSmallScreen] = useState(false)
   const [tooltipData, setTooltipData] = useState({})
   const { parentRef, width } = useParentSize({

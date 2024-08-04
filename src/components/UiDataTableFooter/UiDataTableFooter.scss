@@ -1,0 +1,68 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+@mixin paginate-button {
+  height: 18px;
+  width: 18px;
+  background-color: $grey;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $greyLightest $black $black $greyLightest;
+  cursor: pointer;
+}
+
+.UiDataTableFooter {
+  @include flex-row;
+  @include outset-border-darker-inverted;
+  background-color: $greyDark;
+  max-height: 18px;
+  justify-content: space-between;
+  padding: 0px 0px 0px 0.25rem;
+  padding-bottom: 0;
+  font-style: bold;
+  // gap: 15px;
+
+  &__pages {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.5rem;
+    page {
+      &--active {
+        color: $red;
+      }
+    }
+  }
+
+  &__controls {
+    @include flex-row;
+    button.previous svg {
+      transform: rotate(90deg) translate(-1px, 7px);
+    }
+
+    button.next svg {
+      transform: rotate(-90deg) translate(1px, 0px);
+    }
+
+    button.previous,
+    button.next {
+      @include paginate-button;
+      &:active {
+        border-color: $black $greyLightest $greyLightest $black;
+      }
+    }
+  }
+  &__error,
+  &__count,
+  &__pages,
+  &__loading {
+    margin-top: 3px;
+  }
+
+  &__loading {
+    $color: $blue;
+  }
+
+  &__error {
+    color: $red;
+  }
+}
