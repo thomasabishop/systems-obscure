@@ -31,7 +31,7 @@ const timeFilterOptions = [
 
 export default function ActivityLog() {
   const [timeRange, setTimeRange] = useState({ value: "week", label: "Week" })
-  const [sessionStorage, setSesstionStorage] = useSessionStorage(
+  const [sessionStorage, setSessionStorage] = useSessionStorage(
     "activity_log",
     {}
   )
@@ -40,19 +40,6 @@ export default function ActivityLog() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const headers = ["Date", "Time", "Activity", "Duration", "Description"]
-
-  useEffect(() => {
-    setError(null)
-    setLoading(true)
-    const cachedData = sessionStorage[timeRange?.value]
-    if (cachedData) {
-      setTableData(cachedData)
-      setLoading(false)
-    } else {
-      fetchData(timeRange)
-    }
-    // fetchData(timeRange)
-  }, [timeRange, sessionStorage])
 
   const fetchData = async (timeRange) => {
     try {
@@ -78,6 +65,19 @@ export default function ActivityLog() {
       )
     }
   }
+
+  useEffect(() => {
+    setError(null)
+    setLoading(true)
+    const cachedData = sessionStorage[timeRange?.value]
+    if (cachedData) {
+      setTableData(cachedData)
+      setLoading(false)
+    } else {
+      fetchData(timeRange)
+    }
+    // fetchData(timeRange)
+  }, [timeRange, sessionStorage])
 
   return (
     <Main>
