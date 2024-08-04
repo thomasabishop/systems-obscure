@@ -16,12 +16,23 @@ const ChevronIcon = () => {
 
 const UiDataTableFooter = ({
   loading,
+  error,
   pageCount,
   totalRows,
   currentPage,
   onLoadNextPage,
   onLoadPrevPage,
 }) => {
+  if (error) {
+    return (
+      <div className="UiDataTableFooter">
+        <div className="UiDataTableFooter__error">
+          <div>{error}</div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="UiDataTableFooter">
       {loading ? (
@@ -38,7 +49,6 @@ const UiDataTableFooter = ({
           </div>
         </>
       )}
-
       <div className="UiDataTableFooter__controls">
         <button className="previous" onClick={onLoadPrevPage}>
           <ChevronIcon />

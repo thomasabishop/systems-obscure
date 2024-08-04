@@ -7,7 +7,7 @@ const formatDate = (isoString) => {
       month: "short",
       year: "2-digit",
     })
-    .split(",")
+    .replace(",", "")
 }
 
 const formatStartTime = (isoString) => {
@@ -20,11 +20,13 @@ const formatStartTime = (isoString) => {
 }
 
 export const parseTimeEntries = (timeEntries) => {
-  return timeEntries.map((entry) => ({
-    date: formatDate(entry.start),
-    time: formatStartTime(entry.start),
-    activity: entry.activity_type,
-    duration: `${entry.duration} hrs`,
-    description: entry.description,
-  }))
+  return timeEntries
+    .map((entry) => ({
+      date: formatDate(entry.start),
+      time: formatStartTime(entry.start),
+      activity: entry.activity_type,
+      duration: `${entry.duration} hrs`,
+      description: entry.description,
+    }))
+    .reverse()
 }

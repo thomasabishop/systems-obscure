@@ -51,10 +51,18 @@
       }
     }
   }
-
+  &__error,
   &__count,
   &__pages,
   &__loading {
-    margin-top: 4px;
+    margin-top: 3px;
+  }
+
+  &__loading {
+    $color: $blue;
+  }
+
+  &__error {
+    color: $red;
   }
 }
