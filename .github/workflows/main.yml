@@ -34,6 +34,7 @@ jobs:
           echo "GATSBY_CODE_DURATIONS_LAMBDA=${{ secrets.GATSBY_CODE_DURATIONS_LAMBDA }}" >> $GITHUB_ENV
           echo "GATSBY_CODE_STATS_LAMBDA=${{ secrets.GATSBY_CODE_STATS_LAMBDA }}" >> $GITHUB_ENV
           echo "GATSBY_ACTIVITIES_LAMBDA=${{ secrets.GATSBY_ACTIVITIES_LAMBDA }}" >> $GITHUB_ENV
+          echo "GATSBY_TIME_ENTRIES_LAMBDA=${{ secrets.GATSBY_TIME_ENTRIES_LAMBDA }}" >> $GITHUB_ENV
       - name: Build
         run: npm run build
       - name: Set AWS credentials
