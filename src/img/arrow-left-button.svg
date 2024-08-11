@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="18"
+   height="18"
+   viewBox="0 0 18 18"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <rect
+     style="fill:#504945;fill-opacity:1;stroke-width:1.73229;stroke-linecap:square;stroke-linejoin:bevel"
+     id="rect1"
+     width="18"
+     height="18"
+     x="0"
+     y="0" />
+  <rect
+     style="fill:#a89984;fill-opacity:1;stroke-width:3.34818;stroke-linecap:square"
+     id="rect9"
+     width="18"
+     height="2.25"
+     x="0"
+     y="0" />
+  <rect
+     style="fill:#a89984;fill-opacity:1;stroke-width:3.81853;stroke-linecap:square"
+     id="rect12"
+     width="2.25"
+     height="18"
+     x="0.0093508782"
+     y="0" />
+  <rect
+     style="fill:#282828;fill-opacity:1;stroke-width:3.131;stroke-linecap:square"
+     id="rect10"
+     width="15.740648"
+     height="2.25"
+     x="2.259351"
+     y="15.75" />
+  <rect
+     style="fill:#282828;fill-opacity:1;stroke-width:3.81853;stroke-linecap:square"
+     id="rect11"
+     width="2.25"
+     height="18"
+     x="15.75"
+     y="0" />
+  <path
+     style="fill:#282828;fill-opacity:1;stroke-width:10.9918;stroke-linecap:square"
+     d="M 2.2593509,15.75 0.00935088,18 H 2.4185331 Z"
+     id="path8" />
+  <path
+     style="fill:#a89984;fill-opacity:1;stroke-width:3.29737;stroke-linecap:square"
+     d="M 15.75,2.25 18,0 h -2.55939 z"
+     id="path13" />
+  <path
+     d="M 10.913297,3.9008683 10.931032,14.099132 5.8230321,9.0088688 Z"
+     fill="#282828"
+     id="path1"
+     style="fill:#ebdbb2;fill-opacity:1;stroke-width:1.2748" />
+</svg>
