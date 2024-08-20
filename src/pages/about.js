@@ -18,21 +18,19 @@ export default function About() {
           </div>
         </div>
         <p>
-          Hi, I'm Thomas. I'm a self-taught software engineer currently working
-          at the BBC.
+          <i>Husband. Dad. Christian. </i>
         </p>
         <p>
-          This blog is a sort of scrapbook and probably only interesting to me!
+          Just kidding. My name is Thomas. I am a self-taught software engineer.
         </p>
         <p>
-          I document the details of my technical life so I can have a record of
-          progress when I look back. Doing this publicly motivates me to take
-          care with my writing and to be as clear as possible.{" "}
+          This blog is a mostly technical personal digital scrapbook and, as
+          such, of little interest to others. Hence I've put it on the internet.
         </p>
         <h3>Website theme</h3>
         <p>
-          This is my own design and something of a labour of love. Obviously it
-          is inspired by the peerless interfaces of yesteryear.
+          This is my own design and a labour of love, inspired by the peerless
+          interfaces of the past.
         </p>
         <p>
           In creating the UI elements I've studied{" "}
@@ -53,9 +51,15 @@ export default function About() {
           and the monospaced font is{" "}
           <a href="https://terminus-font.sourceforge.net/">Terminus</a>.
         </p>
+
+        <h3>The name</h3>
         <p>
-          If you are really keen you can look at the{" "}
-          <a href="https://github.com/thomasabishop">source code</a>.
+          A few years ago I forced myself to read <i>Paradise Lost</i> because I
+          became well obssessed with the English Civil Wars for some reason. (It
+          was worth it.) The phrase <i>systems obscure</i> popped into my head
+          one day around this time and is quite Miltonian, so I may have derived
+          it subconsciously. I find it a good catch-all for my interests,
+          technical and otherwise.
         </p>
       </UiGroup>
     </Main>
