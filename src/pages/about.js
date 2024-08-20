@@ -21,7 +21,8 @@ export default function About() {
           <i>Husband. Dad. Christian. </i>
         </p>
         <p>
-          Just kidding. My name is Thomas. I am a self-taught software engineer.
+          Just kidding. My name is Thomas. I am a self-taught software engineer
+          from London.
         </p>
         <p>
           This blog is a mostly technical personal digital scrapbook and, as
