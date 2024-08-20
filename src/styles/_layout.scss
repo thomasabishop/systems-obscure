@@ -71,6 +71,19 @@ h2.post__title {
   max-width: 768px;
 }
 
+div.responsive-svg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+
+  img {
+    min-width: 0;
+  }
+}
+
 .float {
   float: right;
   padding: 2rem;

@@ -2,7 +2,7 @@
 title: "Beckett quote"
 slug: /beckett-quote/
 date: 2023-10-19
-tags: ["random", "reading"]
+tags: ["quotes", "reading"]
 ---
 
 > For what is this shadow of the going in which we come, this shadow of the

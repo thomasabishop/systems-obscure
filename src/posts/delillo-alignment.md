@@ -2,7 +2,7 @@
 title: "DeLillo, alignment"
 slug: /delillo-alignment/
 date: 2023-04-16
-tags: ["random", "reading"]
+tags: ["quotes", "reading"]
 ---
 
 I am reading Don DeLillo's _Underworld_ (1997) at the moment. As we worry about
