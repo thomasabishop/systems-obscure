@@ -25,8 +25,8 @@ export default function About() {
           from London.
         </p>
         <p>
-          This blog is a mostly technical personal digital scrapbook and, as
-          such, of little interest to others. Hence I've put it on the internet.
+          This blog is a mostly technical digital scrapbook and, as such, of
+          little interest to others. Hence I've put it on the internet.
         </p>
         <h3>Website theme</h3>
         <p>
