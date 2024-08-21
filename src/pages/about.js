@@ -22,7 +22,7 @@ export default function About() {
         </p>
         <p>
           This blog is a mostly technical digital scrapbook and, as such, of
-          little interest to others.
+          little interest to others. Hence I put it on the internet.
         </p>
         <h3>Website theme</h3>
         <p>
