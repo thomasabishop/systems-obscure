@@ -18,11 +18,7 @@ export default function About() {
           </div>
         </div>
         <p>
-          <i>Husband. Dad. Christian. </i>
-        </p>
-        <p>
-          Just kidding. My name is Thomas. I am a self-taught software engineer
-          from London.
+          My name is Thomas. I am a self-taught software engineer from London.
         </p>
         <p>
           This blog is a mostly technical digital scrapbook and, as such, of
@@ -51,16 +47,6 @@ export default function About() {
           . The body font is <a href="https://fsd.it/shop/fonts/sys/">Sys</a>{" "}
           and the monospaced font is{" "}
           <a href="https://terminus-font.sourceforge.net/">Terminus</a>.
-        </p>
-
-        <h3>The name</h3>
-        <p>
-          A few years ago I forced myself to read <i>Paradise Lost</i> because I
-          became well obssessed with the English Civil Wars for some reason. (It
-          was worth it.) The phrase <i>systems obscure</i> popped into my head
-          one day around this time and is quite Miltonian, so I may have derived
-          it subconsciously. I find it a good catch-all for my interests,
-          technical and otherwise.
         </p>
       </UiGroup>
     </Main>
