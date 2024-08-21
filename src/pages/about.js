@@ -22,7 +22,7 @@ export default function About() {
         </p>
         <p>
           This blog is a mostly technical digital scrapbook and, as such, of
-          little interest to others. Hence I've put it on the internet.
+          little interest to others.
         </p>
         <h3>Website theme</h3>
         <p>
@@ -48,6 +48,15 @@ export default function About() {
           and the monospaced font is{" "}
           <a href="https://terminus-font.sourceforge.net/">Terminus</a>.
         </p>
+
+        <p>
+          The source code is{" "}
+          <a href="https://github.com/thomasabishop/systems-obscure">
+            available here
+          </a>
+          .
+        </p>
+        <div style={{ marginBottom: "2rem" }}></div>
       </UiGroup>
     </Main>
   )
