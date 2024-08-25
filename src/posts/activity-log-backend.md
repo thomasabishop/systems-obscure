@@ -9,9 +9,7 @@ I have just added a new feature to the site:
 [Activity Log](https://systemsobscure.blog/activity-log/), which presents my
 personal time tracking entries. This is how I configured the backend.
 
-<div class="responsive-svg">
-  <img src="./img/svg/timekeeping-diagram-new.svg" />
-</div>
+![](./img/timekeeping-diagram-new.png)
 
 On my local machine I use [TimeWarrior](https://timewarrior.net/docs/what/) to
 record the time I spend on different activities. It runs from the terminal and
