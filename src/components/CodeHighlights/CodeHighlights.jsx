@@ -65,6 +65,7 @@ const UiHighlights = ({ endpoint, reload }) => {
           <UiTimeControls
             timeRange={timeRange}
             onRangeChange={handleTimeRangeChange}
+            includeYear={true}
           />
         }
       >
