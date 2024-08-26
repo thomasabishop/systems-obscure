@@ -39,7 +39,7 @@ displayed:
 
 ![](./img/slack-notification-center.png)
 
-(The channel is called "Ripley" because I am an Alien fan. "processes" is the
+(The channel is called "Ripley" because I am an Alien fan! "processes" is the
 parent app to which the different webhooks belong.)
 
 I invoke the NodeJS script below when I want to set up a notification:
