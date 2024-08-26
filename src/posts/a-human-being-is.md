@@ -8,4 +8,4 @@ tags: ["quotes"]
 > A human being is a packet of propagating information that dissipates at death.
 
 I can't remember who said this or where it comes from but I just found it in an
-old notebook and it slaps.
+old notebook.
