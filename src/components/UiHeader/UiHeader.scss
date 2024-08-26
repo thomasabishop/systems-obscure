@@ -24,13 +24,16 @@
   }
 }
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+@supports (-webkit-appearance: none) and (not (-ms-ime-align: auto)) {
   .UiHeader {
-    height: 25px;
+    @media screen and (min-resolution: 1.25dppx) {
+      height: 25px;
 
-    &__title span {
-      margin-top: 0;
-      transform: translateY(-2px);
+      &__title span {
+        margin-top: 0;
+        transform: translateY(-2px);
+        color: red !important;
+      }
     }
   }
 }
