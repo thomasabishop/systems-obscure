@@ -10,7 +10,7 @@ export default function About() {
         <div className="float">
           <img alt="A portrait of the blog author" src={portrait} width="250" />
           <div className="caption">
-            Pictured with the Colossus Mk.2 at the{" "}
+            Pictured with the WITCH computer at the{" "}
             <a href="https://www.tnmoc.org/" target="_blank">
               National Museum of Computing
             </a>
