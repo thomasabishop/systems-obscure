@@ -13,7 +13,9 @@
 
 .UiDataTableFooter {
   @include flex-row;
-  @include outset-border-darker-inverted;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $black $greyLightest $greyLightest $black;
   background-color: $greyDark;
   max-height: 18px;
   justify-content: space-between;

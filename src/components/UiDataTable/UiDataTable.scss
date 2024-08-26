@@ -9,14 +9,14 @@
   .UiDataTable__table.fullwidth {
     display: grid;
     grid-auto-rows: min-content;
-    // row-gap: 1px;
+    //row-gap: 1px;
     overflow-y: hidden;
 
-    //height: 240px;
+    height: 240px;
 
     .headings {
       display: grid;
-      grid-template-columns: 120px 60px 95px 70px 1fr;
+      grid-template-columns: 90px 60px 90px 80px 1fr;
       //      margin-bottom: 2px;
       .header {
         max-height: 18px;
@@ -30,25 +30,42 @@
         }
       }
     }
+
+    .body {
+      border-top: 1px solid $greyLight;
+      border-bottom: 1px solid $greyLighter;
+      // border-left: 2px solid $greyLighter;
+      // border-right: 2px solid $greyDarkest;
+
+      background-color: $grey;
+
+      height: 216px;
+    }
+
     .rows {
       display: grid;
-      grid-template-columns: 120px 60px 95px 70px 1fr;
+      grid-template-columns: 90px 60px 90px 80px 1fr;
       margin: 0;
       height: 18px;
       max-height: 18px;
-      background-color: $grey;
+      //background-color: $grey;
       // border-top: 1px solid $greyLighter;
       // border-right: 1px solid $grey;
       // border-left: 1px solid $greyLightest;
       // border-bottom: 1px solid $grey;
       &:nth-child(odd) {
-        // background-color: $grey;
+        //        background-color: $grey;
+        // border-bottom: 1px solid $greyDark;
+        // border-right: 1px solid $greyDark;
+      }
+      &:nth-child(odd) {
+        //       background-color: $greyDark;
         // border-bottom: 1px solid $greyDark;
         // border-right: 1px solid $greyDark;
       }
 
       .cell-content {
-        padding: 0 0.25rem 0;
+        padding: 0 0.35rem 0;
         max-height: 20px;
         overflow: hidden;
         div span {
@@ -77,7 +94,7 @@
       display: grid;
       grid-template-columns: 80px 1fr;
       background-color: $grey;
-      border: 1px solid $greyDark;
+      //      border: 1px solid $greyDark;
       overflow-x: auto;
 
       .cell-header {

@@ -65,7 +65,9 @@ const UiDataTable = ({ headers = [], rows = [], loading, error }) => {
   return (
     <div className="UiDataTable">
       <div
-        className={`UiDataTable__table ${smallScreen ? "condensed" : "fullwidth"}`}
+        className={`UiDataTable__table ${
+          smallScreen ? "condensed" : "fullwidth"
+        }`}
       >
         <div className="headings">
           {headers.map((heading, i) => (
@@ -74,11 +76,13 @@ const UiDataTable = ({ headers = [], rows = [], loading, error }) => {
             </div>
           ))}
         </div>
-        {chunks[currentChunk]?.map((row, i) => (
-          <div className="rows">
-            {fields.map((field, j) => DataCell(headers, row, field, j))}
-          </div>
-        ))}
+        <div className="body">
+          {chunks[currentChunk]?.map((row, i) => (
+            <div className="rows">
+              {fields.map((field, j) => DataCell(headers, row, field, j))}
+            </div>
+          ))}
+        </div>
       </div>
       <UiDataTableFooter
         loading={loading}
