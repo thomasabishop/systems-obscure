@@ -5,11 +5,10 @@
   @include default-font;
   @include outset-border;
   background-color: $greyDark;
-  max-height: 25px;
-  max-height: 25px;
-  height: 20px;
+  //  min-height: 20px;
+  height: 25px;
   line-height: 1;
-  padding: 3px 8px;
+  padding: 0px 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,6 +20,17 @@
     span {
       display: block;
       margin-top: 4px;
+    }
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .UiHeader {
+    height: 25px;
+
+    &__title span {
+      margin-top: 0;
+      transform: translateY(-2px);
     }
   }
 }
