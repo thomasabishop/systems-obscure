@@ -6,7 +6,7 @@ tags: ["learning", "electronics"]
 ---
 
 My first project is the _hello world_ of hobbyist electronics: a simple LED
-circuit
+circuit.
 
 ![](./img/new-circuit-photo-again.jpg)
 
