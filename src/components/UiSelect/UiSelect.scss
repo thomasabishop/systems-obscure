@@ -73,3 +73,10 @@
     }
   }
 }
+
+/* Windows Chrome and Edge-specific adjustments */
+.windows-chrome-edge .Header {
+  .UiSelect__single-value {
+    padding-top: 0 !important;
+  }
+}
