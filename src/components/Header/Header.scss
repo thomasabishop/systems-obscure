@@ -47,3 +47,10 @@ $borderLight: #fa9a5c;
     display: inline-block;
   }
 }
+
+/* Windows Chrome and Edge-specific adjustments */
+.windows-chrome-edge .Header {
+  h2 {
+    padding-top: 0;
+  }
+}
