@@ -24,16 +24,13 @@
   }
 }
 
-@supports (-webkit-appearance: none) and (not (-ms-ime-align: auto)) {
-  .UiHeader {
-    @media screen and (min-resolution: 1.25dppx) {
-      height: 25px;
+/* Windows Chrome and Edge-specific adjustments */
+.windows-chrome-edge .UiHeader {
+  height: 25px;
 
-      &__title span {
-        margin-top: 0;
-        transform: translateY(-2px);
-        color: red !important;
-      }
-    }
+  &__title span {
+    color: red !important;
+    margin-top: 0;
+    transform: translateY(-2px);
   }
 }
