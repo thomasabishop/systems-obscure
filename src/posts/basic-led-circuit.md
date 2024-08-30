@@ -5,7 +5,7 @@ date: 2024-05-22
 tags: ["learning", "electronics"]
 ---
 
-My first project is the _hello world_ of hobbyist electronics: a simple LED
+My first project is the hello world of hobbyist electronics: a simple LED
 circuit.
 
 ![](./img/new-circuit-photo-again.jpg)
