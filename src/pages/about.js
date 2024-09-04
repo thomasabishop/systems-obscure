@@ -27,7 +27,12 @@ export default function About() {
           Doing this publicly motivates me to take care with my writing and to
           be as clear as possible.{" "}
         </p>
-
+        <p>
+          Currently I work for the BBC. Before that I worked for{" "}
+          <a href="https://www.arria.com/">Arria NLG </a>. And long before I was
+          a software engineer I was a primary school teacher. I did my degree in
+          Philosophy at the University of Warwick.
+        </p>
         <p>
           <a href="https://github.com/thomasabishop" target="_blank">
             GitHub
