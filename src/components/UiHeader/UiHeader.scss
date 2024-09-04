@@ -6,20 +6,24 @@
   @include outset-border;
   background-color: $greyDark;
   //  min-height: 20px;
-  height: 25px;
+  //height: 25px;
   line-height: 1;
   padding: 0px 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: 25px;
   &__title {
     display: flex;
     align-items: center;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
     span {
       display: block;
-      margin-top: 4px;
     }
   }
 }
