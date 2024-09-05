@@ -9,7 +9,6 @@
   .UiDataTable__table.fullwidth {
     display: grid;
     grid-auto-rows: min-content;
-    //row-gap: 1px;
     overflow-y: hidden;
 
     height: 240px;
@@ -34,8 +33,6 @@
     .body {
       border-top: 1px solid $greyLight;
       border-bottom: 1px solid $greyLighter;
-      // border-left: 2px solid $greyLighter;
-      // border-right: 2px solid $greyDarkest;
 
       background-color: $grey;
 
@@ -48,22 +45,6 @@
       margin: 0;
       height: 18px;
       max-height: 18px;
-      //background-color: $grey;
-      // border-top: 1px solid $greyLighter;
-      // border-right: 1px solid $grey;
-      // border-left: 1px solid $greyLightest;
-      // border-bottom: 1px solid $grey;
-      &:nth-child(odd) {
-        //        background-color: $grey;
-        // border-bottom: 1px solid $greyDark;
-        // border-right: 1px solid $greyDark;
-      }
-      &:nth-child(odd) {
-        //       background-color: $greyDark;
-        // border-bottom: 1px solid $greyDark;
-        // border-right: 1px solid $greyDark;
-      }
-
       .cell-content {
         padding: 0 0.35rem 0;
         max-height: 20px;
@@ -94,7 +75,6 @@
       display: grid;
       grid-template-columns: 80px 1fr;
       background-color: $grey;
-      //      border: 1px solid $greyDark;
       overflow-x: auto;
 
       .cell-header {

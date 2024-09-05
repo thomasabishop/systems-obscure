@@ -10,10 +10,14 @@
     justify-content: space-between;
     align-items: center;
     div {
-      font-size: 14px;
+      font-size: 12px;
+    }
+    &__visible {
+      opacity: 0;
     }
   }
-  &__visible {
-    opacity: 0;
+
+  .conditional {
+    margin-top: 0.5rem;
   }
 }

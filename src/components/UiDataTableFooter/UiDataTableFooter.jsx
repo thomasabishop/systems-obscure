@@ -8,6 +8,7 @@ import rightArrowPressed from "../../img/arrow-right-button-pressed.svg"
 const UiDataTableFooter = ({
   loading,
   error,
+  warning,
   pageCount,
   totalRows,
   currentPage,
@@ -34,6 +35,16 @@ const UiDataTableFooter = ({
       <div className="UiDataTableFooter">
         <div className="UiDataTableFooter__error">
           <div>{error}</div>
+        </div>
+      </div>
+    )
+  }
+
+  if (warning) {
+    return (
+      <div className="UiDataTableFooter">
+        <div className="UiDataTableFooter__loading">
+          <div>{warning}</div>
         </div>
       </div>
     )
