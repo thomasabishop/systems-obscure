@@ -145,3 +145,5 @@ export default function ActivityLog() {
     </Main>
   )
 }
+
+export const Head = () => <title>Activity Log | Systems Obscure</title>
