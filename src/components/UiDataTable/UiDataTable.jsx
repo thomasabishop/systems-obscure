@@ -26,7 +26,7 @@ const DataCell = (headers, row, field, index) => {
   )
 }
 
-const UiDataTable = ({ headers = [], rows = [], loading, error }) => {
+const UiDataTable = ({ headers = [], rows = [], loading, error, warning }) => {
   const [chunks, setChunks] = useState([])
   const [currentChunk, setCurrentChunk] = useState(0)
   const [smallScreen, setSmallScreen] = useState(false)
@@ -87,6 +87,7 @@ const UiDataTable = ({ headers = [], rows = [], loading, error }) => {
       <UiDataTableFooter
         loading={loading}
         error={error}
+        warning={warning}
         pageCount={chunks.length}
         totalRows={rows.length}
         currentPage={currentChunk + 1}

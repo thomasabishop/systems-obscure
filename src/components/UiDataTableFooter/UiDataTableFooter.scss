@@ -22,7 +22,6 @@
   padding: 0px 0px 0px 0.25rem;
   padding-bottom: 0;
   font-style: bold;
-  // gap: 15px;
 
   &__pages {
     display: inline-grid;
@@ -50,18 +49,14 @@
       @include strip-button-styles;
       height: 18px;
       width: 18px;
-
-      // @include paginate-button;
-      // &:active {
-      //   border-color: $black $greyLightest $greyLightest $black;
-      // }
     }
   }
   &__error,
   &__count,
   &__pages,
-  &__loading {
-    margin-top: 3px;
+  &__loading,
+  &__warning {
+    margin-top: 2px;
   }
 
   &__loading {
