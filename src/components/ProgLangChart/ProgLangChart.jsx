@@ -19,7 +19,7 @@ const ProgLangChart = ({ endpoint, reload }) => {
     "code_metrics_programming_languages",
     {}
   )
-  const [timeRange, setTimeRange] = useState("last_7_days")
+  const [timeRange, setTimeRange] = useState("last_30_days")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
