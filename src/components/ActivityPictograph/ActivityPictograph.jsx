@@ -7,7 +7,7 @@ import {
   getMonthLabel,
 } from "./lib"
 
-import UiStaticTooltip from "../UiStaticTooltip/UiStaticTooltip"
+import PictographTooltip from "../PictographTooltip/PictographTooltip"
 
 const ActivityPictograph = ({
   handleDaySelect,
@@ -95,7 +95,7 @@ const ActivityPictograph = ({
             Reset
           </button>
         </div>
-        <UiStaticTooltip
+        <PictographTooltip
           x={hoveredDay ? dateToBritFormat(hoveredDay) : selectedDay}
           conditionalStyles=""
         />

@@ -1,4 +1,6 @@
-.UiStaticTooltip {
+@import "../../styles/variables";
+.PictographTooltip {
+  //background-color: $grey;
   display: flex;
   justify-content: flex-end;
   min-height: 20px;

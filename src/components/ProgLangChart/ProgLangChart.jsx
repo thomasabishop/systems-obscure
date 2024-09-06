@@ -6,6 +6,9 @@ import axios from "axios"
 import useSessionStorage from "../../hooks/useSessionStorage"
 
 const orange = "#e78a4e"
+const red = "#ea6962"
+const blue = "#7daea3"
+const aqua = "#8dc07c"
 
 const getLanguage = (datum) => datum.language
 const getPercent = (datum) => datum.percent
@@ -90,6 +93,7 @@ const ProgLangChart = ({ endpoint, reload }) => {
         yUnit="%"
         getX={getLanguage}
         getY={getPercent}
+        chartId="programming-languages-chart"
       />
 
       {}
