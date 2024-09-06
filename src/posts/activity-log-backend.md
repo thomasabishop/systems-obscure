@@ -9,7 +9,7 @@ I have just added a new feature to the site:
 [Activity Log](https://systemsobscure.blog/activity-log/), which presents my
 personal time tracking entries. This is how I configured the backend.
 
-![](./img/timekeeping-diagram-new.png)
+![](./img/activity-log-diagram-darker.png)
 
 On my local machine I use [TimeWarrior](https://timewarrior.net/docs/what/) to
 record the time I spend on different activities. It runs from the terminal and
@@ -18,9 +18,20 @@ can be exported to JSON.
 To access the data remotely, I needed to store it in a database and be able to
 regularly export the time entries from my machine to the remote DB.
 
-I created a simple AWS Lambda with two endpoints. A POST that receives data and
-adds it to the database and a GET that returns the entries for a specified time
-period.
+I created a simple AWS Lambda with a few endpoints:
+
+- A POST that receives data and adds it to the database.
+- A GET at `/count` that returns a count of the entries for each day for the
+  last twelve months
+- A GET at `/month` that returns the entries for the last month
+- A GET at `/day` that returns the entries for the specified single date
+
+The idea is that the frontend will first present all the entries for the current
+month in a table. Along with this there will be histogram similar to GitHub's
+commit graph that will present a colour coded representation of the amount of
+activity for each day in the last year. When the user clicks on a day, a request
+is made for the entries for that day. That way I don't have to load all the
+entries into memory at once.
 
 In development, I used MySQL but it turns out that production SQL databases are
 prohibitively expensive on AWS. This figures as MySQL requires a permanently
@@ -102,7 +113,7 @@ Workbench_ client:
 ![NoSQL workbench](./img/no-sql-workbench.png)
 
 Creating the Lambda with TypeScript was simple enough using the AWS SDK. Here is
-the function that executes on the GET endpoint:
+the function that I use to return the entries for the month and specific dates:
 
 ```ts
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb"
