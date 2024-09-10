@@ -1,7 +1,7 @@
 ---
 title: "Suppressing logs and  errors in Jest"
 slug: /suppressing-logs-errors-jest/
-date: 2024-10-09
+date: 2024-09-10
 tags: ["javascript", "unit-testing"]
 ---
 
