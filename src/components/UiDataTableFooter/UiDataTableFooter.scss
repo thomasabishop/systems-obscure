@@ -13,14 +13,15 @@
 
 .UiDataTableFooter {
   @include flex-row;
-  @include outset-border-darker-inverted;
+  border-width: 2px;
+  border-style: solid;
+  border-color: $black $greyLightest $greyLightest $black;
   background-color: $greyDark;
   max-height: 18px;
   justify-content: space-between;
   padding: 0px 0px 0px 0.25rem;
   padding-bottom: 0;
   font-style: bold;
-  // gap: 15px;
 
   &__pages {
     display: inline-grid;
@@ -45,17 +46,17 @@
 
     button.previous,
     button.next {
-      @include paginate-button;
-      &:active {
-        border-color: $black $greyLightest $greyLightest $black;
-      }
+      @include strip-button-styles;
+      height: 18px;
+      width: 18px;
     }
   }
   &__error,
   &__count,
   &__pages,
-  &__loading {
-    margin-top: 3px;
+  &__loading,
+  &__warning {
+    margin-top: 2px;
   }
 
   &__loading {

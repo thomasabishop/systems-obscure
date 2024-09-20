@@ -2,6 +2,7 @@ import React from "react"
 import Main from "../templates/main/Main"
 import UiGroup from "../components/UiGroup/UiGroup"
 import portrait from "../img/portrait.jpg"
+import UiButton from "../components/UiButton/UiButton"
 
 export default function About() {
   return (
@@ -10,7 +11,7 @@ export default function About() {
         <div className="float">
           <img alt="A portrait of the blog author" src={portrait} width="250" />
           <div className="caption">
-            Pictured with the Colossus Mk.2 at the{" "}
+            Pictured with the WITCH computer at the{" "}
             <a href="https://www.tnmoc.org/" target="_blank">
               National Museum of Computing
             </a>
@@ -18,45 +19,55 @@ export default function About() {
           </div>
         </div>
         <p>
-          Hi, I'm Thomas. I'm a self-taught software engineer currently working
-          at the BBC.
+          My name is Thomas. I am a self-taught software engineer from London.
         </p>
         <p>
-          This blog is a sort of scrapbook and probably only interesting to me!
+          This blog is a technical scrapbook. I document the details of my
+          technical life so I can have a record of progress when I look back.
+          Doing this publicly motivates me to take care with my writing and to
+          be as clear as possible.{" "}
         </p>
         <p>
-          I document the details of my technical life so I can have a record of
-          progress when I look back. Doing this publicly motivates me to take
-          care with my writing and to be as clear as possible.{" "}
+          Currently I work for the BBC. Before that I worked for{" "}
+          <a href="https://www.arria.com/">Arria NLG </a>. And long before I was
+          a software engineer I was a primary school teacher. I did my degree in
+          Philosophy at the University of Warwick.
+        </p>
+        <p>
+          <a href="https://github.com/thomasabishop" target="_blank">
+            GitHub
+          </a>
         </p>
         <h3>Website theme</h3>
         <p>
-          This is my own design and something of a labour of love. Obviously it
-          is inspired by the peerless interfaces of yesteryear.
+          This is my own design and a labour of love, inspired by the peerless
+          interfaces of the past.
         </p>
         <p>
-          In creating the UI elements I've studied{" "}
+          I've drawn on many great resources in creating the UI:{" "}
           <a href="https://jdan.github.io/98.css">98.css</a>, the{" "}
           <a href="https://github.com/grassmunk/Chicago95">
             Chicago95 GTK theme
           </a>
-          , and the{" "}
+          , the{" "}
           <a href="http://toastytech.com/guis/index.html">
             Graphical User Interface Gallery
           </a>{" "}
-          which is a terrific compendium of screenshots of old operating
-          systems. The colour palette is derived from {""}
+          and the{" "}
+          <a href="https://www.webdesignmuseum.org/">Web Design Museum</a>, to
+          name a few.
+        </p>
+        <p>
+          The colour scheme is derived from{" "}
           <a href="https://github.com/sainnhe/gruvbox-material">
             Gruvbox Material
           </a>
           . The body font is <a href="https://fsd.it/shop/fonts/sys/">Sys</a>{" "}
           and the monospaced font is{" "}
-          <a href="https://terminus-font.sourceforge.net/">Terminus</a>.
+          <a href="https://terminus-font.sourceforge.net/">Pragmata Pro</a>.
         </p>
-        <p>
-          If you are really keen you can look at the{" "}
-          <a href="https://github.com/thomasabishop">source code</a>.
-        </p>
+
+        <div style={{ marginBottom: "2rem" }}></div>
       </UiGroup>
     </Main>
   )

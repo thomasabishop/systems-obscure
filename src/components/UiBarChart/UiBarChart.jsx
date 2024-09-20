@@ -1,14 +1,14 @@
 import React, { useState, useMemo, useEffect } from "react"
-import UiStaticTooltip from "../UiStaticTooltip/UiStaticTooltip"
+import UiStaticTooltip from "../PictographTooltip/PictographTooltip"
 import { useParentSize } from "@visx/responsive"
 import { scaleBand, scaleLinear } from "@visx/scale"
 import { Group } from "@visx/group"
 import { PatternLines } from "@visx/pattern"
 import { Bar } from "@visx/shape"
 import { AxisBottom } from "@visx/axis"
-
-const textColor = "#fbf1c7"
-const tickColor = "#665c54"
+import ChartTooltip from "../ChartTooltip/ChartTooltip"
+const textColor = "#ebdbb2"
+const tickColor = "#32302f"
 
 const height = 300
 
@@ -21,11 +21,10 @@ const UiBarChart = ({
   error,
   barColour,
   timeRange,
-  xMetric,
-  yMetric,
-  yUnit,
   getX,
   getY,
+  xMetric,
+  yMetric,
 }) => {
   const [smallScreen, setSmallScreen] = useState(false)
   const [tooltipData, setTooltipData] = useState({})
@@ -89,11 +88,8 @@ const UiBarChart = ({
     <span>Loading...</span>
   ) : (
     <>
-      <UiStaticTooltip
-        x={tooltipData?.[xMetric]}
-        y={`${tooltipData?.[yMetric]} ${yUnit}`}
-      />
-      <div className="ui-responsive-chart-wrapper" ref={parentRef}>
+      <ChartTooltip data={tooltipData} x={xMetric} y={yMetric} />
+      <div className={`ui-responsive-chart-wrapper`} ref={parentRef}>
         <svg width={width} height={height} className="visx-svg-chart">
           <rect width={width} height={height} fill="transparent" />
           <Group left={horizontalMargin / 2} top={verticalMargin / 2}>
@@ -108,10 +104,10 @@ const UiBarChart = ({
                 <React.Fragment key={`labeled-bar-${date}`}>
                   <PatternLines
                     id="lines"
-                    height={8}
-                    width={8}
+                    height={6}
+                    width={6}
                     stroke={barColour}
-                    strokeWidth={1}
+                    strokeWidth={2}
                     orientation={["diagonal"]}
                   />
 
@@ -119,6 +115,8 @@ const UiBarChart = ({
                     key={`bar-${date}`}
                     x={barX}
                     y={barY}
+                    stroke="#282828"
+                    strokeWidth={1}
                     width={barWidth}
                     height={barHeight}
                     fill="url(#lines)"
@@ -157,11 +155,6 @@ const UiBarChart = ({
           </Group>
         </svg>
       </div>
-      {smallScreen && (
-        <div className="ui-chart-instruction">
-          <span>Select bar to view data</span>
-        </div>
-      )}
     </>
   )
 }

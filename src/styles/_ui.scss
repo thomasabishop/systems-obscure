@@ -3,6 +3,7 @@
 .ui-responsive-chart-wrapper {
   width: 100%;
   max-width: 748px;
+  background-color: $greyLight;
 }
 
 .ui-button-wrapper {
@@ -22,13 +23,17 @@
 }
 
 .ui-visx-axis-line {
-  stroke: $greyLight;
+  stroke: $greyDark;
   stroke-width: 1px;
 }
 
 .ui-visx-axis-tick text {
   font-family: $fontFamilySans;
-  font-style: italic;
+  //  font-style: italic;
+}
+
+.ui-background-wrapper {
+  // background-color: $greyLight;
 }
 
 @media (max-width: 599px) {

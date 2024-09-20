@@ -71,17 +71,43 @@ h2.post__title {
   max-width: 768px;
 }
 
+div.responsive-svg {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem 0;
+
+  img {
+    min-width: 0;
+  }
+}
+
 .float {
   float: right;
-  padding: 2rem;
+  //padding-left: 1rem;
+  padding: 1rem;
+  text-align: center;
   .caption {
     padding-top: 5px;
     font-size: 14px;
     max-width: 300px;
     font-style: italic;
+    a {
+      font-size: 14px;
+    }
   }
-  @media (max-width: 576px) {
+}
+
+@media (max-width: 576px) {
+  .float {
+    text-align: center;
     float: none;
     padding: 0;
+  }
+  .caption {
+    min-width: 100%;
+    width: 100%;
   }
 }

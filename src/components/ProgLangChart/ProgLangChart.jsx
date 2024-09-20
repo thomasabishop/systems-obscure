@@ -6,6 +6,9 @@ import axios from "axios"
 import useSessionStorage from "../../hooks/useSessionStorage"
 
 const orange = "#e78a4e"
+const red = "#ea6962"
+const blue = "#7daea3"
+const aqua = "#8dc07c"
 
 const getLanguage = (datum) => datum.language
 const getPercent = (datum) => datum.percent
@@ -16,7 +19,7 @@ const ProgLangChart = ({ endpoint, reload }) => {
     "code_metrics_programming_languages",
     {}
   )
-  const [timeRange, setTimeRange] = useState("last_7_days")
+  const [timeRange, setTimeRange] = useState("last_30_days")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
@@ -90,6 +93,7 @@ const ProgLangChart = ({ endpoint, reload }) => {
         yUnit="%"
         getX={getLanguage}
         getY={getPercent}
+        chartId="programming-languages-chart"
       />
 
       {}

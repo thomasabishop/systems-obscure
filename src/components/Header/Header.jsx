@@ -14,7 +14,10 @@ export default function Header() {
               alt="some alt text"
               className="computer-image"
             />
-            <h2 className="site-title">Systems Obscure</h2>
+            <div className="title-spacer">
+              <div></div>
+              <h2 className="site-title">Systems Obscure</h2>
+            </div>
           </div>
         </Link>
       </div>

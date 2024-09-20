@@ -2,7 +2,7 @@ const formatDate = (isoString) => {
   const date = new Date(isoString)
   return date
     .toLocaleString("en-GB", {
-      weekday: "short",
+      //     weekday: "short",
       day: "2-digit",
       month: "short",
       year: "2-digit",

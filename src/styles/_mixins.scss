@@ -3,6 +3,12 @@
   color: $color;
 }
 
+@mixin strip-button-styles {
+  all: unset;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
 @mixin flex-row {
   display: flex;
   flex-direction: row;

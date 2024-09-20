@@ -1,33 +1,50 @@
-import React from "react"
+import React, { useState } from "react"
 import "./UiDataTableFooter.scss"
-
-const ChevronIcon = () => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="10"
-      height="10"
-      viewBox="0 0 10 10"
-    >
-      <path d="M0 0 L5 5 L10 0 Z" fill="#ebdbb2" />
-    </svg>
-  )
-}
+import leftArrow from "../../img/arrow-left-button.svg"
+import leftArrowPressed from "../../img/arrow-left-button-pressed.svg"
+import rightArrow from "../../img/arrow-right-button.svg"
+import rightArrowPressed from "../../img/arrow-right-button-pressed.svg"
 
 const UiDataTableFooter = ({
   loading,
   error,
+  warning,
   pageCount,
   totalRows,
   currentPage,
   onLoadNextPage,
   onLoadPrevPage,
 }) => {
+  const [leftPressed, setLeftPressed] = useState(false)
+  const [rightPressed, setRightPressed] = useState(false)
+
+  const handleBackClick = () => {
+    setLeftPressed(true)
+    onLoadPrevPage()
+    setTimeout(() => setLeftPressed(false), 150)
+  }
+
+  const handleForwardClick = () => {
+    setRightPressed(true)
+    onLoadNextPage()
+    setTimeout(() => setRightPressed(false), 150)
+  }
+
   if (error) {
     return (
       <div className="UiDataTableFooter">
         <div className="UiDataTableFooter__error">
           <div>{error}</div>
+        </div>
+      </div>
+    )
+  }
+
+  if (warning) {
+    return (
+      <div className="UiDataTableFooter">
+        <div className="UiDataTableFooter__loading">
+          <div>{warning}</div>
         </div>
       </div>
     )
@@ -50,11 +67,11 @@ const UiDataTableFooter = ({
         </>
       )}
       <div className="UiDataTableFooter__controls">
-        <button className="previous" onClick={onLoadPrevPage}>
-          <ChevronIcon />
+        <button className="previous" onClick={handleBackClick}>
+          <img src={leftPressed ? leftArrowPressed : leftArrow} />
         </button>
-        <button className="next" onClick={onLoadNextPage}>
-          <ChevronIcon />
+        <button className="previous" onClick={handleForwardClick}>
+          <img src={rightPressed ? rightArrowPressed : rightArrow} />
         </button>
       </div>
     </div>

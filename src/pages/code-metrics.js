@@ -19,13 +19,10 @@ export default function CodeMetrics() {
   return (
     <Main>
       <UiGroup title="Code Metrics">
-        <p style={{ marginBottom: "0" }}>
+        <p>
           This dashboard integrates data on my coding activity from several
           APIs.
         </p>
-        <div className="ui-button-wrapper">
-          <UiButton action={clearCache} text="Clear cache" />
-        </div>
 
         <CodeHighlights endpoint={codeStatsEndpoint} reload={triggerReload} />
 

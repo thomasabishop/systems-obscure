@@ -16,7 +16,7 @@ const TimeCodingChart = ({ endpoint, reload }) => {
     "code_metrics_time_coding",
     {}
   )
-  const [timeRange, setTimeRange] = useState("last_7_days")
+  const [timeRange, setTimeRange] = useState("last_30_days")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
@@ -70,31 +70,34 @@ const TimeCodingChart = ({ endpoint, reload }) => {
   }, [reload])
 
   return (
-    <UiGroup
-      title="Time coding"
-      minHeight={350}
-      controls={
-        <UiTimeControls
+    <div className="ui-background-wrapper">
+      <UiGroup
+        title="Time coding"
+        minHeight={350}
+        controls={
+          <UiTimeControls
+            timeRange={timeRange}
+            onRangeChange={handleTimeRangeChange}
+          />
+        }
+      >
+        <UiBarChart
+          data={data}
+          error={error}
+          loading={loading}
+          barColour={orange}
           timeRange={timeRange}
-          onRangeChange={handleTimeRangeChange}
+          xMetric="date"
+          yMetric="duration"
+          yUnit="hrs"
+          getX={getDate}
+          getY={getDuration}
+          chartId="time-coding-chart"
         />
-      }
-    >
-      <UiBarChart
-        data={data}
-        error={error}
-        loading={loading}
-        barColour={orange}
-        timeRange={timeRange}
-        xMetric="date"
-        yMetric="duration"
-        yUnit="hrs"
-        getX={getDate}
-        getY={getDuration}
-      />
 
-      {}
-    </UiGroup>
+        {}
+      </UiGroup>
+    </div>
   )
 }
 

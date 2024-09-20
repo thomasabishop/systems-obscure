@@ -37,7 +37,7 @@ $borderLight: #fa9a5c;
   }
 
   h2 {
-    padding-top: 3px;
+    //    padding-top: 3px;
     color: #282828 !important;
     font-size: 20px;
     margin: 0;
@@ -45,5 +45,17 @@ $borderLight: #fa9a5c;
   }
   span {
     display: inline-block;
+  }
+}
+
+.Header .box-outline .header-contents .title-spacer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.windows-chrome-edge .Header {
+  .box-outline .header-contents .title-spacer {
+    gap: 0;
+    margin-bottom: 3px;
   }
 }

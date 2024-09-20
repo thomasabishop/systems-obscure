@@ -1,7 +1,7 @@
 import React from "react"
 import "./UiTimeControls.scss"
 
-const UiTimeControls = ({ timeRange, onRangeChange }) => {
+const UiTimeControls = ({ timeRange, onRangeChange, includeYear }) => {
   const handleClick = (timeRange) => {
     onRangeChange(timeRange)
   }
@@ -43,24 +43,25 @@ const UiTimeControls = ({ timeRange, onRangeChange }) => {
           onth
         </span>
       </div>
-
-      <div
-        className={`UiTimeControls__option ${
-          timeRange === "last_year" ? "UiTimeControls__option--active" : ""
-        }`}
-        onClick={() => handleClick("last_year")}
-      >
-        <span>
-          <span
-            className={`ui-char-emph ${
-              timeRange === "last_year" ? "ui-char-emph__active" : ""
-            }`}
-          >
-            Y
+      {includeYear && (
+        <div
+          className={`UiTimeControls__option ${
+            timeRange === "last_year" ? "UiTimeControls__option--active" : ""
+          }`}
+          onClick={() => handleClick("last_year")}
+        >
+          <span>
+            <span
+              className={`ui-char-emph ${
+                timeRange === "last_year" ? "ui-char-emph__active" : ""
+              }`}
+            >
+              Y
+            </span>
+            ear
           </span>
-          ear
-        </span>
-      </div>
+        </div>
+      )}
     </div>
   )
 }

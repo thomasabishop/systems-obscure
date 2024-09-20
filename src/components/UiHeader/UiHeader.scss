@@ -5,22 +5,38 @@
   @include default-font;
   @include outset-border;
   background-color: $greyDark;
-  max-height: 25px;
-  max-height: 25px;
-  height: 20px;
+  height: 25px;
   line-height: 1;
-  padding: 3px 8px;
+  padding: 0px 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  height: 25px;
   &__title {
     display: flex;
     align-items: center;
     font-weight: bold;
-    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
     span {
-      padding-top: 4px;
+      display: block;
     }
+  }
+}
+
+/* Windows Chrome and Edge-specific adjustments */
+// .windows-chrome-edge .UiHeader {
+//   height: 25px;
+//   &__title span {
+//     margin-top: 0;
+//   }
+// }
+
+.windows-chrome-edge .UiHeader {
+  &__title {
+    gap: 2px;
   }
 }
