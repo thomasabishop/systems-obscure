@@ -34,9 +34,9 @@ const ActivityPictograph = ({
   }, [])
 
   const generateShade = (count) => {
-    if (count === 1) return "yellow"
-    if (count === 2) return "orange"
-    if (count >= 3) return "red"
+    if (count === 1 || count < 3) return "yellow"
+    if (count === 3) return "orange"
+    if (count >= 4) return "red"
     return "blank"
   }
 
