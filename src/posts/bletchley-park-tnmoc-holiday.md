@@ -1,12 +1,13 @@
 ---
-title: "Visit to Bletchley Park and National Museum of Computing"
+title: "Visit to Bletchley Park, National Museum of Computing"
 slug: /bletchley-park-tnmoc-holiday/
 date: 2024-08-07
 tags: ["personal", "beige"]
 ---
 
-As part of our holiday this year my girlfriend and I went to visit Bletchley
-Park and The National Museum of Computing.
+As part of our holiday this year my girlfriend and I went to visit
+[Bletchley Park](https://bletchleypark.org.uk/) and
+[The National Museum of Computing](https://www.tnmoc.org/).
 
 With our customary taste for luxury, we stayed in one of the three Premier Inns
 in Milton Keynes. Milton Keynes is strange: a car park in search of a town.
