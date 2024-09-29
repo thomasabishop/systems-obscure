@@ -1,5 +1,5 @@
 ---
-title: "Visit to Bletchley Park, National Museum of Computing"
+title: "Visit to Bletchley Park and TNMOC"
 slug: /bletchley-park-tnmoc-holiday/
 date: 2024-08-07
 tags: ["personal", "beige"]
