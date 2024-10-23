@@ -117,7 +117,7 @@ Here are some of my highlights...
 ![Circuit boards](./img/circuit-boards.jpg)
 
 <div style="text-align:center; margin-bottom:1rem">
-<i>Lookin' at circuit boards</i>
+<i>Looking at circuit boards</i>
 </div>
 
 ![IBM PC](./img/ibm-pc.jpg)
@@ -129,7 +129,7 @@ Here are some of my highlights...
 ![Cute keycaps](./img/keycaps.jpg)
 
 <div style="text-align:center; margin-bottom:1rem">
-<i>Would you look at those keycaps</i>
+<i>Where did we go wrong with interface design?</i>
 </div>
 
 ![Cute keycaps](./img/gaby-bbc-micro.jpg)
@@ -153,5 +153,5 @@ Here are some of my highlights...
 ![PDP-11 programming instructions](./img/pdp-decompressed.jpg)
 
 <div style="text-align:center; margin-bottom:1rem">
-<i>Instructions for programming the PDP-11 from DEC. Lurve the graphic design.</i>
+<i>Instructions for programming the PDP-11 from DEC</i>
 </div>
