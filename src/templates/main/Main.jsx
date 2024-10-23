@@ -1,6 +1,6 @@
 import React from "react"
 import Header from "../../components/Header/Header"
-import notByAiBadge from "../../img/not-by-ai-gruvbox.svg"
+import notByAiBadge from "../../img/not-by-ai-alternative--gruvbox-material.svg"
 
 export default function Main(props) {
   return (
@@ -9,7 +9,7 @@ export default function Main(props) {
       <div className="main">
         {props.children}
         <img
-          style={{ width: "100px" }}
+          //          style={{ width: "150px" }}
           src={notByAiBadge}
           alt="Written by a human, not by AI"
         />
