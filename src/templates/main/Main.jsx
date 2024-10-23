@@ -9,7 +9,7 @@ export default function Main(props) {
       <div className="main">
         {props.children}
         <img
-          //          style={{ width: "150px" }}
+          style={{ width: "100px" }}
           src={notByAiBadge}
           alt="Written by a human, not by AI"
         />
