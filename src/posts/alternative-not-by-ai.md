@@ -1,7 +1,7 @@
 ---
 title: '"Not by AI"'
 slug: /alternative-not-by-ai/
-date: 2024-11-23
+date: 2024-10-23
 tags: ["AI"]
 ---
 
