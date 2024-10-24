@@ -24,6 +24,13 @@ formatting to this copy. This generator executes locally when I push to the
 remote and creates a Neuron directory which is then built (via a GitHub Action)
 and deployed via GitHub pages.
 
+![Neuron generator output](./img/running-neuron-generator.png)
+
+<div style="text-align:center">
+<i>It's really satisfying running the generator, commit, and notification with a
+    single command alias whenever I want to publish.</i>
+</div>
+
 It applies some basic CSS changes and also generates dynamic content for the
 home page, displaying the build ID, publication date, a page count and the most
 recently updated files along with an index:
