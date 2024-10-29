@@ -1,6 +1,6 @@
 import React from "react"
 import Header from "../../components/Header/Header"
-import notByAiBadge from "../../img/not-by-ai-alternative--gruvbox-material.svg"
+import notByAiBadge from "../../img/not-by-ai-alternative--gruvbox-material6.svg"
 
 export default function Main(props) {
   return (
