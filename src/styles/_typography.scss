@@ -27,7 +27,8 @@ p,
 ol,
 ul,
 a,
-blockquote {
+blockquote,
+.footer {
   font-family: $fontFamilySans;
   color: $white;
   font-size: 16px;

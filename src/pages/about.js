@@ -4,6 +4,7 @@ import UiGroup from "../components/UiGroup/UiGroup"
 import portrait from "../img/portrait.jpg"
 import UiButton from "../components/UiButton/UiButton"
 
+import notByAiBadge from "../img/not-by-ai-alternative--gruvbox-material6.svg"
 export default function About() {
   return (
     <Main>
@@ -69,6 +70,12 @@ export default function About() {
         </p>
 
         <div style={{ marginBottom: "2rem" }}></div>
+
+        <img
+          style={{ width: "100px" }}
+          src={notByAiBadge}
+          alt="Written by a human, not by AI"
+        />
       </UiGroup>
     </Main>
   )

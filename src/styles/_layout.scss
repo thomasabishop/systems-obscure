@@ -10,7 +10,7 @@ body,
 }
 
 .main {
-  padding-bottom: 2rem;
+  //  padding-bottom: 2rem;
 }
 
 body {
@@ -110,4 +110,13 @@ div.responsive-svg {
     min-width: 100%;
     width: 100%;
   }
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border: 2px solid $grey;
 }

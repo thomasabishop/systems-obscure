@@ -14,6 +14,11 @@ export default function Main(props) {
           alt="Written by a human, not by AI"
         />
       </div>
+      <div className="footer">
+        <a href="https://hachyderm.io/@systemsobscure" target="_blank">
+          Mastodon
+        </a>
+      </div>
     </>
   )
 }
