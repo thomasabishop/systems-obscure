@@ -2,7 +2,7 @@
 title: "Visit to Bletchley Park and TNMOC"
 slug: /bletchley-park-tnmoc-holiday/
 date: 2024-08-07
-tags: ["personal", "beige"]
+tags: ["personal", "beige", "gruvbox"]
 ---
 
 As part of our holiday this year my girlfriend and I went to visit

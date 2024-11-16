@@ -29,11 +29,22 @@ export default function About() {
           be as clear as possible.{" "}
         </p>
         <p>
-          Currently I work for the BBC. Before that I worked for{" "}
-          <a href="https://www.arria.com/">Arria NLG</a> and in several web
-          developer roles. Before I was a software engineer I was a primary
-          school teacher. I did my degree in Philosophy at the University of
-          Warwick.
+          Currently I work for{" "}
+          <a
+            href="https://en.wikipedia.org/wiki/ITV_(TV_network)"
+            target="_blank"
+          >
+            ITV
+          </a>{" "}
+          {""}
+          as a backend software engineer. Before that I worked as a full-stack
+          software engineer at the{" "}
+          <a href="https://en.wikipedia.org/wiki/BBC">BBC</a> and as a frontend
+          engineer at <a href="https://www.arria.com/">Arria NLG</a> and in
+          several web developer roles. Before I was a software engineer I was a
+          primary school teacher. I did my degree in Philosophy at the
+          University of Warwick and my Postgraduate Certificate of Education at
+          Middlesex University.
         </p>
         <p>
           <a href="https://github.com/thomasabishop" target="_blank">

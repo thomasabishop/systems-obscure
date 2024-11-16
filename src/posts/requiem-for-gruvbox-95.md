@@ -2,7 +2,7 @@
 title: "Requiem for Gruvbox95"
 slug: /requiem-for-gruvbox-95/
 date: 2024-07-31
-tags: ["projects", "beige"]
+tags: ["projects", "gruvbox", "beige"]
 ---
 
 ![Gruvbox95 screenshot](./img/gruvbox95.png)
