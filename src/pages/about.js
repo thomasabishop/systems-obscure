@@ -46,11 +46,7 @@ export default function About() {
           University of Warwick and my Postgraduate Certificate of Education at
           Middlesex University.
         </p>
-        <p>
-          <a href="https://github.com/thomasabishop" target="_blank">
-            GitHub
-          </a>
-        </p>
+
         <h3>Website theme</h3>
         <p>
           This is my own design and a labour of love, inspired by the peerless
