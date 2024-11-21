@@ -43,9 +43,13 @@ export default function Post({ data }) {
 }
 
 export const Head = ({ data }) => (
-	<>
+	<React.Fragment>
+		<meta
+			name="fediverse:creator"
+			content="@systemsobscure@hachyderm.io"
+		></meta>
 		<title>{data.markdownRemark.frontmatter.title} | Systems Obscure</title>
-	</>
+	</React.Fragment>
 )
 
 export const query = graphql`
