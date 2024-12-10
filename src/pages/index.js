@@ -34,7 +34,6 @@ export default function HomePage({
 export const Head = () => (
 	<>
 		<title>Systems Obscure</title>
-		<link href="https://hachyderm.io/@systemsobscure" rel="me" />
 		<link href="https://hachyderm.io/@systemsobscure" rel="me"></link>
 		<link
 			rel="stylesheet"
