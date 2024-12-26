@@ -5,6 +5,8 @@ date: 2024-10-24
 tags: ["projects", "log", "eolas"]
 ---
 
+![Diagram of service](./img/eolas-static-diag.png)
+
 I'm now publishing [my zettelkasten](https://github.com/thomasabishop/eolas)
 publicly at
 [https://thomasabishop.github.io/eolas/](https://thomasabishop.github.io/eolas/).
@@ -35,4 +37,4 @@ It applies some basic CSS changes and also generates dynamic content for the
 home page, displaying the build ID, publication date, a page count and the most
 recently updated files along with an index:
 
-![Screenshot of Neuron static site](./img/neuron-eolas-screenshot-small.png)
+![Screenshot of Neuron static site](./img/cropped-eolas-fe.png)
