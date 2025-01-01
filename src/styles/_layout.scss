@@ -20,7 +20,9 @@ body {
 }
 
 .computer-image {
-  width: 30px;
+  display: none;
+  width: 32px;
+  height: 32px;
 }
 
 h2.post__title {
@@ -50,20 +52,25 @@ h2.post__title {
 .post-metadata__date {
   font-size: 14px;
   display: inline-block;
-  // font-style: italic;
-  //  margin-right: 0.75rem;
 }
 
 .post-metadata__tag {
   font-size: 14px;
-  // margin-left: 0.25rem;
 }
 
 .links {
-  // margin-bottom: 1rem;
-  * {
-    margin-right: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  @media (max-width: 576px) {
+    flex-direction: column;
+    gap: 0.5rem;
   }
+
+  //  justify-content: space-between;
+  // * {
+  //   margin-right: 1rem;
+  // }
 }
 
 .gatsby-highlight {
@@ -122,4 +129,19 @@ div.responsive-svg {
   * {
     margin-left: 1rem;
   }
+}
+
+.ui-nested-section {
+  // border: 2px solid $grey;
+  // padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.header-with-controls {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid $grey;
+  margin-bottom: 0.5rem;
 }

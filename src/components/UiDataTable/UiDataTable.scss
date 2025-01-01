@@ -25,7 +25,7 @@
         padding-left: 0.25rem;
         span {
           display: inline-block;
-          padding-top: 2px;
+          //   padding-top: 2px;
         }
       }
     }
@@ -51,7 +51,7 @@
         overflow: hidden;
         div span {
           display: inline-block;
-          padding-top: 2px;
+          //padding-top: 2px;
           margin: 0;
         }
       }
@@ -73,7 +73,7 @@
 
     .rows {
       display: grid;
-      grid-template-columns: 80px 1fr;
+      grid-template-columns: 90px 1fr;
       background-color: $grey;
       overflow-x: auto;
 
@@ -85,14 +85,14 @@
         @include outset-border-darker;
         padding-left: 0.25rem;
         padding-bottom: 0;
-        padding-top: 2px;
+        // padding-top: 2px;
       }
 
       .cell-content {
         margin-left: 10px;
         padding-bottom: 0;
-        padding-top: 5px;
-        padding-bottom: 0;
+        // padding-top: 5px;
+        // padding-bottom: 0;
         max-height: 18px;
         height: 18px;
       }

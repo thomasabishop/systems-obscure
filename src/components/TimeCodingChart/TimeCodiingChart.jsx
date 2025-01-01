@@ -70,33 +70,27 @@ const TimeCodingChart = ({ endpoint, reload }) => {
   }, [reload])
 
   return (
-    <div className="ui-background-wrapper">
-      <UiGroup
-        title="Time coding"
-        minHeight={350}
-        controls={
-          <UiTimeControls
-            timeRange={timeRange}
-            onRangeChange={handleTimeRangeChange}
-          />
-        }
-      >
-        <UiBarChart
-          data={data}
-          error={error}
-          loading={loading}
-          barColour={orange}
+    <div className="ui-nested-section" style={{ minHeight: "350px" }}>
+      <div className="header-with-controls">
+        <h3>Time coding</h3>
+        <UiTimeControls
           timeRange={timeRange}
-          xMetric="date"
-          yMetric="duration"
-          yUnit="hrs"
-          getX={getDate}
-          getY={getDuration}
-          chartId="time-coding-chart"
+          onRangeChange={handleTimeRangeChange}
         />
-
-        {}
-      </UiGroup>
+      </div>
+      <UiBarChart
+        data={data}
+        error={error}
+        loading={loading}
+        barColour={orange}
+        timeRange={timeRange}
+        xMetric="date"
+        yMetric="duration"
+        yUnit="hrs"
+        getX={getDate}
+        getY={getDuration}
+        chartId="time-coding-chart"
+      />
     </div>
   )
 }

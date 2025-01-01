@@ -1,16 +1,16 @@
 @import "../../styles/variables";
 .ChartTooltip {
-  padding: 2px 8px;
+  padding: 0.5rem;
   display: flex;
   justify-content: flex-end;
   min-height: 20px;
   min-width: 100px;
-  background-color: $grey;
+  //  background-color: $grey;
   .tooltip-content {
     display: flex;
     flex-direction: column;
     gap: 3px;
-    font-size: 12px;
+    font-size: 14px;
   }
   &__wrapper {
     display: flex;

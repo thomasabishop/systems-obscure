@@ -3,15 +3,15 @@
 .UiFilterControls {
   display: inline-block;
   position: relative;
-  line-height: 0 !important;
-  padding-top: 1px;
+  //  line-height: 0 !important;
+  //  padding-top: 1px;
   select {
     font-family: $fontFamilySans;
     color: $white;
-    font-size: 1rem;
+    // font-size: 1rem;
     background-color: $buttonBackground;
     border: 0px solid $buttonHover;
-    padding: 3px 28px 0px 4px;
+    //padding: 3px 28px 0px 4px;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -20,8 +20,8 @@
     // Dropdown arrow
     background-image: url("../../img/icons/arrow.svg");
     background-repeat: no-repeat;
-    background-position: right 1px center;
-    background-size: 16px;
+    //    background-position: right 1px center;
+    //    background-size: 16px;
 
     &:focus {
       outline: none;

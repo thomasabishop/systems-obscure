@@ -48,14 +48,14 @@ const PostListing = ({ graphqlEdges }) => {
   return (
     <UiGroup
       title="Posts"
-      controls={
-        <UiSelect
-          defaultValue={tagFilter}
-          onChange={setTagFilter}
-          options={tagFilterOptions}
-          placeholder="Filter..."
-        />
-      }
+      // controls={
+      //   <UiSelect
+      //     defaultValue={tagFilter}
+      //     onChange={setTagFilter}
+      //     options={tagFilterOptions}
+      //     placeholder="Filter..."
+      //   />
+      // }
     >
       <div>{Posts}</div>
     </UiGroup>

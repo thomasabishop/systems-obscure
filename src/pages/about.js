@@ -49,8 +49,8 @@ export default function About() {
 
         <h3>Website theme</h3>
         <p>
-          This is my own design and a labour of love, inspired by the peerless
-          interfaces of the past.
+          This is my own design and a labour of love, inspired by the interfaces
+          of the past.
         </p>
         <p>
           I've drawn on many great resources in creating the UI:{" "}
@@ -71,18 +71,16 @@ export default function About() {
           <a href="https://github.com/sainnhe/gruvbox-material">
             Gruvbox Material
           </a>
-          . The body font is <a href="https://fsd.it/shop/fonts/sys/">Sys</a>{" "}
-          and the monospaced font is{" "}
-          <a href="https://terminus-font.sourceforge.net/">Pragmata Pro</a>.
+          .
         </p>
 
         <div style={{ marginBottom: "2rem" }}></div>
 
-        <img
+        {/* <img
           style={{ width: "100px" }}
           src={notByAiBadge}
           alt="Written by a human, not by AI"
-        />
+        /> */}
       </UiGroup>
     </Main>
   )

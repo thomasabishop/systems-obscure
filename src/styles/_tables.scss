@@ -2,54 +2,20 @@
 
 table {
   width: 100%;
-  padding: 0.25rem;
   background-color: $greyLight;
-  font-size: 14px;
-  border-spacing: 0;
-  line-height: 1.2;
   overflow-y: auto;
-  a {
-    font-size: 14px;
-  }
-}
-
-tbody tr:first-child td {
-  padding-top: 5px;
-}
-
-tbody tr:last-child td {
-  // border-bottom: 2px solid $black;
-}
-
-tbody tr td:first-child {
-  // border-left: 2px solid $greyLighter;
-  // border-right: 2px solid $greyLighter;
-}
-
-tbody tr td:nth-child(n) {
-  //  border-left: 2px solid $greyLighter;
-}
-
-tbody tr td:last-child {
-  //  border-right: 2px solid $black;
 }
 
 thead th {
   @include outset-border-darker;
-  line-height: 1;
-  padding: 0 0.25rem;
-  padding-top: 5px;
+  padding-left: 0.5rem;
   background-color: $greyDark;
   color: $white;
   text-align: left;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 td {
-  padding-left: 0.35rem;
   background-color: $grey;
+  padding-left: 0.5rem;
 }
-
-// td:nth-child(odd) {
-//   background-color: $grey;
-// }

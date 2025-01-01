@@ -58,17 +58,16 @@ const UiHighlights = ({ endpoint, reload }) => {
 
   return (
     <>
-      <UiGroup
-        child
-        title="Highlights"
-        controls={
+      <div className="ui-nested-section">
+        <div className="header-with-controls">
+          <h3>Highlights</h3>
           <UiTimeControls
             timeRange={timeRange}
             onRangeChange={handleTimeRangeChange}
             includeYear={true}
           />
-        }
-      >
+        </div>
+
         <UiScorecard
           label="Total time"
           metric={unixSecondsToDay(data?.total_seconds)}
@@ -87,7 +86,21 @@ const UiHighlights = ({ endpoint, reload }) => {
           loading={loading}
           error={error}
         />
-      </UiGroup>
+      </div>
+
+      {/* <UiGroup
+        child
+        title="Highlights"
+        controls={
+          <UiTimeControls
+            timeRange={timeRange}
+            onRangeChange={handleTimeRangeChange}
+            includeYear={true}
+          />
+        }
+      >
+        
+      </UiGroup> */}
     </>
   )
 }

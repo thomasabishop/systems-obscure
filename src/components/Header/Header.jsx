@@ -16,7 +16,7 @@ export default function Header() {
             />
             <div className="title-spacer">
               <div></div>
-              <h2 className="site-title">Systems Obscure</h2>
+              <h1 className="site-title">Systems Obscure</h1>
             </div>
           </div>
         </Link>
