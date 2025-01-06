@@ -17,7 +17,7 @@ export default function HomePage({
         <UiGroup title="Pages">
           <div className="links">
             <Link to="/about">About</Link>
-            <Link to="/code-metrics">Code Metrics</Link>
+            {/* <Link to="/code-metrics">Code Metrics</Link> */}
             <Link to="/activity-log">Activity Log</Link>
             <a href="https://thomasabishop.github.io/eolas/" target="_blank">
               Zettelkasten
