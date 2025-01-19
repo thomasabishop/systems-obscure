@@ -9,14 +9,15 @@ body,
   min-height: 90% !important;
 }
 
-.main {
-  //  padding-bottom: 2rem;
+body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1rem; // Add padding for smaller screens
+  background: #1d2021;
 }
 
-body {
-  max-width: 768px;
-  background: #282828;
-  max-width: 768px;
+.main {
+  //  background: #282828;
 }
 
 .computer-image {

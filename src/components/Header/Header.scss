@@ -13,11 +13,11 @@ $borderLight: #fa9a5c;
   align-items: center;
   flex-direction: row;
   margin: 0 0 1rem;
-  border-width: 2px;
-  border-style: solid;
-  border-color: $borderLight $borderDark $borderDark $borderLight;
+  // border-width: 2px;
+  // border-style: solid;
+  // border-color: $borderLight $borderDark $borderDark $borderLight;
   background-color: $orange;
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem;
 
   a {
     text-decoration: none !important;

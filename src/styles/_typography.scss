@@ -50,7 +50,7 @@ h6 {
 h1.site-title {
   font-size: clamp(rem(24px), 4vw, rem(28px));
   line-height: 1.1; // Reduced from 1.2
-  letter-spacing: -0.2px;
+  // letter-spacing: -0.2px;
   color: #282828 !important;
 }
 
@@ -65,6 +65,8 @@ h2.section-heading-title {
 
 a {
   color: $aqua;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 p code,

@@ -7,7 +7,7 @@ table {
 }
 
 thead th {
-  @include outset-border-darker;
+  //  @include outset-border-darker;
   padding-left: 0.5rem;
   background-color: $greyDark;
   color: $white;
