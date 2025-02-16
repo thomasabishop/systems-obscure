@@ -146,3 +146,9 @@ div.responsive-svg {
   border-bottom: 1px solid $grey;
   margin-bottom: 0.5rem;
 }
+
+@media (min-width: 576px) {
+  .about-wrapper {
+    padding-bottom: 2rem;
+  }
+}
