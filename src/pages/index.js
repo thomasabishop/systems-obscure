@@ -18,7 +18,7 @@ export default function HomePage({
           <div className="links">
             <Link to="/about">About</Link>
             {/* <Link to="/code-metrics">Code Metrics</Link> */}
-            <Link to="/activity-log">Activity Log</Link>
+            {/* <Link to="/activity-log">Activity Log</Link> */}
             <a href="https://thomasabishop.github.io/eolas/" target="_blank">
               Zettelkasten
             </a>
