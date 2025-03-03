@@ -1,5 +1,5 @@
 ---
-title: "Self-hosting journey: initial setup"
+title: "Self-hosting: initial setup"
 slug: /self-hosting-1-initial-setup/
 date: 2025-02-23
 tags: ["projects"]
@@ -229,12 +229,94 @@ To                         Action      From
 
 (This automatically applies the rules for IPv6 as well as IPv4.)
 
+## Fail2Ban
+
+As an additional security measure I installed `fail2ban`. This software is
+designed to work alongside your firewall to detect and block brute-force login
+attempts. You apply it to services running on specific ports at the Application
+Layer.
+
+Debian does not come with the `rsyslog` package installed and `fail2ban` works
+best with this logging program rather than `systemd` and its `journalctl` logs.
+I tried to get it working with `systemd` but kept facing errors I couldn't
+resolve, so I just installed `rsyslog` along with `fail2ban`:
+
+```sh
+sudo apt install fail2ban
+sudo apt install rsyslog
+
+sudo systemctl start rsyslog
+sudo systemctl enable rsyslog
+sudo systemctl start fail2ban
+sudo systemctl enable fail2ban
+```
+
+I didn't change any of the `fail2ban` defaults. On Debian it runs on the `sshd`
+server automatically and this is the only service I have running currently.
+
+I waited a while and then checked the status:
+
+```sh
+sudo fail2ban-client status sshd
+```
+
+Which gave me:
+
+```
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed: 2
+|  |- Total failed:     55
+|  `- File list:        /var/log/auth.log
+`- Actions
+   |- Currently banned: 0
+   |- Total banned:     6
+   `- Banned IP list:
+
+```
+
+The IP addresses of actors that make repeated failed login attempts are put in a
+temporary "jail" by `fail2ban` which means they are blocked for a limited time
+period. The data above tells me that there have been 55 total attempted failed
+logins and this has resulted in 6 IPs being put in jail! However this is just
+normal background noise in serverland.
+
+When I take a look in `var/log/auth.log`, I see entries like:
+
+```
+Disconnected from authenticating user root 218.92.0.236 port 22272 [preauth]
+
+```
+
+This indicates a malicious actor trying gain access as root but being blocked by
+the earlier root protections.
+
+There are also entries like this:
+
+```
+ Connection closed by invalid user postgres 195.211.190.228 port 47454 [preauth]
+
+```
+
+Which shows a speculative attempt to try and connect to a non-existing
+PostgreSQL service.
+
+These will typically be bots trying their luck at scale rather than actual
+people.
+
+Alongside the malicious attempts I see my own legimate logins and invocations of
+root as `sudo`:
+
+```
+pam_unix(sudo:session): session opened for user root(uid=0) by <my_username>(uid=1000)
+```
+
 This was enough for one Sunday! In my next post I'll detail how I set up DNS and
 SSL for the new server.
 
 ## Resources
 
-In researching how to do the above, I created or drew on the following entries
+In researching how to do the above, I created or expanded the following entries
 in my Zettelkasten:
 
 - [Firewalls](https://thomasabishop.github.io/eolas/Firewalls)
