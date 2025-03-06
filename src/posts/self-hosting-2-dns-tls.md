@@ -89,9 +89,9 @@ Let's Encrypt will then make an HTTP request to this URL ( e.g
 ownership and conferring the certificate.
 
 `certbot` saves the certificate (and several associated cryptographic tokens) to
-the `/etc/letsencrypt/live` directory. To confirm:
+the `/etc/letsencrypt/live` directory.
 
-![Let's Encrypt certificates](./img/lets-encrypt-certs.png)
+![Let's Encrypt certificates](./img/certbot_confirm.png)
 
 As I currently don't have any services running over HTTP, the certificates won't
 actually be used yet, but they are ready to go. In my next post I will finally
