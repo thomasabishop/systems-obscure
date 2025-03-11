@@ -5,8 +5,8 @@ date: 2025-02-23
 tags: ["projects"]
 ---
 
-With the way the internet Internet (and the world) is going, the benefits of
-self-hosting the services you rely on is becoming increasingly obvious.
+With the way the Internet (and the world) is going, the benefits of self-hosting
+the services you rely on is becoming increasingly apparent.
 
 I have been using AWS to run a limited set microservices on the Free Tier but
 doing anything interesting with an actual server and database becomes expensive
@@ -15,8 +15,8 @@ opted to maintain a remote virtual private server. The skills I gain here will
 obviously transfer to the physical context.
 
 I intend to run a series of third-party FOSS applications on different
-subdomains via Docker containers. I will also be deploying my own software as
-Docker images.
+subdomains via Docker containers. I will also be deploying my own software using
+Docker.
 
 This post goes over the initial setup and configuration of the server.
 
@@ -34,8 +34,8 @@ am just starting out.
 </div>
 
 I opted for the German company, Hetzner. Being in the EU means their digital
-privacy laws are better than the UK and Germany's 20th century history has
-created more of a culture of resistance to surveillance than other EU states.
+privacy laws are better than the UK and Germany's recent history has created
+more of a culture of resistance to surveillance than other EU states.
 
 I chose their CX21 Cloud package which provides the following for just under €4
 a month:
@@ -182,12 +182,12 @@ server provides a degree of "defence in depth". It will also potentially reduce
 the load on the server if blocked requests are deflected at the Network Layer
 before reaching the server.
 
-It would of course be better to block by IP, and only open the SSH port to
-requests from my local network (HTTP/HTTPS is obviously public and open to all).
-This isn't an option because my my broadband package doesn't include a static
-IP. One way around this would be to deploy another Hetzner server and set it up
-as a VPN. I would then restrict port 22 to requests from that server's IP and
-connect to the VPN server first. This might be a project further down the line.
+It would be better to block by IP, and only open the SSH port to requests from
+my local network (HTTP/HTTPS is obviously public and open to all). This isn't an
+option because my my broadband package doesn't include a static IP. One way
+around this would be to deploy another Hetzner server and set it up as a VPN. I
+would then restrict port 22 to requests from that server's IP and connect to the
+VPN server first. This might be a project further down the line.
 
 To set up the host firewall I used `ufw` (Uncomplicated Firewall):
 

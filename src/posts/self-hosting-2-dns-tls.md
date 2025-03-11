@@ -8,20 +8,21 @@ tags: ["projects"]
 In my [previous post](./self-hosting-1-initial-setup.md) I described how I
 purchased my VPS package, initialised a server, created a user and applied some
 basic server-hardening procedures. In this post I'll record how I set up DNS and
-the certification necessary to handle encrypted communications.
+the certification necessary to enable encrypted client-server communication over
+HTTPS.
 
 ## DNS
 
 As it stands, my server exists on the Internet but can only be reached via its
-IPv4 address. This is sufficient to connect over SSH but eventually I want to
-run services over HTTPS and to do that I need a domain name.
+IPv4 address. This is sufficient to connect via SSH but eventually I want to
+host HTTP services and to do that I need a domain name.
 
 I purchased the domain _systemsobscure.net_ from Namecheap. I'm not mad about
 using a US company but it is indeed cheap and has a better record when it comes
 to privacy than its main competitor, Cloudflare.
 
-Once purchased, I just needed to set up the A Records that match an IP to a
-domain name:
+Once purchased, I needed to set up the A Records that match an IP to a domain
+name:
 
 ![Setting up A Records in Namecheap](./img/dns-records-detail.png)
 
@@ -41,23 +42,31 @@ ssh my_username@systemsobscure.net
 
 ## TLS certification
 
-Next I needed to generate TLS certificates for the domain. In order for clients
-to communicate with my server over HTTPS I need to authenticate the server. The
-existence of a TLS certificate is a prerequisite for establishing the trust
-necessary to initiate encrypted communication.
+Next I needed to generate a TLS certificate for the domain. Certificates provide
+a mechanism for independently verifying domain ownership which serves as a
+safeguard against impersonation and man-in-the-middle attacks. (Imagine if
+someone was able to impersonate the domain of your online banking provider; they
+could intercept and steal your account details.)
+
+Establishing trust through a certificate is a prerequisite for the initiation of
+encrypted communication between client and server. Once the client has validated
+the server's certificate, it can use the server's public cryptographic key
+(supplied with the certificate) to create a shared cipher that will encrypt the
+subsequent HTTP messages.
 
 The process essentially works as follows. A client will request a resource on my
-server. The server will offer its TLS certificate which contains a public
-cryptographic key. The client will confirm the certificate is valid via a
-Certificate Authority and then use the public key to send the server an
-encrypted message. This will be decrypted by the server (using it's private key)
+server. The server will offer its TLS certificate which contains its public key.
+The client will confirm the certificate is valid and issued by a reputable
+Certificate Authority. It will then use the public key to send the server an
+encrypted message. This will be decrypted by the server (using its private key)
 and used to create a shared key that both client and server will use to encrypt
 their subsequent messages.
 
 All of this happens silently at the Transport Layer - a layer lower in the
 network stack that the actual applications running over HTTPS (TLS stands for
-_Transport Layer Security_). You only become aware of it if a website has an
-invalid certificate or if it is using unencrypted HTTP.
+_Transport Layer Security_). You only become aware of it when your browser
+alerts you to the fact that a website has an invalid certificate or is using
+unencrypted HTTP.
 
 Thankfully, this algorithmic complexity is not the immediate concern of the
 server administrator! You can use a tool called `certbot` to generate the
@@ -81,7 +90,7 @@ sudo certbot certonly --stanalone -d systemsobscure.net
 
 This command does quite a lot. It creates a temporary web server on port 80 and
 then sends a request to [Let's Encrypt](https://letsencrypt.org/) (the body
-responsible for generating certificates), asking for a "challenge" to prove
+responsible for generating the certificates), asking for a "challenge" to prove
 domain ownership. Let's Encrypt will send a token to `certbot` and `certbot`
 will dutifully place the token in a file that is served at a URL over port 80.
 Let's Encrypt will then make an HTTP request to this URL ( e.g
@@ -93,7 +102,7 @@ the `/etc/letsencrypt/live` directory.
 
 ![Let's Encrypt certificates](./img/certbot_confirm.png)
 
-As I currently don't have any services running over HTTP, the certificates won't
+As I currently don't have any services running on HTTP, the certificates won't
 actually be used yet, but they are ready to go. In my next post I will finally
 create my first self-hosted service which can now be served using my dedicated
 domain name over HTTPS!
