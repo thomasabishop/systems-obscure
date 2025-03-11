@@ -38,7 +38,7 @@ const PostListing = ({ graphqlEdges }) => {
 
   const [currentPage, setCurrentPage] = useState(0)
 
-  const postsPerPage = 15
+  const postsPerPage = 18
   const totalPages = Math.ceil(graphqlEdges.length / postsPerPage)
   const currentPosts = useMemo(() => {
     const startIndex = currentPage * postsPerPage
@@ -78,7 +78,6 @@ const PostListing = ({ graphqlEdges }) => {
   return (
     <UiGroup
       title="Posts"
-      minHeight="24rem"
       footer={
         <div className="post-listing-footer">
           <button

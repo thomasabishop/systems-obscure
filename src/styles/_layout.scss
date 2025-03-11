@@ -152,11 +152,6 @@ div.responsive-svg {
   margin-bottom: 0.5rem;
 }
 
-.post-listing-body {
-  @media (min-width: 576px) {
-    height: calc(100vh - 350px);
-  }
-}
 
 .post-listing-footer {
   width: 100%;
