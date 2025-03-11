@@ -9,6 +9,7 @@ const UiGroup = ({
   controls,
   children,
   minHeight = undefined,
+  footer = null,
 }) => {
   const variant = child ? `UiGroup__child` : `UiGroup`
   return (
@@ -17,6 +18,8 @@ const UiGroup = ({
       <div className="content" style={{ minHeight: minHeight }}>
         {children}
       </div>
+
+      {footer}
     </div>
   )
 }
