@@ -2,7 +2,7 @@
 title: "Self-hosting: initial setup"
 slug: /self-hosting-1-initial-setup/
 date: 2025-02-23
-tags: ["projects"]
+tags: ["projects", "self-hosting"]
 ---
 
 With the way the Internet (and the world) is going, the benefits of self-hosting
@@ -37,7 +37,7 @@ I opted for the German company, Hetzner. Being in the EU means their digital
 privacy laws are better than the UK and Germany's recent history has created
 more of a culture of resistance to surveillance than other EU states.
 
-I chose their CX21 Cloud package which provides the following for just under €4
+I chose their CX22 Cloud package which provides the following for just under €4
 a month:
 
 - 2 virtual CPUs (Intel)
@@ -68,8 +68,8 @@ Layer, over SSH.
 
 Once the server was spun up the obvious next step was to connect to it and start
 configuring from the inside. To do this I needed SSH access. This was
-straightforward, I just added my local machine's public key via the Hetzner and
-then connected with:
+straightforward, I just added my local machine's public key via the Hetzner
+console and then connected with:
 
 ```sh
 ssh root@<server_ip4_address>
@@ -127,11 +127,11 @@ this time as `my_username`:
 ssh <my_username>@<server_ip4_address>
 ```
 
-Having confirmed SSH login I installed two packages to make configuration
-easier: `zsh` for managing my shell and `vim-tiny` for text-editing:
+Having confirmed SSH login I installed a lightweight version of vim
+([vim-tiny](https://www.baeldung.com/linux/vim-tiny-properties)) to make
+text-editing easier.
 
 ```sh
-sudo apt install zsh
 sudo apt install vim-tiny
 ```
 
@@ -139,19 +139,19 @@ sudo apt install vim-tiny
 
 An important server-hardening routine is to prevent password logins as root.
 
-To do this I needed to edit the root SSH config:
+To do this I edited the root SSH config:
 
 ```sh
 sudo vim /etc/sshd_config
 ```
 
-Then added the following:
+And added the following:
 
 ```
 PasswordAuthentication no
 ```
 
-Then restarted the SSH daemon:
+Then I restarted the SSH daemon:
 
 ```
 sudo systemctl restart sshd
@@ -165,12 +165,12 @@ is best practice. I haven't set a root password, so if I attempt to login as
 root when logged in as `my_username` (with `su -`), all attempts will fail.
 
 When I need to run processes as root, I will do this exclusively by assuming
-`sudo` and to do this, I need to enter my password for `my_username`.
+`sudo` and to do this, I need to enter the password for `my_username`.
 
 ## Firewall
 
 Earlier, I set up a firewall from outside of the server, using the Hetzner
-Console. I'm now going to do the same thing but from within the server as
+console. I'm now going to do the same thing but from within the server as
 `my_username`. It will share the same rules. This means I have a firewall at the
 Network Layer (Hetzner) blocking requests before they reach the server and a
 firewall operating at the Application Layer for those requests that get to the
@@ -195,7 +195,7 @@ To set up the host firewall I used `ufw` (Uncomplicated Firewall):
 sudo apt install ufw
 ```
 
-This is a wrapper for the venerable `iptables` that makes the process simpler.
+This is a wrapper for the venerable `iptables` that simplifies the process.
 
 I applied the same basic rules as earlier:
 
@@ -279,7 +279,7 @@ The IP addresses of actors that make repeated failed login attempts are put in a
 temporary "jail" by `fail2ban` which means they are blocked for a limited time
 period. The data above tells me that there have been 55 total attempted failed
 logins and this has resulted in 6 IPs being put in jail! However this is just
-normal background noise in serverland.
+normal background noise in serverland and nothing to particularly worry about.
 
 When I take a look in `var/log/auth.log`, I see entries like:
 
