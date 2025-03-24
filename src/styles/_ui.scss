@@ -37,8 +37,13 @@
 }
 
 @media (max-width: 599px) {
+
   .ui-visx-axis-tick,
   .ui-visx-bar-label {
     display: none;
   }
+}
+
+.gatsby-resp-image-image {
+  box-shadow: none !important;
 }
