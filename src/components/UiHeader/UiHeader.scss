@@ -4,13 +4,14 @@
 .UiHeader {
   @include default-font;
   //  @include outset-border;
-  background-color: $grey;
-  color: $white;
+  //  background-color: $grey;
+
+  color: $orange;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-
+  justify-content: start;
+  border-radius: 3px 3px 0px 0px;
   padding: 0.5rem;
 
   &__title {

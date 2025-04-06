@@ -13,7 +13,7 @@ body {
   max-width: 700px;
   margin: 0 auto;
   padding: 1rem; // Add padding for smaller screens
-  background: #1d2021;
+  background: #282828;
 }
 
 .main {
@@ -59,15 +59,40 @@ h2.post__title {
   font-size: 14px;
 }
 
+a.post-metadata__tag {
+  font-weight: 400 !important;
+}
+
 .links {
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
 
-  @media (max-width: 576px) {
+  &--item {
+    a {
+      flex: 1;
+      font-weight: 500;
+    }
+
+    span {
+      font-size: 14px;
+    }
+
+
+    // @media (max-width: 576px) {
+    //   flex-direction: column;
+    //   //  gap: 0.5rem;
+    // }
+
+
+    width: 100%;
+    display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: space-around;
   }
+
+
 
   //  justify-content: space-between;
   // * {
@@ -103,7 +128,8 @@ div.responsive-svg {
     padding-top: 5px;
     font-size: 14px;
     max-width: 300px;
-    font-style: italic;
+    line-height: 1.3;
+    //font-style: italic;
 
     a {
       font-size: 14px;
@@ -160,7 +186,7 @@ div.responsive-svg {
   align-items: center;
   justify-content: space-between;
   height: 2rem;
-  background: $grey;
+  background: transparent;
   color: $white;
   font-weight: 500;
 
@@ -173,7 +199,7 @@ div.responsive-svg {
   button {
     @include strip-button-styles;
     height: 100%;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
     width: fit-content;
     color: $white;
   }

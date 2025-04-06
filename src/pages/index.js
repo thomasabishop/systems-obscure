@@ -19,12 +19,27 @@ export default function HomePage({
             <Link to="/about">About</Link>
             {/* <Link to="/code-metrics">Code Metrics</Link> */}
             {/* <Link to="/activity-log">Activity Log</Link> */}
-            <a href="https://thomasabishop.github.io/eolas/" target="_blank">
-              Zettelkasten
-            </a>
           </div>
         </UiGroup>
-
+        <UiGroup title="External resources">
+          <div className="links">
+            <div className="links--item">
+              <a
+                href="https://forgejo.systemsobscure.net/thomasabishop"
+                target="_blank"
+              >
+                Forgejo
+              </a>
+              <span>Git repositories</span>
+            </div>
+            <div className="links--item">
+              <a href="https://thomasabishop.github.io/eolas/" target="_blank">
+                Eòlas
+              </a>
+              <span>Personal technical knowledge base</span>
+            </div>
+          </div>
+        </UiGroup>
         <PostListing graphqlEdges={edges} />
       </Main>
     </div>
