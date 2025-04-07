@@ -53,14 +53,15 @@ h2.post__title {
 .post-metadata__date {
   font-size: 14px;
   display: inline-block;
+  font-weight: 600;
 }
 
 .post-metadata__tag {
   font-size: 14px;
 }
 
-a.post-metadata__tag {
-  font-weight: 400 !important;
+.post-metadata span {
+  font-weight: 600;
 }
 
 .links {
@@ -72,7 +73,6 @@ a.post-metadata__tag {
   &--item {
     a {
       flex: 1;
-      font-weight: 500;
     }
 
     span {
